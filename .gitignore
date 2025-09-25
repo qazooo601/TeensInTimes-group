@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+/dist/
+/build/
+/.vite/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Testing / Coverage
+coverage/
+
+# Environment files
+.env
+.env.*
+!.env.example
+*.local
+
+# Editor / IDE
+.vscode/
+.idea/
+.eslintcache
+
+# OS / System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Caches
+.cache/
+
+# Misc
+*.swp
+*.swo

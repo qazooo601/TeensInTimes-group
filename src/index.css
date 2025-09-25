@@ -1,0 +1,106 @@
+/* 全局樣式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* 自定義樣式 */
+.ant-layout-header {
+  padding: 0 24px;
+}
+
+.ant-menu-horizontal {
+  border-bottom: none;
+}
+
+/* 確保內容可見 */
+.ant-layout-content {
+  min-height: calc(100vh - 64px - 70px);
+}
+
+/* 自定義顏色 */
+.primary-color {
+  color: #FFD700;
+}
+
+.primary-bg {
+  background-color: #FFD700;
+}
+
+/* 自定義選單樣式 */
+.custom-menu .ant-menu-item {
+  color: #707070 !important;
+}
+
+.custom-menu .ant-menu-item:hover {
+  color: #FFFFFF !important;
+}
+
+.custom-menu .ant-menu-item-selected {
+  color: #FFF7CC !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px !important;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  /* 桌面端元素在小螢幕時隱藏 */
+  .desktop-header {
+    display: none !important;
+  }
+
+  .desktop-footer {
+    display: none !important;
+  }
+
+  /* 移動端元素在小螢幕時隱藏（不要劉海） */
+  .mobile-header {
+    display: none !important;
+  }
+
+  .mobile-bottom-menu {
+    display: block !important;
+  }
+
+  .ant-layout-content {
+    padding: 16px;
+    padding-bottom: 100px !important; /* 為底部選單留出更多空間 */
+    min-height: 100vh !important; /* 佔滿整個螢幕高度 */
+  }
+}
+
+@media (min-width: 769px) {
+  /* 桌面端元素在大螢幕時顯示 */
+  .desktop-header {
+    display: flex !important;
+  }
+
+  .desktop-footer {
+    display: block !important;
+  }
+
+  /* 移動端元素在大螢幕時隱藏 */
+  .mobile-header {
+    display: none !important;
+  }
+
+  .mobile-bottom-menu {
+    display: none !important;
+  }
+
+  .ant-layout-content {
+    padding-bottom: 0 !important;
+  }
+}
