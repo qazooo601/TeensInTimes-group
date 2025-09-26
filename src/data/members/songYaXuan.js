@@ -153,8 +153,7 @@ export const songYaXuanDetails = {
       role: '宋玄',
       year: '2017-09-29',
       type: '電視劇',
-      description: 'TF家族自製劇',
-      image: '/public/song-yaxuan.jpg'
+      description: 'TF家族自製劇'
     },
     {
       id: 'syx_movie_002',
@@ -162,8 +161,7 @@ export const songYaXuanDetails = {
       role: '小林說',
       year: '2018-05-11',
       type: '電視劇',
-      description: 'TF家族自製劇',
-      image: '/public/song-yaxuan.jpg'
+      description: 'TF家族自製劇'
     },
   ],
 

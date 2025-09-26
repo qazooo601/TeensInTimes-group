@@ -7,7 +7,7 @@ export const musicData = [
     releaseDate: '2021-07-18',
     type: '實體專輯',
     category: 'album',
-    image: '/album-1.jpg',
+    image: '/images/music/album-1.jpg',
     emoji: '🌙',
     description: '舞象之年實體專輯，帶領聽眾進入奇幻的音樂世界。',
     songs: [
@@ -29,7 +29,7 @@ export const musicData = [
     releaseDate: '2022-12-31',
     type: '實體專輯',
     category: 'album',
-    image: '/album-2.jpg',
+    image: '/images/music/album-2.jpg',
     emoji: '🏰',
     description: '烏托邦少年實體專輯，探索理想世界的音樂之旅。',
     songs: [
@@ -56,7 +56,7 @@ export const musicData = [
     releaseDate: '2024-02-12',
     type: '實體專輯',
     category: 'album',
-    image: '/album-3.jpg',
+    image: '/images/music/album-3.jpg',
     emoji: '🔥',
     description: '叄重樓實體專輯，展現時代少年團的爆發力。',
     songs: [
@@ -79,7 +79,7 @@ export const musicData = [
     releaseDate: '待發行',
     type: '專輯',
     category: 'album',
-    image: '/album-4.jpg',
+    image: '/images/music/album-4.jpg',
     emoji: '👑',
     description: '加冠專輯，追尋音樂理想的堅持與追求。',
     songs: [
@@ -89,6 +89,7 @@ export const musicData = [
       { song: '登頂', performer: '全體', audioUrl: 'https://example.com/audio/nezha.mp3' }
     ]
   },
+
   // 單曲
   {
     id: 'single_001',
@@ -96,24 +97,24 @@ export const musicData = [
     releaseDate: '2017-10-16',
     type: '單曲',
     category: 'single',
-    image: '/single-1.jpg',
+    image: '/images/music/single-1.jpg',
     emoji: '🎤',
     description: 'TF家族少年們唱響追夢宣言，表達對粉絲們一路鼓勵和支持的感謝。',
     songs: [
-      { song: '超人誕生日記', performer: '台風十子(丁程鑫、馬嘉祺、敖子逸、張真源、陳璽達、陳泗旭、宋亚軒、李天澤、賀峻霖、劉耀文)', audioUrl: 'https://example.com/audio/quanxiaotongbao.mp3' }
+      { song: '超人誕生日記', performer: '台風十子', audioUrl: 'https://www.bilibili.com/video/BV1tx411M7hE/?spm_id_from=333.337.search-card.all.click' }
     ]
   },
   {
     id: 'single_002',
     name: '你我',
-    releaseDate: '2018',
+    releaseDate: '2018-05-10',
     type: '單曲',
     category: 'single',
-    image: '/single-2.jpg',
+    image: '/images/music/single-2.jpg',
     emoji: '🎤',
     description: '時代峰峻自製網路劇《念念》主題曲',
     songs: [
-      { song: '你我', performer: '馬嘉祺/宋亞軒/張真源', audioUrl: 'https://example.com/audio/quanxiaotongbao.mp3' }
+      { song: '你我', performer: '馬嘉祺 / 張真源 / 宋亞軒', audioUrl: 'https://example.com/audio/quanxiaotongbao.mp3' }
     ]
   },
   {
@@ -122,11 +123,11 @@ export const musicData = [
     releaseDate: '2019-12-22',
     type: '單曲',
     category: 'single',
-    image: '/single-3.jpg',
+    image: '/images/music/single-3.jpg',
     emoji: '🎤',
     description: '',
     songs: [
-      { song: '你我', performer: '劉耀文/嚴浩翔', audioUrl: 'https://example.com/audio/quanxiaotongbao.mp3' }
+      { song: 'The Dream', performer: '劉耀文 / 嚴浩翔', audioUrl: 'https://example.com/audio/quanxiaotongbao.mp3' }
     ]
   },
   {
@@ -135,7 +136,7 @@ export const musicData = [
     releaseDate: '2020-01-07',
     type: '單曲',
     category: 'single',
-    image: '/single-4.jpg',
+    image: '/images/music/single-4.jpg',
     emoji: '🎤',
     description: '時代少年團團綜《少年夢遊記》主題曲',
     songs: [
@@ -148,7 +149,7 @@ export const musicData = [
     releaseDate: '2020-04-03',
     type: '單曲',
     category: 'single',
-    image: '/single-5.jpg',
+    image: '/images/music/single-5.jpg',
     emoji: '🍿',
     description: '百萬粉絲紀念單曲',
     songs: [
@@ -161,7 +162,7 @@ export const musicData = [
     releaseDate: '2020-12-10',
     type: '單曲',
     category: 'single',
-    image: '/single-6.jpg',
+    image: '/images/music/single-6.jpg',
     emoji: '🎥',
     description: '電影《晴雅集》同名宣傳推廣曲',
     songs: [
@@ -174,7 +175,7 @@ export const musicData = [
     releaseDate: '2020-12-28',
     type: '單曲',
     category: 'single',
-    image: '/single-7.jpg',
+    image: '/images/music/single-7.jpg',
     emoji: '🎤',
     description: '向廣大青少年宣傳黨的十九届五中全會精神',
     songs: [
@@ -187,7 +188,7 @@ export const musicData = [
     releaseDate: '2021-03-08',
     type: '單曲',
     category: 'single',
-    image: '/single-8.jpg',
+    image: '/images/music/single-8.jpg',
     emoji: '🎤',
     description: '綜藝節目《向上吧少年》主題曲',
     songs: [
@@ -200,7 +201,7 @@ export const musicData = [
     releaseDate: '2021-07-11',
     type: '單曲',
     category: 'single',
-    image: '/single-9.jpg',
+    image: '/images/music/single-9.jpg',
     emoji: '🎤',
     description: '綜藝節目《快樂大本營》2021年全新主題曲/片頭曲',
     songs: [
@@ -213,7 +214,7 @@ export const musicData = [
     releaseDate: '2021',
     type: '單曲',
     category: 'single',
-    image: '/single-10.jpg',
+    image: '/images/music/single-10.jpg',
     emoji: '🎤',
     description: '《今天我當「兵」》',
     songs: [
@@ -226,7 +227,7 @@ export const musicData = [
     releaseDate: '2021-12-25',
     type: '單曲',
     category: 'single',
-    image: '/single-11.jpg',
+    image: '/images/music/single-11.jpg',
     emoji: '🎤',
     description: '《有你》',
     songs: [
@@ -239,7 +240,7 @@ export const musicData = [
     releaseDate: '2022-02-14',
     type: '單曲',
     category: 'single',
-    image: '/single-12.jpg',
+    image: '/images/music/single-12.jpg',
     emoji: '🎤',
     description: '索尼音樂 × 時代峰峻 攜手打造時代少年團全新單曲《漸暖》',
     songs: [
@@ -248,11 +249,24 @@ export const musicData = [
   },
   {
     id: 'single_013',
+    name: '你要快樂',
+    releaseDate: '2022-06-13',
+    type: '單曲',
+    category: 'single',
+    image: '/images/music/single-13.jpg',
+    emoji: '🎤',
+    description: '',
+    songs: [
+      { song: '你要快樂', performer: '丁程鑫 / 劉耀文 / 張真源', audioUrl: 'https://example.com/audio/xiangyu.mp3' }
+    ]
+  },
+  {
+    id: 'single_014',
     name: '100道光芒',
     releaseDate: '2022',
     type: '單曲',
     category: 'single',
-    image: '/single-13.jpg',
+    image: '/images/music/single-14.jpg',
     emoji: '🎤',
     description: '《100道光芒》',
     songs: [
@@ -260,25 +274,25 @@ export const musicData = [
     ]
   },
   {
-    id: 'single_014',
+    id: 'single_015',
     name: '瑜 (Yú)',
     releaseDate: '2022-08-30',
     type: '單曲',
     category: 'single',
-    image: '/single-14.jpg',
+    image: '/images/music/single-15.jpg',
     emoji: '🎤',
     description: '',
     songs: [
-      { song: '瑜 (Yú)', performer: '劉耀文/張真源/嚴浩翔', audioUrl: 'https://example.com/audio/xiangyu.mp3' }
+      { song: '瑜 (Yú)', performer: '劉耀文 / 張真源 / 嚴浩翔', audioUrl: 'https://example.com/audio/xiangyu.mp3' }
     ]
   },
   {
-    id: 'single_015',
+    id: 'single_016',
     name: '背對地球奔跑',
     releaseDate: '2023',
     type: '單曲',
     category: 'single',
-    image: '/single-15.jpg',
+    image: '/images/music/single-16.jpg',
     emoji: '🎤',
     description: '時代少年團團綜《時代夏令營2》主題曲',
     songs: [
@@ -286,25 +300,25 @@ export const musicData = [
     ]
   },
   {
-    id: 'single_016',
+    id: 'single_017',
     name: '認輸',
     releaseDate: '2023',
     type: '單曲',
     category: 'single',
-    image: '/single-16.jpg',
+    image: '/images/music/single-17.jpg',
     emoji: '🎤',
     description: '',
     songs: [
-      { song: '認輸', performer: '張真源/嚴浩翔', audioUrl: 'https://example.com/audio/xiangyu.mp3' }
+      { song: '認輸', performer: '張真源 / 嚴浩翔', audioUrl: 'https://example.com/audio/xiangyu.mp3' }
     ]
   },
   {
-    id: 'single_017',
+    id: 'single_018',
     name: '好望角（Hakuna Matata ver.）',
     releaseDate: '2025',
     type: '單曲',
     category: 'single',
-    image: '/single-17.jpg',
+    image: '/images/music/single-18.jpg',
     emoji: '🎤',
     description: '時代少年團團綜《非去不可》主題曲',
     songs: [

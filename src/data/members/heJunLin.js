@@ -120,8 +120,7 @@ export const heJunLinDetails = {
       role: '賀峻秀',
       year: '2016-10-14',
       type: '迷你劇',
-      description: 'TF家族自製劇',
-      image: '/public/he-junlin.jpg'
+      description: 'TF家族自製劇'
     },
     {
       id: 'hjl_movie_002',
@@ -129,8 +128,7 @@ export const heJunLinDetails = {
       role: '賀呵呵/伍賀',
       year: '2017-09-29',
       type: '網路劇',
-      description: 'TF家族自製劇',
-      image: '/public/he-junlin.jpg'
+      description: 'TF家族自製劇'
     },
     {
       id: 'hjl_movie_003',
@@ -138,8 +136,7 @@ export const heJunLinDetails = {
       role: '唐新',
       year: '2018-05-11',
       type: '網路劇',
-      description: 'TF家族自製劇',
-      image: '/public/he-junlin.jpg'
+      description: 'TF家族自製劇'
     },
     {
       id: 'hjl_movie_004',
@@ -147,8 +144,7 @@ export const heJunLinDetails = {
       role: '少年姜涼生',
       year: '2018-09-17',
       type: '電視劇',
-      description: '',
-      image: '/public/he-junlin.jpg'
+      description: ''
     },
   ],
 

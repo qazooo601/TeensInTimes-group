@@ -6,10 +6,15 @@ export const concertsData = [
     date: '2020-11-28',
     location: '重慶',
     venue: '',
-    image: '/concert-1.jpg',
+    image: '/images/concerts/concert-1.jpg',
     emoji: '🎫',
     status: 'online', // offline, online, cancelled
     description: '按时长大，是不慌不忙，是自然而然，带着最初的模样，循着独有的频率。\n迷茫有时，惊喜有时，踟蹰着，期待着。\n人生海海，山山而川；彼此陪伴，汇作勇气。\n拨开云层，拾阶而上；怀抱热爱，鲜活生长。\n向着远方，向着未来。\n向着整个世界，阔步前行。\n寰宇浩荡，少年并肩穿过时光隧道\n日月星辰，共同见证少年按时长大\n11月28日，与时代少年团不见不散 ！',
+    videoLinks: {
+      concert: '',
+      rehearsal: '',
+      short: ''
+    },
     setlist: [
       { song: '按時長大', performer: '全體' },
       { song: '全校通報', performer: '全體' },
@@ -30,10 +35,15 @@ export const concertsData = [
     date: '2021-12-14',
     location: '重慶',
     venue: '',
-    image: '/concert-2.jpg',
+    image: '/images/concerts/concert-2.jpg',
     emoji: '🔥',
     status: 'online',
     description: '翎羽正燃 浴火重生🔥\n无限能量 火力全开🔥\n\n少年赤诚 少年无畏 少年遥望 少年承担',
+    videoLinks: {
+      concert: 'https://www.bilibili.com/video/BV1s44y1h7ja/?spm_id_from=333.1387.upload.video_card.click',
+      rehearsal: '',
+      short: ''
+    },
     setlist: [
       { song: '火力全開', performer: '全體' },
       { song: '哪吒', performer: '全體' },
@@ -56,10 +66,15 @@ export const concertsData = [
     date: '2022-08-28',
     location: '',
     venue: '',
-    image: '/concert-3.jpg',
+    image: '/images/concerts/concert-3.jpg',
     emoji: '🌟',
     status: 'online',
-    description: '每一年的夏天都会过去，但我们相聚在夏天的约定，不曾改变。\n\n“无论分开多久，都会再次相遇。”',
+    description: '每一年的夏天都会过去，但我们相聚在夏天的约定，不曾改变。\n\n"无论分开多久，都会再次相遇。"',
+    videoLinks: {
+      concert: '',
+      rehearsal: '',
+      short: ''
+    },
     setlist: [
       { song: '理想之途', performer: '全體' },
       { song: '烏托邦', performer: '全體' },
@@ -82,10 +97,15 @@ export const concertsData = [
     date: '2023-05-02',
     location: '	海南省海口市',
     venue: '海口市五源河體育場',
-    image: '/concert-4.jpg',
+    image: '/images/concerts/concert-4.jpg',
     emoji: '🌟',
     status: 'offline',
     description: '携夺目鎏光，蓄势而来。\n远方鼎沸之声，征途万里不息。\n跨越时空界限，具象无尽思念。\n少年是，未来无限的光彩。',
+    videoLinks: {
+      concert: '',
+      rehearsal: 'https://www.bilibili.com/video/BV1Rs4y1q7tP/?spm_id_from=333.1387.upload.video_card.click',
+      short: ''
+    },
     setlist: [
       { song: '理想之途', performer: '全體' },
       { song: '烏托邦', performer: '全體' },
@@ -108,10 +128,15 @@ export const concertsData = [
     date: '2023-08-19、20',
     location: '青島',
     venue: '',
-    image: '/concert-5.jpg',
+    image: '/images/concerts/concert-5.jpg',
     emoji: '🌟',
     status: 'cancelled',
     description: '未辦成',
+    videoLinks: {
+      concert: '',
+      rehearsal: '',
+      short: ''
+    },
     setlist: [ ]
   },
   {
@@ -120,10 +145,15 @@ export const concertsData = [
     date: '2023-08-27',
     location: '',
     venue: '',
-    image: '/concert-6.jpg',
+    image: '/images/concerts/concert-6.jpg',
     emoji: '🌟',
     status: 'online',
     description: '',
+    videoLinks: {
+      concert: 'https://www.bilibili.com/video/BV1594y167QC/?spm_id_from=333.1387.upload.video_card.click',
+      rehearsal: '',
+      short: ''
+    },
     setlist: [ ]
   },
   {
@@ -132,10 +162,18 @@ export const concertsData = [
     date: '2023-11-18、19',
     location: '澳門',
     venue: '銀河綜藝館',
-    image: '/concert-7.jpg',
+    image: '/images/concerts/concert-7.jpg',
     emoji: '🎤',
     status: 'offline',
     description: '心绪舒展，绘制恣意率性。\n流光浅藏，氤氲温润光晕。\n欢呼奔涌不息，无限期待盛开。\n美好意象交叠，篆刻少年底色。',
+    videoLinks: {
+      concert: {
+        day1: 'https://www.bilibili.com/video/BV1Ce411f7dq/?spm_id_from=333.1387.upload.video_card.click',
+        day2: 'https://www.bilibili.com/video/BV1mC4y117cZ/?spm_id_from=333.1387.upload.video_card.click'
+      },
+      rehearsal: 'https://www.bilibili.com/video/BV1Lu4y1V7fW/?spm_id_from=333.1387.upload.video_card.click',
+      short: ''
+    },
     // 多天演唱會的選曲結構
     setlist: {
       day1: {
@@ -174,10 +212,18 @@ export const concertsData = [
     date: '2024-05-03、04',
     location: '重慶',
     venue: '重慶龍興足球場',
-    image: '/concert-8.jpg',
+    image: '/images/concerts/concert-8.jpg',
     emoji: '☀️',
     status: 'offline',
     description: '云雾层叠重楼，光影复现声波，成长具象有形\n朝向夏日启程，共循楼间秘境',
+    videoLinks: {
+      concert: {
+        day1: 'https://www.bilibili.com/video/BV1jJ4m1A7rZ/?spm_id_from=333.1387.upload.video_card.click',
+        day2: 'https://www.bilibili.com/video/BV17t421M7BF/?spm_id_from=333.1387.upload.video_card.click'
+      },
+      rehearsal: 'https://www.bilibili.com/video/BV1GD421V7Xk/?spm_id_from=333.1387.upload.video_card.click',
+      short: 'https://www.bilibili.com/video/BV1tw4m1Q7tu/?spm_id_from=333.1387.upload.video_card.click'
+    },
     setlist: {
       day1: {
         date: '2024-05-03',
@@ -201,10 +247,18 @@ export const concertsData = [
     date: '2024-08-16、17',
     location: '常州',
     venue: '奥林匹克體育中心體育館',
-    image: '/concert-9.jpg',
+    image: '/images/concerts/concert-9.jpg',
     emoji: '🍂',
     status: 'offline',
     description: '海浪回响，与海风协奏序曲。\n潮汐往复，转动孤岛相连。\n每一次的潮涨潮落，都在倒数我们的盛夏之约。',
+    videoLinks: {
+      concert: {
+        day1: '',
+        day2: ''
+      },
+      rehearsal: '',
+      short: ''
+    },
     setlist: {
       day1: {
         date: '2024-08-16',
@@ -228,10 +282,18 @@ export const concertsData = [
     date: '2024-08-23、24',
     location: '澳門',
     venue: '銀河綜藝館',
-    image: '/concert-10.jpg',
+    image: '/images/concerts/concert-10.jpg',
     emoji: '❄️',
     status: 'offline',
     description: '海浪回响，与海风协奏序曲。\n潮汐往复，转动孤岛相连。\n每一次的潮涨潮落，都在倒数我们的盛夏之约。',
+    videoLinks: {
+      concert: {
+        day1: 'https://www.bilibili.com/video/BV1GRxWeyEva/?spm_id_from=333.1387.upload.video_card.click',
+        day2: 'https://www.bilibili.com/video/BV1L4xeeCEVZ/?spm_id_from=333.1387.upload.video_card.click'
+      },
+      rehearsal: 'https://www.bilibili.com/video/BV1eT41137my',
+      short: 'https://www.bilibili.com/video/BV1eT41137my'
+    },
     setlist: {
       day1: {
         date: '2024-08-23',
@@ -255,10 +317,18 @@ export const concertsData = [
     date: '2024-11-23、24',
     location: '重慶',
     venue: '龍興足球場',
-    image: '/concert-11.jpg',
+    image: '/images/concerts/concert-11.jpg',
     emoji: '🌸',
     status: 'offline',
     description: '铭刻你我约定的指环\n圈起我们彼此相伴的来路\n隧道尽头的光亮\n成为少年背后耀眼的时光\n\n一起走过的日子\n因为有你 无可比拟\n顺着我们的足迹\n想去的未来 只因为有你',
+    videoLinks: {
+      concert: {
+        day1: 'https://www.bilibili.com/video/BV1fYq5YTEup/?spm_id_from=333.1387.upload.video_card.click',
+        day2: 'https://www.bilibili.com/video/BV1Bmq3YcEvQ/?spm_id_from=333.1387.upload.video_card.click'
+      },
+      rehearsal: 'https://www.bilibili.com/video/BV116qPYQEuw/?spm_id_from=333.1387.upload.video_card.click',
+      short: 'https://www.bilibili.com/video/BV1gyqcYpEqT/?spm_id_from=333.1387.upload.video_card.click'
+    },
     setlist: {
       day1: {
         date: '2024-11-23',
@@ -282,10 +352,18 @@ export const concertsData = [
     date: '2025-05-03、04',
     location: '海口',
     venue: '海口市五源河體育場',
-    image: '/concert-12.jpg',
+    image: '/images/concerts/concert-12.jpg',
     emoji: '🌞',
     status: 'offline',
     description: '天光倾泻的白昼，\n北冕座七颗星芒是更亮眼的存在！\n\n星光汇聚，荣耀加冠 \n少年长成，责任加身\n\n这场冠岁之礼，邀你共同见证！\n时代少年团「加冠礼」演唱会-「冠岁」海口站，我们不见不散！',
+    videoLinks: {
+      concert: {
+        day1: 'https://www.bilibili.com/video/BV1uhJczSER4/?spm_id_from=333.1387.upload.video_card.click',
+        day2: 'https://www.bilibili.com/video/BV1Lzj4zbEU5/?spm_id_from=333.1387.upload.video_card.click'
+      },
+      rehearsal: 'https://www.bilibili.com/video/BV17Sjvz9EZm/?spm_id_from=333.1387.upload.video_card.click',
+      short: ''
+    },
     setlist: {
       day1: {
         date: '2025-05-03',
@@ -309,10 +387,18 @@ export const concertsData = [
     date: '2025-07-25、26',
     location: '大連',
     venue: '大連體育中心',
-    image: '/concert-13.jpg',
+    image: '/images/concerts/concert-13.jpg',
     emoji: '🌞',
     status: 'offline',
     description: '尘雾散去，照见成长轨迹，\n一关一励，山海即是征途！\n\n少年加冠，前路在望，\n勇则冠军，奔赴山海！',
+    videoLinks: {
+      concert: {
+        day1: 'https://www.bilibili.com/video/BV1kkbwzYEA3/?spm_id_from=333.1387.upload.video_card.click',
+        day2: 'https://www.bilibili.com/video/BV1r9b6zzEHC/?spm_id_from=333.1387.upload.video_card.click'
+      },
+      rehearsal: 'https://www.bilibili.com/video/BV1uPYxzpEZd/?spm_id_from=333.1387.upload.video_card.click',
+      short: 'https://www.bilibili.com/video/BV1pQ8vz8E3Z/?spm_id_from=333.1387.upload.video_card.click'
+    },
     setlist: {
       day1: {
         date: '2025-07-25',
@@ -386,10 +472,20 @@ export const concertsData = [
     date: '2025-08-20、21、23、24',
     location: '上海',
     venue: '上海體育場',
-    image: '/concert-14.jpg',
+    image: '/images/concerts/concert-14.jpg',
     emoji: '🍁',
     status: 'offline',
     description: '以「加冠」之仪，「冠军」之志\n冲破次元之外，加冕未来星河！\n\n这一程，我们将「冠军」的荣光与责任锻造成星轨，向宇宙递交成长序曲。\n\n峰顶不是终点，我们持续向上。\n\n穿过经纬线，赴一场青春与盛夏的约定；\n跨过晨与昏，为每一次奔赴刻下永恒坐标。',
+    videoLinks: {
+      concert: {
+        day1: 'https://www.bilibili.com/video/BV1mxa8zfEts/?spm_id_from=333.1387.upload.video_card.click',
+        day2: 'https://www.bilibili.com/video/BV11ZaYzeEsd/?spm_id_from=333.1387.upload.video_card.click',
+        day3: 'https://www.bilibili.com/video/BV1qjYMzJE8f/?spm_id_from=333.1387.upload.video_card.click',
+        day4: 'https://www.bilibili.com/video/BV14ua9zZEtZ/?spm_id_from=333.1387.upload.video_card.click'
+      },
+      rehearsal: 'https://www.bilibili.com/video/BV1G6YNzTE1J/?spm_id_from=333.1387.upload.video_card.click',
+      short: 'https://www.bilibili.com/video/BV1cAeyzfEci/?spm_id_from=333.1387.upload.video_card.click'
+    },
     setlist: {
       day1: {
         date: '2025-08-20',

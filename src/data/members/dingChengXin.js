@@ -179,8 +179,7 @@ export const dingChengXinDetails = {
       role: '小程',
       year: '2015-12-20',
       type: '迷你劇',
-      description: 'TF家族自製劇',
-      image: '/public/ding-chengxin.jpg'
+      description: 'TF家族自製劇'
     },
     {
       id: 'dcx_movie_002',
@@ -188,8 +187,7 @@ export const dingChengXinDetails = {
       role: '機器人249',
       year: '2016-07-11',
       type: '網路劇',
-      description: 'TF家族自製劇',
-      image: '/public/ding-chengxin.jpg'
+      description: 'TF家族自製劇'
     },
     {
       id: 'dcx_movie_003',
@@ -198,7 +196,7 @@ export const dingChengXinDetails = {
       year: '2016-07-20',
       type: '電視劇',
       description: '',
-      image: '/public/ding-chengxin.jpg'
+      image: '/images/members/ding-chengxin.jpg'
     },
     {
       id: 'dcx_movie_004',
@@ -206,8 +204,7 @@ export const dingChengXinDetails = {
       role: '丁妙妙',
       year: '2016-10-14',
       type: '迷你劇',
-      description: 'TF家族自製劇',
-      image: '/public/ding-chengxin.jpg'
+      description: 'TF家族自製劇'
     },
     {
       id: 'dcx_movie_005',
@@ -216,7 +213,7 @@ export const dingChengXinDetails = {
       year: '2017-07-09',
       type: '電視劇',
       description: '',
-      image: '/public/ding-chengxin.jpg'
+      image: '/images/members/ding-chengxin.jpg'
     },
     {
       id: 'dcx_movie_006',
@@ -224,8 +221,7 @@ export const dingChengXinDetails = {
       role: '程以鑫 / 程以清',
       year: '2017-09-29',
       type: '網路劇',
-      description: 'TF家族自製劇',
-      image: '/public/ding-chengxin.jpg'
+      description: 'TF家族自製劇'
     },
     {
       id: 'dcx_movie_007',
@@ -233,8 +229,7 @@ export const dingChengXinDetails = {
       role: '林說',
       year: '2018-05-11',
       type: '網路劇',
-      description: 'TF家族自製劇',
-      image: '/public/ding-chengxin.jpg'
+      description: 'TF家族自製劇'
     },
     {
       id: 'dcx_movie_008',
@@ -242,8 +237,7 @@ export const dingChengXinDetails = {
       role: '方宙',
       year: '2018-07-23',
       type: '電視劇',
-      description: '',
-      image: '/public/ding-chengxin.jpg'
+      description: ''
     },
     {
       id: 'dcx_movie_009',
@@ -251,8 +245,7 @@ export const dingChengXinDetails = {
       role: '',
       year: '2022-06-07',
       type: '配音',
-      description: '高考公益片',
-      image: '/public/ding-chengxin.jpg'
+      description: '高考公益片'
     },
     {
       id: 'dcx_movie_010',
@@ -260,8 +253,7 @@ export const dingChengXinDetails = {
       role: '馬正元',
       year: '2022-09-09',
       type: '電影',
-      description: '友情出演',
-      image: '/public/ding-chengxin.jpg'
+      description: '友情出演'
     },
     {
       id: 'dcx_movie_011',
@@ -269,8 +261,7 @@ export const dingChengXinDetails = {
       role: '小根寶',
       year: '2024',
       type: '話劇',
-      description: '北京電影學院表演學院2021級本科實驗班畢業大戲',
-      image: '/public/ding-chengxin.jpg'
+      description: '北京電影學院表演學院2021級本科實驗班畢業大戲'
     },
     {
       id: 'dcx_movie_012',
@@ -278,8 +269,7 @@ export const dingChengXinDetails = {
       role: '行者',
       year: '2025-10-01',
       type: '電影',
-      description: '主演',
-      image: '/public/ding-chengxin.jpg'
+      description: '主演'
     }
   ],
 

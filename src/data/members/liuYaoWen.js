@@ -176,8 +176,7 @@ export const liuYaoWenDetails = {
       role: '達夏',
       year: '2017-09-29',
       type: '網路劇',
-      description: 'TF家族自製劇',
-      image: '/public/ding-chengxin.jpg'
+      description: 'TF家族自製劇'
     },
     {
       id: 'lyw_movie_002',
@@ -185,8 +184,7 @@ export const liuYaoWenDetails = {
       role: '小林東陽',
       year: '2018-05-11',
       type: '網路劇',
-      description: 'TF家族自製劇',
-      image: '/public/ding-chengxin.jpg'
+      description: 'TF家族自製劇'
     },
     {
       id: 'lyw_movie_003',
@@ -194,8 +192,7 @@ export const liuYaoWenDetails = {
       role: '韓雨辰',
       year: '2024-02-10',
       type: '電影',
-      description: '友情出演',
-      image: '/public/ding-chengxin.jpg'
+      description: '友情出演'
     },
     {
       id: 'lyw_movie_004',
@@ -203,8 +200,7 @@ export const liuYaoWenDetails = {
       role: '',
       year: '2025-04',
       type: '電影',
-      description: '主演',
-      image: '/public/ding-chengxin.jpg'
+      description: '主演'
     },
     {
       id: 'lyw_movie_005',
@@ -212,8 +208,7 @@ export const liuYaoWenDetails = {
       role: '',
       year: '2025',
       type: '電影',
-      description: '',
-      image: '/public/ding-chengxin.jpg'
+      description: ''
     }
   ],
 

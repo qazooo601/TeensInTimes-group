@@ -153,8 +153,7 @@ export const maJiaQiDetails = {
       role: '平安',
       year: '2013-12-03',
       type: '電影',
-      description: '公益微電影系列之《觸摸陽光》',
-      image: '/public/ma-jiaqi.jpg'
+      description: '公益微電影系列之《觸摸陽光》'
     },
     {
       id: 'mjq_movie_002',
@@ -162,8 +161,7 @@ export const maJiaQiDetails = {
       role: '盧曉光',
       year: '2017-11-03',
       type: '電影',
-      description: '',
-      image: '/public/ma-jiaqi.jpg'
+      description: ''
     },
     {
       id: 'mjq_movie_003',
@@ -171,8 +169,7 @@ export const maJiaQiDetails = {
       role: '簡亓',
       year: '2017-09-29',
       type: '電視劇',
-      description: 'TF家族自製劇',
-      image: '/public/ma-jiaqi.jpg'
+      description: 'TF家族自製劇'
     },
     {
       id: 'mjq_movie_004',
@@ -180,8 +177,7 @@ export const maJiaQiDetails = {
       role: '拉條',
       year: '2018-06-30',
       type: '電影',
-      description: '2013年參演少兒科幻電影',
-      image: '/public/ma-jiaqi.jpg'
+      description: '2013年參演少兒科幻電影'
     },
     {
       id: 'mjq_movie_005',
@@ -189,8 +185,7 @@ export const maJiaQiDetails = {
       role: '向橫',
       year: '2018-05-11',
       type: '電視劇',
-      description: 'TF家族自製劇',
-      image: '/public/ma-jiaqi.jpg'
+      description: 'TF家族自製劇'
     },
     {
       id: 'mjq_movie_006',
@@ -198,8 +193,7 @@ export const maJiaQiDetails = {
       role: '帶小帥',
       year: '2020-12-23',
       type: '電視劇',
-      description: '2014年參演少兒科幻電視劇',
-      image: '/public/ma-jiaqi.jpg'
+      description: '2014年參演少兒科幻電視劇'
     }
   ],
 

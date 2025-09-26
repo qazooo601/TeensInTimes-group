@@ -1,97 +1,97 @@
 // 時代少年團綜藝節目資料
 
-// 自製團綜
+// 自製團綜(主題、內容 待完成)
 export const selfMadeVariety = [
   {
     id: 'sdfjVariety_001',
     title: 'Boom! TV',
     category: '日常生活',
     year: '2019-10-16',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏠',
     color: '#DDA0DD',
     episodes: '8+15（含預告、花絮）',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3974278?type=series',
-    coverImage: '/images/variety/tntBOOM！TV .jpg'
+    coverImage: '/images/variety/self-made/tntBOOM！TV .jpg'
   },
   {
     id: 'sdfjVariety_002',
-    title: '少年夢遊記',
+    title: '少年梦游记',
     category: '',
     year: '2020-01-09',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: 12,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3975726?type=series',
-    coverImage: '/images/variety/tnt少年夢遊記.jpg'
+    coverImage: '/images/variety/self-made/tnt少年夢遊記.jpg'
   },
   {
     id: 'sdfjVariety_003',
     title: '春节太闹腾2020',
     category: '',
     year: '2020-01-31',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: 7,
     videoUrl: 'https://space.bilibili.com/3670216/lists/3437216?type=series',
-    coverImage: '/images/variety/variety_003.jpg'
+    coverImage: '/images/variety/self-made/2020春节太闹腾.jpg'
   },
   {
     id: 'sdfjVariety_004',
     title: '我们的新家',
     category: '',
     year: '2020-09-09',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: '6+2（含先導片、番外）',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3973865?type=series',
-    coverImage: '/images/variety/variety_004.jpg'
+    coverImage: '/images/variety/self-made/我们的新家.jpg'
   },
   {
     id: 'sdfjVariety_005',
     title: '少年ON FIRE',
     category: '',
     year: '2020-09-26',
-    participants: '时代少年团 / 朱志鑫 / 苏新皓',
+    participants: '時代少年團 / 朱志鑫 / 蘇新皓',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: 7,
     videoUrl: 'https://www.bilibili.com/video/BV1444y1J7zw/?spm_id_from=333.337.search-card.all.click',
-    coverImage: '/images/variety/variety_005.jpg'
+    coverImage: '/images/variety/self-made/少年ON FIRE.jpg'
   },
   {
     id: 'sdfjVariety_006',
-    title: '2021-春节太闹腾',
+    title: '春节太闹腾2021',
     category: '',
     year: '2021-02-12',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: 7,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3975233?type=series',
-    coverImage: '/images/variety/variety_006.jpg'
+    coverImage: '/images/variety/self-made/2021春节太闹腾.jpg'
   },
   {
     id: 'sdfjVariety_007',
     title: '五百天特别企划晚安信',
     category: '',
     year: '2021-04-07',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: 7,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3975445?type=series',
-    coverImage: '/images/variety/variety_007.jpg'
+    coverImage: '/images/variety/self-made/五百天特别企划晚安信.jpg'
   },
   {
     id: 'sdfjVariety_008',
@@ -104,7 +104,7 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: '2+純享+Vlog',
     videoUrl: 'https://www.bilibili.com/video/BV1R5411f7aK?spm_id_from=333.788.recommend_more_video.3&vd_source=212b4e5ec5ac590b986ff962f6fadb32',
-    coverImage: '/images/variety/variety_008.jpg'
+    coverImage: '/images/variety/self-made/少年ON FIRE2.jpg'
   },
   {
     id: 'sdfjVariety_009',
@@ -117,50 +117,50 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 7,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3975694?type=series',
-    coverImage: '/images/variety/variety_009.jpg'
+    coverImage: '/images/variety/self-made/五月粉丝见面会1.jpg'
   },
   {
     id: 'sdfjVariety_010',
-    title: '這福氣給你要不要',
+    title: '这福气给你要不要',
     category: '',
     year: '2021-10-16',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: '18',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3975702?type=series',
-    coverImage: '/images/variety/variety_010.jpg'
+    coverImage: '/images/variety/self-made/这福气给你要不要.jpg'
   },
   {
     id: 'sdfjVariety_011',
-    title: '火力全开演唱会-花絮記錄',
+    title: '火力全开演唱会-幕后花絮',
     category: '',
     year: '2021-11-26',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
-    episodes: 4,
+    episodes: '22:25',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3975715?type=series',
-    coverImage: '/images/variety/variety_011.jpg'
+    coverImage: '/images/variety/self-made/火力全开幕后花絮.jpg'
   },
   {
     id: 'sdfjVariety_012',
     title: '春节太闹腾 2022',
     category: '',
     year: '2022-02-01~02-07',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: 7,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3975987?type=series',
-    coverImage: '/images/variety/variety_012.jpg'
+    coverImage: '/images/variety/self-made/2022春节太闹腾.jpg'
   },
   {
     id: 'sdfjVariety_013',
-    title: '哥弟出遊記',
+    title: '哥弟出游记',
     category: '',
     year: '2022-04-08',
     participants: '丁程鑫 / 劉耀文 / 張真源',
@@ -169,7 +169,7 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 6,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3976569?type=series',
-    coverImage: '/images/variety/variety_013.jpg'
+    coverImage: '/images/variety/self-made/哥弟出游记.jpg'
   },
   {
     id: 'sdfjVariety_014',
@@ -182,696 +182,682 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: '22(舞台+純享+直拍+花絮)',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3976571?type=series',
-    coverImage: '/images/variety/variety_014.jpg'
+    coverImage: '/images/variety/self-made/循梦.jpg'
   },
   {
     id: 'sdfjVariety_015',
     title: '小炸的暑假生活22',
     category: '',
     year: '2022-06-17',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: 12,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3976582?type=series',
-    coverImage: '/images/variety/variety_015.jpg'
+    coverImage: '/images/variety/self-made/小炸的暑假生活22.jpg'
   },
   {
     id: 'sdfjVariety_016',
     title: '时代夏令营',
     category: '',
     year: '2022-07-06～09-17',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: '10+20（預告、未播花絮）',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3976600?type=series',
-    coverImage: '/images/variety/variety_016.jpg'
+    coverImage: '/images/variety/self-made/时代夏令营.jpg'
   },
   {
     id: 'sdfjVariety_017',
     title: '浅炸一下吧!',
     category: '',
     year: '2022-10-05~至今',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: 63,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3976590?type=series',
-    coverImage: '/images/variety/variety_017.jpg'
+    coverImage: '/images/variety/self-made/浅炸一下吧.jpg'
   },
   {
     id: 'sdfjVariety_018',
     title: '三时有声-微電影',
     category: '',
     year: '2023-01-02',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: '4(含預告+花絮)',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3976592?type=series',
-    coverImage: '/images/variety/variety_018.jpg'
+    coverImage: '/images/variety/self-made/三时有声.jpg'
   },
   {
     id: 'sdfjVariety_019',
-    title: '2023-春节太闹腾',
+    title: '春节太闹腾2023',
     category: '',
     year: '2023-01-21',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: 8,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3979965?type=series',
-    coverImage: '/images/variety/variety_019.jpg'
+    coverImage: '/images/variety/self-made/2023春节太闹腾.jpg'
   },
   {
     id: 'sdfjVariety_020',
     title: '時代夏令營2',
     category: '',
     year: '2023-04-14',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: '12+24（含預告、未播花絮）',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3979982?type=series',
-    coverImage: '/images/variety/variety_020.jpg'
+    coverImage: '/images/variety/self-made/时代夏令营2.jpg'
   },
   {
     id: 'sdfjVariety_021',
     title: '三人行',
     category: '',
     year: '2023-07-04',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: 29,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3979917?type=series',
-    coverImage: '/images/variety/variety_021.jpg'
+    coverImage: '/images/variety/self-made/三人行.jpg'
   },
   {
     id: 'sdfjVariety_022',
     title: '小炸的暑假生活23',
     category: '',
     year: '2023-07-12',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: 8,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3977124?type=series',
-    coverImage: '/images/variety/variety_022.jpg'
+    coverImage: '/images/variety/self-made/小炸的暑假生活23.jpg'
   },
   {
     id: 'sdfjVariety_023',
     title: '时代有冬西',
     category: '',
     year: '2024-01-26',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: '8+10（含先導片、未播花絮、番外）',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3978832?type=series',
-    coverImage: '/images/variety/variety_023.jpg'
+    coverImage: '/images/variety/self-made/时代有冬西.jpg'
   },
   {
     id: 'sdfjVariety_024',
-    title: '2024-楼晚',
+    title: '2024十八楼联欢晚会',
     category: '',
     year: '2024-02-10',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: 7,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3979967?type=series',
-    coverImage: '/images/variety/variety_024.jpg'
+    coverImage: '/images/variety/self-made/24楼晚.jpg'
   },
   {
     id: 'sdfjVariety_025',
     title: '时代顶呱呱',
     category: '',
     year: '2024-10-29',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: 6,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/4562937?type=series',
-    coverImage: '/images/variety/variety_025.jpg'
+    coverImage: '/images/variety/self-made/时代顶呱呱.jpg'
   },
   {
     id: 'sdfjVariety_026',
+    title: '2025十八楼联欢晚会',
+    category: '',
+    year: '2025-01-28',
+    participants: '全體成員',
+    description: '',
+    emoji: '🏃',
+    color: '#DDA0DD',
+    episodes: 8,
+    videoUrl: 'https://space.bilibili.com/3546630773016865/search?keyword=2025%E5%8D%81%E5%85%AB%E6%A5%BC%E8%81%94%E6%AC%A2%E6%99%9A%E4%BC%9A',
+    coverImage: '/images/variety/self-made/25楼晚.jpg'
+  },
+  {
+    id: 'sdfjVariety_027',
+    title: '非去不可',
+    category: '',
+    year: '2025-03-11',
+    participants: '全體成員',
+    description: '',
+    emoji: '🏃',
+    color: '#DDA0DD',
+    episodes: '7+1（含先導片）',
+    videoUrl: 'https://space.bilibili.com/3546630773016865/search?keyword=%E9%9D%9E%E5%8E%BB%E4%B8%8D%E5%8F%AFEP',
+    coverImage: '/images/variety/self-made/非去不可.jpg'
+  },
+  {
+    id: 'sdfjVariety_028',
     title: '小炸的暑假生活2025',
     category: '',
     year: '2025-07-16',
-    participants: '时代少年团',
+    participants: '全體成員',
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: 5,
-    videoUrl: 'https://space.bilibili.com/3546630773016865/lists/5873491?type=series',
-    coverImage: '/images/variety/variety_026.jpg'
+    videoUrl: 'https://space.bilibili.com/3546630773016865/lists/5873491?type=season',
+    coverImage: '/images/variety/self-made/小炸的暑假生活25.jpg'
   },
 ];
 
-// 紀錄片
+// 紀錄片(主題、內容 待完成)
 export const documentaryRecord = [
   {
     id: 'documentaryRecord_001',
-    title: '《光環下的少年》啟航',
+    title: '《光环下的少年》启航',
     category: '成長紀錄',
     year: '2019-12-07',
-    participants: '时代少年团',
-    description: '記錄時代少年團從出道到現在的成長歷程',
+    description: '',
     emoji: '📹',
     color: '#00AD00',
     episodes: '01:32:54',
     videoUrl: 'https://www.bilibili.com/video/BV11J411e7NA/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_001.jpg'
+    coverImage: '/images/variety/documentary/启航.jpg'
   },
   {
     id: 'documentaryRecord_002',
-    title: '《光環下的少年》聚光燈下的明與暗',
+    title: '《光环下的少年》聚光灯下的明与暗',
     category: '音樂紀錄',
     year: '2020-01-17',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '01:32:54',
     videoUrl: 'https://www.bilibili.com/video/BV1vJ411E7c1/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_002.jpg'
+    coverImage: '/images/variety/documentary/聚光灯下的明与暗.jpg'
   },
   {
     id: 'documentaryRecord_003',
-    title: '《光環下的少年》重逢',
+    title: '《光环下的少年》重逢',
     category: '音樂紀錄',
     year: '2020-02-10',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '上 01:08:47 / 下 01:17:35',
     videoUrl: 'https://www.bilibili.com/video/BV1j741147kF/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_003.jpg'
+    coverImage: '/images/variety/documentary/重逢.jpg'
   },
   {
     id: 'documentaryRecord_004',
-    title: '《光環下的少年》突變',
+    title: '《光环下的少年》突变',
     category: '音樂紀錄',
     year: '2020-04-03',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '上 01:29:02 / 下 01:14:31',
     videoUrl: 'https://www.bilibili.com/video/BV1nV411f7hH/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_004.jpg'
+    coverImage: '/images/variety/documentary/突变.jpg'
   },
   {
     id: 'documentaryRecord_005',
-    title: '《光環下的少年》挑戰',
+    title: '《光环下的少年》挑战',
     category: '音樂紀錄',
     year: '2020-05-15',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '上 01:28:38 / 下 01:23:02',
     videoUrl: 'https://www.bilibili.com/video/BV1Ua4y1i7xP/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_005.jpg'
+    coverImage: '/images/variety/documentary/挑战.jpg'
   },
   {
     id: 'documentaryRecord_006',
-    title: '《光環下的少年》初夏',
+    title: '《光环下的少年》初夏',
     category: '音樂紀錄',
     year: '2020-07-04',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '01:48:16',
     videoUrl: 'https://www.bilibili.com/video/BV1qv411B7SH/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_006.jpg'
+    coverImage: '/images/variety/documentary/初夏.jpg'
   },
   {
     id: 'documentaryRecord_007',
-    title: '《光環下的少年》象',
+    title: '《光环下的少年》象',
     category: '音樂紀錄',
     year: '2020-09-04',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '上 01:59:57 / 下 01:11:27',
     videoUrl: 'https://www.bilibili.com/video/BV1hA411n7eQ/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_007.jpg'
+    coverImage: '/images/variety/documentary/象.jpg'
   },
   {
     id: 'documentaryRecord_008',
-    title: '《光環下的少年》成長公式-上',
+    title: '《光环下的少年》成长公式-上',
     category: '音樂紀錄',
     year: '2020-11-22',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '01:18:07',
     videoUrl: 'https://www.bilibili.com/video/BV1sK4y1j7ZT/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_008.jpg'
+    coverImage: '/images/variety/documentary/成长公式.jpg'
   },
   {
     id: 'documentaryRecord_009',
-    title: '《光環下的少年》成長公式-下',
+    title: '《光环下的少年》成长公式-下',
     category: '音樂紀錄',
     year: '2020-11-23',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '01:08:34',
     videoUrl: 'https://www.bilibili.com/video/BV1Gi4y1j7i5/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_009.jpg'
+    coverImage: '/images/variety/documentary/成长公式.jpg'
   },
   {
     id: 'documentaryRecord_010',
-    title: '《光環下的少年》我相信......',
+    title: '《光环下的少年》我相信......',
     category: '音樂紀錄',
     year: '2020-12-27',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '上 02:21:21 / 下 01:13:50',
     videoUrl: 'https://www.bilibili.com/video/BV1rT4y1K72a/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_010.jpg'
+    coverImage: '/images/variety/documentary/我相信.jpg'
   },
   {
     id: 'documentaryRecord_011',
-    title: '《光環中的少年》迎新',
+    title: '《光环中的少年》迎新',
     category: '音樂紀錄',
     year: '2021-03-07',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '上 01:17:14 / 下 01:32:37',
     videoUrl: 'https://www.bilibili.com/video/BV1A64y1D7Xp/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_011.jpg'
+    coverImage: '/images/variety/documentary/迎新.jpg'
   },
   {
     id: 'documentaryRecord_012',
-    title: '《光環中的少年》躑躅',
+    title: '《光环中的少年》踯躅',
     category: '音樂紀錄',
     year: '2021-10-29',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '上 02:17:25 / 下 02:47:06',
     videoUrl: 'https://www.bilibili.com/video/BV1eP4y1b7Pt/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_012.jpg'
+    coverImage: '/images/variety/documentary/踯躅.jpg'
   },
   {
     id: 'documentaryRecord_013',
-    title: '《光環中的少年》二載-上',
+    title: '《光环中的少年》二载-上',
     category: '音樂紀錄',
     year: '2022-01-08',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '01:16:43',
     videoUrl: 'https://www.bilibili.com/video/BV1fL411F7T4/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_013.jpg'
+    coverImage: '/images/variety/documentary/二载.jpg'
   },
   {
     id: 'documentaryRecord_014',
-    title: '《光環中的少年》二載-下',
+    title: '《光环中的少年》二载-下',
     category: '音樂紀錄',
     year: '2022-01-08',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '42:21',
     videoUrl: 'https://www.bilibili.com/video/BV1J34y1B7Hj/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_014.jpg'
+    coverImage: '/images/variety/documentary/二载.jpg'
   },
   {
     id: 'documentaryRecord_015',
-    title: '《光環中的少年》辭舊',
+    title: '《光环中的少年》辞旧',
     category: '音樂紀錄',
     year: '2022-02-18',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '02:20:24',
     videoUrl: 'https://www.bilibili.com/video/BV1wb4y1t7Yo/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_015.jpg'
+    coverImage: '/images/variety/documentary/辞旧.jpg'
   },
   {
     id: 'documentaryRecord_016',
-    title: '《光環中的少年》天塹',
+    title: '《光环中的少年》天塹',
     category: '音樂紀錄',
     year: '2022-06-30',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '01:47:17',
     videoUrl: 'https://www.bilibili.com/video/BV1eT41137my/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_016.jpg'
+    coverImage: '/images/variety/documentary/天塹.jpg'
   },
   {
     id: 'documentaryRecord_017',
-    title: '《光環中的少年》盛夏-上',
+    title: '《光环中的少年》盛夏-上',
     category: '音樂紀錄',
     year: '2022-09-14',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '籌備演唱會',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '01:29:24',
     videoUrl: 'https://www.bilibili.com/video/BV1HG4y1q77q/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_017.jpg'
+    coverImage: '/images/variety/documentary/盛夏-上.jpg'
   },
   {
     id: 'documentaryRecord_018',
-    title: '《光環中的少年》盛夏-下',
+    title: '《光环中的少年》盛夏-下',
     category: '音樂紀錄',
     year: '2022-09-24',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '籌備演唱會',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '01:21:43',
     videoUrl: 'https://www.bilibili.com/video/BV17W4y1v7eL/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_018.jpg'
+    coverImage: '/images/variety/documentary/盛夏-下.jpg'
   },
   {
     id: 'documentaryRecord_019',
-    title: '《光環中的少年》象限-上',
+    title: '《光环中的少年》象限-上',
     category: '音樂紀錄',
     year: '2022-11-23',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '無盡夏演唱會籌備',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '01:40:32',
     videoUrl: 'https://www.bilibili.com/video/BV1544y1X777/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_019.jpg'
+    coverImage: '/images/variety/documentary/象限-上.jpg'
   },
   {
     id: 'documentaryRecord_020',
-    title: '《光環中的少年》象限-下',
+    title: '《光环中的少年》象限-下',
     category: '音樂紀錄',
     year: '2022-12-16',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '無盡夏演唱會籌備',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '02:08:14',
     videoUrl: 'https://www.bilibili.com/video/BV18K411r78s/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_020.jpg'
+    coverImage: '/images/variety/documentary/象限-下.jpg'
   },
   {
     id: 'documentaryRecord_021',
-    title: '《光環中的少年》新時',
+    title: '《光环中的少年》新时',
     category: '音樂紀錄',
     year: '2023-01-20',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '01:47:46',
     videoUrl: 'https://www.bilibili.com/video/BV16Y411X7rd?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_021.jpg'
+    coverImage: '/images/variety/documentary/新时.jpg'
   },
   {
     id: 'documentaryRecord_022',
-    title: '《光環中的少年》烏托邦',
+    title: '《光环中的少年》乌托邦',
     category: '音樂紀錄',
     year: '2023-04-02',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '03:15:15',
     videoUrl: 'https://www.bilibili.com/video/BV1qa4y1M76v/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_022.jpg'
+    coverImage: '/images/variety/documentary/乌托邦.jpg'
   },
   {
     id: 'documentaryRecord_023',
-    title: '《光環中的少年》咫尺',
+    title: '《光环中的少年》咫尺',
     category: '音樂紀錄',
     year: '2023-05-25',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '理想之途演唱會籌備',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '02:22:23',
     videoUrl: 'https://www.bilibili.com/video/BV1Gc411G7ev/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_023.jpg'
+    coverImage: '/images/variety/documentary/咫尺.jpg'
   },
   {
     id: 'documentaryRecord_024',
-    title: '《光輝歲月》遐路',
+    title: '《光辉岁月》遐路',
     category: '音樂紀錄',
     year: '2023-08-05',
-    participants: '全體成員',
-    description: '記錄時代少年團音樂創作和演出的幕後故事',
-    emoji: '🎼',
+    description: '樓外樓專輯p1',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '02:15:27',
     videoUrl: 'https://www.bilibili.com/video/BV1wj411r7E9/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_024.jpg'
+    coverImage: '/images/variety/documentary/遐路.jpg'
   },
   {
     id: 'documentaryRecord_025',
-    title: '《光輝歲月》溯洄',
+    title: '《光辉岁月》溯洄',
     category: '音樂紀錄',
     year: '2023-09-02',
-    participants: '全體成員',
     description: '演唱會（8/19、20青島）被取消改「造夏」',
-    emoji: '🎼',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '02:29:21',
     videoUrl: 'https://www.bilibili.com/video/BV17841167mF?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_025.jpg'
+    coverImage: '/images/variety/documentary/溯洄.jpg'
   },
   {
     id: 'documentaryRecord_026',
-    title: '《光輝歲月》此去-上',
+    title: '《光辉岁月》此去-上',
     category: '音樂紀錄',
     year: '2023-11-04',
-    participants: '全體成員',
     description: '尋照成長的答案',
-    emoji: '🎼',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '01:29:55',
     videoUrl: 'https://www.bilibili.com/video/BV1Au4y1a7P2/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_026.jpg'
+    coverImage: '/images/variety/documentary/此去-上.jpg'
   },
   {
     id: 'documentaryRecord_027',
-    title: '《光輝歲月》此去-下',
+    title: '《光辉岁月》此去-下',
     category: '音樂紀錄',
     year: '2023-11-04',
-    participants: '全體成員',
     description: '尋照成長的答案',
-    emoji: '🎼',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '02:00:42',
     videoUrl: 'https://www.bilibili.com/video/BV1ba4y1D7mn/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_027.jpg'
+    coverImage: '/images/variety/documentary/此去-下.jpg'
   },
   {
     id: 'documentaryRecord_028',
-    title: '《光輝歲月》萬重山-上',
+    title: '《光辉岁月》万重山-上',
     category: '音樂紀錄',
     year: '2023-12-15',
-    participants: '全體成員',
     description: '記錄澳門演唱會',
-    emoji: '🎼',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '01:43:48',
     videoUrl: 'https://www.bilibili.com/video/BV1Rw411t71b/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_028.jpg'
+    coverImage: '/images/variety/documentary/万重山-上.jpg'
   },
   {
     id: 'documentaryRecord_029',
-    title: '《光輝歲月》萬重山-下',
+    title: '《光辉岁月》万重山-下',
     category: '音樂紀錄',
     year: '2023-12-16',
-    participants: '全體成員',
     description: '記錄澳門演唱會',
-    emoji: '🎼',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '02:16:53',
     videoUrl: 'https://www.bilibili.com/video/BV1rG411a7BZ/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_029.jpg'
+    coverImage: '/images/variety/documentary/万重山-下.jpg'
   },
   {
     id: 'documentaryRecord_030',
-    title: '《光輝歲月》春滿',
+    title: '《光辉岁月》春满',
     category: '音樂紀錄',
     year: '2024-02-09',
-    participants: '全體成員',
     description: '回顧23年，迎新年',
-    emoji: '🎼',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '02:48;16',
     videoUrl: 'https://www.bilibili.com/video/BV1ay421h7gt/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_030.jpg'
+    coverImage: '/images/variety/documentary/春满.jpg'
   },
   {
     id: 'documentaryRecord_031',
-    title: '《光輝歲月》重歸-上',
+    title: '《光辉岁月》重归-上',
     category: '音樂紀錄',
     year: '2024-05-24',
-    participants: '全體成員',
     description: '樓間樓紀錄',
-    emoji: '🎼',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '01:30:42',
     videoUrl: 'https://www.bilibili.com/video/BV11z421Y7v5/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_031.jpg'
+    coverImage: '/images/variety/documentary/重归-上.jpg'
   },
   {
     id: 'documentaryRecord_032',
-    title: '《光輝歲月》重歸-中',
+    title: '《光辉岁月》重归-中',
     category: '音樂紀錄',
     year: '2024-05-24',
-    participants: '全體成員',
     description: '樓間樓紀錄',
-    emoji: '🎼',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '01:42:18',
     videoUrl: 'https://www.bilibili.com/video/BV1s1421i7Y2/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_032.jpg'
+    coverImage: '/images/variety/documentary/重归-中.jpg'
   },
   {
     id: 'documentaryRecord_033',
-    title: '《光輝歲月》重歸-下',
+    title: '《光辉岁月》重归-下',
     category: '音樂紀錄',
     year: '2024-05-24',
-    participants: '全體成員',
     description: '樓間樓紀錄',
-    emoji: '🎼',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '02:47:36',
     videoUrl: 'https://www.bilibili.com/video/BV1ax4y1H7xj/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_033.jpg'
+    coverImage: '/images/variety/documentary/重归-下.jpg'
   },
   {
     id: 'documentaryRecord_034',
-    title: '《光輝歲月》破風',
+    title: '《光辉岁月》破风',
     category: '音樂紀錄',
     year: '2024-07-20',
-    participants: '全體成員',
     description: '',
-    emoji: '🎼',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '02:15:33',
     videoUrl: 'https://www.bilibili.com/video/BV161421t7Lp/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_034.jpg'
+    coverImage: '/images/variety/documentary/破风.jpg'
   },
   {
     id: 'documentaryRecord_035',
-    title: '《光輝歲月》長夏-上',
+    title: '《光辉岁月》长夏-上',
     category: '音樂紀錄',
     year: '2024-09-30',
-    participants: '全體成員',
     description: '北京公司落成',
-    emoji: '🎼',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '01:54:00',
     videoUrl: 'https://www.bilibili.com/video/BV13nxxe1Egq/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_035.jpg'
+    coverImage: '/images/variety/documentary/长夏-上.jpg'
   },
   {
     id: 'documentaryRecord_036',
-    title: '《光輝歲月》長夏-下',
+    title: '《光辉岁月》长夏-下',
     category: '音樂紀錄',
     year: '2024-09-30',
-    participants: '全體成員',
     description: '北京公司落成',
-    emoji: '🎼',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '01:57:51',
     videoUrl: 'https://www.bilibili.com/video/BV1kLxseFECQ/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_036.jpg'
+    coverImage: '/images/variety/documentary/长夏-下.jpg'
   },
   {
     id: 'documentaryRecord_037',
-    title: '《光輝歲月》經年',
+    title: '《光辉岁月》经年',
     category: '音樂紀錄',
     year: '2024-12-20',
-    participants: '全體成員',
     description: '',
-    emoji: '🎼',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '上 03:16:00 / 下 01:56:23',
     videoUrl: 'https://www.bilibili.com/video/BV1Vkk1YcEbn/?spm_id_from=333.1387.collection.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_037.jpg'
+    coverImage: '/images/variety/documentary/经年.jpg'
   },
   {
     id: 'documentaryRecord_038',
-    title: '《光輝歲月》又見春',
+    title: '《光辉岁月》又见春',
     category: '音樂紀錄',
     year: '2025-02-14',
-    participants: '全體成員',
     description: '',
-    emoji: '🎼',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '02:12:25',
     videoUrl: 'https://www.bilibili.com/video/BV1xRKNeAEvV/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_038.jpg'
+    coverImage: '/images/variety/documentary/又见春.jpg'
   },
   {
     id: 'documentaryRecord_039',
-    title: '《光輝歲月》世面',
+    title: '《光辉岁月》世面',
     category: '音樂紀錄',
     year: '2025-06-05',
-    participants: '全體成員',
     description: '',
-    emoji: '🎼',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '上 03:16:15 / 下 02:37:24',
     videoUrl: 'https://www.bilibili.com/video/BV1oRTpzbEYw/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_039.jpg'
+    coverImage: '/images/variety/documentary/世面.jpg'
   },
   {
     id: 'documentaryRecord_040',
-    title: '《光輝歲月》煙火收藏家',
+    title: '《光辉岁月》烟火收藏家',
     category: '音樂紀錄',
     year: '2025-09-13',
-    participants: '全體成員',
     description: '',
-    emoji: '🎼',
+    emoji: '📹',
     color: '#00AD00',
     episodes: '03:41:48',
     videoUrl: 'https://www.bilibili.com/video/BV1ZDp7zQE6X/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/documentaryRecord_040.jpg'
+    coverImage: '/images/variety/documentary/烟火收藏家.jpg'
   }
 ];
 
-// 生日紀錄
+// 生日紀錄(已完成)
 export const birthdayRecord = [
   {
-    id: 'birthday_001',
-    title: '丁程鑫《D 計劃》篇',
-    title2: '陪你長大全記錄',
+    id: 'birthday_222',
+    title: '丁程鑫《D 计划》篇',
+    title2: '陪你长大全记录',
     category: '生日紀錄',
     year: '2022-03-09',
     participants: '20歲',
@@ -880,12 +866,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV18U4y1f7oH/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_001.jpg'
+    coverImage: '/images/variety/birthday/birthday_222.jpg'
   },
   {
-    id: 'birthday_002',
-    title: '宋亞軒《水形館奇妙夜》篇',
-    title2: '陪你長大全記錄',
+    id: 'birthday_223',
+    title: '宋亚轩《水形馆奇妙夜》篇',
+    title2: '陪你长大全记录',
     category: '生日紀錄',
     year: '2022-03-12',
     participants: '18歲',
@@ -894,12 +880,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1XU4y1o7Tj/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_002.jpg'
+    coverImage: '/images/variety/birthday/birthday_223.jpg'
   },
   {
-    id: 'birthday_003',
-    title: '張真源《花間來客》篇',
-    title2: '陪你長大全記錄',
+    id: 'birthday_225',
+    title: '张真源《花间来客》篇',
+    title2: '陪你长大全记录',
     category: '生日紀錄',
     year: '2022-05-04',
     participants: '19歲',
@@ -908,12 +894,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1w34y1Y7rv/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_003.jpg'
+    coverImage: '/images/variety/birthday/birthday_225.jpg'
   },
   {
-    id: 'birthday_004',
-    title: '賀峻霖《仲夏夜》篇',
-    title2: '陪你長大全記錄',
+    id: 'birthday_227',
+    title: '贺峻霖《仲夏夜》篇',
+    title2: '陪你长大全记录',
     category: '生日紀錄',
     year: '2022-06-24',
     participants: '18歲',
@@ -922,12 +908,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV11S4y1H7K5/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_004.jpg'
+    coverImage: '/images/variety/birthday/birthday_227.jpg'
   },
   {
-    id: 'birthday_005',
-    title: '嚴浩翔《超嚴肅派對》篇',
-    title2: '陪你長大全記錄',
+    id: 'birthday_226',
+    title: '严浩翔《超严肃派对》篇',
+    title2: '陪你长大全记录',
     category: '生日紀錄',
     year: '2022-08-26',
     participants: '18歲',
@@ -936,12 +922,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1MU4y1675s/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_005.jpg'
+    coverImage: '/images/variety/birthday/birthday_226.jpg'
   },
   {
-    id: 'birthday_006',
-    title: '劉耀文《昨日留聲館》篇',
-    title2: '陪你長大全記錄',
+    id: 'birthday_224',
+    title: '刘耀文《昨日留声馆》篇',
+    title2: '陪你长大全记录',
     category: '生日紀錄',
     year: '2022-10-03',
     participants: '17歲',
@@ -950,12 +936,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1Ae4y1z7Qq/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_006.jpg'
+    coverImage: '/images/variety/birthday/birthday_224.jpg'
   },
   {
-    id: 'birthday_007',
-    title: '馬嘉祺《追時間的人》篇',
-    title2: '陪你長大全記錄',
+    id: 'birthday_221',
+    title: '马嘉祺《追时间的人》篇',
+    title2: '陪你长大全记录',
     category: '生日紀錄',
     year: '2022-12-28',
     participants: '20歲',
@@ -964,12 +950,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1e8411J78U/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_007.jpg'
+    coverImage: '/images/variety/birthday/birthday_221.jpg'
   },
   {
-    id: 'birthday_008',
+    id: 'birthday_232',
     title: '丁程鑫《一起跳舞吧》',
-    title2: '生日幕後全記錄',
+    title2: '生日幕后全记录',
     category: '生日紀錄',
     year: '2023-03-02',
     participants: '21歲',
@@ -978,12 +964,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1xD4y1u7K8/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_008.jpg'
+    coverImage: '/images/variety/birthday/birthday_232.jpg'
   },
   {
-    id: 'birthday_009',
-    title: '宋亞軒《Give You A Song》',
-    title2: '生日幕後全記錄',
+    id: 'birthday_233',
+    title: '宋亚轩《Give You A Song》',
+    title2: '生日幕后全记录',
     category: '生日紀錄',
     year: '2023-03-11',
     participants: '19歲',
@@ -992,12 +978,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1So4y167j7/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_009.jpg'
+    coverImage: '/images/variety/birthday/birthday_233.jpg'
   },
   {
-    id: 'birthday_010',
-    title: '張真源《終局之前》',
-    title2: '生日幕後全記錄',
+    id: 'birthday_235',
+    title: '张真源《终局之前》',
+    title2: '生日幕后全记录',
     category: '生日紀錄',
     year: '2023-04-24',
     participants: '20歲',
@@ -1006,12 +992,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1is4y197au/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_010.jpg'
+    coverImage: '/images/variety/birthday/birthday_235.jpg'
   },
   {
-    id: 'birthday_011',
-    title: '賀峻霖《霖時營業中》',
-    title2: '生日幕後全記錄',
+    id: 'birthday_237',
+    title: '贺峻霖《霖时营业中》',
+    title2: '生日幕后全记录',
     category: '生日紀錄',
     year: '2023-06-23',
     participants: '19歲',
@@ -1020,12 +1006,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1mh4y1u7x4/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_011.jpg'
+    coverImage: '/images/variety/birthday/birthday_237.jpg'
   },
   {
-    id: 'birthday_012',
-    title: '嚴浩翔《夏末「嚴」歡》',
-    title2: '生日幕後全記錄',
+    id: 'birthday_236',
+    title: '严浩翔《夏末「严」欢》',
+    title2: '生日幕后全记录',
     category: '生日紀錄',
     year: '2023-08-24',
     participants: '19歲',
@@ -1034,12 +1020,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1Jr4y1R7nU/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_012.jpg'
+    coverImage: '/images/variety/birthday/birthday_236.jpg'
   },
   {
-    id: 'birthday_013',
-    title: '劉耀文《特別「耀」請》',
-    title2: '生日幕後全記錄',
+    id: 'birthday_234',
+    title: '刘耀文《特别「耀」请》',
+    title2: '生日幕后全记录',
     category: '生日紀錄',
     year: '2023-09-30',
     participants: '18歲',
@@ -1048,12 +1034,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1Ep4y1c7qQ/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_013.jpg'
+    coverImage: '/images/variety/birthday/birthday_234.jpg'
   },
   {
-    id: 'birthday_014',
-    title: '馬嘉祺《廿一》',
-    title2: '生日幕後全記錄',
+    id: 'birthday_231',
+    title: '马嘉祺《廿一》',
+    title2: '生日幕后全记录',
     category: '生日紀錄',
     year: '2023-12-21',
     participants: '21歲',
@@ -1062,12 +1048,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1ew41147Ha/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_014.jpg'
+    coverImage: '/images/variety/birthday/birthday_231.jpg'
   },
   {
-    id: 'birthday_015',
-    title: '丁程鑫篇《向我認為的自由邁進》',
-    title2: '生日特別企劃',
+    id: 'birthday_242',
+    title: '丁程鑫篇《向我认为的自由迈进》',
+    title2: '生日特别企划',
     category: '生日紀錄',
     year: '2024-02-24',
     participants: '22歲',
@@ -1076,12 +1062,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1aZ421y7cZ/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_015.jpg'
+    coverImage: '/images/variety/birthday/birthday_242.jpg'
   },
   {
-    id: 'birthday_016',
-    title: '宋亞軒篇《就是這麼絕！》',
-    title2: '生日特別企劃',
+    id: 'birthday_243',
+    title: '宋亚轩篇《就是这麽绝！》',
+    title2: '生日特别企划',
     category: '生日紀錄',
     year: '2024-03-04',
     participants: '20歲',
@@ -1090,12 +1076,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1kH4y1j7KR/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_016.jpg'
+    coverImage: '/images/variety/birthday/birthday_243.jpg'
   },
   {
-    id: 'birthday_017',
-    title: '張真源篇《風和沙都是自由的，我也一樣》',
-    title2: '生日特別企劃',
+    id: 'birthday_245',
+    title: '张真源篇《风和沙都是自由的，我也一样》',
+    title2: '生日特别企划',
     category: '生日紀錄',
     year: '2024-04-16',
     participants: '21歲',
@@ -1104,12 +1090,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV13A4m1c7Es/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_017.jpg'
+    coverImage: '/images/variety/birthday/birthday_245.jpg'
   },
   {
-    id: 'birthday_018',
-    title: '賀峻霖篇《什麼！你怎麼知道我釣到海參了！》',
-    title2: '生日特別企劃',
+    id: 'birthday_247',
+    title: '贺峻霖篇《什麽！你怎麽知道我钓到海参了！》',
+    title2: '生日特别企划',
     category: '生日紀錄',
     year: '2024-06-15',
     participants: '20歲',
@@ -1118,12 +1104,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1XJ4m1g7SN/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_018.jpg'
+    coverImage: '/images/variety/birthday/birthday_247.jpg'
   },
   {
-    id: 'birthday_019',
-    title: '嚴浩翔篇《沒想好標題的生日行》',
-    title2: '生日特別企劃',
+    id: 'birthday_246',
+    title: '严浩翔篇《没想好标题的生日行》',
+    title2: '生日特别企划',
     category: '生日紀錄',
     year: '2024-09-20',
     participants: '20歲',
@@ -1132,12 +1118,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1mktZeqEc4/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_019.jpg'
+    coverImage: '/images/variety/birthday/birthday_246.jpg'
   },
   {
-    id: 'birthday_020',
-    title: '劉耀文篇《想出去看看世界有多大》',
-    title2: '生日特別企劃',
+    id: 'birthday_244',
+    title: '刘耀文篇《想出去看看世界有多大》',
+    title2: '生日特别企划',
     category: '生日紀錄',
     year: '2024-09-23',
     participants: '19歲',
@@ -1146,12 +1132,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1XGsSeLEBq/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_020.jpg'
+    coverImage: '/images/variety/birthday/birthday_244.jpg'
   },
   {
-    id: 'birthday_021',
-    title: '馬嘉祺篇《22》',
-    title2: '生日特別企劃',
+    id: 'birthday_241',
+    title: '马嘉祺篇《22》',
+    title2: '生日特别企划',
     category: '生日紀錄',
     year: '2024-12-12',
     participants: '22歲',
@@ -1160,12 +1146,12 @@ export const birthdayRecord = [
     color: '#FF79BC',
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV18cqhYPEcy/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_021.jpg'
+    coverImage: '/images/variety/birthday/birthday_241.jpg'
   },
   {
-    id: 'birthday_022',
-    title: '丁程鑫篇《一起去森林冒險吧》',
-    title2: '2025「愛你愛我」一起慶生',
+    id: 'birthday_252',
+    title: '丁程鑫篇《一起去森林冒险吧》',
+    title2: '2025「爱你爱我」一起庆生',
     category: '生日紀錄',
     year: '2025-02-24',
     participants: '23歲',
@@ -1175,12 +1161,12 @@ export const birthdayRecord = [
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1GUARe6Exp/?spm_id_from=333.1387.search.video_card.click',
     videoUrl2: 'https://www.bilibili.com/bangumi/play/ep1470609?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_022.jpg'
+    coverImage: '/images/variety/birthday/birthday_252.jpg'
   },
   {
-    id: 'birthday_023',
-    title: '宋亞軒篇《春日歡樂頌》',
-    title2: '2025「愛你愛我」一起慶生',
+    id: 'birthday_253',
+    title: '宋亚轩篇《春日欢乐颂》',
+    title2: '2025「爱你爱我」一起庆生',
     category: '生日紀錄',
     year: '2025-03-04',
     participants: '21歲',
@@ -1190,12 +1176,12 @@ export const birthdayRecord = [
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1B59EY9E5r/?spm_id_from=333.1387.search.video_card.click',
     videoUrl2: 'https://www.bilibili.com/bangumi/play/ep1487193?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_023.jpg'
+    coverImage: '/images/variety/birthday/birthday_253.jpg'
   },
   {
-    id: 'birthday_024',
-    title: '張真源篇《鏡花水月》',
-    title2: '2025「愛你愛我」一起慶生',
+    id: 'birthday_255',
+    title: '张真源篇《镜花水月》',
+    title2: '2025「爱你爱我」一起庆生',
     category: '生日紀錄',
     year: '2025-04-16',
     participants: '22歲',
@@ -1205,12 +1191,12 @@ export const birthdayRecord = [
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1uVoKYmESt/?spm_id_from=333.1387.search.video_card.click',
     videoUrl2: 'https://www.bilibili.com/bangumi/play/ep1577959?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_024.jpg'
+    coverImage: '/images/variety/birthday/birthday_255.jpg'
   },
   {
-    id: 'birthday_025',
-    title: '賀峻霖篇《謐境》',
-    title2: '2025「愛你愛我」一起慶生',
+    id: 'birthday_257',
+    title: '贺峻霖篇《谧境》',
+    title2: '2025「爱你爱我」一起庆生',
     category: '生日紀錄',
     year: '2025-06-15',
     participants: '21歲',
@@ -1220,12 +1206,12 @@ export const birthdayRecord = [
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1MhMbzPEhc/?spm_id_from=333.1387.search.video_card.click',
     videoUrl2: 'https://www.bilibili.com/bangumi/play/ep1788916?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_025.jpg'
+    coverImage: '/images/variety/birthday/birthday_257.jpg'
   },
   {
-    id: 'birthday_026',
-    title: '嚴浩翔篇《嚴寒之地》',
-    title2: '2025「愛你愛我」一起慶生',
+    id: 'birthday_256',
+    title: '严浩翔篇《严寒之地》',
+    title2: '2025「爱你爱我」一起庆生',
     category: '生日紀錄',
     year: '2025-08-16',
     participants: '21歲',
@@ -1235,12 +1221,12 @@ export const birthdayRecord = [
     episodes: 1,
     videoUrl: 'https://www.bilibili.com/video/BV1SkYvzjE36/?spm_id_from=333.1387.search.video_card.click',
     videoUrl2: 'https://www.bilibili.com/bangumi/play/ep2041688?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/birthday_026.jpg'
+    coverImage: '/images/variety/birthday/birthday_256.jpg'
   },
   {
-    id: 'birthday_027',
-    title: '劉耀文篇《》',
-    title2: '2025「愛你愛我」一起慶生',
+    id: 'birthday_254',
+    title: '刘耀文篇《骑士加冕》',
+    title2: '2025「爱你爱我」一起庆生',
     category: '生日紀錄',
     year: '2025-09-23',
     participants: '20歲',
@@ -1248,14 +1234,14 @@ export const birthdayRecord = [
     emoji: '🎂',
     color: '#FF79BC',
     episodes: 1,
-    videoUrl: '',
-    videoUrl2: '',
-    coverImage: '/images/variety/birthday_027.jpg'
+    videoUrl: 'https://www.bilibili.com/video/BV1VzJCz5E6w/?spm_id_from=333.1387.homepage.video_card.click',
+    videoUrl2: 'https://www.bilibili.com/bangumi/play/ep2175545?spm_id_from=333.1387.homepage.video_card.click',
+    coverImage: '/images/variety/birthday/birthday_254.jpg'
   },
   {
-    id: 'birthday_028',
-    title: '馬嘉祺篇《》',
-    title2: '2025「愛你愛我」一起慶生',
+    id: 'birthday_251',
+    title: '马嘉祺篇《》',
+    title2: '2025「爱你爱我」一起庆生',
     category: '生日紀錄',
     year: '2025-12-12',
     participants: '23歲',
@@ -1265,11 +1251,11 @@ export const birthdayRecord = [
     episodes: 1,
     videoUrl: '',
     videoUrl2: '',
-    coverImage: '/images/variety/birthday_028.jpg'
+    coverImage: '/images/variety/birthday/birthday_251.jpg'
   }
 ];
 
-// 外務綜藝
+// 外務綜藝(未開始)
 export const externalVariety = [
   {
     id: 'externalVariety_001',
@@ -1455,7 +1441,7 @@ export const externalVariety = [
   }
 ];
 
-// 表演舞台
+// 表演舞台(未開始)
 export const performanceVariety = [
   {
     id: 'variety_018',
@@ -1498,20 +1484,20 @@ export const performanceVariety = [
   }
 ];
 
-// TF家族
+// TF家族(內容、成員 待確定)
 export const tfFamilyPeriodVariety = [
   {
     id: 'tfFamily_001',
     title: '月末考核合集',
     category: '考核',
     year: '2015-12-12',
-    participants: 'TF家族二代練習生',
+    participants: '二代練習生',
     description: '2015年十一月月末考核 至 2016年九月月末考核',
     emoji: '🎯',
     color: '#FFA500',
     episodes: '11集',
     videoUrl: 'https://www.bilibili.com/video/BV137411p7jE?spm_id_from=333.788.recommend_more_video.18',
-    coverImage: '/images/variety/tf月末考核.jpg'
+    coverImage: '/images/variety/tf-family/tf月末考核.jpg'
   },
   {
     id: 'tfFamily_002',
@@ -1524,85 +1510,85 @@ export const tfFamilyPeriodVariety = [
     color: '#FFA500',
     episodes: '6集',
     videoUrl: 'https://www.bilibili.com/video/BV1qs41177pC?spm_id_from=333.788.recommend_more_video.0',
-    coverImage: '/images/variety/tf星期五练习生.jpg'
+    coverImage: '/images/variety/tf-family/tf星期五练习生.jpg'
   },
   {
-    id: 'tfFamily_004',
+    id: 'tfFamily_003',
     title: '星期五练习生S2',
     category: '自製綜藝',
     year: '2016-04-01',
-    participants: 'TF家族二代練習生',
+    participants: '二代練習生',
     description: '介紹',
     emoji: '🎯',
     color: '#FFA500',
     episodes: '5集',
     videoUrl: 'https://www.bilibili.com/video/BV1AW41167Nv?spm_id_from=333.788.recommend_more_video.1',
-    coverImage: '/images/variety/tf星期五练习生2.jpg'
+    coverImage: '/images/variety/tf-family/tf星期五练习生2.jpg'
   },
   {
-    id: 'tfFamily_005',
+    id: 'tfFamily_004',
     title: '星期五练习生S3',
     category: '自製綜藝',
     year: '2016-05-20',
-    participants: 'TF家族二代練習生',
+    participants: '二代練習生',
     description: '介紹',
     emoji: '🎯',
     color: '#FFA500',
     episodes: '6集',
     videoUrl: 'https://www.bilibili.com/video/BV1Cs411L7Ka?spm_id_from=333.788.recommend_more_video.8',
-    coverImage: '/images/variety/tf星期五练习生2.jpg'
+    coverImage: '/images/variety/tf-family/tf星期五练习生2.jpg'
   },
   {
-    id: 'tfFamily_006',
+    id: 'tfFamily_005',
     title: '北京恶魔幼儿园',
     category: '自製綜藝',
     year: '2016-07',
-    participants: 'TF家族二代練習生',
+    participants: '二代練習生',
     description: '',
     emoji: '🎯',
     color: '#FFA500',
     episodes: '2集',
     videoUrl: 'https://www.bilibili.com/video/BV1VE411x7vR?spm_id_from=333.788.videopod.episodes',
-    coverImage: '/images/variety/tf星期五练习生2.jpg'
+    coverImage: '/images/variety/tf-family/tf星期五练习生2.jpg'
   },
   {
     id: 'tfFamily_006',
     title: '星期五练习生S4',
     category: '自製綜藝',
     year: '2016-10',
-    participants: 'TF家族二代練習生',
+    participants: '二代練習生',
     description: '',
     emoji: '🎯',
     color: '#FFA500',
     episodes: '6集',
     videoUrl: 'https://www.bilibili.com/video/BV1Rs41157Kz?spm_id_from=333.788.recommend_more_video.0',
-    coverImage: '/images/variety/tf星期五练习生2.jpg'
+    coverImage: '/images/variety/tf-family/tf星期五练习生2.jpg'
   },
   {
     id: 'tfFamily_007',
     title: '和喵星人的21天',
     category: '迷你劇',
     year: '2016-10',
-    participants: '黃其淋 / 丁程鑫 / 黃宇航 / 嚴浩翔 / 賀峻霖 / 張真源 / 陳泗旭',
+    participants: '黃其淋、丁程鑫、黃宇航、嚴浩翔、賀峻霖、張真源、陳泗旭',
     description: '',
     emoji: '🎯',
     color: '#FFA500',
     episodes: '6集',
     videoUrl: 'https://www.bilibili.com/video/BV1EJ411r7zB/?spm_id_from=333.337.search-card.all.click',
-    coverImage: '/images/variety/tf和喵星人的21天.jpg'
+    coverImage: '/images/variety/tf-family/tf和喵星人的21天.jpg'
   },
   {
     id: 'tfFamily_008',
     title: '2016圣诞奇幻夜',
     category: '音樂會',
     year: '2016-12-24',
-    participants: 'TF家族二代練習生',
-    description: '',
+    participants: '二代練習生：黃宇航、丁程鑫、敖子逸、宋亞軒、嚴浩翔、張真源、陳泗旭、代昊林、曹峻瑋、殷涌智、潘政霖、賀峻霖',
+    description: '場館：重慶大劇院',
     emoji: '🎯',
     color: '#FFA500',
     episodes: '4集，時長 02:44:48',
     videoUrl: 'https://www.bilibili.com/video/BV1E7411h7aa/?spm_id_from=333.337.search-card.all.click',
-    coverImage: '/images/variety/tf圣诞奇幻夜.jpg'
+    coverImage: '/images/variety/tf-family/tf圣诞奇幻夜.jpg'
   },
   {
     id: 'tfFamily_009',
@@ -1615,7 +1601,7 @@ export const tfFamilyPeriodVariety = [
     color: '#FFA500',
     episodes: '7集',
     videoUrl: 'https://www.bilibili.com/video/BV1Cx411k7J4/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/tf星期五练习生2.jpg'
+    coverImage: '/images/variety/tf-family/tf星期五练习生2.jpg'
   },
   {
     id: 'tfFamily_010',
@@ -1623,12 +1609,12 @@ export const tfFamilyPeriodVariety = [
     category: '運動會',
     year: '2017-07-15',
     participants: '台風十子',
-    description: 'TF家族夏季運動會來啦！',
+    description: '',
     emoji: '🎯',
     color: '#FFA500',
     episodes: '上 36:38 / 下 34:12',
     videoUrl: 'https://www.bilibili.com/video/BV1Nx411B7hX/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/tf2017夏季运动会.jpg'
+    coverImage: '/images/variety/tf-family/tf2017夏季运动会.jpg'
   },
   {
     id: 'tfFamily_011',
@@ -1641,23 +1627,36 @@ export const tfFamilyPeriodVariety = [
     color: '#FFA500',
     episodes: '上 53:41 / 中 57:35 / 下 42:18',
     videoUrl: 'https://www.bilibili.com/video/BV15x411n7JY/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/tf2017，夏.jpg'
+    coverImage: '/images/variety/tf-family/tf2017，夏.jpg'
   },
   {
     id: 'tfFamily_012',
+    title: '夏日嘉年华 - 夏日大作战',
+    category: '音樂會',
+    year: '2017-08-12',
+    participants: '台風十子',
+    description: '場館：南京雨發生態園',
+    emoji: '☀️',
+    color: '#FFA500',
+    episodes: '02:03:40',
+    videoUrl: 'https://www.bilibili.com/video/BV1wx411H7Xq/?spm_id_from=333.337.search-card.all.click',
+    coverImage: '/images/variety/self-made/.jpg'
+  },
+  {
+    id: 'tfFamily_013',
     title: '第二人生',
     category: '迷你劇',
     year: '2017-09-29',
-    participants: '丁程鑫 / 馬嘉祺 / 敖子逸 / 張真源 / 宋亞軒 / 李天澤 / 賀峻霖 / 劉耀文 / 陳璽達 / 宋文嘉',
+    participants: '台風十子',
     description: '深度發覺公司藝人程以鑫（丁程鑫飾）近日受到恐嚇信威脅，精神不振，引起《颶風周刊》記者張專員（張真源飾）和實習生賀呵呵（賀峻霖飾）的注意。AZY特保公司敖三爺（敖子逸飾）吩咐手下一級特保達西（陳璽達飾）前往保護好友程以鑫。\n而深度發覺公司兩大經紀人簡亓（馬嘉祺飾）、陶桃（李天澤飾）勢如水火，老板伍揚（陳泗旭飾）召集兩人商量近期事物，兩人意見依舊未能達成一致。\n但旗下歌手宋玄（宋亞軒飾）和音樂制作人陶醉（李天澤飾）卻交情深厚，經常相約工作室交流音樂。\n另一邊，演藝新人達夏（劉耀文飾）為與自己的偶像程以鑫簽約同一公司而興奮不已……\n一切是否真的這麽簡單？這些人背後又埋藏著什麽秘密？',
     emoji: '🎯',
     color: '#FFA500',
     episodes: '6集',
     videoUrl: 'https://www.bilibili.com/video/BV1SW411878W/?spm_id_from=333.1387.homepage.video_card.click',
-    coverImage: '/images/variety/tf第二人生.jpg'
+    coverImage: '/images/variety/tf-family/tf第二人生.jpg'
   },
   {
-    id: 'tfFamily_013',
+    id: 'tfFamily_014',
     title: '星期五练习生TF-FRIDAY',
     category: '自製綜藝',
     year: '2017-10-06',
@@ -1667,23 +1666,23 @@ export const tfFamilyPeriodVariety = [
     color: '#FFA500',
     episodes: '11集',
     videoUrl: 'https://www.bilibili.com/video/BV1Qx411375p/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/tf星期五练习生TF-FRIDAY.jpg'
+    coverImage: '/images/variety/tf-family/tf星期五练习生TF-FRIDAY.jpg'
   },
   {
-    id: 'tfFamily_014',
-    title: 'TF家族冬日嘉年华',
+    id: 'tfFamily_015',
+    title: '冬日嘉年华 - DATE',
     category: '音樂會',
     year: '2017-12-29',
-    participants: '丁程鑫 / 馬嘉祺 / 敖子逸 / 張真源 / 宋亞軒 / 李天澤 / 賀峻霖 / 劉耀文 / 陳璽達 / 宋文嘉',
-    description: 'TF家族冬日嘉年華來啦！在這個冰雪紛飛的季節，讓我們感知彼此的溫暖，把最浪漫的記憶留在這個冬季吧~！12月29日，TF家族少年們在北京，等你赴一場冬日之約！',
+    participants: '台風十子',
+    description: '場館：北京-M空間',
     emoji: '🎯',
     color: '#FFA500',
-    episodes: '2集',
+    episodes: '2集，時長 02:02:37',
     videoUrl: 'https://www.bilibili.com/video/BV1ip411f743?spm_id_from=333.788.recommend_more_video.4',
-    coverImage: '/images/variety/tf冬日嘉年华.jpg'
+    coverImage: '/images/variety/tf-family/tf冬日嘉年华.jpg'
   },
   {
-    id: 'tfFamily_014',
+    id: 'tfFamily_016',
     title: 'TF家族冬季运动会',
     category: '運動會',
     year: '2018-02-16',
@@ -1693,154 +1692,167 @@ export const tfFamilyPeriodVariety = [
     color: '#FFA500',
     episodes: '01:19:37',
     videoUrl: 'https://www.bilibili.com/video/BV1MW411J7Sz/?spm_id_from=333.788.recommend_more_video.0',
-    coverImage: '/images/variety/tf冬季运动会.jpg'
+    coverImage: '/images/variety/tf-family/tf冬季运动会.jpg'
   },
   {
-    id: 'tfFamily_015',
+    id: 'tfFamily_017',
     title: '念念',
     category: '網劇',
     year: '2018-05-11',
-    participants: '丁程鑫 / 馬嘉祺 / 敖子逸 / 張真源 / 宋亞軒 / 李天澤 / 賀峻霖 / 劉耀文 / 陳璽達 / 宋文嘉',
+    participants: '丁程鑫、馬嘉祺、敖子逸、張真源、宋亞軒、李天澤、賀峻霖、劉耀文、陳璽達、宋文嘉',
     description: 'TF家族單元劇《念念》由三個故事組成，分別講述了親情、友情和自我。\n以劇中角色“向橫”的三個願望為主線，演繹他與家人、朋友、同學關系的轉變，是一部傳遞溫暖的治愈系影片。主創談及影片取名為《念念》時提到：劇名取自“念念不忘，必有回響”，認為只要心里存放著珍藏的東西，總有一天會得到回應。',
     emoji: '🎯',
     color: '#FFA500',
     episodes: '11集',
     videoUrl: 'https://www.bilibili.com/video/BV1SW411878W?spm_id_from=333.788.recommend_more_video.3',
-    coverImage: '/images/variety/tf念念.jpg'
+    coverImage: '/images/variety/tf-family/tf念念.jpg'
   },
   {
-    id: 'tfFamily_016',
+    id: 'tfFamily_018',
     title: 'TF家族2018冬季运动会',
     category: '運動會',
     year: '2018-12-22',
-    participants: '颱風少年團 / TF家族二代練習生 / TF家族三代練習生',
+    participants: '颱風少年團、二代練習生 / 三代練習生',
     description: '寒冷冬日，一次運動場上角逐比拼，一場家族成員的歡樂聚會，2018TF家族冬季運動會，收穫快樂，收穫成長～',
     emoji: '🎯',
     color: '#FFA500',
-    episodes: '2集',
+    episodes: '上 59:35 / 下 01:09:46',
     videoUrl: 'https://www.bilibili.com/video/BV12t411r7EG?spm_id_from=333.788.recommend_more_video.1',
-    coverImage: '/images/variety/tf2018冬季运动会.jpg'
+    coverImage: '/images/variety/tf-family/tf2018冬季运动会.jpg'
   },
   {
-    id: 'tfFamily_017',
-    title: 'TF家族 新年音乐会·第一页',
+    id: 'tfFamily_019',
+    title: 'TF家族 新年音乐会 · 第一页',
     category: '音樂會',
     year: '2018-12-29',
-    participants: '颱風少年團 / 敖子逸 / 陳泗旭 / 賀峻霖 / 李天澤 / 宋文嘉 / 張真源 / TF家族三代練習生',
+    participants: '颱風少年團、敖子逸、陳泗旭、賀峻霖、李天澤、宋文嘉、張真源 / 三代練習生',
     description: '寒風湧動雲海，夜色肆意閃耀，集結訊號舞蹈，熱血即刻燃燒，屬於少年們的年末狂歡篇章，來到。',
     emoji: '🎯',
     color: '#FFA500',
     episodes: '上 52:33 / 下 48:52',
     videoUrl: 'https://www.bilibili.com/video/BV1yt411p7RS/?spm_id_from=333.337.search-card.all.click',
-    coverImage: '/images/variety/tf新年音乐会·第一页.jpg'
+    coverImage: '/images/variety/tf-family/tf新年音乐会·第一页.jpg'
   },
   {
-    id: 'tfFamily_018',
+    id: 'tfFamily_020',
     title: 'TF家族《第一页》全纪录',
     category: '紀錄片',
     year: '2019-01-25',
-    participants: '丁程鑫 / 馬嘉祺 / 敖子逸 / 張真源 / 陳泗旭 / 宋亞軒 / 賀峻霖 / 李天澤 / 劉耀文 / 宋文嘉 / 姚景元',
+    participants: '颱風少年團、敖子逸、陳泗旭、賀峻霖、李天澤、宋文嘉、張真源 / 三代練習生',
     description: '我們向前奔跑，每一天都刻下存在的記號；我們因為同樣的心所以相聚，因為相聚所以為家。這是TF家族第一頁的故事，而故事還在繼續......',
     emoji: '🎯',
     color: '#FFA500',
     episodes: '56:27',
     videoUrl: 'https://www.bilibili.com/video/BV1ft411b7G2?spm_id_from=333.788.recommend_more_video.2',
-    coverImage: '/images/variety/tf新年音乐会·第一页.jpg'
+    coverImage: '/images/variety/tf-family/tf新年音乐会·第一页.jpg'
   },
   {
-    id: 'tfFamily_019',
-    title: 'TF家族 新年音乐会·重逢',
+    id: 'tfFamily_021',
+    title: 'TF家族 新年音乐会 · 重逢',
     category: '音樂會',
     year: '2020-01-11',
-    participants: '时代少年团 / TF家族三代練習生',
+    participants: '時代少年團、敖子逸、李天澤 / 三代練習生',
     description: '重逢 是 從前與現在的相遇\n重逢 即 力量',
     emoji: '🎯',
     color: '#FFA500',
     episodes: '02:53:07',
     videoUrl: 'https://www.bilibili.com/video/BV1J7411z7w5/?spm_id_from=333.337.search-card.all.click',
-    coverImage: '/images/variety/tf新年音乐会·重逢.jpg'
-  },
-  {
-    id: 'tfFamily_020',
-    title: '2020TF家族夏季运动会',
-    category: '運動會',
-    year: '2020-06-14',
-    participants: '时代少年团 / TF家族三代練習生',
-    description: '關於夏天的色彩洶湧而来，那些美麗的葉子，都染上了盛放的淺紅；陽光曬乾水渠，飲光河流，碾碎岩石，灼人眼目。\n夏日有它的狂熱與執著，夏日有它的堅持。\n我們的每一個夏天都有記憶，每一個夏天，都塗滿了少年們的顏色。\n2020 TF家族夏季運動會，六月的重慶，屬於少年們的時間。🌿',
-    emoji: '🎯',
-    color: '#FFA500',
-    episodes: '3集',
-    videoUrl: 'https://www.bilibili.com/video/BV1NK4y147rm/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/tf2020夏季运动会.jpg'
-  },
-  {
-    id: 'tfFamily_021',
-    title: '2022TF家族夏日运动会',
-    category: '運動會',
-    year: '2022-08-05',
-    participants: '',
-    description: '22年樓運會',
-    emoji: '🎯',
-    color: '#FFA500',
-    episodes: '4集',
-    videoUrl: 'https://www.bilibili.com/video/BV1ua411f7rg?spm_id_from=333.788.recommend_more_video.0',
-    coverImage: '/images/variety/tf2022夏日运动会.jpg'
+    coverImage: '/images/variety/tf-family/tf新年音乐会·重逢.jpg'
   },
   {
     id: 'tfFamily_022',
-    title: '2022TF家族夏季运动会纪录片——凝聚 ',
-    category: '紀錄片',
-    year: '2022-08-12',
-    participants: 'TF家族',
-    description: '少年們以運動为由相會，除了場上揮灑汗水、拼搏青春外，還有不因距離和時間改變的濃濃情誼。少年之心最為真挚，更最为珍贵。\n聚焦夏日運動會幕后，看少年們場下凝聚一心。',
+    title: '2020TF家族夏季运动会',
+    category: '運動會',
+    year: '2020-06-14',
+    participants: '時代少年團 / 三代練習生',
+    description: '2020 TF家族夏季運動會，六月的重慶，屬於少年們的時間。',
     emoji: '🎯',
     color: '#FFA500',
-    episodes: '1集',
-    videoUrl: '',
-    coverImage: '/images/variety/tf2022夏季运动会纪录片.jpg'
+    episodes: '上 01:13:49 / 中 58:43 / 下 01:03:25',
+    videoUrl: 'https://www.bilibili.com/video/BV1NK4y147rm/?spm_id_from=333.1387.search.video_card.click',
+    coverImage: '/images/variety/tf-family/tf2020夏季运动会.jpg'
   },
   {
     id: 'tfFamily_023',
-    title: '2024TF家族夏日运动会 ',
+    title: '2022TF家族夏日运动会',
     category: '運動會',
-    year: '2024-07-16',
-    participants: 'TF家族',
-    description: '夏日新章，躍動驕陽，平凡的汗水化作星光，特別的笑容點亮夏日，時間的縫隙里會為每一個努力的人留下專屬獎章。\n腳步丈量夢想，迎風奮力啟航，在這個夏天，慶祝每一只飛鳥的勇敢成長，擁抱每一片沙礫的珍貴沈澱，一起用愛和期待，為少年們的盛夏未來鮮艷上色吧！',
+    year: '2022-08-05',
+    participants: '時代少年團 / 三代練習生 / 四代練習生',
+    description: '先導片：運動員建檔',
     emoji: '🎯',
     color: '#FFA500',
-    episodes: '3集',
-    videoUrl: 'https://www.bilibili.com/video/BV1FH4y1A74N?spm_id_from=333.788.recommend_more_video.0',
-    coverImage: '/images/variety/tf2024夏日运动会.jpg'
+    episodes: '3+1(含先導片)，時長 04:04:05',
+    videoUrl: 'https://www.bilibili.com/video/BV1ua411f7rg?spm_id_from=333.788.recommend_more_video.0',
+    coverImage: '/images/variety/tf-family/tf2022夏日运动会1.jpg'
   },
   {
     id: 'tfFamily_024',
-    title: '2024TF家族夏日运动会纪录片 ',
+    title: '2022TF家族夏季运动会纪录片——凝聚',
     category: '紀錄片',
-    year: '2024-08-01',
-    participants: 'TF家族',
-    description: '少年的征途是星辰大海，梦想的刻度是朝朝暮暮，今夏相遇勝卻無數。\n2024TF家族夏日運動會紀錄片已送達，好風憑藉力助君出重圍。',
+    year: '2022-08-12',
+    participants: '時代少年團 / 三代練習生 / 四代練習生',
+    description: '少年們以運動为由相會，除了場上揮灑汗水、拼搏青春外，還有不因距離和時間改變的濃濃情誼。少年之心最為真挚，更最为珍贵。\n聚焦夏日運動會幕后，看少年們場下凝聚一心。',
     emoji: '🎯',
     color: '#FFA500',
-    episodes: '1集',
-    videoUrl: 'https://www.bilibili.com/video/BV1gE421A7TY?spm_id_from=333.788.recommend_more_video.0',
-    coverImage: '/images/variety/tf2024夏日运动会.jpg'
+    episodes: '01:10:19',
+    videoUrl: 'https://www.bilibili.com/video/BV1nW4y1Y73B/?spm_id_from=333.1387.search.video_card.click',
+    coverImage: '/images/variety/tf-family/tf2022夏季运动会纪录片1.jpg'
   },
   {
     id: 'tfFamily_025',
+    title: '2024TF家族夏日运动会',
+    category: '運動會',
+    year: '2024-07-16',
+    participants: '時代少年團 / 三代練習生 / 四代練習生',
+    description: '先導片：調查問卷',
+    emoji: '🎯',
+    color: '#FFA500',
+    episodes: '2+1(含先導片)，時長 08:10:56',
+    videoUrl: 'https://www.bilibili.com/video/BV1FH4y1A74N?spm_id_from=333.788.recommend_more_video.0',
+    coverImage: '/images/variety/tf-family/tf2024夏日运动会.jpg'
+  },
+  {
+    id: 'tfFamily_026',
+    title: '2024TF家族夏日运动会纪录片 ',
+    category: '紀錄片',
+    year: '2024-08-01',
+    participants: '時代少年團 / 三代練習生 / 四代練習生',
+    description: '少年的征途是星辰大海，梦想的刻度是朝朝暮暮，今夏相遇勝卻無數。\n2024TF家族夏日運動會紀錄片已送達，好風憑藉力助君出重圍。',
+    emoji: '🎯',
+    color: '#FFA500',
+    episodes: '01:50:39',
+    videoUrl: 'https://www.bilibili.com/video/BV1gE421A7TY?spm_id_from=333.788.recommend_more_video.0',
+    coverImage: '/images/variety/tf-family/tf2024夏日运动会.jpg'
+  },
+  {
+    id: 'tfFamily_027',
+    title: '2025新年音乐会 · 热爱',
+    category: '音樂會',
+    year: '2025-01-18、19',
+    participants: '時代少年團 / 登陸少年、TF_ING、張峻豪、余宇涵 / 四代練習生 / 五代練習生',
+    description: '場館：澳門-銀河綜藝館，此連結為時團舞台純享版',
+    emoji: '🎯',
+    color: '#FFA500',
+    episodes: 'D1 03:01:36 / D2 02:37:33',
+    videoUrl: 'https://space.bilibili.com/3546630773016865/search?keyword=2025%E6%96%B0%E5%B9%B4%E9%9F%B3%E4%B9%90%E4%BC%9A',
+    coverImage: '/images/variety/tf-family/tf2025新年音乐会.jpg'
+  },
+  {
+    id: 'tfFamily_028',
     title: '2025新年音乐会纪录片「星火」',
     category: '紀錄片',
     year: '2025',
-    participants: '時代少年團 / TOP登陸少年組合 / TF家族四代練習生',
+    participants: '時代少年團 / 登陸少年、TF_ING、張峻豪、余宇涵 / 四代練習生 / 五代練習生',
     description: 'TF家族2025新年音樂會紀錄片「星火」送達📪\n聚是一團火🔥愛意散滿星\n“少年”一詞，具象化了熱愛的多重形態\n縱然黑夜漫長，點點星辰閃耀舞台\n蓄勢待發，炬火明光將熠熠生輝✨\n時間 會實現每一種可能\n順著光亮望向走來的你時\n星光中張揚且生生不息🌟\n此刻 願你我都不虛此行\n屬於彼此的每一秒都值得被記錄在故事的序章里\n聽愛轟鳴 萬山盡開 星河鷺起\n星火點亮無盡個相逢見面的瞬間 光亮自有來意\n等長出新的力量 約定在幸福的下一程相遇',
     emoji: '🎯',
     color: '#FFA500',
-    episodes: '3集',
-    videoUrl: '',
-    coverImage: '/images/variety/tf2025新年音乐会纪录片.jpg'
+    episodes: '上 01:49:07 / 中 02:27:30 / 下 02:00:27',
+    videoUrl: 'https://space.bilibili.com/3670216/lists/4749376?type=season',
+    coverImage: '/images/variety/tf-family/tf2025新年音乐会纪录片.jpg'
   }
 ];
 
-// 台風少年時期
+// 台風少年時期(已完成)
 export const tytPeriodVariety = [
   {
     id: 'tyt_001',
@@ -1848,12 +1860,12 @@ export const tytPeriodVariety = [
     category: '演唱會',
     year: '2018-10-17',
     participants: '台風少年團',
-    description: '台风少年团出道首唱会',
+    description: '',
     emoji: '🏠',
     color: '#848D94',
     episodes: '01:17:11',
     videoUrl: 'https://www.bilibili.com/video/BV1Ft411f75f/?spm_id_from=333.337.search-card.all.click&vd_source=212b4e5ec5ac590b986ff962f6fadb32',
-    coverImage: '/images/variety/tyt台风少年团出道首唱会.jpg'
+    coverImage: '/images/variety/typhoon-period/tyt台风少年团出道首唱会.jpg'
   },
   {
     id: 'tyt_002',
@@ -1861,12 +1873,12 @@ export const tytPeriodVariety = [
     category: '',
     year: '2018-12-08~2019-01-13',
     participants: '台風少年團',
-    description: '台风少年团今日快讯',
+    description: '',
     emoji: '🏠',
     color: '#848D94',
     episodes: '24集',
     videoUrl: 'https://space.bilibili.com/3670216/search?keyword=%E3%80%90TYT%E3%80%91%E5%8F%B0%E9%A3%8E%E5%B0%91%E5%B9%B4%E5%9B%A2%E7%9A%84%E6%97%A5%E5%B8%B8',
-    coverImage: '/images/variety/tyt台风少年团的日常.jpg'
+    coverImage: '/images/variety/typhoon-period/tyt台风少年团的日常.jpg'
   },
   {
     id: 'tyt_003',
@@ -1874,12 +1886,12 @@ export const tytPeriodVariety = [
     category: '自製團綜',
     year: '2019-02-03',
     participants: '台風少年團',
-    description: '《台風少年行》讓台風少年團的5名青春陽光的少年放下手機等電子產品，從城市來到鄉村，互幫互助，學會勞作，享受自然，度過16天自給自足的生活，完成一場青春的歷練和成長。',
+    description: '',
     emoji: '🏠',
     color: '#848D94',
     episodes: '12集',
     videoUrl: 'https://www.bilibili.com/video/BV1sb4y1J7yC/?spm_id_from=333.337.search-card.all.click',
-    coverImage: '/images/variety/tyt台風少年行.jpg'
+    coverImage: '/images/variety/typhoon-period/tyt台風少年行.jpg'
   },
   {
     id: 'tyt_004',
@@ -1892,12 +1904,12 @@ export const tytPeriodVariety = [
     color: '#848D94',
     episodes: '6集',
     videoUrl: 'https://space.bilibili.com/3670216/search?keyword=%E5%8F%B0%E9%A3%8E%E5%B0%91%E5%B9%B4%E5%9C%A8%E9%A6%96%E5%B0%94%E4%B9%9F%E8%A1%8C',
-    coverImage: '/images/variety/tyt台風少年在首爾也行.jpg'
+    coverImage: '/images/variety/typhoon-period/tyt台風少年在首爾也行.jpg'
   },
   {
     id: 'tyt_005',
     title: '台风蜕变之战',
-    category: '重組賽',
+    category: '自製綜藝',
     year: '2019-07-19',
     participants: '丁程鑫 / 馬嘉祺 / 宋亞軒 / 劉耀文 / 張真源 / 賀峻霖 / 嚴浩翔',
     description: '《台風蛻變之戰》即將火熱來襲!丁程鑫、馬嘉祺、宋亞軒、劉耀文、張真源、賀峻霖、嚴浩翔，少年們在夏日火力全開，為了夢想努力，相信少年們一定會精彩蛻變，成為我們心中的優質偶像!',
@@ -1905,7 +1917,7 @@ export const tytPeriodVariety = [
     color: '#848D94',
     episodes: '6+7(含先導、預告)',
     videoUrl: 'https://space.bilibili.com/3670216/search?keyword=%E5%8F%B0%E9%A3%8E%E8%9C%95%E5%8F%98%E4%B9%8B%E6%88%98',
-    coverImage: '/images/variety/tyt台風蛻變之戰.jpg'
+    coverImage: '/images/variety/typhoon-period/tyt台風蛻變之戰.jpg'
   },
   {
     id: 'tyt_006',
@@ -1918,7 +1930,7 @@ export const tytPeriodVariety = [
     color: '#848D94',
     episodes: '4集',
     videoUrl: ' https://www.bilibili.com/video/BV1at41177wr/?spm_id_from=333.337.search-card.all.click',
-    coverImage: '/images/variety/tyt台风夏令营.jpg'
+    coverImage: '/images/variety/typhoon-period/tyt台风夏令营.jpg'
   },
   {
     id: 'tyt_007',
@@ -1931,7 +1943,7 @@ export const tytPeriodVariety = [
     color: '#848D94',
     episodes: '01:10:41',
     videoUrl: 'https://www.bilibili.com/video/BV1Ut411L7ET/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/tyt台風蛻變之戰.jpg'
+    coverImage: '/images/variety/typhoon-period/tyt台風蛻變之戰.jpg'
   },
   {
     id: 'tyt_008',
@@ -1944,7 +1956,7 @@ export const tytPeriodVariety = [
     color: '#848D94',
     episodes: '5集',
     videoUrl: 'https://www.bilibili.com/video/BV18441197NZ/?spm_id_from=333.337.search-card.all.click',
-    coverImage: '/images/variety/tyt台风树洞.jpg'
+    coverImage: '/images/variety/typhoon-period/tyt台风树洞.jpg'
   },
   {
     id: 'tyt_009',
@@ -1957,7 +1969,7 @@ export const tytPeriodVariety = [
     color: '#848D94',
     episodes: '02:16:54',
     videoUrl: 'https://www.bilibili.com/video/BV114411q7ji/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/tyt台风成团夜.jpg'
+    coverImage: '/images/variety/typhoon-period/tyt台风成团夜.jpg'
   },
   {
     id: 'tyt_010',
@@ -1970,7 +1982,7 @@ export const tytPeriodVariety = [
     color: '#848D94',
     episodes: '02:06:08',
     videoUrl: ' https://www.bilibili.com/video/BV1w4411C7ey/?spm_id_from=333.1387.search.video_card.click',
-    coverImage: '/images/variety/tyt夏限定记忆.jpg'
+    coverImage: '/images/variety/typhoon-period/tyt夏限定记忆.jpg'
   }
 ];
 

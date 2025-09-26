@@ -88,7 +88,7 @@ const Variety = () => {
     }, 100);
   };
 
-  const renderVarietyCard = (item) => {
+  const renderVarietyCard = (item, sectionKey) => {
     const backgroundColor = `linear-gradient(135deg, ${item.color}20 0%, ${item.color}60 100%)`;
 
     return (
@@ -140,11 +140,13 @@ const Variety = () => {
                   <Text strong style={{ color: '#666' }}>{item.year}</Text>
                 </div>
 
-                {/* 參與成員 */}
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <UserOutlined style={{ color: item.color, marginRight: '8px' }} />
-                  <Text style={{ color: '#666' }}>{item.participants}</Text>
-                </div>
+                {/* 參與成員（紀錄片不顯示） */}
+                {sectionKey !== 'documentary' && (
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <UserOutlined style={{ color: item.color, marginRight: '8px' }} />
+                    <Text style={{ color: '#666' }}>{item.participants}</Text>
+                  </div>
+                )}
 
                 {/* 集數 */}
                 <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -195,7 +197,7 @@ const Variety = () => {
     );
   };
 
-  const renderBirthdayCard = (item) => {
+  const renderBirthdayCard = (item, sectionKey) => {
     const backgroundColor = `linear-gradient(135deg, ${item.color}20 0%, ${item.color}60 100%)`;
 
     return (
@@ -243,10 +245,12 @@ const Variety = () => {
                   <Text strong style={{ color: '#666' }}>{item.year}</Text>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <UserOutlined style={{ color: item.color, marginRight: '8px' }} />
-                  <Text style={{ color: '#666' }}>{item.participants}</Text>
-                </div>
+                {sectionKey !== 'documentary' && (
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <UserOutlined style={{ color: item.color, marginRight: '8px' }} />
+                    <Text style={{ color: '#666' }}>{item.participants}</Text>
+                  </div>
+                )}
 
                 {/* 並排的兩個播放按鈕，文字不同 */}
                 <div style={{ marginTop: '8px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
@@ -335,7 +339,7 @@ const Variety = () => {
             gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
             gap: '20px'
           }}>
-            {data.map(renderVarietyCard)}
+            {data.map((item) => renderVarietyCard(item, sectionKey))}
           </div>
         )}
       </div>
@@ -474,7 +478,7 @@ const Variety = () => {
                     gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
                     gap: '20px'
                   }}>
-                    {birthdayByYear[year].map(renderBirthdayCard)}
+                    {birthdayByYear[year].map((item) => renderBirthdayCard(item, 'birthday'))}
                   </div>
                 )}
               </div>

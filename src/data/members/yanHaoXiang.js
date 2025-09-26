@@ -187,8 +187,7 @@ variety: [
       role: '楚天',
       year: '2015-03-07',
       type: '電影',
-      description: '',
-      image: '/public/yan-haoxiang.jpg'
+      description: ''
     },
     {
       id: 'yhx_movie_002',
@@ -196,8 +195,8 @@ variety: [
       role: '司無邪',
       year: '2015',
       type: '電影',
-      description: '',
-      image: '/public/yan-haoxiang.jpg'
+        description: '',
+        image: '/images/members/yan-haoxiang.jpg'
     },
     {
         id: 'yhx_movie_003',
@@ -205,8 +204,7 @@ variety: [
         role: '嚴邈邈',
         year: '2016-10-14',
         type: '迷你劇',
-        description: 'TF家族自製劇',
-        image: '/public/yan-haoxiang.jpg'
+        description: 'TF家族自製劇'
       },
   ],
 

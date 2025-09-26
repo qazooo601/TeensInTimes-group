@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, Typography, Badge, Tag, Space, Avatar } from 'antd';
-import { FireOutlined, StarOutlined, CalendarOutlined, EnvironmentOutlined, BankOutlined } from '@ant-design/icons';
+import { Card, Typography, Badge, Tag, Space, Avatar, Button } from 'antd';
+import { FireOutlined, StarOutlined, CalendarOutlined, EnvironmentOutlined, BankOutlined, PlayCircleOutlined, VideoCameraOutlined, FileTextOutlined } from '@ant-design/icons';
 import { concertsData } from '../data/concertsData';
 
 const { Title, Paragraph, Text } = Typography;
@@ -16,10 +16,119 @@ const Concerts = () => {
       case 'online':
         return <Tag color="blue">線上</Tag>;
       case 'cancelled':
-        return <Tag color="red">已取消</Tag>;
+        return <Tag color="red">取消</Tag>;
       default:
         return <Tag color="default">未知</Tag>;
     }
+  };
+
+  const renderVideoButtons = (videoLinks) => {
+    if (!videoLinks) return null;
+
+    const buttons = [];
+
+    // 演唱會影片
+    if (videoLinks.concert) {
+      if (typeof videoLinks.concert === 'object') {
+        // 多日演唱會
+        Object.keys(videoLinks.concert).forEach(day => {
+          if (videoLinks.concert[day] && videoLinks.concert[day].trim() !== '') {
+            buttons.push(
+              <Button
+                key={`concert-${day}`}
+                type="primary"
+                icon={<PlayCircleOutlined />}
+                size="small"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open(videoLinks.concert[day], '_blank');
+                }}
+                style={{
+                  backgroundColor: '#2299C9',
+                  borderColor: '#2299C9',
+                  borderRadius: '15px',
+                  margin: '2px'
+                }}
+              >
+                演唱會 {day}
+              </Button>
+            );
+          }
+        });
+      } else if (videoLinks.concert && videoLinks.concert.trim() !== '') {
+        // 單日演唱會
+        buttons.push(
+          <Button
+            key="concert"
+            type="primary"
+            icon={<PlayCircleOutlined />}
+            size="small"
+            onClick={(e) => {
+              e.stopPropagation();
+              window.open(videoLinks.concert, '_blank');
+            }}
+            style={{
+              backgroundColor: '#2299C9',
+              borderColor: '#2299C9',
+              borderRadius: '15px',
+              margin: '2px'
+            }}
+          >
+            演唱會
+          </Button>
+        );
+      }
+    }
+
+    // 聯排影片
+    if (videoLinks.rehearsal && videoLinks.rehearsal.trim() !== '') {
+      buttons.push(
+        <Button
+          key="rehearsal"
+          type="default"
+          icon={<VideoCameraOutlined />}
+          size="small"
+          onClick={(e) => {
+            e.stopPropagation();
+            window.open(videoLinks.rehearsal, '_blank');
+          }}
+          style={{
+            borderRadius: '15px',
+            margin: '2px'
+          }}
+        >
+          聯排
+        </Button>
+      );
+    }
+
+    // 短片
+    if (videoLinks.short && videoLinks.short.trim() !== '') {
+      buttons.push(
+        <Button
+          key="short"
+          type="default"
+          icon={<FileTextOutlined />}
+          size="small"
+          onClick={(e) => {
+            e.stopPropagation();
+            window.open(videoLinks.short, '_blank');
+          }}
+          style={{
+            borderRadius: '15px',
+            margin: '2px'
+          }}
+        >
+          短片
+        </Button>
+      );
+    }
+
+    return buttons.length > 0 ? (
+      <div style={{ marginTop: '12px', display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+        {buttons}
+      </div>
+    ) : null;
   };
 
   return (
@@ -103,6 +212,9 @@ const Concerts = () => {
                   <Text>{concert.venue}</Text>
                 </div>
               </Space>
+
+              {/* 影片連結按鈕 */}
+              {renderVideoButtons(concert.videoLinks)}
             </Card>
           );
         })}

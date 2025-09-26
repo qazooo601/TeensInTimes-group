@@ -162,8 +162,7 @@ export const zhangZhenYuanDetails = {
       role: '藍若空',
       year: '2015-03-07',
       type: '電影',
-      description: '',
-      image: '/public/zhang-zhenyuan.jpg'
+      description: ''
     },
     {
       id: 'zzy_movie_002',
@@ -171,8 +170,7 @@ export const zhangZhenYuanDetails = {
       role: '熙妙空',
       year: '2015',
       type: '電影',
-      description: '',
-      image: '/public/zhang-zhenyuan.jpg'
+      description: ''
     },
     {
       id: 'zzy_movie_003',
@@ -180,8 +178,7 @@ export const zhangZhenYuanDetails = {
       role: '新四軍戰士小柴火',
       year: '2022-04-14',
       type: '話劇',
-      description: '學校大一作品',
-      image: '/public/zhang-zhenyuan.jpg'
+      description: '學校大一作品'
     },
     {
       id: 'zzy_movie_004',
@@ -189,8 +186,7 @@ export const zhangZhenYuanDetails = {
       role: '高覺慧',
       year: '2023-07-03',
       type: '音樂劇',
-      description: '中央戲劇學院實驗劇團音樂劇．杭州運河大劇院',
-      image: '/public/zhang-zhenyuan.jpg'
+      description: '中央戲劇學院實驗劇團音樂劇．杭州運河大劇院'
     },
     {
       id: 'zzy_movie_005',
@@ -198,8 +194,7 @@ export const zhangZhenYuanDetails = {
       role: '',
       year: '2024-12-12~17',
       type: '音樂劇',
-      description: '中央戲劇學院音樂劇系2021級音樂劇表演班畢業演出',
-      image: '/public/zhang-zhenyuan.jpg'
+      description: '中央戲劇學院音樂劇系2021級音樂劇表演班畢業演出'
     },
   ],
 

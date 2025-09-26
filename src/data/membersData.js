@@ -9,7 +9,7 @@ export const membersData = [
     birthday: '2002-12-12',
     fanName: '小氣球',
     supportColor: ['#9A91F2', '#EAF2FF'],
-    image: '/ma-jiaqi.jpg',
+    image: '/images/members/ma-jiaqi.jpg',
     emoji: '🎈',
     position: '隊長',
     content: '馬嘉祺，時代少年團隊長，擁有出色的領導能力和音樂才華。作為隊長，他總是能夠帶領團隊前進，在舞台上展現出強大的氣場和專業的表演能力。'
@@ -23,7 +23,7 @@ export const membersData = [
     birthday: '2002-02-24',
     fanName: '比臨星',
     supportColor: ['#FFD700', '#FFD700'],
-    image: '/ding-chengxin.jpg',
+    image: '/images/members/ding-chengxin.jpg',
     emoji: '⭐',
     position: '主舞',
     content: '丁程鑫，時代少年團主舞，舞蹈實力出眾。他的舞蹈動作流暢有力，在舞台上總是能夠吸引所有人的目光，是團隊中不可或缺的舞蹈擔當。'
@@ -37,7 +37,7 @@ export const membersData = [
     birthday: '2004-03-04',
     fanName: '小海螺',
     supportColor: ['#63C3DE', '#F9F9FB'],
-    image: '/song-yaxuan.jpg',
+    image: '/images/members/song-yaxuan.jpg',
     emoji: '🐚',
     position: '主唱',
     content: '宋亞軒，時代少年團主唱，擁有清澈的嗓音。他的歌聲溫柔動人，能夠觸動聽眾的心靈，是團隊中重要的聲音擔當。'
@@ -51,7 +51,7 @@ export const membersData = [
     birthday: '2005-09-23',
     fanName: '滿月',
     supportColor: ['#FFFFFF', '#A1A3A6'],
-    image: '/liu-yaowen.jpg',
+    image: '/images/members/liu-yaowen.jpg',
     emoji: '🌕',
     position: '主舞',
     content: '劉耀文，時代少年團主舞，年紀最小但實力不容小覷。他的舞蹈充滿活力和創意，在舞台上總是能夠帶來驚喜的表演。'
@@ -65,7 +65,7 @@ export const membersData = [
     birthday: '2003-04-16',
     fanName: '真知棒',
     supportColor: ['#C0EBD7', '#F98D74'],
-    image: '/zhang-zhenyuan.jpg',
+    image: '/images/members/zhang-zhenyuan.jpg',
     emoji: '🍭',
     position: '主唱',
     content: '張真源，時代少年團主唱，音樂才華出眾。他的歌聲富有感染力，能夠完美詮釋各種風格的歌曲，是團隊中重要的音樂擔當。'
@@ -79,7 +79,7 @@ export const membersData = [
     birthday: '2004-08-16',
     fanName: '鹽汽水',
     supportColor: ['#FF5546', '#FF5546'],
-    image: '/yan-haoxiang.jpg',
+    image: '/images/members/yan-haoxiang.jpg',
     emoji: '🥤',
     position: '主舞',
     content: '嚴浩翔，時代少年團主舞，舞台表現力強。他的舞蹈充滿個性和魅力，在舞台上總是能夠展現出獨特的風格和氣質。'
@@ -93,7 +93,7 @@ export const membersData = [
     birthday: '2004-06-15',
     fanName: '深海',
     supportColor: ['#ADD5A2', '#ADD5A2'],
-    image: '/he-junlin.jpg',
+    image: '/images/members/he-junlin.jpg',
     emoji: '🌊',
     position: '主唱',
     content: '賀峻霖，時代少年團主唱，多才多藝。他不僅擁有出色的歌唱實力，還具備多種才藝，是團隊中的全能型成員。'

@@ -135,7 +135,7 @@ const AppLayout = ({ children, user, onLogout }) => {
           }}
         >
           <img
-            src="/logo.jpg"
+            src="/images/members/logo.jpg"
             alt="時代少年團"
             style={{
               height: '40px',
@@ -187,7 +187,7 @@ const AppLayout = ({ children, user, onLogout }) => {
           onClick={() => window.location.href = '/'}
         >
           <img
-            src="/logo.jpg"
+            src="/images/members/logo.jpg"
             alt="時代少年團"
             style={{
               height: '32px',
