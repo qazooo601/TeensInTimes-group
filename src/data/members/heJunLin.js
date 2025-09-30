@@ -92,7 +92,7 @@ export const heJunLinDetails = {
     {
       id: 'hjl_variety_006',
       title: '令人心動的offer第五季',
-      role: '',
+      role: '加油團',
       year: '2023-09-26',
       description: ''
     },
@@ -106,7 +106,7 @@ export const heJunLinDetails = {
     {
       id: 'hjl_variety_008',
       title: '令人心動的offer第七季',
-      role: '觀察團',
+      role: '加油團',
       year: '2025-09-12',
       description: ''
     },

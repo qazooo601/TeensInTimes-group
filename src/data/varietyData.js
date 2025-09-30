@@ -18,7 +18,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_002',
     title: '少年梦游记',
-    category: '',
+    category: '旅遊',
     year: '2020-01-09',
     participants: '全體成員',
     description: '',
@@ -31,7 +31,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_003',
     title: '春节太闹腾2020',
-    category: '',
+    category: '樓晚',
     year: '2020-01-31',
     participants: '全體成員',
     description: '',
@@ -44,7 +44,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_004',
     title: '我们的新家',
-    category: '',
+    category: '團綜',
     year: '2020-09-09',
     participants: '全體成員',
     description: '',
@@ -57,7 +57,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_005',
     title: '少年ON FIRE',
-    category: '',
+    category: '競技舞台',
     year: '2020-09-26',
     participants: '時代少年團 / 朱志鑫 / 蘇新皓',
     description: '',
@@ -70,7 +70,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_006',
     title: '春节太闹腾2021',
-    category: '',
+    category: '樓晚',
     year: '2021-02-12',
     participants: '全體成員',
     description: '',
@@ -83,7 +83,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_007',
     title: '五百天特别企划晚安信',
-    category: '',
+    category: '紀錄',
     year: '2021-04-07',
     participants: '全體成員',
     description: '',
@@ -96,7 +96,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_008',
     title: '少年ON FIRE 2',
-    category: '',
+    category: '競技舞台',
     year: '2021-04-02',
     participants: '宋亞軒 / 劉耀文 / 嚴浩翔 / 賀峻霖 / 三代練習生',
     description: '',
@@ -109,7 +109,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_009',
     title: '五月粉丝见面会',
-    category: '',
+    category: '音樂舞台',
     year: '2021-07-05',
     participants: '宋亞軒 / 劉耀文 / 嚴浩翔 / 賀峻霖',
     description: '',
@@ -122,7 +122,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_010',
     title: '这福气给你要不要',
-    category: '',
+    category: '團綜',
     year: '2021-10-16',
     participants: '全體成員',
     description: '',
@@ -135,7 +135,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_011',
     title: '火力全开演唱会-幕后花絮',
-    category: '',
+    category: '音樂舞台/紀錄片',
     year: '2021-11-26',
     participants: '全體成員',
     description: '',
@@ -148,7 +148,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_012',
     title: '春节太闹腾 2022',
-    category: '',
+    category: '樓晚',
     year: '2022-02-01~02-07',
     participants: '全體成員',
     description: '',
@@ -161,7 +161,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_013',
     title: '哥弟出游记',
-    category: '',
+    category: '旅遊',
     year: '2022-04-08',
     participants: '丁程鑫 / 劉耀文 / 張真源',
     description: '',
@@ -174,7 +174,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_014',
     title: '循梦',
-    category: '舞台',
+    category: '音樂舞台',
     year: '2022-05-21',
     participants: '丁程鑫 / 劉耀文 / 張真源',
     description: '',
@@ -187,7 +187,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_015',
     title: '小炸的暑假生活22',
-    category: '',
+    category: '暑期生活',
     year: '2022-06-17',
     participants: '全體成員',
     description: '',
@@ -200,7 +200,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_016',
     title: '时代夏令营',
-    category: '',
+    category: '團綜',
     year: '2022-07-06～09-17',
     participants: '全體成員',
     description: '',
@@ -213,7 +213,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_017',
     title: '浅炸一下吧!',
-    category: '',
+    category: '日常生活',
     year: '2022-10-05~至今',
     participants: '全體成員',
     description: '',
@@ -225,8 +225,8 @@ export const selfMadeVariety = [
   },
   {
     id: 'sdfjVariety_018',
-    title: '三时有声-微電影',
-    category: '',
+    title: '三时有声',
+    category: '微電影',
     year: '2023-01-02',
     participants: '全體成員',
     description: '',
@@ -239,7 +239,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_019',
     title: '春节太闹腾2023',
-    category: '',
+    category: '樓晚',
     year: '2023-01-21',
     participants: '全體成員',
     description: '',
@@ -252,7 +252,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_020',
     title: '時代夏令營2',
-    category: '',
+    category: '團綜',
     year: '2023-04-14',
     participants: '全體成員',
     description: '',
@@ -265,7 +265,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_021',
     title: '三人行',
-    category: '',
+    category: '團綜',
     year: '2023-07-04',
     participants: '全體成員',
     description: '',
@@ -278,7 +278,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_022',
     title: '小炸的暑假生活23',
-    category: '',
+    category: '暑期生活',
     year: '2023-07-12',
     participants: '全體成員',
     description: '',
@@ -291,7 +291,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_023',
     title: '时代有冬西',
-    category: '',
+    category: '旅遊',
     year: '2024-01-26',
     participants: '全體成員',
     description: '',
@@ -304,7 +304,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_024',
     title: '2024十八楼联欢晚会',
-    category: '',
+    category: '樓晚',
     year: '2024-02-10',
     participants: '全體成員',
     description: '',
@@ -317,7 +317,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_025',
     title: '时代顶呱呱',
-    category: '',
+    category: '團綜',
     year: '2024-10-29',
     participants: '全體成員',
     description: '',
@@ -330,7 +330,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_026',
     title: '2025十八楼联欢晚会',
-    category: '',
+    category: '樓晚',
     year: '2025-01-28',
     participants: '全體成員',
     description: '',
@@ -343,7 +343,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_027',
     title: '非去不可',
-    category: '',
+    category: '旅遊',
     year: '2025-03-11',
     participants: '全體成員',
     description: '',
@@ -356,7 +356,7 @@ export const selfMadeVariety = [
   {
     id: 'sdfjVariety_028',
     title: '小炸的暑假生活2025',
-    category: '',
+    category: '暑期生活',
     year: '2025-07-16',
     participants: '全體成員',
     description: '',
@@ -1260,185 +1260,276 @@ export const externalVariety = [
   {
     id: 'externalVariety_001',
     title: '天天向上',
-    category: '經典節目',
+    category: '娛樂脫口秀',
     year: '2017-04-14',
     participants: '完顏團',
-    description: '和董子健、梅婷等作为嘉賓',
+    description: '做了什麼',
     emoji: '🎪',
     color: '#87CEEB',
     episodes: 1,
-    platform: '湖南衛視',
-    rating: 9.0
+    videoUrl: 'https://youtu.be/cFtPD_1K3YE?si=uOkz6WNw5Ee_lFhb',
+    coverImage: '/images/variety/external/天天向上.jpg'
   },
   {
     id: 'externalVariety_002',
     title: '快樂大本營',
-    category: '經典節目',
+    category: '嘉賓遊戲綜藝',
     year: '2017-11-11',
     participants: '台風十子',
-    description: '湖南衛視經典綜藝節目，時代少年團多次參與',
+    description: '超人誕生日記首次演出，和吳尊、潘粤明作為嘉賓',
     emoji: '🎪',
     color: '#87CEEB',
     episodes: 1,
-    platform: '湖南衛視',
-    rating: 9.0
+    videoUrl: 'https://youtu.be/jmBg8CS8kbI?si=59FAjL5N88LZCuDJ',
+    coverImage: '/images/variety/external/17快樂大本營.jpg'
   },
   {
     id: 'externalVariety_003',
-    title: '夏日少年派',
-    category: '夏日特輯',
-    year: '2021',
-    participants: '部分成員',
-    description: '湖南衛視夏日特別節目，展現少年們的活力',
-    emoji: '☀️',
+    title: '跨次元新星',
+    category: '虛擬人物才藝競演',
+    year: '2020-11-14、17、21、24',
+    participants: '時代少年團',
+    description: '參與：第5期上、第5期下、第6期上、第6期下',
+    emoji: '🎪',
     color: '#87CEEB',
-    episodes: 12,
-    platform: '湖南衛視',
-    rating: 8.8
+    episodes: 4,
+    videoUrl: 'https://youtu.be/d_z4yJKbc8M?si=kzphkJRaOjwXi7nK',
+    coverImage: '/images/variety/external/跨次元新星.jpg'
   },
   {
     id: 'externalVariety_004',
-    title: '萌探探探案',
-    category: '推理遊戲',
-    year: '2021-2022',
-    participants: '部分成員',
-    description: '推理類綜藝節目，展現成員們的智慧與幽默',
+    title: '接招吧！前輩',
+    category: '互動挑戰',
+    year: '2021-02-05',
+    participants: '時代少年團',
+    description: '少年強則國強，社會生活中我們常常感受到00後青年的責任與力量，同樣在電視熒幕中，觀眾也迫切希望看到展示中國青年正能量價值觀，洋溢新生代演員、歌手全新面貌的綜藝節目。',
     emoji: '🔍',
     color: '#87CEEB',
-    episodes: 6,
-    platform: '愛奇藝',
-    rating: 9.1
+    episodes: 12,
+    videoUrl: 'https://www.youtube.com/watch?v=2JWjgxlW8zU&list=PLzcpmqe6SErlrxZARqgfHMurwyWsHqqqh&index=12',
+    coverImage: '/images/variety/external/接招吧！前輩.jpg'
   },
   {
     id: 'externalVariety_005',
-    title: '王牌對王牌',
+    title: '王牌對王牌第六季',
     category: '遊戲競技',
-    year: '2022-2023',
-    participants: '部分成員',
-    description: '浙江衛視王牌綜藝，參與各種遊戲挑戰',
+    year: '2021-02-12',
+    participants: '時代少年團',
+    description: '第三期主題：喜劇王牌。馬嘉祺、丁程鑫、張真源、嚴浩翔在喜劇天團戰隊，宋亞軒、劉耀文、賀峻霖在王牌家族戰隊。時代少年團變身葫蘆娃帥氣群舞一秒換裝！',
     emoji: '🎯',
     color: '#87CEEB',
-    episodes: 4,
-    platform: '浙江衛視',
-    rating: 8.9
+    episodes: 1,
+    videoUrl: 'https://www.youtube.com/watch?v=jqRgukv-Jqk&list=PLnuZECcOYgVNFnKbCA3nrxoSLXqva5YYw&index=3',
+    coverImage: '/images/variety/external/王牌对王牌6-3.jpg'
   },
   {
     id: 'externalVariety_006',
-    title: '無限超越班',
-    category: '演技競技',
-    year: '2022-2023',
-    participants: '劉耀文',
-    description: '演技競技類綜藝，展現演員的專業素養',
-    emoji: '🎭',
+    title: '王牌對王牌第六季',
+    category: '遊戲競技',
+    year: '2021-03-19',
+    participants: '時代少年團',
+    description: '第八期主題：王牌音樂節。隊名：燃爆舞臺天團',
+    emoji: '🎯',
     color: '#87CEEB',
-    episodes: 12,
-    platform: '優酷',
-    rating: 8.7
+    episodes: 1,
+    videoUrl: 'https://www.youtube.com/watch?v=OFj_YuH8GnY&list=PLnuZECcOYgVNFnKbCA3nrxoSLXqva5YYw&index=8',
+    coverImage: '/images/variety/external/王牌对王牌6-8.jpg'
   },
   {
     id: 'externalVariety_007',
-    title: '奔跑吧',
-    category: '戶外競技',
-    year: '2023-2025',
-    participants: '張真源',
-    description: '浙江衛視經典戶外競技綜藝，展現體能與智慧',
-    emoji: '🏃',
+    title: '快樂大本營',
+    category: '嘉賓遊戲綜藝',
+    year: '2021-03-13',
+    participants: '時代少年團',
+    description: '主題：親愛的少年啊',
+    emoji: '🎭',
     color: '#87CEEB',
-    episodes: 30,
-    platform: '浙江衛視',
-    rating: 9.3
+    episodes: 1,
+    videoUrl: 'https://www.youtube.com/watch?v=Zm_atyz30yo&t=807s',
+    coverImage: '/images/variety/external/tnt快樂大本營.jpg'
   },
   {
     id: 'externalVariety_008',
-    title: '極限挑戰',
-    category: '戶外挑戰',
-    year: '2023-2024',
-    participants: '嚴浩翔',
-    description: '東方衛視極限挑戰綜藝，考驗體能與智慧',
-    emoji: '⚡',
+    title: '你好，星期六',
+    category: '棚內趣味藝能綜藝',
+    year: '2022-08-13',
+    participants: '時代少年團',
+    description: '時代少年團新歌舞台首秀！娜扎檀健次玩遊戲竟有兩副面孔。兔子裝扮',
+    emoji: '🏃',
     color: '#87CEEB',
-    episodes: 24,
-    platform: '東方衛視',
-    rating: 9.0
+    episodes: 1,
+    videoUrl: 'https://www.youtube.com/watch?v=rKYMtKiRnrw',
+    coverImage: '/images/variety/external/20220813你好星期六.jpg'
   },
   {
     id: 'externalVariety_009',
-    title: '聲生不息',
-    category: '音樂競技',
-    year: '2023',
-    participants: '宋亞軒',
-    description: '湖南衛視音樂競技綜藝，展現音樂才華',
-    emoji: '🎵',
+    title: '你好，星期六',
+    category: '棚內趣味藝能綜藝',
+    year: '2022-08-15',
+    participants: '時代少年團',
+    description: '納涼企劃：時代少年團互曝睡覺「糗事」 ！玩臥底遊戲語出驚人爆笑連連',
+    emoji: '🏃',
     color: '#87CEEB',
-    episodes: 12,
-    platform: '湖南衛視',
-    rating: 9.4
+    episodes: 1,
+    videoUrl: 'https://www.youtube.com/watch?v=hvbG8JE4AKQ',
+    coverImage: '/images/variety/external/20220815你好星期六.jpg'
   },
   {
     id: 'externalVariety_010',
-    title: '我們的歌',
-    category: '音樂合作',
-    year: '2022-2023',
-    participants: '馬嘉祺',
-    description: '東方衛視音樂合作綜藝，與前輩歌手合作',
-    emoji: '🎤',
+    title: '你好，星期六',
+    category: '棚內趣味藝能綜藝',
+    year: '2023-02-04',
+    participants: '時代少年團',
+    description: '時代少年團齊聚好六鬧元宵 全員合唱經典致敬前輩',
+    emoji: '⚡',
     color: '#87CEEB',
-    episodes: 20,
-    platform: '東方衛視',
-    rating: 9.6
+    episodes: 1,
+    videoUrl: 'https://www.youtube.com/watch?v=VMoPpC9-5VY',
+    coverImage: '/images/variety/external/20230204你好星期六.jpg'
   },
   {
     id: 'externalVariety_011',
-    title: '演員請就位',
-    category: '演技競技',
-    year: '2020-2021',
-    participants: '丁程鑫、馬嘉祺',
-    description: '騰訊視頻演技競技綜藝，展現演員專業素養',
-    emoji: '🎬',
+    title: '你好，星期六',
+    category: '棚內趣味藝能綜藝',
+    year: '2023-09-02',
+    participants: '時代少年團',
+    description: '時代少年團最強潑水遊戲 孟子義經典“覆制粘貼式”答題',
+    emoji: '🎵',
     color: '#87CEEB',
-    episodes: 16,
-    platform: '騰訊視頻',
-    rating: 9.2
+    episodes: 1,
+    videoUrl: 'https://www.youtube.com/watch?v=6IU9z-ba_pQ',
+    coverImage: '/images/variety/external/20230902你好星期六.jpg'
   },
   {
     id: 'externalVariety_012',
-    title: '這就是街舞',
-    category: '舞蹈競技',
-    year: '2023-2024',
-    participants: '丁程鑫',
-    description: '優酷舞蹈競技綜藝，展現舞蹈才華',
-    emoji: '💃',
+    title: '王牌對王牌第八季',
+    category: '遊戲競技',
+    year: '	2023-11-17',
+    participants: '時代少年團',
+    description: '第四期主題：王牌國風音樂節。隊名：樓外樓',
+    emoji: '🎵',
     color: '#87CEEB',
-    episodes: 12,
-    platform: '優酷',
-    rating: 9.1
+    episodes: 1,
+    videoUrl: 'https://www.youtube.com/watch?v=msOY_BwFMrk',
+    coverImage: '/images/variety/external/王牌对王牌8-4.jpg'
   },
   {
     id: 'externalVariety_013',
-    title: '花兒與少年',
-    category: '旅行真人秀',
-    year: '2022-2024',
-    participants: '丁程鑫',
-    description: '湖南衛視旅行真人秀，展現成員們的旅行生活',
-    emoji: '🌺',
+    title: '這是我的島',
+    category: '海島探索成長',
+    year: '2024-04-12',
+    participants: '時代少年團',
+    description: '主要嘉賓還有蔡國慶、歐豪、侯雯元、楊迪，錄製地點：海南省萬寧市神州半島。還推出兩檔衍生節目：《島民生活大放送》、《闖海少年編輯部》',
+    emoji: '🎤',
     color: '#87CEEB',
-    episodes: 18,
-    platform: '湖南衛視',
-    rating: 8.8
+    episodes: 10,
+    videoUrl: 'https://www.youtube.com/watch?v=glOmlB4XrVY&list=PLB_lie3fxsanNYEd6tZg8El_BsZZjYhZX&index=24',
+    coverImage: '/images/variety/external/這是我的島.jpg'
   },
   {
     id: 'externalVariety_014',
-    title: '令人心動的offer',
-    category: '職場觀察',
-    year: '2023-2025',
-    participants: '賀峻霖',
-    description: '騰訊視頻職場觀察綜藝，展現職場智慧',
+    title: '你好星期六',
+    category: '棚內趣味藝能綜藝',
+    year: '2024-07-27',
+    participants: '時代少年團',
+    description: '時代少年團化身好六機器人 嘉賓體驗AI新互動',
+    emoji: '🎤',
+    color: '#87CEEB',
+    episodes: 1,
+    videoUrl: 'https://www.youtube.com/watch?v=8o84PcUjgxI',
+    coverImage: '/images/variety/external/20240727你好星期六.jpg'
+  },
+  {
+    id: 'externalVariety_015',
+    title: '你好星期六',
+    category: '棚內趣味藝能綜藝',
+    year: '2024-08-10',
+    participants: '時代少年團',
+    description: '時代少年團拍攝主題大片 最終誰能登上好六街限定舞台',
+    emoji: '🎬',
+    color: '#87CEEB',
+    episodes: 1,
+    videoUrl: 'https://www.youtube.com/watch?v=0LJ6nIC5veU',
+    coverImage: '/images/variety/external/20240810你好星期六.jpg'
+  },
+  {
+    id: 'externalVariety_016',
+    title: '戰至巔峰第三季',
+    category: '電競',
+    year: '2024-10-19',
+    participants: '時代少年團',
+    description: '第八期、第九期、第十期',
+    emoji: '💃',
+    color: '#87CEEB',
+    episodes: 3,
+    videoUrl: 'https://www.youtube.com/watch?v=M1Wo_b9LNtg&list=PLj_FQtvyEQOX4oXd8Zfk8cSZvHX-h_Duk&index=23',
+    coverImage: '/images/variety/external/戰至巔峰3.jpg'
+  },
+  {
+    id: 'externalVariety_017',
+    title: '這是我的西遊',
+    category: '探索成長',
+    year: '2025-04-25',
+    participants: '時代少年團',
+    description: '以現代生活為背景，融合西遊元素，將“西天取經路”、“八十一難”與現代生活相契合，打造兼具文化內涵和娛樂趣味的“現實版西遊”新體驗。張真源缺席第三期',
+    emoji: '🎤',
+    color: '#87CEEB',
+    episodes: 10,
+    videoUrl: '',
+    coverImage: '/images/variety/external/這是我的西遊.jpg'
+  },
+  {
+    id: 'externalVariety_018',
+    title: '麻花特開心第二季',
+    category: '團建遊戲',
+    year: '2025-06-14',
+    participants: '時代少年團',
+    description: '以麻花好友的身分參與第一期',
     emoji: '💼',
     color: '#87CEEB',
-    episodes: 24,
-    platform: '騰訊視頻',
-    rating: 9.0
-  }
+    episodes: 1,
+    videoUrl: 'https://www.youtube.com/watch?v=D8BK1lZzFW4',
+    coverImage: '/images/variety/external/麻花特開心2.jpg'
+  },
+  {
+    id: 'externalVariety_019',
+    title: '你好，星期六',
+    category: '棚內趣味藝能綜藝',
+    year: '2025-07-12',
+    participants: '時代少年團',
+    description: '時代少年團上演"真假兄弟局" 謝娜乘風創始人轉型"大哥"',
+    emoji: '💼',
+    color: '#87CEEB',
+    episodes: 1,
+    videoUrl: 'https://www.youtube.com/watch?v=rAbSbTMKZv0&t=5162s',
+    coverImage: '/images/variety/external/20250712你好星期六.jpg'
+  },
+  {
+    id: 'externalVariety_020',
+    title: '戰至巔峰第四季',
+    category: '電競',
+    year: '2025-07-22',
+    participants: '時代少年團',
+    description: '手遊：王者榮耀。戰隊名稱：SDG戰隊，。教練：花海(羅思源)',
+    emoji: '🎮',
+    color: '#87CEEB',
+    episodes: 11,
+    videoUrl: '',
+    coverImage: '/images/variety/external/戰至巔峰4.jpg'
+  },
+  {
+    id: 'externalVariety_021',
+    title: '王牌對王牌第九季',
+    category: '遊戲競技',
+    year: '	2025-09-05',
+    participants: '時代少年團',
+    description: '第二期主題：牛馬細胞生存記。隊名：少年強隊',
+    emoji: '🎵',
+    color: '#87CEEB',
+    episodes: 1,
+    videoUrl: 'https://youtu.be/uG8S2alAuFU?si=zmaPJ5ChNCo2Ff0w',
+    coverImage: '/images/variety/external/王牌对王牌9-2.jpg'
+  },
 ];
 
 // 表演舞台(未開始)
@@ -1605,6 +1696,19 @@ export const tfFamilyPeriodVariety = [
   },
   {
     id: 'tfFamily_010',
+    title: '人气好物测评',
+    category: '自製綜藝',
+    year: '2017-07-15',
+    participants: '二代練習生',
+    description: '重慶美食/重慶夜景/化妝品/美顏大頭貼/出租房',
+    emoji: '🎯',
+    color: '#FFA500',
+    episodes: '5集',
+    videoUrl: 'https://space.bilibili.com/3670216/search?keyword=%E4%BA%BA%E6%B0%94%E5%A5%BD%E7%89%A9%E6%B5%8B%E8%AF%84',
+    coverImage: '/images/variety/tf-family/人气好物测评.jpg'
+  },
+  {
+    id: 'tfFamily_011',
     title: 'TF家族2017夏季运动会',
     category: '運動會',
     year: '2017-07-15',
@@ -1617,7 +1721,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf2017夏季运动会.jpg'
   },
   {
-    id: 'tfFamily_011',
+    id: 'tfFamily_012',
     title: '2017，夏',
     category: '紀錄片',
     year: '2017-08-04',
@@ -1630,7 +1734,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf2017，夏.jpg'
   },
   {
-    id: 'tfFamily_012',
+    id: 'tfFamily_013',
     title: '夏日嘉年华 - 夏日大作战',
     category: '音樂會',
     year: '2017-08-12',
@@ -1643,7 +1747,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/self-made/.jpg'
   },
   {
-    id: 'tfFamily_013',
+    id: 'tfFamily_014',
     title: '第二人生',
     category: '迷你劇',
     year: '2017-09-29',
@@ -1656,7 +1760,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf第二人生.jpg'
   },
   {
-    id: 'tfFamily_014',
+    id: 'tfFamily_015',
     title: '星期五练习生TF-FRIDAY',
     category: '自製綜藝',
     year: '2017-10-06',
@@ -1669,7 +1773,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf星期五练习生TF-FRIDAY.jpg'
   },
   {
-    id: 'tfFamily_015',
+    id: 'tfFamily_016',
     title: '冬日嘉年华 - DATE',
     category: '音樂會',
     year: '2017-12-29',
@@ -1682,7 +1786,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf冬日嘉年华.jpg'
   },
   {
-    id: 'tfFamily_016',
+    id: 'tfFamily_017',
     title: 'TF家族冬季运动会',
     category: '運動會',
     year: '2018-02-16',
@@ -1695,7 +1799,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf冬季运动会.jpg'
   },
   {
-    id: 'tfFamily_017',
+    id: 'tfFamily_018',
     title: '念念',
     category: '網劇',
     year: '2018-05-11',
@@ -1708,7 +1812,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf念念.jpg'
   },
   {
-    id: 'tfFamily_018',
+    id: 'tfFamily_019',
     title: 'TF家族2018冬季运动会',
     category: '運動會',
     year: '2018-12-22',
@@ -1721,7 +1825,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf2018冬季运动会.jpg'
   },
   {
-    id: 'tfFamily_019',
+    id: 'tfFamily_020',
     title: 'TF家族 新年音乐会 · 第一页',
     category: '音樂會',
     year: '2018-12-29',
@@ -1734,7 +1838,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf新年音乐会·第一页.jpg'
   },
   {
-    id: 'tfFamily_020',
+    id: 'tfFamily_021',
     title: 'TF家族《第一页》全纪录',
     category: '紀錄片',
     year: '2019-01-25',
@@ -1747,7 +1851,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf新年音乐会·第一页.jpg'
   },
   {
-    id: 'tfFamily_021',
+    id: 'tfFamily_022',
     title: 'TF家族 新年音乐会 · 重逢',
     category: '音樂會',
     year: '2020-01-11',
@@ -1760,7 +1864,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf新年音乐会·重逢.jpg'
   },
   {
-    id: 'tfFamily_022',
+    id: 'tfFamily_023',
     title: '2020TF家族夏季运动会',
     category: '運動會',
     year: '2020-06-14',
@@ -1773,7 +1877,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf2020夏季运动会.jpg'
   },
   {
-    id: 'tfFamily_023',
+    id: 'tfFamily_024',
     title: '2022TF家族夏日运动会',
     category: '運動會',
     year: '2022-08-05',
@@ -1786,7 +1890,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf2022夏日运动会1.jpg'
   },
   {
-    id: 'tfFamily_024',
+    id: 'tfFamily_025',
     title: '2022TF家族夏季运动会纪录片——凝聚',
     category: '紀錄片',
     year: '2022-08-12',
@@ -1799,7 +1903,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf2022夏季运动会纪录片1.jpg'
   },
   {
-    id: 'tfFamily_025',
+    id: 'tfFamily_026',
     title: '2024TF家族夏日运动会',
     category: '運動會',
     year: '2024-07-16',
@@ -1812,7 +1916,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf2024夏日运动会.jpg'
   },
   {
-    id: 'tfFamily_026',
+    id: 'tfFamily_027',
     title: '2024TF家族夏日运动会纪录片 ',
     category: '紀錄片',
     year: '2024-08-01',
@@ -1825,7 +1929,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf2024夏日运动会.jpg'
   },
   {
-    id: 'tfFamily_027',
+    id: 'tfFamily_028',
     title: '2025新年音乐会 · 热爱',
     category: '音樂會',
     year: '2025-01-18、19',
@@ -1838,7 +1942,7 @@ export const tfFamilyPeriodVariety = [
     coverImage: '/images/variety/tf-family/tf2025新年音乐会.jpg'
   },
   {
-    id: 'tfFamily_028',
+    id: 'tfFamily_029',
     title: '2025新年音乐会纪录片「星火」',
     category: '紀錄片',
     year: '2025',
