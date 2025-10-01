@@ -4,6 +4,7 @@ import { HeartOutlined, FireOutlined, TrophyOutlined, StarOutlined, TeamOutlined
 import { BsSinaWeibo } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import { membersData } from '../data/membersData';
+import { groupHonors } from '../data/honorsData';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -77,10 +78,11 @@ const Home = () => {
             }}
           >
             <div style={{ fontSize: '14px', lineHeight: '1.8' }}>
-              <div style={{ marginBottom: '8px' }}>🏆 2020年 亞洲音樂盛典 最佳新人獎</div>
-              <div style={{ marginBottom: '8px' }}>🎵 多首歌曲登上各大音樂平台排行榜</div>
-              <div style={{ marginBottom: '8px' }}>🌟 擁有數千萬粉絲的強大影響力</div>
-              <div>💫 多次獲得音樂獎項和媒體認可</div>
+              {groupHonors.map((honor) => (
+                <div key={honor.id} style={{ marginBottom: '8px' }}>
+                  {honor.type} {honor.date} | {honor.award}
+                </div>
+              ))}
             </div>
           </Card>
         </Col>

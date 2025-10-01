@@ -1255,7 +1255,7 @@ export const birthdayRecord = [
   }
 ];
 
-// 外務綜藝(未開始)
+// 外務綜藝(節目概要)
 export const externalVariety = [
   {
     id: 'externalVariety_001',
@@ -1263,7 +1263,7 @@ export const externalVariety = [
     category: '娛樂脫口秀',
     year: '2017-04-14',
     participants: '完顏團',
-    description: '做了什麼',
+    description: '節目概要：這一期的主題之一是「賞花」，主持人大張偉與TF家族一起到河南洛陽賞牡丹。',
     emoji: '🎪',
     color: '#87CEEB',
     episodes: 1,
@@ -1276,7 +1276,7 @@ export const externalVariety = [
     category: '嘉賓遊戲綜藝',
     year: '2017-11-11',
     participants: '台風十子',
-    description: '超人誕生日記首次演出，和吳尊、潘粤明作為嘉賓',
+    description: '節目概要：《超人誕生日記》首次演出，和吳尊、潘粤明作為嘉賓',
     emoji: '🎪',
     color: '#87CEEB',
     episodes: 1,
@@ -1289,7 +1289,7 @@ export const externalVariety = [
     category: '虛擬人物才藝競演',
     year: '2020-11-14、17、21、24',
     participants: '時代少年團',
-    description: '參與：第5期上、第5期下、第6期上、第6期下',
+    description: '參與：第5期上、第5期下、第6期上、第6期下。節目中演唱《姐姐真漂亮》',
     emoji: '🎪',
     color: '#87CEEB',
     episodes: 4,
@@ -1315,7 +1315,7 @@ export const externalVariety = [
     category: '遊戲競技',
     year: '2021-02-12',
     participants: '時代少年團',
-    description: '第三期主題：喜劇王牌。馬嘉祺、丁程鑫、張真源、嚴浩翔在喜劇天團戰隊，宋亞軒、劉耀文、賀峻霖在王牌家族戰隊。時代少年團變身葫蘆娃帥氣群舞一秒換裝！',
+    description: '第三期主題：喜劇王牌。\n馬嘉祺、丁程鑫、張真源、嚴浩翔在喜劇天團戰隊，宋亞軒、劉耀文、賀峻霖在王牌家族戰隊。\n節目標題：時代少年團變身葫蘆娃帥氣群舞一秒換裝！\n節目概要：',
     emoji: '🎯',
     color: '#87CEEB',
     episodes: 1,
@@ -1328,7 +1328,7 @@ export const externalVariety = [
     category: '遊戲競技',
     year: '2021-03-19',
     participants: '時代少年團',
-    description: '第八期主題：王牌音樂節。隊名：燃爆舞臺天團',
+    description: '第八期主題：王牌音樂節。\n隊名：燃爆舞臺天團。節目概要：',
     emoji: '🎯',
     color: '#87CEEB',
     episodes: 1,
@@ -1341,7 +1341,7 @@ export const externalVariety = [
     category: '嘉賓遊戲綜藝',
     year: '2021-03-13',
     participants: '時代少年團',
-    description: '主題：親愛的少年啊',
+    description: '該期主題：親愛的少年啊。節目概要：',
     emoji: '🎭',
     color: '#87CEEB',
     episodes: 1,
@@ -1350,11 +1350,24 @@ export const externalVariety = [
   },
   {
     id: 'externalVariety_008',
+    title: '夏日少年派',
+    category: '盲盒競技',
+    year: '2021-07-23',
+    participants: '時代少年團',
+    description: '丁程鑫、張真源為固定嘉賓，宋亞軒、劉耀文參與第3、4、5期，嚴浩翔、賀峻霖參與第6期，馬嘉祺、參與第9、10期。\n節目以「開盲盒」的形式挑戰經典歌舞、經典遊戲等。',
+    emoji: '🎭',
+    color: '#87CEEB',
+    episodes: 12,
+    videoUrl: 'https://www.youtube.com/watch?v=ATLJ2EYjmNM&list=PLUM8x224JrX-ZevY_RZIZsH2m4Avz1UyI',
+    coverImage: '/images/variety/external/夏日少年派.jpg'
+  },
+  {
+    id: 'externalVariety_009',
     title: '你好，星期六',
     category: '棚內趣味藝能綜藝',
     year: '2022-08-13',
     participants: '時代少年團',
-    description: '時代少年團新歌舞台首秀！娜扎檀健次玩遊戲竟有兩副面孔。兔子裝扮',
+    description: '節目標題：時代少年團新歌舞台首秀！娜扎檀健次玩遊戲竟有兩副面孔。\n節目概要：兔子裝扮',
     emoji: '🏃',
     color: '#87CEEB',
     episodes: 1,
@@ -1362,12 +1375,12 @@ export const externalVariety = [
     coverImage: '/images/variety/external/20220813你好星期六.jpg'
   },
   {
-    id: 'externalVariety_009',
+    id: 'externalVariety_010',
     title: '你好，星期六',
     category: '棚內趣味藝能綜藝',
     year: '2022-08-15',
     participants: '時代少年團',
-    description: '納涼企劃：時代少年團互曝睡覺「糗事」 ！玩臥底遊戲語出驚人爆笑連連',
+    description: '納涼企劃：時代少年團互曝睡覺「糗事」！玩臥底遊戲語出驚人爆笑連連。\n節目概要：',
     emoji: '🏃',
     color: '#87CEEB',
     episodes: 1,
@@ -1375,12 +1388,12 @@ export const externalVariety = [
     coverImage: '/images/variety/external/20220815你好星期六.jpg'
   },
   {
-    id: 'externalVariety_010',
+    id: 'externalVariety_011',
     title: '你好，星期六',
     category: '棚內趣味藝能綜藝',
     year: '2023-02-04',
     participants: '時代少年團',
-    description: '時代少年團齊聚好六鬧元宵 全員合唱經典致敬前輩',
+    description: '節目標題：時代少年團齊聚好六鬧元宵 全員合唱經典致敬前輩。\n節目概要：',
     emoji: '⚡',
     color: '#87CEEB',
     episodes: 1,
@@ -1388,12 +1401,12 @@ export const externalVariety = [
     coverImage: '/images/variety/external/20230204你好星期六.jpg'
   },
   {
-    id: 'externalVariety_011',
+    id: 'externalVariety_012',
     title: '你好，星期六',
     category: '棚內趣味藝能綜藝',
     year: '2023-09-02',
     participants: '時代少年團',
-    description: '時代少年團最強潑水遊戲 孟子義經典“覆制粘貼式”答題',
+    description: '節目標題：時代少年團最強潑水遊戲 孟子義經典"覆制粘貼式"答題。\n節目概要：',
     emoji: '🎵',
     color: '#87CEEB',
     episodes: 1,
@@ -1401,12 +1414,12 @@ export const externalVariety = [
     coverImage: '/images/variety/external/20230902你好星期六.jpg'
   },
   {
-    id: 'externalVariety_012',
+    id: 'externalVariety_013',
     title: '王牌對王牌第八季',
     category: '遊戲競技',
     year: '	2023-11-17',
     participants: '時代少年團',
-    description: '第四期主題：王牌國風音樂節。隊名：樓外樓',
+    description: '第四期主題：王牌國風音樂節。隊名：樓外樓。\n節目概要：',
     emoji: '🎵',
     color: '#87CEEB',
     episodes: 1,
@@ -1414,12 +1427,12 @@ export const externalVariety = [
     coverImage: '/images/variety/external/王牌对王牌8-4.jpg'
   },
   {
-    id: 'externalVariety_013',
+    id: 'externalVariety_014',
     title: '這是我的島',
     category: '海島探索成長',
     year: '2024-04-12',
     participants: '時代少年團',
-    description: '主要嘉賓還有蔡國慶、歐豪、侯雯元、楊迪，錄製地點：海南省萬寧市神州半島。還推出兩檔衍生節目：《島民生活大放送》、《闖海少年編輯部》',
+    description: '主要嘉賓還有蔡國慶、歐豪、侯雯元、楊迪，錄製地點：海南省萬寧市神州半島。\n還推出兩檔衍生節目：《島民生活大放送》、《闖海少年編輯部》',
     emoji: '🎤',
     color: '#87CEEB',
     episodes: 10,
@@ -1427,12 +1440,12 @@ export const externalVariety = [
     coverImage: '/images/variety/external/這是我的島.jpg'
   },
   {
-    id: 'externalVariety_014',
+    id: 'externalVariety_015',
     title: '你好星期六',
     category: '棚內趣味藝能綜藝',
     year: '2024-07-27',
     participants: '時代少年團',
-    description: '時代少年團化身好六機器人 嘉賓體驗AI新互動',
+    description: '節目標題：時代少年團化身好六機器人 嘉賓體驗AI新互動。\n節目概要：',
     emoji: '🎤',
     color: '#87CEEB',
     episodes: 1,
@@ -1440,12 +1453,12 @@ export const externalVariety = [
     coverImage: '/images/variety/external/20240727你好星期六.jpg'
   },
   {
-    id: 'externalVariety_015',
+    id: 'externalVariety_016',
     title: '你好星期六',
     category: '棚內趣味藝能綜藝',
     year: '2024-08-10',
     participants: '時代少年團',
-    description: '時代少年團拍攝主題大片 最終誰能登上好六街限定舞台',
+    description: '節目標題：時代少年團拍攝主題大片 最終誰能登上好六街限定舞台。\n節目概要：',
     emoji: '🎬',
     color: '#87CEEB',
     episodes: 1,
@@ -1453,7 +1466,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/20240810你好星期六.jpg'
   },
   {
-    id: 'externalVariety_016',
+    id: 'externalVariety_017',
     title: '戰至巔峰第三季',
     category: '電競',
     year: '2024-10-19',
@@ -1466,25 +1479,25 @@ export const externalVariety = [
     coverImage: '/images/variety/external/戰至巔峰3.jpg'
   },
   {
-    id: 'externalVariety_017',
+    id: 'externalVariety_018',
     title: '這是我的西遊',
     category: '探索成長',
     year: '2025-04-25',
     participants: '時代少年團',
-    description: '以現代生活為背景，融合西遊元素，將“西天取經路”、“八十一難”與現代生活相契合，打造兼具文化內涵和娛樂趣味的“現實版西遊”新體驗。張真源缺席第三期',
+    description: '以現代生活為背景，融合西遊元素，將"西天取經路"、"八十一難"s與現代生活相契合，打造兼具文化內涵和娛樂趣味的"現實版西遊"新體驗。\n張真源缺席第三期',
     emoji: '🎤',
     color: '#87CEEB',
     episodes: 10,
-    videoUrl: '',
+    videoUrl: 'https://www.youtube.com/watch?v=cwXxECA1D-0&list=PL47nMbRXNUqVGY660VpXmMvM7wn75tGWD',
     coverImage: '/images/variety/external/這是我的西遊.jpg'
   },
   {
-    id: 'externalVariety_018',
+    id: 'externalVariety_019',
     title: '麻花特開心第二季',
     category: '團建遊戲',
     year: '2025-06-14',
     participants: '時代少年團',
-    description: '以麻花好友的身分參與第一期',
+    description: '第一期以麻花好友的身分參與。\n節目概要：',
     emoji: '💼',
     color: '#87CEEB',
     episodes: 1,
@@ -1492,12 +1505,12 @@ export const externalVariety = [
     coverImage: '/images/variety/external/麻花特開心2.jpg'
   },
   {
-    id: 'externalVariety_019',
+    id: 'externalVariety_020',
     title: '你好，星期六',
     category: '棚內趣味藝能綜藝',
     year: '2025-07-12',
     participants: '時代少年團',
-    description: '時代少年團上演"真假兄弟局" 謝娜乘風創始人轉型"大哥"',
+    description: '節目標題：時代少年團上演"真假兄弟局" 謝娜乘風創始人轉型"大哥"。\n節目概要：',
     emoji: '💼',
     color: '#87CEEB',
     episodes: 1,
@@ -1505,7 +1518,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/20250712你好星期六.jpg'
   },
   {
-    id: 'externalVariety_020',
+    id: 'externalVariety_021',
     title: '戰至巔峰第四季',
     category: '電競',
     year: '2025-07-22',
@@ -1518,12 +1531,12 @@ export const externalVariety = [
     coverImage: '/images/variety/external/戰至巔峰4.jpg'
   },
   {
-    id: 'externalVariety_021',
+    id: 'externalVariety_022',
     title: '王牌對王牌第九季',
     category: '遊戲競技',
     year: '	2025-09-05',
     participants: '時代少年團',
-    description: '第二期主題：牛馬細胞生存記。隊名：少年強隊',
+    description: '第二期主題：牛馬細胞生存記。隊名：少年強隊。\n節目概要：',
     emoji: '🎵',
     color: '#87CEEB',
     episodes: 1,
@@ -1535,43 +1548,268 @@ export const externalVariety = [
 // 表演舞台(未開始)
 export const performanceVariety = [
   {
-    id: 'variety_018',
-    title: '時代少年團演唱會',
-    category: '演唱會',
-    year: '2021-2024',
+    id: 'performanceVariety_001',
+    title: '2019雙十一狂歡夜',
+    year: '2019-11-11',
     participants: '全體成員',
-    description: '時代少年團大型演唱會表演舞台',
-    emoji: '🎤',
-    color: '#FF6B6C',
-    episodes: 15,
-    platform: '多平台',
-    rating: 9.8
-  },
-  {
-    id: 'variety_019',
-    title: '音樂盛典表演',
-    category: '音樂盛典',
-    year: '2020-2024',
-    participants: '全體成員',
-    description: '各大音樂盛典的精彩表演舞台',
-    emoji: '🏆',
-    color: '#FF6B6B',
-    episodes: 25,
-    platform: '多平台',
-    rating: 9.6
-  },
-  {
-    id: 'variety_020',
-    title: '跨年晚會表演',
-    category: '跨年晚會',
-    year: '2020-2024',
-    participants: '全體成員',
-    description: '各大衛視跨年晚會的精彩表演',
+    description: '',
     emoji: '🎊',
     color: '#FF6B6B',
-    episodes: 20,
-    platform: '多平台',
-    rating: 9.4
+    episodes: '《霍元甲》《漸暖》《那群傻瓜》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_002',
+    title: '2020愛奇藝尖叫之夜',
+    year: '2019-12-06',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_003',
+    title: 'TMEA騰訊音樂娛樂盛典',
+    year: '2019-12-08',
+    participants: '全體成員',
+    description: '',
+    emoji: '🏆',
+    color: '#FF6B6B',
+    episodes: '',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_004',
+    title: '2019-2020湖南衛視跨年演唱會',
+    year: '2019-12-31',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '《無盡的冒險》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_005',
+    title: '第27屆東方風雲榜',
+    year: '2020-07-19',
+    participants: '全體成員',
+    description: '',
+    emoji: '🏆',
+    color: '#FF6B6B',
+    episodes: '《無盡的冒險》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_006',
+    title: '東方衛視818超級秀晚會',
+    year: '2020-08-18',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '《姐姐真漂亮》《寵愛》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_007',
+    title: '第三屆TMEA騰訊音樂娛樂盛典',
+    year: '2021-12-11',
+    participants: '全體成員',
+    description: '',
+    emoji: '🏆',
+    color: '#FF6B6B',
+    episodes: '《醉》《無盡的冒險》《男兒歌》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_008',
+    title: '2022百花迎春晚會',
+    year: '2022-02-01',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '《青春走在新征程》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_009',
+    title: '2022年北京廣播電視台春節聯歡晚會',
+    year: '2022-02-01',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '《致敬勇士》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_010',
+    title: '老鐵聯歡晚會',
+    year: '2023-01-14',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '《漸暖》《那群傻瓜》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_011',
+    title: '2023年北京廣播電視台春節聯歡晚會',
+    year: '2023-01-22',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_012',
+    title: '天貓雙11驚喜夜',
+    year: '2023-11-10',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_013',
+    title: '2023-2024湖南衛視芒果TV跨年晚會',
+    year: '2023-12-31',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_014',
+    title: '2024川渝春節聯歡晚會',
+    year: '2024-02-08',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_015',
+    title: '春滿東方龍耀追光·2024東方衛視春節晚會',
+    year: '2024-02-10',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_016',
+    title: '2024湖南衛視芒果TV元宵喜樂會',
+    year: '2024-02-24',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_017',
+    title: '2024青春芒果夜',
+    year: '2024-07-13',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '《好望角》《無盡的冒險》《大時代》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_018',
+    title: '第31屆東方風雲榜',
+    year: '2024-08-26',
+    participants: '全體成員',
+    description: '',
+    emoji: '🏆',
+    color: '#FF6B6B',
+    episodes: '',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_019',
+    title: '2024王者榮耀共創之夜',
+    year: '2024-10-27',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '《這一刻鐘》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_020',
+    title: '雙11瘋狂好六夜',
+    year: '2024-11-10',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_021',
+    title: '2024微博之夜',
+    year: '2025-01-11',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '《卧室巨星》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_022',
+    title: '2025年北京廣播電視台春節聯歡晚會',
+    year: '2025-01-29',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '《得意的笑》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_023',
+    title: '2025青春芒果夜',
+    year: '2025-08-26',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '《登頂》《I Like U Like》《全世界我最美》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_024',
+    title: '跨年晚會表演"灣區升明月"2025大灣區電影音樂晚會',
+    year: '2025-09-28',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '馬嘉祺、丁程鑫《惡作劇》\n宋亞軒、劉耀文《只對你有感覺》\n張真源、嚴浩翔、賀峻霖《迷魂計》\n時代少年團《當》',
+    coverImage: '/images/variety/performance/.jpg'
   }
 ];
 

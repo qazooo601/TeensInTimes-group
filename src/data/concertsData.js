@@ -9,24 +9,15 @@ export const concertsData = [
     image: '/images/concerts/concert-1.jpg',
     emoji: '🎫',
     status: 'online', // offline, online, cancelled
-    description: '按时长大，是不慌不忙，是自然而然，带着最初的模样，循着独有的频率。\n迷茫有时，惊喜有时，踟蹰着，期待着。\n人生海海，山山而川；彼此陪伴，汇作勇气。\n拨开云层，拾阶而上；怀抱热爱，鲜活生长。\n向着远方，向着未来。\n向着整个世界，阔步前行。\n寰宇浩荡，少年并肩穿过时光隧道\n日月星辰，共同见证少年按时长大\n11月28日，与时代少年团不见不散 ！',
+    description: '按時長大，是不慌不忙，是自然而然，帶著最初的模樣，循著獨有的頻率。\n迷茫有時，驚喜有時，踟躕著，期待著。\n人生海海，山山而川；彼此陪伴，匯作勇氣。\n撥開雲層，拾階而上；懷抱熱愛，鮮活生長。\n向著遠方，向著未來。\n向著整個世界，闊步前行。\n寰宇浩蕩，少年並肩穿過時光隧道\n日月星辰，共同見證少年按時長大\n11月28日，與時代少年團不見不散！',
     videoLinks: {
       concert: '',
       rehearsal: '',
       short: ''
     },
     setlist: [
-      { song: '按時長大', performer: '全體' },
-      { song: '全校通報', performer: '全體' },
-      { song: '要你管', performer: '全體' },
-      { song: '只有我一個人覺得', performer: '馬嘉祺' },
-      { song: '姐姐真漂亮', performer: '全體' },
-      { song: '相遇', performer: '全體' },
-      { song: '少年時代', performer: '全體' },
       { song: '爆米花', performer: '全體' },
-      { song: '要你管 (Remix)', performer: '全體' },
-      { song: '全校通報 (Remix)', performer: '全體' },
-      { song: '按時長大 (Encore)', performer: '全體' }
+      { song: '無盡的冒險', performer: '全體' }
     ]
   },
   {
@@ -38,26 +29,15 @@ export const concertsData = [
     image: '/images/concerts/concert-2.jpg',
     emoji: '🔥',
     status: 'online',
-    description: '翎羽正燃 浴火重生🔥\n无限能量 火力全开🔥\n\n少年赤诚 少年无畏 少年遥望 少年承担',
+    description: '翎羽正燃 浴火重生🔥\n無限能量 火力全開🔥\n\n少年赤誠 少年無畏 少年遙望 少年承擔',
     videoLinks: {
       concert: 'https://www.bilibili.com/video/BV1s44y1h7ja/?spm_id_from=333.1387.upload.video_card.click',
       rehearsal: '',
       short: ''
     },
     setlist: [
-      { song: '火力全開', performer: '全體' },
-      { song: '哪吒', performer: '全體' },
-      { song: '烏托邦', performer: '全體' },
-      { song: '朱雀', performer: '全體' },
-      { song: '我喜歡你', performer: '全體' },
-      { song: '小小孩', performer: '宋亞軒' },
-      { song: '傻瓜', performer: '張真源' },
-      { song: '哭泣的遊戲', performer: '賀峻霖' },
-      { song: '少年美', performer: '全體' },
-      { song: '要你管', performer: '全體' },
-      { song: '全校通報', performer: '全體' },
-      { song: '按時長大', performer: '全體' },
-      { song: '火力全開 (Encore)', performer: '全體' }
+      { song: '爆米花', performer: '全體' },
+      { song: '無盡的冒險', performer: '全體' }
     ]
   },
   {
@@ -69,26 +49,15 @@ export const concertsData = [
     image: '/images/concerts/concert-3.jpg',
     emoji: '🌟',
     status: 'online',
-    description: '每一年的夏天都会过去，但我们相聚在夏天的约定，不曾改变。\n\n"无论分开多久，都会再次相遇。"',
+    description: '每一年的夏天都會過去，但我們相聚在夏天的約定，不曾改變。\n\n"無論分開多久，都會再次相遇。"',
     videoLinks: {
       concert: '',
       rehearsal: '',
       short: ''
     },
     setlist: [
-      { song: '理想之途', performer: '全體' },
-      { song: '烏托邦', performer: '全體' },
-      { song: '朱雀', performer: '全體' },
-      { song: '哪吒', performer: '全體' },
-      { song: '我喜歡你', performer: '全體' },
-      { song: '小小孩', performer: '宋亞軒' },
-      { song: '傻瓜', performer: '張真源' },
-      { song: '哭泣的遊戲', performer: '賀峻霖' },
-      { song: '少年美', performer: '全體' },
-      { song: '要你管', performer: '全體' },
-      { song: '全校通報', performer: '全體' },
-      { song: '按時長大', performer: '全體' },
-      { song: '理想之途 (Encore)', performer: '全體' }
+      { song: '爆米花', performer: '全體' },
+      { song: '無盡的冒險', performer: '全體' }
     ]
   },
   {
@@ -100,26 +69,15 @@ export const concertsData = [
     image: '/images/concerts/concert-4.jpg',
     emoji: '🌟',
     status: 'offline',
-    description: '携夺目鎏光，蓄势而来。\n远方鼎沸之声，征途万里不息。\n跨越时空界限，具象无尽思念。\n少年是，未来无限的光彩。',
+    description: '攜奪目鎏光，蓄勢而來。\n遠方鼎沸之聲，征途萬里不息。\n跨越時空界限，具象無盡思念。\n少年是，未來無限的光彩。',
     videoLinks: {
       concert: '',
       rehearsal: 'https://www.bilibili.com/video/BV1Rs4y1q7tP/?spm_id_from=333.1387.upload.video_card.click',
       short: ''
     },
     setlist: [
-      { song: '理想之途', performer: '全體' },
-      { song: '烏托邦', performer: '全體' },
-      { song: '朱雀', performer: '全體' },
-      { song: '哪吒', performer: '全體' },
-      { song: '我喜歡你', performer: '全體' },
-      { song: '小小孩', performer: '宋亞軒' },
-      { song: '傻瓜', performer: '張真源' },
-      { song: '哭泣的遊戲', performer: '賀峻霖' },
-      { song: '少年美', performer: '全體' },
-      { song: '要你管', performer: '全體' },
-      { song: '全校通報', performer: '全體' },
-      { song: '按時長大', performer: '全體' },
-      { song: '理想之途 (Encore)', performer: '全體' }
+      { song: '爆米花', performer: '全體' },
+      { song: '無盡的冒險', performer: '全體' }
     ]
   },
   {
@@ -154,7 +112,21 @@ export const concertsData = [
       rehearsal: '',
       short: ''
     },
-    setlist: [ ]
+    setlist: [
+      { song: '愛夏', performer: '丁程鑫、嚴浩翔、賀峻霖' },
+      { song: '最好的都給你', performer: '馬嘉祺、劉耀文' },
+      { song: '不冬眠', performer: '劉耀文' },
+      { song: '情話', performer: '宋亞軒' },
+      { song: '讓我留在你身邊', performer: '張真源' },
+      { song: '連名帶姓', performer: '宋亞軒、張真源' },
+      { song: '逝去的歌', performer: '賀峻霖' },
+      { song: '看起來不錯其實也還好', performer: '嚴浩翔' },
+      { song: '眼淚', performer: '丁程鑫' },
+      { song: '生活倒影', performer: '馬嘉祺' },
+      { song: '躺著真舒服', performer: '全體' },
+      { song: '少年時代', performer: '全體' },
+      { song: '怎麼辦', performer: '全體' }
+    ]
   },
   {
     id: 'concert_007',
@@ -165,7 +137,7 @@ export const concertsData = [
     image: '/images/concerts/concert-7.jpg',
     emoji: '🎤',
     status: 'offline',
-    description: '心绪舒展，绘制恣意率性。\n流光浅藏，氤氲温润光晕。\n欢呼奔涌不息，无限期待盛开。\n美好意象交叠，篆刻少年底色。',
+    description: '心緒舒展，繪制恣意率性。\n流光淺藏，氤氳溫潤光暈。\n歡呼奔湧不息，無限期待盛開。\n美好意象交疊，篆刻少年底色。',
     videoLinks: {
       concert: {
         day1: 'https://www.bilibili.com/video/BV1Ce411f7dq/?spm_id_from=333.1387.upload.video_card.click',
@@ -180,28 +152,16 @@ export const concertsData = [
         date: '2023-11-18',
         theme: 'D1',
         songs: [
-          { song: '按時長大', performer: '全體' },
-          { song: '全校通報', performer: '全體' },
-          { song: '要你管', performer: '全體' },
-          { song: '只有我一個人覺得', performer: '馬嘉祺' },
-          { song: '姐姐真漂亮', performer: '全體' },
-          { song: '相遇', performer: '全體' },
-          { song: '少年時代', performer: '全體' },
-          { song: '爆米花', performer: '全體' }
+          { song: '爆米花', performer: '全體' },
+      { song: '無盡的冒險', performer: '全體' }
         ]
       },
       day2: {
         date: '2023-11-19',
         theme: 'D2',
         songs: [
-          { song: '火力全開', performer: '全體' },
-          { song: '哪吒', performer: '全體' },
-          { song: '烏托邦', performer: '全體' },
-          { song: '朱雀', performer: '全體' },
-          { song: '我喜歡你', performer: '全體' },
-          { song: '小小孩', performer: '宋亞軒' },
-          { song: '傻瓜', performer: '張真源' },
-          { song: '哭泣的遊戲', performer: '賀峻霖' }
+          { song: '爆米花', performer: '全體' },
+      { song: '無盡的冒險', performer: '全體' }
         ]
       }
     }
@@ -215,7 +175,7 @@ export const concertsData = [
     image: '/images/concerts/concert-8.jpg',
     emoji: '☀️',
     status: 'offline',
-    description: '云雾层叠重楼，光影复现声波，成长具象有形\n朝向夏日启程，共循楼间秘境',
+    description: '雲霧層疊重樓，光影覆現聲波，成長具象有形\n朝向夏日啟程，共循樓間秘境',
     videoLinks: {
       concert: {
         day1: 'https://www.bilibili.com/video/BV1jJ4m1A7rZ/?spm_id_from=333.1387.upload.video_card.click',
@@ -227,16 +187,18 @@ export const concertsData = [
     setlist: {
       day1: {
         date: '2024-05-03',
-        theme: '夏日青春',
+        theme: 'D1',
         songs: [
-          { song: '待公布', performer: '全體' }
+          { song: '爆米花', performer: '全體' },
+          { song: '無盡的冒險', performer: '全體' }
         ]
       },
       day2: {
         date: '2024-05-04',
-        theme: '火力全開',
+        theme: 'D2',
         songs: [
-          { song: '待公布', performer: '全體' }
+          { song: '爆米花', performer: '全體' },
+          { song: '無盡的冒險', performer: '全體' }
         ]
       }
     }
@@ -250,7 +212,7 @@ export const concertsData = [
     image: '/images/concerts/concert-9.jpg',
     emoji: '🍂',
     status: 'offline',
-    description: '海浪回响，与海风协奏序曲。\n潮汐往复，转动孤岛相连。\n每一次的潮涨潮落，都在倒数我们的盛夏之约。',
+    description: '海浪回響，與海風協奏序曲。\n潮汐往覆，轉動孤島相連。\n每一次的潮漲潮落，都在倒數我們的盛夏之約。',
     videoLinks: {
       concert: {
         day1: '',
@@ -262,16 +224,18 @@ export const concertsData = [
     setlist: {
       day1: {
         date: '2024-08-16',
-        theme: '秋日回憶',
+        theme: 'D1',
         songs: [
-          { song: '待公布', performer: '全體' }
+          { song: '爆米花', performer: '全體' },
+          { song: '無盡的冒險', performer: '全體' }
         ]
       },
       day2: {
         date: '2024-08-17',
-        theme: '理想之途',
+        theme: 'D2',
         songs: [
-          { song: '待公布', performer: '全體' }
+          { song: '爆米花', performer: '全體' },
+          { song: '無盡的冒險', performer: '全體' }
         ]
       }
     }
@@ -285,7 +249,7 @@ export const concertsData = [
     image: '/images/concerts/concert-10.jpg',
     emoji: '❄️',
     status: 'offline',
-    description: '海浪回响，与海风协奏序曲。\n潮汐往复，转动孤岛相连。\n每一次的潮涨潮落，都在倒数我们的盛夏之约。',
+    description: '海浪回響，與海風協奏序曲。\n潮汐往覆，轉動孤島相連。\n每一次的潮漲潮落，都在倒數我們的盛夏之約。',
     videoLinks: {
       concert: {
         day1: 'https://www.bilibili.com/video/BV1GRxWeyEva/?spm_id_from=333.1387.upload.video_card.click',
@@ -297,16 +261,18 @@ export const concertsData = [
     setlist: {
       day1: {
         date: '2024-08-23',
-        theme: '冬日暖陽',
+        theme: 'D1',
         songs: [
-          { song: '待公布', performer: '全體' }
+          { song: '爆米花', performer: '全體' },
+          { song: '無盡的冒險', performer: '全體' }
         ]
       },
       day2: {
         date: '2024-08-24',
-        theme: '聖誕特別',
+        theme: 'D2',
         songs: [
-          { song: '待公布', performer: '全體' }
+          { song: '爆米花', performer: '全體' },
+          { song: '無盡的冒險', performer: '全體' }
         ]
       }
     }
@@ -320,7 +286,7 @@ export const concertsData = [
     image: '/images/concerts/concert-11.jpg',
     emoji: '🌸',
     status: 'offline',
-    description: '铭刻你我约定的指环\n圈起我们彼此相伴的来路\n隧道尽头的光亮\n成为少年背后耀眼的时光\n\n一起走过的日子\n因为有你 无可比拟\n顺着我们的足迹\n想去的未来 只因为有你',
+    description: '銘刻你我約定的指環\n圈起我們彼此相伴的來路\n隧道盡頭的光亮\n成為少年背後耀眼的時光\n\n一起走過的日子\n因為有你 無可比擬\n順著我們的足跡\n想去的未來 只因為有你',
     videoLinks: {
       concert: {
         day1: 'https://www.bilibili.com/video/BV1fYq5YTEup/?spm_id_from=333.1387.upload.video_card.click',
@@ -332,16 +298,18 @@ export const concertsData = [
     setlist: {
       day1: {
         date: '2024-11-23',
-        theme: '春日新生',
+        theme: 'D1',
         songs: [
-          { song: '待公布', performer: '全體' }
+          { song: '爆米花', performer: '全體' },
+          { song: '無盡的冒險', performer: '全體' }
         ]
       },
       day2: {
         date: '2024-11-24',
-        theme: '青春回憶',
+        theme: 'D2',
         songs: [
-          { song: '待公布', performer: '全體' }
+          { song: '爆米花', performer: '全體' },
+          { song: '無盡的冒險', performer: '全體' }
         ]
       }
     }
@@ -355,7 +323,7 @@ export const concertsData = [
     image: '/images/concerts/concert-12.jpg',
     emoji: '🌞',
     status: 'offline',
-    description: '天光倾泻的白昼，\n北冕座七颗星芒是更亮眼的存在！\n\n星光汇聚，荣耀加冠 \n少年长成，责任加身\n\n这场冠岁之礼，邀你共同见证！\n时代少年团「加冠礼」演唱会-「冠岁」海口站，我们不见不散！',
+    description: '天光傾瀉的白晝，\n北冕座七顆星芒是更亮眼的存在！\n\n星光彙聚，榮耀加冠 \n少年長成，責任加身\n\n這場冠歲之禮，邀你共同見證！\n時代少年團「加冠禮」演唱會-「冠歲」海口站，我們不見不散！',
     videoLinks: {
       concert: {
         day1: 'https://www.bilibili.com/video/BV1uhJczSER4/?spm_id_from=333.1387.upload.video_card.click',
@@ -369,14 +337,16 @@ export const concertsData = [
         date: '2025-05-03',
         theme: 'D1',
         songs: [
-          { song: '待公布', performer: '全體' }
+          { song: '爆米花', performer: '全體' },
+          { song: '無盡的冒險', performer: '全體' }
         ]
       },
       day2: {
         date: '2025-05-04',
         theme: 'D2',
         songs: [
-          { song: '待公布', performer: '全體' }
+          { song: '爆米花', performer: '全體' },
+          { song: '無盡的冒險', performer: '全體' }
         ]
       }
     }
@@ -390,7 +360,7 @@ export const concertsData = [
     image: '/images/concerts/concert-13.jpg',
     emoji: '🌞',
     status: 'offline',
-    description: '尘雾散去，照见成长轨迹，\n一关一励，山海即是征途！\n\n少年加冠，前路在望，\n勇则冠军，奔赴山海！',
+    description: '塵霧散去，照見成長軌跡，\n一關一勵，山海即是征途！\n\n少年加冠，前路在望，\n勇則冠軍，奔赴山海！',
     videoLinks: {
       concert: {
         day1: 'https://www.bilibili.com/video/BV1kkbwzYEA3/?spm_id_from=333.1387.upload.video_card.click',
@@ -475,7 +445,7 @@ export const concertsData = [
     image: '/images/concerts/concert-14.jpg',
     emoji: '🍁',
     status: 'offline',
-    description: '以「加冠」之仪，「冠军」之志\n冲破次元之外，加冕未来星河！\n\n这一程，我们将「冠军」的荣光与责任锻造成星轨，向宇宙递交成长序曲。\n\n峰顶不是终点，我们持续向上。\n\n穿过经纬线，赴一场青春与盛夏的约定；\n跨过晨与昏，为每一次奔赴刻下永恒坐标。',
+    description: '以「加冠」之儀，「冠軍」之志\n沖破次元之外，加冕未來星河！\n\n這一程，我們將「冠軍」的榮光與責任鍛造成星軌，向宇宙遞交成長序曲。\n\n峰頂不是終點，我們持續向上。\n\n穿過經緯線，赴一場青春與盛夏的約定；\n跨過晨與昏，為每一次奔赴刻下永恒座標。',
     videoLinks: {
       concert: {
         day1: 'https://www.bilibili.com/video/BV1mxa8zfEts/?spm_id_from=333.1387.upload.video_card.click',

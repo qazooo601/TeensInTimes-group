@@ -149,7 +149,7 @@ const Variety = () => {
                 )}
 
                 {/* 集數 */}
-                <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div style={{ display: 'flex', alignItems: 'center', whiteSpace: 'pre-line' }}>
                   <VideoCameraOutlined style={{ color: item.color, marginRight: '8px' }} />
                   <Text style={{ color: '#666' }}>{item.episodes}</Text>
                 </div>
@@ -184,7 +184,7 @@ const Variety = () => {
 
                 {/* 描述 */}
                 <div style={{ marginTop: '8px' }}>
-                  <Text style={{ color: '#666', fontSize: '12px', display: 'block' }}>
+                  <Text style={{ color: '#666', fontSize: '12px', display: 'block', whiteSpace: 'pre-line' }}>
                     {item.description}
                   </Text>
                 </div>
@@ -297,7 +297,7 @@ const Variety = () => {
                 </div>
 
                 <div style={{ marginTop: '8px' }}>
-                  <Text style={{ color: '#666', fontSize: '12px', display: 'block' }}>
+                  <Text style={{ color: '#666', fontSize: '12px', display: 'block', whiteSpace: 'pre-line' }}>
                     {item.description}
                   </Text>
                 </div>

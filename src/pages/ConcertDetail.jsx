@@ -152,7 +152,7 @@ const ConcertDetail = () => {
             介紹
           </Title>
           <Paragraph style={{
-            fontSize: '16px',
+            fontSize: '15px',
             lineHeight: '1.8',
             color: '#666',
             textAlign: 'left',
