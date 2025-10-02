@@ -589,7 +589,7 @@ const MemberDetail = () => {
                             </Text>
                             <br />
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                              <Text style={{ color: '#999', fontSize: '12px' }}>{item.description}</Text>
+                              <Text style={{ color: '#999', fontSize: '12px', whiteSpace: 'pre-line' }}>{item.description}</Text>
                               {item.videoUrl && (
                                 <Button
                                   type="primary"

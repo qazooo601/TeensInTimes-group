@@ -11,7 +11,7 @@ export const songYaXuanDetails = {
       audioUrl: 'https://example.com/audio/syx_523pm.mp3'
     },
     {
-      id: 'syx_song_001',
+      id: 'syx_song_002',
       title: '失戀循環',
       releaseDate: '2024-03-25',
       type: '單曲',
@@ -19,7 +19,7 @@ export const songYaXuanDetails = {
       audioUrl: 'https://example.com/audio/syx_523pm.mp3'
     },
     {
-      id: 'syx_song_001',
+      id: 'syx_song_003',
       title: '體貼',
       releaseDate: '2024-12-02',
       type: '單曲',
@@ -27,7 +27,7 @@ export const songYaXuanDetails = {
       audioUrl: 'https://example.com/audio/syx_523pm.mp3'
     },
     {
-      id: 'syx_song_001',
+      id: 'syx_song_004',
       title: 'spr.',
       releaseDate: '2025-03-03',
       type: '單曲',
@@ -104,9 +104,9 @@ export const songYaXuanDetails = {
     {
       id: 'syx_variety_010',
       title: '三个少年',
-      role: '',
+      role: '少年研究員',
       year: '2022-03-31',
-      description: ''
+      description: '共10期，與唐九洲、何運晨、席瑞共同擔任少年研究員。第二季參與第1、2、5期。'
     },
     {
       id: 'syx_variety_011',
@@ -132,9 +132,9 @@ export const songYaXuanDetails = {
     {
       id: 'syx_variety_014',
       title: '現在就出發第二季',
-      role: '飛行嘉賓',
+      role: '出發團成員',
       year: '2024-10-26',
-      description: '出發團成員第3期嘉賓'
+      description: '共10期，缺席第9、10期'
     },
     {
       id: 'syx_variety_015',

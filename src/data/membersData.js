@@ -12,7 +12,7 @@ export const membersData = [
     image: '/images/members/ma-jiaqi.jpg',
     emoji: '🎈',
     position: '隊長',
-    content: '馬嘉祺，時代少年團隊長，擁有出色的領導能力和音樂才華。作為隊長，他總是能夠帶領團隊前進，在舞台上展現出強大的氣場和專業的表演能力。'
+    content: '馬嘉祺，2002年12月12日出生於河南省鄭州市，中國內地流行樂男歌手、演員、男子演唱組合時代少年團隊長。初中就讀於鄭州市第八中學，高中就讀於鄭州市第四十七中學，大學就讀於中央戲劇學院2022級話劇影視表演本科班。'
   },
   {
     memberCode: 'DLS',
@@ -26,7 +26,7 @@ export const membersData = [
     image: '/images/members/ding-chengxin.jpg',
     emoji: '⭐',
     position: '主舞',
-    content: '丁程鑫，時代少年團主舞，舞蹈實力出眾。他的舞蹈動作流暢有力，在舞台上總是能夠吸引所有人的目光，是團隊中不可或缺的舞蹈擔當。'
+    content: '丁程鑫，2002年2月24日出生於四川省資陽市安岳縣，中國內地男歌手、演員、男子演唱組合時代少年團成員。中學就讀於重慶市育才中學，大學就讀於北京電影學院2021級表演實驗班。'
   },
   {
     memberCode: 'SJY',
@@ -40,7 +40,7 @@ export const membersData = [
     image: '/images/members/song-yaxuan.jpg',
     emoji: '🐚',
     position: '主唱',
-    content: '宋亞軒，時代少年團主唱，擁有清澈的嗓音。他的歌聲溫柔動人，能夠觸動聽眾的心靈，是團隊中重要的聲音擔當。'
+    content: '宋亞軒，2004年3月4日出生於山東省濱州市博興縣，中國內地男歌手、演員、男子演唱組合時代少年團成員。初中就讀於星海中學，高中就讀於重慶魯能巴蜀中學，大學就讀於中央戲劇學院2022級話劇影視表演本科班。'
   },
   {
     memberCode: 'LWH',
@@ -54,7 +54,7 @@ export const membersData = [
     image: '/images/members/liu-yaowen.jpg',
     emoji: '🌕',
     position: '主舞',
-    content: '劉耀文，時代少年團主舞，年紀最小但實力不容小覷。他的舞蹈充滿活力和創意，在舞台上總是能夠帶來驚喜的表演。'
+    content: '劉耀文，2005年9月23日出生於重慶市，男子演唱組合時代少年團成員，中國內地流行樂男歌手、演員。'
   },
   {
     memberCode: 'ZJY',
@@ -68,7 +68,7 @@ export const membersData = [
     image: '/images/members/zhang-zhenyuan.jpg',
     emoji: '🍭',
     position: '主唱',
-    content: '張真源，時代少年團主唱，音樂才華出眾。他的歌聲富有感染力，能夠完美詮釋各種風格的歌曲，是團隊中重要的音樂擔當。'
+    content: '張真源，2003年4月16日出生於重慶市，中國內地流行樂男歌手、演員、男子演唱組合時代少年團成員，畢業於中央戲劇學院音樂劇專業。'
   },
   {
     memberCode: 'YHX',
@@ -82,7 +82,7 @@ export const membersData = [
     image: '/images/members/yan-haoxiang.jpg',
     emoji: '🥤',
     position: '主舞',
-    content: '嚴浩翔，時代少年團主舞，舞台表現力強。他的舞蹈充滿個性和魅力，在舞台上總是能夠展現出獨特的風格和氣質。'
+    content: '嚴浩翔，2004年8月16日出生於廣東省廣州市，中國內地流行樂男歌手、影視演員。男子演唱組合時代少年團成員，北京電影學院2022級表演本科實驗班在讀。'
   },
   {
     memberCode: 'HJL',
@@ -96,6 +96,6 @@ export const membersData = [
     image: '/images/members/he-junlin.jpg',
     emoji: '🌊',
     position: '主唱',
-    content: '賀峻霖，時代少年團主唱，多才多藝。他不僅擁有出色的歌唱實力，還具備多種才藝，是團隊中的全能型成員。'
+    content: '賀峻霖，2004年6月15日出生於四川省成都市，中國內地男歌手、演員。男子演唱組合時代少年團成員，就讀於中國傳媒大學2022級播音與主持藝術專業。'
   }
 ];

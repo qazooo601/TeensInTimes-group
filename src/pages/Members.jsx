@@ -47,7 +47,7 @@ const Members = () => {
           ✨ 時代少年團七位成員 ✨
         </Paragraph>
         <Space>
-          <Tag color="gold" icon={<HeartOutlined />}>大米爆 聚集地</Tag>
+          <Tag color="gold" icon={<HeartOutlined />}>大米爆</Tag>
           <Tag color="default" icon={<FireOutlined />}>永遠在一起</Tag>
           <Tag
             color="red"
