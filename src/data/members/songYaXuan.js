@@ -84,63 +84,70 @@ export const songYaXuanDetails = {
       id: 'syx_variety_007',
       title: '萌探探探案',
       role: '常駐嘉賓',
-      year: '2021-5-28~2021-07-29',
+      year: '2021-05-28~2021-07-29',
       description: '探家族·兄弟團孫紅雷、沙溢、黃子韜、楊迪、時代少年團-宋亞軒以及萌探家族·姐妹團那英、楊紫首次集結就迎來觀察力、反被騙偵查能力、推理能力等一系列考核。'
     },
     {
       id: 'syx_variety_008',
-      title: '夏日少年派',
-      role: '飛行嘉賓',
-      year: '2021-8-6、13、20',
-      description: '第3期嘉賓、第4期嘉賓、第5期嘉賓'
+      title: '快樂大本營',
+      role: '嘉賓',
+      year: '2021-05-29、2021-06-05',
+      description: '節目標題：馬伯騫公主抱宋茜、節目標題：宋亞軒劉耀文隊友變對手。和劉耀文一起錄製'
     },
     {
       id: 'syx_variety_009',
-      title: '王牌對王牌第七季',
-      role: '主持團',
-      year: '2022-2-25',
-      description: '王牌師弟'
+      title: '夏日少年派',
+      role: '飛行嘉賓',
+      year: '2021-08-06、13、20',
+      description: '第3期嘉賓、第4期嘉賓、第5期嘉賓'
     },
     {
       id: 'syx_variety_010',
-      title: '三个少年',
-      role: '少年研究員',
-      year: '2022-03-31',
-      description: '共10期，與唐九洲、何運晨、席瑞共同擔任少年研究員。第二季參與第1、2、5期。'
-    },
-    {
-      id: 'syx_variety_011',
-      title: '我們的客棧',
-      role: '飛行嘉賓',
-      year: '2023-2-24',
-      description: '第7期嘉賓、第8期嘉賓、第10期嘉賓'
-    },
-    {
-      id: 'syx_variety_012',
-      title: '王牌對王牌第八季',
-      role: '主持團',
-      year: '2023-10-20',
+      title: '王牌對王牌第七季',
+      role: '王牌家族',
+      year: '2022-02-25',
       description: '王牌師弟'
     },
     {
+      id: 'syx_variety_011',
+      title: '三个少年',
+      role: '少年研究員',
+      year: '2022-03-31',
+      description: '共10期，與唐九洲、何運晨、席瑞共同擔任少年研究員。\n第二季參與第1、2、5期。'
+    },
+    {
+      id: 'syx_variety_012',
+      title: '我們的客棧',
+      role: '飛行嘉賓',
+      year: '2023-02-24',
+      description: '第7期嘉賓、第8期嘉賓、第10期嘉賓'
+    },
+    {
       id: 'syx_variety_013',
-      title: '聲生不息·家年華',
-      role: '常駐嘉賓',
-      year: '2023-12-22',
+      title: '王牌對王牌第八季',
+      role: '王牌家族',
+      year: '2023-10-20',
       description: ''
     },
     {
       id: 'syx_variety_014',
+      title: '聲生不息·家年華',
+      role: '固定嘉賓',
+      year: '2023-12-22',
+      description: '榮獲「榮耀家庭」、「潛力新人獎」的獎項'
+    },
+    {
+      id: 'syx_variety_015',
       title: '現在就出發第二季',
       role: '出發團成員',
       year: '2024-10-26',
       description: '共10期，缺席第9、10期'
     },
     {
-      id: 'syx_variety_015',
-      title: '《王牌對王牌》第九季',
-      role: '常駐嘉賓',
-      year: '2025-8-29',
+      id: 'syx_variety_016',
+      title: '王牌對王牌第九季',
+      role: '王牌家族',
+      year: '2025-08-29',
       description: ''
     },
   ],
@@ -192,14 +199,14 @@ export const songYaXuanDetails = {
       id: 'syx_award_004',
       title: '2021新浪新聞品質男歌手',
       award: '',
-      year: '2021-6-30',
+      year: '2021-06-30',
       description: '獲獎'
     },
     {
       id: 'syx_award_005',
       title: '年度推薦人物-華語歌手TOP',
       award: '2024WMA微博音樂盛典',
-      year: '2024-9-19',
+      year: '2024-09-19',
       description: '獲獎'
     }
   ]

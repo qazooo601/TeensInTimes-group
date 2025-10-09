@@ -156,27 +156,41 @@ export const yanHaoXiangDetails = {
 
 // 綜藝節目
 variety: [
-    {
-      id: 'yhx_variety_001',
-      title: '極限挑戰第九季',
+  {
+    id: 'yhx_variety_001',
+    title: '我就是演員第三季',
+    role: '助演嘉賓',
+    year: '2021-02-06',
+    description: '為馬嘉祺助演《一念》，飾演劉星朋友'
+  },
+  {
+    id: 'yhx_variety_002',
+    title: '快樂大本營',
+    role: '嘉賓',
+    year: '2021-06-12、2021-06-19',
+    description: '節目標題：黃景瑜張哲瀚變身最強幹飯人、節目標題：張彬彬許凱毛不易解鎖新身份。和賀峻霖一起錄製'
+  },
+  {
+    id: 'yhx_variety_003',
+    title: '極限挑戰第九季',
+    role: '常駐嘉賓',
+    year: '2023-04-16~2023-07-05',
+    description: '缺席第五、六、十二期'
+  },
+  {
+      id: 'yhx_variety_004',
+      title: '極限挑戰第十季',
       role: '常駐嘉賓',
-      year: '2023-04-16~2023-07-05',
-      description: '缺席第五、六、十二期'
+      year: '2024-04-21~2024-07-14',
+      description: '缺席第十期'
     },
     {
-        id: 'yhx_variety_002',
-        title: '極限挑戰第十季',
-        role: '常駐嘉賓',
-        year: '2024-04-21~2024-07-14',
-        description: '缺席第十期'
-      },
-      {
-        id: 'yhx_variety_003',
-        title: '新說唱2025',
-        role: '導師',
-        year: '2025-06-07~2025-08-24',
-        description: '共12期'
-      },
+      id: 'yhx_variety_005',
+      title: '新說唱2025',
+      role: '導師',
+      year: '2025-06-07~2025-08-24',
+      description: '共12期'
+    },
   ],
 
   // 影視劇

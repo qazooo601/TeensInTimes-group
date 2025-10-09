@@ -68,7 +68,7 @@ export const membersData = [
     image: '/images/members/zhang-zhenyuan.jpg',
     emoji: '🍭',
     position: '主唱',
-    content: '張真源，2003年4月16日出生於重慶市，中國內地流行樂男歌手、演員、男子演唱組合時代少年團成員，畢業於中央戲劇學院音樂劇專業。'
+    content: '張真源，2003年4月16日出生於重慶市，中國內地流行樂男歌手、演員、男子演唱組合時代少年團成員。中學就讀於重慶巴蜀中學，大學就讀於中央戲劇學院音樂劇專業。'
   },
   {
     memberCode: 'YHX',
@@ -82,7 +82,7 @@ export const membersData = [
     image: '/images/members/yan-haoxiang.jpg',
     emoji: '🥤',
     position: '主舞',
-    content: '嚴浩翔，2004年8月16日出生於廣東省廣州市，中國內地流行樂男歌手、影視演員。男子演唱組合時代少年團成員，北京電影學院2022級表演本科實驗班在讀。'
+    content: '嚴浩翔，2004年8月16日出生於廣東省廣州市，中國內地流行樂男歌手、影視演員、男子演唱組合時代少年團成員。小學就讀於重慶市樹人小學，中學就讀於重慶魯能巴蜀中學，大學就讀於北京電影學院2022級表演本科實驗班。'
   },
   {
     memberCode: 'HJL',

@@ -569,7 +569,7 @@ const MemberDetail = () => {
                     return colorMap[baseColor] || '#333';
                   })()
                 }}>
-                  常駐綜藝 ({memberDetails.variety.length})
+                  個人參與綜藝 ({memberDetails.variety.length})
                 </Title>
                 {expandedSections.variety ? <DownOutlined /> : <RightOutlined />}
               </div>
