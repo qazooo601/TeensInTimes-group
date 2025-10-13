@@ -9,6 +9,7 @@ const { Title, Paragraph, Text } = Typography;
 const Music = () => {
   const navigate = useNavigate();
 
+
   // 分離專輯和單曲
   const albums = musicData.filter(item => item.category === 'album');
   const singles = musicData.filter(item => item.category === 'single');
@@ -121,14 +122,14 @@ const Music = () => {
   };
 
   return (
-    <div style={{ padding: '24px' }}>
+    <div style={{ padding: '24px', position: 'relative' }}>
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
         <Title level={1} style={{
           color: '#EBC700',
           marginBottom: '8px',
           fontSize: '36px'
         }}>
-          歌曲專區
+          歌曲
         </Title>
       </div>
 
@@ -167,6 +168,8 @@ const Music = () => {
           {singles.map(renderMusicCard)}
         </div>
       </div>
+
+
     </div>
   );
 };

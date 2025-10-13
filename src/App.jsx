@@ -19,7 +19,9 @@ import Concerts from './pages/Concerts';
 import ConcertDetail from './pages/ConcertDetail';
 import Variety from './pages/Variety';
 import Profile from './pages/Profile';
+import Feedback from './pages/Feedback';
 import Welcome from './pages/Welcome';
+import UpdateTime from './components/Layout/UpdateTime';
 
 const { Header, Content, Footer } = Layout;
 
@@ -27,19 +29,14 @@ const { Header, Content, Footer } = Layout;
 const AppLayout = ({ children, user, onLogout }) => {
   const menuItems = [
     {
-      key: 'members',
-      icon: <TeamOutlined />,
-      label: '團體成員',
-    },
-    {
       key: 'music',
       icon: <PlayCircleOutlined />,
-      label: '歌曲專區',
+      label: '歌曲',
     },
     {
       key: 'concerts',
       icon: <LiaMicrophoneAltSolid style={{ fontSize: '18px', transform: 'translateY(2px)' }} />,
-      label: '演唱會專區',
+      label: '演唱會',
     },
     {
       key: 'variety',
@@ -53,10 +50,6 @@ const AppLayout = ({ children, user, onLogout }) => {
     {
       key: '',
       icon: <HomeOutlined />,
-    },
-    {
-      key: 'members',
-      icon: <TeamOutlined />,
     },
     {
       key: 'music',
@@ -106,6 +99,7 @@ const AppLayout = ({ children, user, onLogout }) => {
         style={{
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'space-between',
           background: '#FFD700',
           padding: '0 24px',
           boxShadow: '0 4px 12px rgba(255,215,0,0.3)'
@@ -116,7 +110,6 @@ const AppLayout = ({ children, user, onLogout }) => {
             fontSize: '28px',
             fontWeight: 'bold',
             color: '#000',
-            marginRight: '40px',
             textShadow: '1px 1px 2px rgba(255,255,255,0.5)',
             display: 'flex',
             alignItems: 'center',
@@ -154,10 +147,13 @@ const AppLayout = ({ children, user, onLogout }) => {
             background: 'transparent',
             border: 'none',
             minWidth: '500px',
-            fontSize: '16px'
+            fontSize: '16px',
+            flex: 1,
+            justifyContent: 'center'
           }}
           className="custom-menu"
         />
+        <div style={{ width: '200px' }}></div>
       </Header>
 
       {/* 移動端 Header（只顯示 Logo） */}
@@ -201,7 +197,7 @@ const AppLayout = ({ children, user, onLogout }) => {
       <Content style={{
         background: '#FFFACD',
         minHeight: 'calc(100vh - 64px - 70px)',
-        paddingBottom: '80px' // 為移動端底部選單留出空間
+        paddingBottom: '100px' // 為移動端底部選單與回饋按鈕留出空間
       }}>
         {children}
       </Content>
@@ -210,18 +206,33 @@ const AppLayout = ({ children, user, onLogout }) => {
       <Footer
         className="desktop-footer"
         style={{
-          textAlign: 'center',
           background: '#000',
           color: '#FFD700',
           padding: '20px',
           boxShadow: '0 -4px 12px rgba(0,0,0,0.3)'
         }}
       >
-        <div style={{ fontSize: '16px', fontWeight: 'bold' }}>
-          小炸世界 © 2025 時代少年團粉絲社群平台
-        </div>
-        <div style={{ fontSize: '14px', marginTop: '8px', opacity: 0.9 }}>
-          ✨ 時代少年團永遠在一起 ✨
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ fontSize: '16px', fontWeight: 'bold' }}>
+            © 2025 時代少年團滿滿乾貨
+          </div>
+          <div style={{
+            fontSize: '14px',
+            marginTop: '8px',
+            opacity: 0.9,
+            position: 'relative',
+            textAlign: 'center'
+          }}>
+            <span>✨ 時代少年團永遠在一起 ✨</span>
+            <div style={{
+              position: 'absolute',
+              right: '0',
+              top: '0',
+              fontSize: '12px'
+            }}>
+              <UpdateTime showIcon={false} align="right" style={{ color: '#FFD700', opacity: 0.7 }} />
+            </div>
+          </div>
         </div>
       </Footer>
 
@@ -354,6 +365,7 @@ function App() {
                     <Route path="/concerts" element={<Concerts />} />
                     <Route path="/concert-detail" element={<ConcertDetail />} />
                     <Route path="/variety" element={<Variety />} />
+                    <Route path="/feedback" element={<Feedback />} />
                     <Route path="/profile" element={<Profile />} />
                   </Routes>
                 </AppLayout>

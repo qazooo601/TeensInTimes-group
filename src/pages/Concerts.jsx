@@ -1,13 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, Typography, Badge, Tag, Space, Avatar, Button } from 'antd';
-import { FireOutlined, StarOutlined, CalendarOutlined, EnvironmentOutlined, BankOutlined, PlayCircleOutlined, VideoCameraOutlined, FileTextOutlined } from '@ant-design/icons';
+import { Card, Typography, Badge, Tag, Space, Button } from 'antd';
+import { FireOutlined, StarOutlined, CalendarOutlined, EnvironmentOutlined, BankOutlined, PlayCircleOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { concertsData } from '../data/concertsData';
 
 const { Title, Paragraph, Text } = Typography;
 
 const Concerts = () => {
   const navigate = useNavigate();
+
 
   const getStatusTag = (status) => {
     switch (status) {
@@ -22,7 +23,8 @@ const Concerts = () => {
     }
   };
 
-  const renderVideoButtons = (videoLinks) => {
+  const renderVideoButtons = (videoLinks, options = {}) => {
+    const { compact = false } = options;
     if (!videoLinks) return null;
 
     const buttons = [];
@@ -108,7 +110,7 @@ const Concerts = () => {
         <Button
           key="short"
           type="default"
-          icon={<FileTextOutlined />}
+          icon={<VideoCameraOutlined />}
           size="small"
           onClick={(e) => {
             e.stopPropagation();
@@ -125,21 +127,21 @@ const Concerts = () => {
     }
 
     return buttons.length > 0 ? (
-      <div style={{ marginTop: '12px', display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+      <div style={{ marginTop: compact ? '0' : '12px', display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
         {buttons}
       </div>
     ) : null;
   };
 
   return (
-    <div style={{ padding: '24px' }}>
+    <div style={{ padding: '24px', position: 'relative' }}>
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
         <Title level={1} style={{
           color: '#EBC700',
           marginBottom: '8px',
           fontSize: '36px'
         }}>
-          演唱會專區
+          演唱會
         </Title>
       </div>
 
@@ -159,66 +161,59 @@ const Concerts = () => {
               }}
               style={{
                 borderRadius: '20px',
-                border: '3px solid #87CEEB',
+                border: '3px solid rgb(252, 227, 0)',
                 boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
                 transition: 'all 0.3s ease',
-                background: 'linear-gradient(135deg, #E0F6FF 0%, #87CEEB 100%)',
+                background: 'linear-gradient(135deg,hsl(59, 100.00%, 89.00%) 0%,rgb(240, 237, 88) 100%)',
                 cursor: 'pointer'
               }}
               styles={{ body: { padding: '20px' } }}
             >
-              <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-                <Avatar
-                  size={60}
-                  src={concert.image}
-                  style={{
-                    backgroundColor: '#87CEEB',
-                    marginBottom: '12px',
-                    fontSize: '24px',
-                    border: '2px solid #87CEEB',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
-                  }}
-                  onError={() => {
-                    return concert.emoji;
-                  }}
-                >
-                  {concert.emoji}
-                </Avatar>
-                <Title level={3} style={{
-                  color: '#333',
-                  marginBottom: '8px',
-                  fontSize: '20px'
-                }}>
-                  {concert.concertName}
-                </Title>
+              {/* 上層：左（圖+標題），右（日期/地點/場地） */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
+                {/* 上左：標題（縮短寬度） */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: '0 1 42%' }}>
+                  <Title level={3} style={{
+                    color: '#333',
+                    margin: 0,
+                    fontSize: '20px',
+                    lineHeight: 1.2,
+                    wordBreak: 'break-word'
+                  }}>
+                    {concert.concertName}
+                  </Title>
+                </div>
+
+                {/* 上右：日期、地點、場地 */}
+                <Space direction="vertical" size="small" style={{ minWidth: 0, flex: '1 1 58%' }}>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <CalendarOutlined style={{ color: '#ffd700', marginRight: '8px' }} />
+                    <Text strong>{concert.date}</Text>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <EnvironmentOutlined style={{ color: '#ffd700', marginRight: '8px' }} />
+                    <Text>{concert.location}</Text>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <BankOutlined style={{ color: '#ffd700', marginRight: '8px' }} />
+                    <Text>{concert.venue}</Text>
+                  </div>
+                </Space>
               </div>
 
-              <Space direction="vertical" size="small" style={{ width: '100%' }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <Space>
-                    <CalendarOutlined style={{ color: '#87CEEB' }} />
-                    <Text strong>{concert.date}</Text>
-                  </Space>
-                  {getStatusTag(concert.status)}
+              {/* 下層：狀態 + 影片按鈕 */}
+              <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
+                {getStatusTag(concert.status)}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+                  {renderVideoButtons(concert.videoLinks, { compact: true })}
                 </div>
-
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <EnvironmentOutlined style={{ color: '#87CEEB', marginRight: '8px' }} />
-                  <Text>{concert.location}</Text>
-                </div>
-
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <BankOutlined style={{ color: '#87CEEB', marginRight: '8px' }} />
-                  <Text>{concert.venue}</Text>
-                </div>
-              </Space>
-
-              {/* 影片連結按鈕 */}
-              {renderVideoButtons(concert.videoLinks)}
+              </div>
             </Card>
           );
         })}
       </div>
+
+
     </div>
   );
 };

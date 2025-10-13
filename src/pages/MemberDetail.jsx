@@ -137,7 +137,7 @@ const MemberDetail = () => {
 
   // 顯示特定成員的詳細資訊
   return (
-    <div style={{ padding: '24px' }}>
+    <div style={{ padding: '24px', position: 'relative' }}>
       <div style={{ marginBottom: '24px' }}>
         <Button
           icon={<ArrowLeftOutlined />}
@@ -569,7 +569,7 @@ const MemberDetail = () => {
                     return colorMap[baseColor] || '#333';
                   })()
                 }}>
-                  個人參與綜藝 ({memberDetails.variety.length})
+                  個人綜藝 ({memberDetails.variety.length})
                 </Title>
                 {expandedSections.variety ? <DownOutlined /> : <RightOutlined />}
               </div>

@@ -9,6 +9,7 @@ const { Panel } = Collapse;
 
 const Variety = () => {
   const navigate = useNavigate();
+
   const [expandedSections, setExpandedSections] = useState({
     selfMade: true,
     documentary: true,
@@ -347,7 +348,7 @@ const Variety = () => {
   };
 
   return (
-    <div style={{ padding: '24px' }}>
+    <div style={{ padding: '24px', position: 'relative' }}>
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
         <Title level={1} style={{
           color: '#EBC700',
@@ -522,6 +523,7 @@ const Variety = () => {
         '#848D94',
         'typhoonPeriod'
       )}
+
     </div>
   );
 };

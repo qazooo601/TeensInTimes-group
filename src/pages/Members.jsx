@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, Typography, Avatar, Tag, Space } from 'antd';
-import { HeartOutlined, FireOutlined } from '@ant-design/icons';
+import { Card, Typography, Avatar, Tag, Space, Button } from 'antd';
+import { HeartOutlined, FireOutlined, EditOutlined } from '@ant-design/icons';
 import { BsSinaWeibo } from "react-icons/bs";
 import { membersData } from '../data/membersData';
 
@@ -29,8 +29,10 @@ const Members = () => {
     navigate('/member-detail', { state: { member } });
   };
 
+  const isSmallScreen = typeof window !== 'undefined' && window.innerWidth <= 768;
+
   return (
-    <div style={{ padding: '24px' }}>
+    <div style={{ padding: '24px', position: 'relative' }}>
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
         <Title level={1} style={{
           color: '#EBC700',
@@ -61,11 +63,19 @@ const Members = () => {
       </div>
 
       <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
         gap: '20px',
         marginBottom: '32px'
       }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '20px',
+          width: '100%',
+          maxWidth: '1200px'
+        }}>
         {membersData.map((member, index) => {
           // 處理顏色：如果是陣列則創建漸層，如果是單一顏色則使用原色
           const isGradient = Array.isArray(member.supportColor);
@@ -137,6 +147,26 @@ const Members = () => {
           </Card>
           );
         })}
+        </div>
+      </div>
+
+      {/* 右下意見回饋按鈕（從 MemberDetail 移置至此） */}
+      <div style={{ position: 'fixed', right: isSmallScreen ? undefined : '16px', left: isSmallScreen ? '12px' : undefined, bottom: isSmallScreen ? 'calc(env(safe-area-inset-bottom, 0px) + 96px)' : '16px', zIndex: 2001 }}>
+        <Button
+          type="primary"
+          size={isSmallScreen ? 'small' : 'middle'}
+          icon={<EditOutlined />}
+          onClick={() => window.location.href = '/feedback'}
+          style={{
+            background: '#FFD700',
+            borderColor: '#FFD700',
+            color: '#000',
+            fontWeight: 'bold',
+            borderRadius: '20px'
+          }}
+        >
+          留言投稿
+        </Button>
       </div>
     </div>
   );

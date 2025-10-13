@@ -140,8 +140,8 @@ export const concertsData = [
     description: '心緒舒展，繪制恣意率性。\n流光淺藏，氤氳溫潤光暈。\n歡呼奔湧不息，無限期待盛開。\n美好意象交疊，篆刻少年底色。',
     videoLinks: {
       concert: {
-        day1: 'https://www.bilibili.com/video/BV1Ce411f7dq/?spm_id_from=333.1387.upload.video_card.click',
-        day2: 'https://www.bilibili.com/video/BV1mC4y117cZ/?spm_id_from=333.1387.upload.video_card.click'
+        D1: 'https://www.bilibili.com/video/BV1Ce411f7dq/?spm_id_from=333.1387.upload.video_card.click',
+        D2: 'https://www.bilibili.com/video/BV1mC4y117cZ/?spm_id_from=333.1387.upload.video_card.click'
       },
       rehearsal: 'https://www.bilibili.com/video/BV1Lu4y1V7fW/?spm_id_from=333.1387.upload.video_card.click',
       short: ''
@@ -178,8 +178,8 @@ export const concertsData = [
     description: '雲霧層疊重樓，光影覆現聲波，成長具象有形\n朝向夏日啟程，共循樓間秘境',
     videoLinks: {
       concert: {
-        day1: 'https://www.bilibili.com/video/BV1jJ4m1A7rZ/?spm_id_from=333.1387.upload.video_card.click',
-        day2: 'https://www.bilibili.com/video/BV17t421M7BF/?spm_id_from=333.1387.upload.video_card.click'
+        D1: 'https://www.bilibili.com/video/BV1jJ4m1A7rZ/?spm_id_from=333.1387.upload.video_card.click',
+        D2: 'https://www.bilibili.com/video/BV17t421M7BF/?spm_id_from=333.1387.upload.video_card.click'
       },
       rehearsal: 'https://www.bilibili.com/video/BV1GD421V7Xk/?spm_id_from=333.1387.upload.video_card.click',
       short: 'https://www.bilibili.com/video/BV1tw4m1Q7tu/?spm_id_from=333.1387.upload.video_card.click'
@@ -215,8 +215,8 @@ export const concertsData = [
     description: '海浪回響，與海風協奏序曲。\n潮汐往覆，轉動孤島相連。\n每一次的潮漲潮落，都在倒數我們的盛夏之約。',
     videoLinks: {
       concert: {
-        day1: '',
-        day2: ''
+        D1: '',
+        D2: ''
       },
       rehearsal: '',
       short: ''
@@ -252,8 +252,8 @@ export const concertsData = [
     description: '海浪回響，與海風協奏序曲。\n潮汐往覆，轉動孤島相連。\n每一次的潮漲潮落，都在倒數我們的盛夏之約。',
     videoLinks: {
       concert: {
-        day1: 'https://www.bilibili.com/video/BV1GRxWeyEva/?spm_id_from=333.1387.upload.video_card.click',
-        day2: 'https://www.bilibili.com/video/BV1L4xeeCEVZ/?spm_id_from=333.1387.upload.video_card.click'
+        D1: 'https://www.bilibili.com/video/BV1GRxWeyEva/?spm_id_from=333.1387.upload.video_card.click',
+        D2: 'https://www.bilibili.com/video/BV1L4xeeCEVZ/?spm_id_from=333.1387.upload.video_card.click'
       },
       rehearsal: 'https://www.bilibili.com/video/BV1eT41137my',
       short: 'https://www.bilibili.com/video/BV1eT41137my'
@@ -289,8 +289,8 @@ export const concertsData = [
     description: '銘刻你我約定的指環\n圈起我們彼此相伴的來路\n隧道盡頭的光亮\n成為少年背後耀眼的時光\n\n一起走過的日子\n因為有你 無可比擬\n順著我們的足跡\n想去的未來 只因為有你',
     videoLinks: {
       concert: {
-        day1: 'https://www.bilibili.com/video/BV1fYq5YTEup/?spm_id_from=333.1387.upload.video_card.click',
-        day2: 'https://www.bilibili.com/video/BV1Bmq3YcEvQ/?spm_id_from=333.1387.upload.video_card.click'
+        D1: 'https://www.bilibili.com/video/BV1fYq5YTEup/?spm_id_from=333.1387.upload.video_card.click',
+        D2: 'https://www.bilibili.com/video/BV1Bmq3YcEvQ/?spm_id_from=333.1387.upload.video_card.click'
       },
       rehearsal: 'https://www.bilibili.com/video/BV116qPYQEuw/?spm_id_from=333.1387.upload.video_card.click',
       short: 'https://www.bilibili.com/video/BV1gyqcYpEqT/?spm_id_from=333.1387.upload.video_card.click'
@@ -326,8 +326,8 @@ export const concertsData = [
     description: '天光傾瀉的白晝，\n北冕座七顆星芒是更亮眼的存在！\n\n星光彙聚，榮耀加冠 \n少年長成，責任加身\n\n這場冠歲之禮，邀你共同見證！\n時代少年團「加冠禮」演唱會-「冠歲」海口站，我們不見不散！',
     videoLinks: {
       concert: {
-        day1: 'https://www.bilibili.com/video/BV1uhJczSER4/?spm_id_from=333.1387.upload.video_card.click',
-        day2: 'https://www.bilibili.com/video/BV1Lzj4zbEU5/?spm_id_from=333.1387.upload.video_card.click'
+        D1: 'https://www.bilibili.com/video/BV1uhJczSER4/?spm_id_from=333.1387.upload.video_card.click',
+        D2: 'https://www.bilibili.com/video/BV1Lzj4zbEU5/?spm_id_from=333.1387.upload.video_card.click'
       },
       rehearsal: 'https://www.bilibili.com/video/BV17Sjvz9EZm/?spm_id_from=333.1387.upload.video_card.click',
       short: ''
@@ -363,8 +363,8 @@ export const concertsData = [
     description: '塵霧散去，照見成長軌跡，\n一關一勵，山海即是征途！\n\n少年加冠，前路在望，\n勇則冠軍，奔赴山海！',
     videoLinks: {
       concert: {
-        day1: 'https://www.bilibili.com/video/BV1kkbwzYEA3/?spm_id_from=333.1387.upload.video_card.click',
-        day2: 'https://www.bilibili.com/video/BV1r9b6zzEHC/?spm_id_from=333.1387.upload.video_card.click'
+        D1: 'https://www.bilibili.com/video/BV1kkbwzYEA3/?spm_id_from=333.1387.upload.video_card.click',
+        D2: 'https://www.bilibili.com/video/BV1r9b6zzEHC/?spm_id_from=333.1387.upload.video_card.click'
       },
       rehearsal: 'https://www.bilibili.com/video/BV1uPYxzpEZd/?spm_id_from=333.1387.upload.video_card.click',
       short: 'https://www.bilibili.com/video/BV1pQ8vz8E3Z/?spm_id_from=333.1387.upload.video_card.click'
@@ -448,10 +448,10 @@ export const concertsData = [
     description: '以「加冠」之儀，「冠軍」之志\n沖破次元之外，加冕未來星河！\n\n這一程，我們將「冠軍」的榮光與責任鍛造成星軌，向宇宙遞交成長序曲。\n\n峰頂不是終點，我們持續向上。\n\n穿過經緯線，赴一場青春與盛夏的約定；\n跨過晨與昏，為每一次奔赴刻下永恒座標。',
     videoLinks: {
       concert: {
-        day1: 'https://www.bilibili.com/video/BV1mxa8zfEts/?spm_id_from=333.1387.upload.video_card.click',
-        day2: 'https://www.bilibili.com/video/BV11ZaYzeEsd/?spm_id_from=333.1387.upload.video_card.click',
-        day3: 'https://www.bilibili.com/video/BV1qjYMzJE8f/?spm_id_from=333.1387.upload.video_card.click',
-        day4: 'https://www.bilibili.com/video/BV14ua9zZEtZ/?spm_id_from=333.1387.upload.video_card.click'
+        D1: 'https://www.bilibili.com/video/BV1mxa8zfEts/?spm_id_from=333.1387.upload.video_card.click',
+        D2: 'https://www.bilibili.com/video/BV11ZaYzeEsd/?spm_id_from=333.1387.upload.video_card.click',
+        D3: 'https://www.bilibili.com/video/BV1qjYMzJE8f/?spm_id_from=333.1387.upload.video_card.click',
+        D4: 'https://www.bilibili.com/video/BV14ua9zZEtZ/?spm_id_from=333.1387.upload.video_card.click'
       },
       rehearsal: 'https://www.bilibili.com/video/BV1G6YNzTE1J/?spm_id_from=333.1387.upload.video_card.click',
       short: 'https://www.bilibili.com/video/BV1cAeyzfEci/?spm_id_from=333.1387.upload.video_card.click'
