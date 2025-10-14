@@ -37,7 +37,8 @@ const Home = () => {
             margin: '0 auto 16px'
           }}>
             ✨ 破天下，定風雲，時代少年並肩行 ✨<br/>
-            時代少年團（Teens in Times，簡稱TNT）是由時代峰峻推出的中國內地男子演唱組合
+            時代少年團（Teens in Times，簡稱TNT、小炸）<br/>
+            粉絲名：爆米花、大米爆
           </Paragraph>
           <div
             style={{
@@ -200,7 +201,7 @@ const Home = () => {
 
         {/* 出道前的團體經歷 */}
         <Card
-          title={<><FireOutlined /> 出道前的團體經歷</>}
+          title={<> 出道前的團體經歷</>}
           style={{
             borderRadius: '15px',
             border: '2px solid #FFD700',
@@ -209,11 +210,12 @@ const Home = () => {
             maxWidth: '800px'
           }}
         >
-          <div style={{ fontSize: '14px', lineHeight: '1.8' }}>
-            <div style={{ marginBottom: '8px' }}>• 2015年，台風四子時期，成員：黃其淋、黃宇航、丁程鑫、敖子逸</div>
-            <div style={{ marginBottom: '8px' }}>• 2015~2017年，二代練習生成員：黃其淋、黃宇航、丁程鑫、敖子逸、宋亞軒、李天澤、賀峻霖、嚴浩翔...</div>
-            <div style={{ marginBottom: '8px' }}>• 2017年4月《天天向上》由成員：丁程鑫、敖子逸、張真源、賀峻霖、宋亞軒，組成完顏團</div>
-            <div style={{ marginBottom: '8px' }}>• 2017年，台風十子時期，成員：丁程鑫、馬嘉祺、敖子逸、張真源、陳璽達、陳泗旭、宋亞軒、李天澤、賀峻霖、劉耀文</div>
+          <div style={{ fontSize: '14px', lineHeight: '1.6' }}>
+            <div style={{ marginBottom: '8px' }}>以下為公開資訊：</div>
+            <div style={{ marginBottom: '8px' }}>• 2015年，台風四子時期，成員：黃宇航、丁程鑫、敖子逸、黃其淋</div>
+            <div style={{ marginBottom: '8px' }}>• 2015~2017年，二代練習生成員：黃宇航、丁程鑫、潘政霖、敖子逸、黃其淋、代昊林、賀峻霖、殷湧智、曹峻瑋、嚴浩翔、張真源、陳泗旭、宋亞軒</div>
+            <div style={{ marginBottom: '8px' }}>• 2017年4月《天天向上》由成員：丁程鑫、敖子逸、賀峻霖、張真源、宋亞軒，節目中稱之為完顏團</div>
+            <div style={{ marginBottom: '8px' }}>• 2017年，台風十子時期，成員：丁程鑫、敖子逸、賀峻霖、張真源、陳泗旭、宋亞軒、劉耀文、陳璽達、李天澤、馬嘉祺</div>
             <div>• 2018年10月7日，TF家族推出的組合台風少年團正式出道，成員：丁程鑫(隊長)、馬嘉祺、宋亞軒、劉耀文、姚景元</div>
           </div>
         </Card>

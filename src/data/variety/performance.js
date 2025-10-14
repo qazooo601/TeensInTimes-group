@@ -9,7 +9,7 @@ export const performanceVariety = [
     emoji: '🎊',
     color: '#FF6B6B',
     episodes: '《霍元甲》',
-    coverImage: '/images/variety/performance/.jpg'
+    coverImage: '/images/variety/performance/2019雙十一狂歡夜.jpg'
   },
   {
     id: 'performanceVariety_002',
@@ -20,7 +20,7 @@ export const performanceVariety = [
     emoji: '🎊',
     color: '#FF6B6B',
     episodes: '《全校通報》',
-    coverImage: '/images/variety/performance/.jpg'
+    coverImage: '/images/variety/performance/2020愛奇藝尖叫之夜.jpg'
   },
   {
     id: 'performanceVariety_003',
@@ -31,7 +31,7 @@ export const performanceVariety = [
     emoji: '🏆',
     color: '#FF6B6B',
     episodes: '',
-    coverImage: '/images/variety/performance/.jpg'
+    coverImage: '/images/variety/performance/2019TMEA騰訊音樂娛樂盛典.jpg'
   },
   {
     id: 'performanceVariety_004',
@@ -42,7 +42,7 @@ export const performanceVariety = [
     emoji: '🎊',
     color: '#FF6B6B',
     episodes: '《無盡的冒險》',
-    coverImage: '/images/variety/performance/.jpg'
+    coverImage: '/images/variety/performance/2019-2020湖南衛視跨年演唱會.jpg'
   },
   {
     id: 'performanceVariety_005',
@@ -53,7 +53,7 @@ export const performanceVariety = [
     emoji: '🏆',
     color: '#FF6B6B',
     episodes: '《無盡的冒險》',
-    coverImage: '/images/variety/performance/.jpg'
+    coverImage: '/images/variety/performance/第27屆東方風雲榜.jpg'
   },
   {
     id: 'performanceVariety_006',
@@ -64,7 +64,7 @@ export const performanceVariety = [
     emoji: '🎊',
     color: '#FF6B6B',
     episodes: '《姐姐真漂亮》《寵愛》',
-    coverImage: '/images/variety/performance/.jpg'
+    coverImage: '/images/variety/performance/東方衛視818超級秀.jpg'
   },
   {
     id: 'performanceVariety_007',
@@ -75,7 +75,7 @@ export const performanceVariety = [
     emoji: '🎊',
     color: '#FF6B6B',
     episodes: '《姐姐真漂亮》',
-    coverImage: '/images/variety/performance/.jpg'
+    coverImage: '/images/variety/performance/TOP榮耀時刻.jpg'
   },
   {
     id: 'performanceVariety_008',
@@ -86,7 +86,7 @@ export const performanceVariety = [
     emoji: '🎊',
     color: '#FF6B6B',
     episodes: '《姐姐真漂亮》',
-    coverImage: '/images/variety/performance/.jpg'
+    coverImage: '/images/variety/performance/江蘇衛視快手一千零一夜.jpg'
   },
   {
     id: 'performanceVariety_009',
@@ -97,18 +97,18 @@ export const performanceVariety = [
     emoji: '🎊',
     color: '#FF6B6B',
     episodes: '《劍雨江湖》《相遇》',
-    coverImage: '/images/variety/performance/.jpg'
+    coverImage: '/images/variety/performance/蘇寧易購11.11超級秀.jpg'
   },
   {
     id: 'performanceVariety_010',
-    title: '演员请就位2终极就位盛典',
+    title: '演員請就位2終極就位盛典',
     year: '2020-12-05',
     participants: '全體成員',
     description: '',
     emoji: '🏆',
     color: '#FF6B6B',
     episodes: '《少年美》',
-    coverImage: '/images/variety/performance/.jpg'
+    coverImage: '/images/variety/performance/演员请就位2终极就位盛典.jpg'
   },
   {
     id: 'performanceVariety_011',
@@ -119,7 +119,7 @@ export const performanceVariety = [
     emoji: '🏆',
     color: '#FF6B6B',
     episodes: '《要你管》《Forever Young》《光陰的故事》',
-    coverImage: '/images/variety/performance/.jpg'
+    coverImage: '/images/variety/performance/湖南衛視1212超拼夜.jpg'
   },
   {
     id: 'performanceVariety_012',
@@ -515,7 +515,7 @@ export const performanceVariety = [
     emoji: '🎊',
     color: '#FF6B6B',
     episodes: '《登頂》《I Like U Like》《全世界我最美》',
-    coverImage: '/images/variety/performance/.jpg'
+    coverImage: '/images/variety/performance/2025青春芒果夜.jpg'
   },
   {
     id: 'performanceVariety_048',

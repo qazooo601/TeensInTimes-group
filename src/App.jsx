@@ -338,13 +338,7 @@ function App() {
           <Route
             path="/welcome"
             element={
-              user ? (
-                <AppLayout user={user} onLogout={handleLogout}>
-                  <Welcome />
-                </AppLayout>
-              ) : (
-                <Navigate to="/welcome" replace />
-              )
+              <Welcome />
             }
           />
           <Route

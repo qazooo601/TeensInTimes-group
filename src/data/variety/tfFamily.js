@@ -93,7 +93,7 @@ export const tfFamilyPeriodVariety = [
   },
   {
     id: 'tfFamily_008',
-    title: '2016圣诞奇幻夜',
+    title: 'TF家族 圣诞奇幻夜',
     category: '音樂會',
     year: '2016-12-24',
     participants: '二代練習生：黃宇航、丁程鑫、敖子逸、宋亞軒、嚴浩翔、張真源、陳泗旭、代昊林、曹峻瑋、殷涌智、潘政霖、賀峻霖',
@@ -158,7 +158,7 @@ export const tfFamilyPeriodVariety = [
   },
   {
     id: 'tfFamily_013',
-    title: '夏日嘉年华 - 夏日大作战',
+    title: 'TF家族 夏日嘉年华-夏日大作战',
     category: '音樂會',
     year: '2017-08-12',
     participants: '台風十子',
@@ -197,7 +197,7 @@ export const tfFamilyPeriodVariety = [
   },
   {
     id: 'tfFamily_016',
-    title: '冬日嘉年华 - DATE',
+    title: 'TF家族 冬日嘉年华-DATE',
     category: '音樂會',
     year: '2017-12-29',
     participants: '台風十子',
@@ -249,7 +249,7 @@ export const tfFamilyPeriodVariety = [
   },
   {
     id: 'tfFamily_020',
-    title: 'TF家族 新年音乐会 · 第一页',
+    title: 'TF家族 新年音乐会-第一页',
     category: '音樂會',
     year: '2018-12-29',
     participants: '颱風少年團、敖子逸、陳泗旭、賀峻霖、李天澤、宋文嘉、張真源 / 三代練習生',
@@ -262,7 +262,7 @@ export const tfFamilyPeriodVariety = [
   },
   {
     id: 'tfFamily_021',
-    title: 'TF家族《第一页》全纪录',
+    title: 'TF家族 第一页 全纪录',
     category: '紀錄片',
     year: '2019-01-25',
     participants: '颱風少年團、敖子逸、陳泗旭、賀峻霖、李天澤、宋文嘉、張真源 / 三代練習生',
@@ -275,7 +275,7 @@ export const tfFamilyPeriodVariety = [
   },
   {
     id: 'tfFamily_022',
-    title: 'TF家族 新年音乐会 · 重逢',
+    title: 'TF家族 新年音乐会-重逢',
     category: '音樂會',
     year: '2020-01-11',
     participants: '時代少年團、敖子逸、李天澤 / 三代練習生',
@@ -288,7 +288,7 @@ export const tfFamilyPeriodVariety = [
   },
   {
     id: 'tfFamily_023',
-    title: '2020TF家族夏季运动会',
+    title: 'TF家族2020夏季运动会',
     category: '運動會',
     year: '2020-06-14',
     participants: '時代少年團 / 三代練習生',
@@ -301,7 +301,7 @@ export const tfFamilyPeriodVariety = [
   },
   {
     id: 'tfFamily_024',
-    title: '2022TF家族夏日运动会',
+    title: 'TF家族2022夏日运动会',
     category: '運動會',
     year: '2022-08-05',
     participants: '時代少年團 / 三代練習生 / 四代練習生',
@@ -314,7 +314,7 @@ export const tfFamilyPeriodVariety = [
   },
   {
     id: 'tfFamily_025',
-    title: '2022TF家族夏季运动会纪录片——凝聚',
+    title: 'TF家族2022夏季运动会纪录片——凝聚',
     category: '紀錄片',
     year: '2022-08-12',
     participants: '時代少年團 / 三代練習生 / 四代練習生',
@@ -327,7 +327,7 @@ export const tfFamilyPeriodVariety = [
   },
   {
     id: 'tfFamily_026',
-    title: '2024TF家族夏日运动会',
+    title: 'TF家族2024夏日运动会',
     category: '運動會',
     year: '2024-07-16',
     participants: '時代少年團 / 三代練習生 / 四代練習生',
@@ -340,7 +340,7 @@ export const tfFamilyPeriodVariety = [
   },
   {
     id: 'tfFamily_027',
-    title: '2024TF家族夏日运动会纪录片 ',
+    title: 'TF家族2024夏日运动会纪录片 ',
     category: '紀錄片',
     year: '2024-08-01',
     participants: '時代少年團 / 三代練習生 / 四代練習生',
@@ -353,7 +353,7 @@ export const tfFamilyPeriodVariety = [
   },
   {
     id: 'tfFamily_028',
-    title: '2025新年音乐会 · 热爱',
+    title: 'TF家族 新年音乐会-热爱',
     category: '音樂會',
     year: '2025-01-18、19',
     participants: '時代少年團 / 登陸少年、TF_ING、張峻豪、余宇涵 / 四代練習生 / 五代練習生',

@@ -84,9 +84,10 @@ export const musicData = [
     description: '加冠專輯，追尋音樂理想的堅持與追求。',
     songs: [
       { song: '至少我還算快樂', performer: '全體', audioUrl: 'https://example.com/audio/lixiangzhitu.mp3' },
-      { song: '全世界我最美', performer: '全體', audioUrl: 'https://example.com/audio/wutuobang.mp3' },
-      { song: 'I like U like', performer: '全體', audioUrl: 'https://example.com/audio/zhujue.mp3' },
-      { song: '登頂', performer: '全體', audioUrl: 'https://example.com/audio/nezha.mp3' }
+      { song: '全世界我最美', performer: '全體', audioUrl: 'https://i.y.qq.com/v8/playsong.html?songid=576370402&songtype=0#webchat_redirect' },
+      { song: '登頂', performer: '全體', audioUrl: 'https://i.y.qq.com/v8/playsong.html?songid=589165050&songtype=0#webchat_redirect' },
+      { song: 'I like U like', performer: '全體', audioUrl: 'https://i.y.qq.com/v8/playsong.html?songid=597580440&songtype=0#webchat_redirect' },
+      { song: '冠軍', performer: '全體', audioUrl: 'https://i.y.qq.com/v8/playsong.html?songid=598318652&songtype=0#webchat_redirect' },
     ]
   },
 

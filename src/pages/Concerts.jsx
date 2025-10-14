@@ -46,8 +46,8 @@ const Concerts = () => {
                   window.open(videoLinks.concert[day], '_blank');
                 }}
                 style={{
-                  backgroundColor: '#2299C9',
-                  borderColor: '#2299C9',
+                  backgroundColor: '#C9BB22',
+                  borderColor: '#C9BB22',
                   borderRadius: '15px',
                   margin: '2px'
                 }}
@@ -70,8 +70,8 @@ const Concerts = () => {
               window.open(videoLinks.concert, '_blank');
             }}
             style={{
-              backgroundColor: '#2299C9',
-              borderColor: '#2299C9',
+              backgroundColor: '#C9BB22',
+              borderColor: '#C9BB22',
               borderRadius: '15px',
               margin: '2px'
             }}
