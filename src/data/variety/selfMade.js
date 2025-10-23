@@ -217,7 +217,7 @@ export const selfMadeVariety = [
     description: '',
     emoji: '🏃',
     color: '#DDA0DD',
-    episodes: 65,
+    episodes: 66,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3976590?type=series',
     coverImage: '/images/variety/self-made/浅炸一下吧.jpg'
   },

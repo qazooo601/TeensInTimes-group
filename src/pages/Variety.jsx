@@ -436,7 +436,7 @@ const Variety = () => {
       )}
 
       {/* 生日紀錄區塊（依年份展開/收合） */}
-      <div id="section-birthday" style={{ marginBottom: '40px' }}>
+      <div id="section-birthday-main" style={{ marginBottom: '40px' }}>
         <div
           style={{
             display: 'flex',
