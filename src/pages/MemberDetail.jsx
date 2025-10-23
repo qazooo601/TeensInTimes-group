@@ -422,13 +422,6 @@ const MemberDetail = () => {
                                           {index + 1}.
                                         </Text>
                                         <Text style={{ color: '#333' }}>{song.title}</Text>
-                                        <Text style={{
-                                          color: '#999',
-                                          marginLeft: '8px',
-                                          fontSize: '11px'
-                                        }}>
-                                          ({song.duration})
-                                        </Text>
                                       </div>
                                       {song.audioUrl && (
                                         <Button
@@ -569,7 +562,7 @@ const MemberDetail = () => {
                     return colorMap[baseColor] || '#333';
                   })()
                 }}>
-                  個人綜藝 ({memberDetails.variety.length})
+                  個人外務 ({memberDetails.variety.length})
                 </Title>
                 {expandedSections.variety ? <DownOutlined /> : <RightOutlined />}
               </div>

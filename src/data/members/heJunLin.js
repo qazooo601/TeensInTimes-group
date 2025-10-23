@@ -85,26 +85,75 @@ export const heJunLinDetails = {
     {
       id: 'hjl_variety_005',
       title: '夏日少年派',
-      role: '',
+      role: '飛行嘉賓',
       year: '2021-08-27',
-      description: ''
+      description: '第6期嘉賓'
     },
     {
       id: 'hjl_variety_006',
+      title: '北京國際電影節•第29屆大學生電影節青春之夜',
+      role: '主持人',
+      year: '2022-09-09',
+      description: ''
+    },
+    {
+      id: 'hjl_variety_007',
+      title: '中國電影報道',
+      role: '實習主播',
+      year: '2023-01-04',
+      description: ''
+    },
+    {
+      id: 'hjl_variety_008',
       title: '令人心動的offer第五季',
       role: '加油團',
       year: '2023-09-26',
       description: ''
     },
     {
-      id: 'hjl_variety_007',
+      id: 'hjl_variety_009',
+      title: '第十四屆北京國際電影節閉幕式',
+      role: '出席嘉賓',
+      year: '2024-04-26',
+      description: ''
+    },
+    {
+      id: 'hjl_variety_009',
+      title: '青春詩會樂動心聲',
+      role: '主持人',
+      year: '2024-05-21',
+      description: ''
+    },
+    {
+      id: 'hjl_variety_010',
+      title: '中國傳媒大學建校70周年文藝晚會',
+      role: '主持人',
+      year: '2024-09-26',
+      description: ''
+    },
+    {
+      id: 'hjl_variety_011',
       title: '一路繁花',
       role: '成員',
       year: '2025-01-11',
       description: ''
     },
     {
-      id: 'hjl_variety_008',
+      id: 'hjl_variety_012',
+      title: 'LV非凡之旅',
+      role: '主持人',
+      year: '2025-06-28',
+      description: ''
+    },
+    {
+      id: 'hjl_variety_013',
+      title: '2025快手超級夏晚',
+      role: '與謝娜合作',
+      year: '2025-08-30',
+      description: '演唱歌曲《我的未來式》'
+    },
+    {
+      id: 'hjl_variety_014',
       title: '令人心動的offer第七季',
       role: '加油團',
       year: '2025-09-12',

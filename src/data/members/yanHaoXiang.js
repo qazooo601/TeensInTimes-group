@@ -76,27 +76,22 @@ export const yanHaoXiangDetails = {
         songs: [
           {
             title: 'INTRO: Gaze',
-            duration: '1:28',
             audioUrl: 'https://example.com/audio/yhx_qingchun_wuhui.mp3'
           },
           {
             title: 'Scary Movie',
-            duration: '3:05',
             audioUrl: 'https://example.com/audio/yhx_mengxiang_feixiang.mp3'
           },
           {
             title: 'Got It Bad',
-            duration: '3:05',
             audioUrl: 'https://example.com/audio/yhx_mengxiang_feixiang.mp3'
           },
           {
             title: 'Find Me',
-            duration: '3:05',
             audioUrl: 'https://example.com/audio/yhx_mengxiang_feixiang.mp3'
           },
           {
             title: 'The Beast',
-            duration: '3:05',
             audioUrl: 'https://example.com/audio/yhx_mengxiang_feixiang.mp3'
           }
         ]
@@ -111,27 +106,22 @@ export const yanHaoXiangDetails = {
         songs: [
           {
             title: '亢奮（Euphoria）',
-            duration: '3:28',
             audioUrl: 'https://example.com/audio/yhx_qingchun_wuhui.mp3'
           },
           {
             title: '遺憾（Had It All）',
-            duration: '4:05',
             audioUrl: 'https://example.com/audio/yhx_mengxiang_feixiang.mp3'
           },
           {
             title: '冬眠（In My Mind）',
-            duration: '3:52',
             audioUrl: 'https://example.com/audio/yhx_shiguang_ranran.mp3'
           },
           {
             title: '動搖（Vibrations）',
-            duration: '3:52',
             audioUrl: 'https://example.com/audio/yhx_shiguang_ranran.mp3'
           },
           {
             title: '獨白（Move On）',
-            duration: '3:52',
             audioUrl: 'https://example.com/audio/yhx_shiguang_ranran.mp3'
           }
         ]
@@ -172,20 +162,27 @@ variety: [
   },
   {
     id: 'yhx_variety_003',
+    title: '夏日少年派',
+    role: '飛行嘉賓',
+    year: '2021-08-27',
+    description: '第6期嘉賓'
+  },
+  {
+    id: 'yhx_variety_004',
     title: '極限挑戰第九季',
     role: '常駐嘉賓',
     year: '2023-04-16~2023-07-05',
     description: '缺席第五、六、十二期'
   },
   {
-      id: 'yhx_variety_004',
+      id: 'yhx_variety_005',
       title: '極限挑戰第十季',
       role: '常駐嘉賓',
       year: '2024-04-21~2024-07-14',
       description: '缺席第十期'
     },
     {
-      id: 'yhx_variety_005',
+      id: 'yhx_variety_006',
       title: '新說唱2025',
       role: '導師',
       year: '2025-06-07~2025-08-24',
@@ -219,7 +216,23 @@ variety: [
         year: '2016-10-14',
         type: '迷你劇',
         description: 'TF家族自製劇'
-      },
+    },
+    {
+      id: 'yhx_movie_004',
+      title: '《黎明之前》',
+      role: '汪劍池',
+      year: '2023-04-16',
+      type: '話劇',
+      description: '北電匯報演出'
+    },
+    {
+      id: 'yhx_movie_005',
+      title: '《看見未來》',
+      role: '',
+      year: '未播出',
+      type: '電影 ->網劇',
+      description: '作業'
+    },
   ],
 
   // 獲獎

@@ -189,6 +189,17 @@ export const performanceVariety = [
   },
   {
     id: 'performanceVariety_018',
+    title: '2021年中央廣播電視總台六一晚會',
+    year: '2021-06-01',
+    participants: '宋亞軒、嚴浩翔、賀峻霖',
+    description: '',
+    emoji: '🏆',
+    color: '#FF6B6B',
+    episodes: '《摘星少年》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_018',
     title: '電影之歌·唱響保定',
     year: '2021-06-27',
     participants: '全體成員',
@@ -294,7 +305,7 @@ export const performanceVariety = [
     description: '',
     emoji: '🎊',
     color: '#FF6B6B',
-    episodes: '《我們會更好》《讚讚新時代》',
+    episodes: '《我們會更好》',
     coverImage: '/images/variety/performance/.jpg'
   },
   {
@@ -327,7 +338,7 @@ export const performanceVariety = [
     description: '',
     emoji: '🎊',
     color: '#FF6B6B',
-    episodes: '《百憂戒》《理想之途》',
+    episodes: '《同桌的你》《蝴蝶飛呀》《百憂戒》《理想之途》',
     coverImage: '/images/variety/performance/.jpg'
   },
   {
@@ -372,6 +383,39 @@ export const performanceVariety = [
     emoji: '🎊',
     color: '#FF6B6B',
     episodes: '《百憂戒》《第一天》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_035',
+    title: '2022微博之夜',
+    year: '2023-03-25',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '《百憂戒》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_036',
+    title: '北京衛視五四歌會',
+    year: '2023-05-03',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '《百憂戒》',
+    coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_037',
+    title: '央視六一晚會',
+    year: '2023-06-01',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '《红蜻蜓》',
     coverImage: '/images/variety/performance/.jpg'
   },
   {

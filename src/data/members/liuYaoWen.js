@@ -141,27 +141,34 @@ export const liuYaoWenDetails = {
     },
     {
       id: 'lyw_variety_007',
+      title: '夏日少年派',
+      role: '飛行嘉賓',
+      year: '2021-08-06、13、20',
+      description: '第3期嘉賓、第4期嘉賓、第5期嘉賓'
+    },
+    {
+      id: 'lyw_variety_008',
       title: '萌探探探案第二季',
       role: '常駐嘉賓',
       year: '2022-05-27',
       description: '常駐嘉賓'
     },
     {
-      id: 'lyw_variety_008',
+      id: 'lyw_variety_009',
       title: 'bilibili夏日畢業歌會2022',
       role: '嘉賓',
       year: '2022-06-16',
       description: '演唱歌曲《New Boy》，丁程鑫、劉耀文、張真源'
     },
     {
-      id: 'lyw_variety_009',
+      id: 'lyw_variety_010',
       title: '無限超越班第一季',
       role: '常駐嘉賓',
       year: '2022-12-17',
       description: '常駐嘉賓'
     },
     {
-      id: 'lyw_variety_010',
+      id: 'lyw_variety_011',
       title: '宇宙閃爍請注意',
       role: '主要嘉賓',
       year: '2025',
