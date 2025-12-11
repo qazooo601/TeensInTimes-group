@@ -8,7 +8,7 @@ export const yanHaoXiangDetails = {
         releaseDate: '2020-03-18',
         type: '單曲',
         description: '',
-        audioUrl: 'https://example.com/audio/yhx_bijiaolangman.mp3'
+        audioUrl: 'https://music.youtube.com/watch?v=vmD8g5UowMA&si=EILCPpwi7_1JSSma'
     },
     {
         id: 'yhx_song_002',
@@ -16,7 +16,7 @@ export const yanHaoXiangDetails = {
         releaseDate: '2020-08-16',
         type: '單曲',
         description: '',
-        audioUrl: 'https://example.com/audio/yhx_bijiaolangman.mp3'
+        audioUrl: 'https://music.youtube.com/watch?v=RGIKqCSWsAk&si=02Fj1oI0F0T8Q6Nk'
     },
     {
         id: 'yhx_song_003',
@@ -24,7 +24,7 @@ export const yanHaoXiangDetails = {
         releaseDate: '2021-08-16',
         type: '單曲',
         description: '',
-        audioUrl: 'https://example.com/audio/yhx_bijiaolangman.mp3'
+        audioUrl: 'https://music.youtube.com/watch?v=0ZSC_6iqJLE&si=E480P3v-iRE_MSRn'
     },
     {
         id: 'yhx_song_004',
@@ -32,7 +32,7 @@ export const yanHaoXiangDetails = {
         releaseDate: '2021-12-14',
         type: '單曲',
         description: '',
-        audioUrl: 'https://example.com/audio/yhx_bijiaolangman.mp3'
+        audioUrl: 'https://music.youtube.com/watch?v=kh-q4C6RtmI&si=jIkYVN8jh5TJ4hEO'
     },
     {
         id: 'yhx_song_005',
@@ -40,7 +40,7 @@ export const yanHaoXiangDetails = {
         releaseDate: '2022-11-26',
         type: '單曲',
         description: '',
-        audioUrl: 'https://example.com/audio/yhx_bijiaolangman.mp3'
+        audioUrl: 'https://music.youtube.com/watch?v=Kfes1h0Jreo&si=qzM5EOY9RvHac7wP'
     },
     {
         id: 'yhx_song_006',
@@ -48,7 +48,7 @@ export const yanHaoXiangDetails = {
         releaseDate: '2023-04-09',
         type: '單曲',
         description: '',
-        audioUrl: 'https://example.com/audio/yhx_bijiaolangman.mp3'
+        audioUrl: 'https://music.youtube.com/watch?v=sv8-rpmWqx4&si=R_DoqOiVBxZnMuLI'
     },
     {
         id: 'yhx_song_007',
@@ -56,7 +56,7 @@ export const yanHaoXiangDetails = {
         releaseDate: '2023-08-16',
         type: '單曲',
         description: '',
-        audioUrl: 'https://example.com/audio/yhx_bijiaolangman.mp3'
+        audioUrl: 'https://music.youtube.com/watch?v=dInqXpCrmC8&si=JrNsZpN-wZNT0Vi_'
     },
     {
         id: 'yhx_song_008',
@@ -64,7 +64,7 @@ export const yanHaoXiangDetails = {
         releaseDate: '2025-08-18',
         type: '單曲',
         description: '',
-        audioUrl: 'https://example.com/audio/yhx_bijiaolangman.mp3'
+        audioUrl: 'https://music.youtube.com/watch?v=rJJXiaa4B-I&si=7479QPkmk4QGHDEA'
     },
     {
         id: 'yhx_album_001',
@@ -72,27 +72,27 @@ export const yanHaoXiangDetails = {
         releaseDate: '2024-04-22',
         type: '專輯',
         description: '又名：那就讓恐懼發生',
-        audioUrl: 'https://example.com/audio/yhx_scary_movie_i_gaze.mp3',
+        audioUrl: 'https://music.youtube.com/playlist?list=OLAK5uy_kwgp1tZjnNTtq_MEgkUyszk4GAkUeeAQY',
         songs: [
           {
             title: 'INTRO: Gaze',
-            audioUrl: 'https://example.com/audio/yhx_qingchun_wuhui.mp3'
+            audioUrl: 'https://music.youtube.com/watch?v=8WIrz1_PTyA&si=UiqIgRWg1dEwHFzD'
           },
           {
             title: 'Scary Movie',
-            audioUrl: 'https://example.com/audio/yhx_mengxiang_feixiang.mp3'
+            audioUrl: 'https://music.youtube.com/watch?v=G5Dd-5GxQf8&si=Hf0d_xJfLsWJz0rW'
           },
           {
             title: 'Got It Bad',
-            audioUrl: 'https://example.com/audio/yhx_mengxiang_feixiang.mp3'
+            audioUrl: 'https://music.youtube.com/watch?v=VteTGeg2XcU&si=ddJaVDwLqao2tKwf'
           },
           {
             title: 'Find Me',
-            audioUrl: 'https://example.com/audio/yhx_mengxiang_feixiang.mp3'
+            audioUrl: 'https://music.youtube.com/watch?v=SwyTKpoJxYI&si=as_35wcooH4KaKNg'
           },
           {
             title: 'The Beast',
-            audioUrl: 'https://example.com/audio/yhx_mengxiang_feixiang.mp3'
+            audioUrl: 'https://music.youtube.com/watch?v=tNp11k0YNPU&si=reFVUlCeYK_bhwgD'
           }
         ]
       },
@@ -102,27 +102,27 @@ export const yanHaoXiangDetails = {
         releaseDate: '2025-01-13',
         type: '專輯',
         description: '又名：Polar Bear Y',
-        audioUrl: 'https://example.com/audio/yhx_81_6_n_yanhanti.mp3',
+        audioUrl: 'https://music.youtube.com/playlist?list=OLAK5uy_lOoNPk9voJUUXaOMfb0kMTmI5i3NssDb4',
         songs: [
           {
             title: '亢奮（Euphoria）',
-            audioUrl: 'https://example.com/audio/yhx_qingchun_wuhui.mp3'
+            audioUrl: 'https://music.youtube.com/watch?v=hZ0JfjQHnDY&si=A4MwMjEHrWB6XCwp'
           },
           {
             title: '遺憾（Had It All）',
-            audioUrl: 'https://example.com/audio/yhx_mengxiang_feixiang.mp3'
+            audioUrl: 'https://music.youtube.com/watch?v=Q1GMI32foSw&si=xKZ7epqvgBlSDJ9Q'
           },
           {
             title: '冬眠（In My Mind）',
-            audioUrl: 'https://example.com/audio/yhx_shiguang_ranran.mp3'
+            audioUrl: 'https://music.youtube.com/watch?v=iaB3L7W3Yog&si=ZCqPqO4GFOd1_3RJ'
           },
           {
             title: '動搖（Vibrations）',
-            audioUrl: 'https://example.com/audio/yhx_shiguang_ranran.mp3'
+            audioUrl: 'https://music.youtube.com/watch?v=RGIKqCSWsAk&si=02Fj1oI0F0T8Q6Nk'
           },
           {
             title: '獨白（Move On）',
-            audioUrl: 'https://example.com/audio/yhx_shiguang_ranran.mp3'
+            audioUrl: 'https://music.youtube.com/watch?v=qp0ghNw3My8&si=4TssE6ORi_CIiFx_'
           }
         ]
       },
@@ -132,7 +132,7 @@ export const yanHaoXiangDetails = {
         releaseDate: '2025-06-02',
         type: '合作',
         description: '黃子韜、萬妮達、Tizzy T、Capper',
-        audioUrl: 'https://example.com/audio/yhx_new.mp3'
+        audioUrl: 'https://music.youtube.com/watch?v=mctQ562B-FY&si=s49dZusIAX6CZ7Df'
       },
       {
         id: 'yhx_collab_002',
@@ -140,7 +140,7 @@ export const yanHaoXiangDetails = {
         releaseDate: '2025-06-28',
         type: '合作',
         description: '萬妮達',
-        audioUrl: 'https://example.com/audio/yhx_new.mp3'
+        audioUrl: 'https://music.youtube.com/watch?v=E4nKhj9drDM&si=JfC11rTRjgzjApbQ'
       }
   ],
 

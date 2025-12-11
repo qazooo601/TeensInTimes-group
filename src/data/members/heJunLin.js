@@ -8,7 +8,7 @@ export const heJunLinDetails = {
       releaseDate: '2018-10-29',
       type: '單曲',
       description: '首支個人單曲',
-      audioUrl: 'https://example.com/audio/hjl_gerenzuopin.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=QC-km_PFAEY&si=GnyafpY5vc1-kAKR'
     },
     {
       id: 'hjl_song_002',
@@ -16,7 +16,7 @@ export const heJunLinDetails = {
       releaseDate: '2023-06-15',
       type: '單曲',
       description: '',
-      audioUrl: 'https://example.com/audio/hjl_gerenzuopin.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=T7ZF9wHl1GQ&si=mKDlovfznVmqQaI8'
     },
     {
       id: 'hjl_song_003',
@@ -24,7 +24,7 @@ export const heJunLinDetails = {
       releaseDate: '2024-04-09',
       type: '單曲',
       description: '',
-      audioUrl: 'https://example.com/audio/hjl_gerenzuopin.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=7HDa-N6APC0&si=cYu0bwP6u-eyE3IL'
     },
     {
       id: 'hjl_song_004',
@@ -32,7 +32,7 @@ export const heJunLinDetails = {
       releaseDate: '2024-11-11',
       type: '單曲',
       description: '',
-      audioUrl: 'https://example.com/audio/hjl_gerenzuopin.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=wClFPCmN6co&si=6VGqDiMUC1Goossa'
     },
     {
       id: 'hjl_song_005',
@@ -40,7 +40,7 @@ export const heJunLinDetails = {
       releaseDate: '2024',
       type: '單曲',
       description: '',
-      audioUrl: 'https://example.com/audio/hjl_gerenzuopin.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=b3N40V1JlQg&si=B1MV8oaAyJMFIEQw'
     },
     {
       id: 'hjl_song_006',
@@ -48,7 +48,7 @@ export const heJunLinDetails = {
       releaseDate: '2025',
       type: '單曲',
       description: '',
-      audioUrl: 'https://example.com/audio/hjl_gerenzuopin.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=s4Z747j9Pzk&si=ImEvDQETHha5DGq4'
     }
   ],
 

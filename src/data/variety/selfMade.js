@@ -11,7 +11,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: '8+15（含預告、花絮）',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3974278?type=series',
-    coverImage: '/images/variety/self-made/tntBOOM！TV .jpg'
+    coverImage: '/images/variety/self-made/tntBOOM！TV .jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_002',
@@ -24,7 +25,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 12,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3975726?type=series',
-    coverImage: '/images/variety/self-made/tnt少年夢遊記.jpg'
+    coverImage: '/images/variety/self-made/tnt少年夢遊記.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_003',
@@ -37,7 +39,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 7,
     videoUrl: 'https://space.bilibili.com/3670216/lists/3437216?type=series',
-    coverImage: '/images/variety/self-made/2020春节太闹腾.jpg'
+    coverImage: '/images/variety/self-made/2020春节太闹腾.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_004',
@@ -50,7 +53,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: '6+2（含先導片、番外）',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3973865?type=series',
-    coverImage: '/images/variety/self-made/我们的新家.jpg'
+    coverImage: '/images/variety/self-made/我们的新家.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_005',
@@ -63,7 +67,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 7,
     videoUrl: 'https://www.bilibili.com/video/BV1444y1J7zw/?spm_id_from=333.337.search-card.all.click',
-    coverImage: '/images/variety/self-made/少年ON FIRE.jpg'
+    coverImage: '/images/variety/self-made/少年ON FIRE.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_006',
@@ -76,7 +81,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 7,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3975233?type=series',
-    coverImage: '/images/variety/self-made/2021春节太闹腾.jpg'
+    coverImage: '/images/variety/self-made/2021春节太闹腾.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_007',
@@ -89,7 +95,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 7,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3975445?type=series',
-    coverImage: '/images/variety/self-made/五百天特别企划晚安信.jpg'
+    coverImage: '/images/variety/self-made/五百天特别企划晚安信.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_008',
@@ -102,7 +109,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: '2+純享+Vlog',
     videoUrl: 'https://www.bilibili.com/video/BV1R5411f7aK?spm_id_from=333.788.recommend_more_video.3&vd_source=212b4e5ec5ac590b986ff962f6fadb32',
-    coverImage: '/images/variety/self-made/少年ON FIRE2.jpg'
+    coverImage: '/images/variety/self-made/少年ON FIRE2.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_009',
@@ -115,7 +123,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 7,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3975694?type=series',
-    coverImage: '/images/variety/self-made/五月粉丝见面会1.jpg'
+    coverImage: '/images/variety/self-made/五月粉丝见面会1.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_010',
@@ -128,7 +137,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: '18',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3975702?type=series',
-    coverImage: '/images/variety/self-made/这福气给你要不要.jpg'
+    coverImage: '/images/variety/self-made/这福气给你要不要.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_011',
@@ -141,7 +151,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: '22:25',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3975715?type=series',
-    coverImage: '/images/variety/self-made/火力全开幕后花絮.jpg'
+    coverImage: '/images/variety/self-made/火力全开幕后花絮.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_012',
@@ -154,7 +165,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 7,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3975987?type=series',
-    coverImage: '/images/variety/self-made/2022春节太闹腾.jpg'
+    coverImage: '/images/variety/self-made/2022春节太闹腾.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_013',
@@ -167,7 +179,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 6,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3976569?type=series',
-    coverImage: '/images/variety/self-made/哥弟出游记.jpg'
+    coverImage: '/images/variety/self-made/哥弟出游记.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_014',
@@ -180,7 +193,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: '22(舞台+純享+直拍+花絮)',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3976571?type=series',
-    coverImage: '/images/variety/self-made/循梦.jpg'
+    coverImage: '/images/variety/self-made/循梦.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_015',
@@ -193,7 +207,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 12,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3976582?type=series',
-    coverImage: '/images/variety/self-made/小炸的暑假生活22.jpg'
+    coverImage: '/images/variety/self-made/小炸的暑假生活22.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_016',
@@ -206,7 +221,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: '10+20（預告、未播花絮）',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3976600?type=series',
-    coverImage: '/images/variety/self-made/时代夏令营.jpg'
+    coverImage: '/images/variety/self-made/时代夏令营.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_017',
@@ -214,12 +230,13 @@ export const selfMadeVariety = [
     category: '日常生活',
     year: '2022-10-05~至今',
     participants: '全體成員',
-    description: '',
+    description: '最新一期：情緒換乘式 2025-11-08',
     emoji: '🏃',
     color: '#DDA0DD',
-    episodes: 66,
+    episodes: 68,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3976590?type=series',
-    coverImage: '/images/variety/self-made/浅炸一下吧.jpg'
+    coverImage: '/images/variety/self-made/浅炸一下吧.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_018',
@@ -232,7 +249,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: '4(含預告+花絮)',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3976592?type=series',
-    coverImage: '/images/variety/self-made/三时有声.jpg'
+    coverImage: '/images/variety/self-made/三时有声.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_019',
@@ -245,7 +263,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 8,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3979965?type=series',
-    coverImage: '/images/variety/self-made/2023春节太闹腾.jpg'
+    coverImage: '/images/variety/self-made/2023春节太闹腾.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_020',
@@ -258,7 +277,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: '12+24（含預告、未播花絮）',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3979982?type=series',
-    coverImage: '/images/variety/self-made/时代夏令营2.jpg'
+    coverImage: '/images/variety/self-made/时代夏令营2.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_021',
@@ -266,12 +286,13 @@ export const selfMadeVariety = [
     category: '團綜',
     year: '2023-07-04',
     participants: '全體成員',
-    description: '',
+    description: '最新一期：魔丸行( 2、5、7 ) 2025-10-31',
     emoji: '🏃',
     color: '#DDA0DD',
-    episodes: 29,
+    episodes: 31,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3979917?type=series',
-    coverImage: '/images/variety/self-made/三人行.jpg'
+    coverImage: '/images/variety/self-made/三人行.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_022',
@@ -284,7 +305,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 8,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3977124?type=series',
-    coverImage: '/images/variety/self-made/小炸的暑假生活23.jpg'
+    coverImage: '/images/variety/self-made/小炸的暑假生活23.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_023',
@@ -297,7 +319,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: '8+10（含先導片、未播花絮、番外）',
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3978832?type=series',
-    coverImage: '/images/variety/self-made/时代有冬西.jpg'
+    coverImage: '/images/variety/self-made/时代有冬西.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_024',
@@ -310,7 +333,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 7,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3979967?type=series',
-    coverImage: '/images/variety/self-made/24楼晚.jpg'
+    coverImage: '/images/variety/self-made/24楼晚.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_025',
@@ -323,7 +347,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 6,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/4562937?type=series',
-    coverImage: '/images/variety/self-made/时代顶呱呱.jpg'
+    coverImage: '/images/variety/self-made/时代顶呱呱.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_026',
@@ -336,7 +361,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 8,
     videoUrl: 'https://space.bilibili.com/3546630773016865/search?keyword=2025%E5%8D%81%E5%85%AB%E6%A5%BC%E8%81%94%E6%AC%A2%E6%99%9A%E4%BC%9A',
-    coverImage: '/images/variety/self-made/25楼晚.jpg'
+    coverImage: '/images/variety/self-made/25楼晚.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_027',
@@ -349,7 +375,8 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: '7+1（含先導片）',
     videoUrl: 'https://space.bilibili.com/3546630773016865/search?keyword=%E9%9D%9E%E5%8E%BB%E4%B8%8D%E5%8F%AFEP',
-    coverImage: '/images/variety/self-made/非去不可.jpg'
+    coverImage: '/images/variety/self-made/非去不可.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_028',
@@ -362,6 +389,21 @@ export const selfMadeVariety = [
     color: '#DDA0DD',
     episodes: 5,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/5873491?type=season',
-    coverImage: '/images/variety/self-made/小炸的暑假生活25.jpg'
+    coverImage: '/images/variety/self-made/小炸的暑假生活25.jpg',
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
+  },
+  {
+    id: 'sdfjVariety_029',
+    title: '我有一个朋友',
+    category: '團綜',
+    year: '2025-10-28',
+    participants: '全體成員',
+    description: '最新一期：你會怎麼過冬天( 2、6 ) 2025-12-02',
+    emoji: '🏃',
+    color: '#DDA0DD',
+    episodes: 5,
+    videoUrl: 'https://www.bilibili.com/video/BV1Vuy6ByEqg/?spm_id_from=333.1387.upload.video_card.click&vd_source',
+    coverImage: '/images/variety/self-made/我有一个朋友.jpg',
+    isNew: true // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   }
 ];

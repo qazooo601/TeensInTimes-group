@@ -229,10 +229,25 @@ const ConcertDetail = () => {
                           }}>
                             <Space>
                               <Badge count={index + 1} style={{ backgroundColor: '#87CEEB' }} />
-                              <div>
-                                <Text strong style={{ fontSize: '16px' }}>{item.song}</Text>
-                                <br />
-                                <Text style={{ fontSize: '14px', color: '#666' }}>演唱者: {item.performer}</Text>
+                              <div style={{ width: '100%' }}>
+                                {item.type === 'collection' ? (
+                                  // 歌曲合集格式
+                                  <>
+                                    <Text strong style={{ fontSize: '16px' }}>{item.name}</Text>
+                                    <br />
+                                    <Text style={{ fontSize: '14px', color: '#666', marginTop: '4px', display: 'block' }}>
+                                      {item.songs.join('、')}
+                                    </Text>
+                                    <Text style={{ fontSize: '14px', color: '#666', marginTop: '4px' }}>演唱者: {item.performer}</Text>
+                                  </>
+                                ) : (
+                                  // 單曲格式（向後兼容）
+                                  <>
+                                    <Text strong style={{ fontSize: '16px' }}>{item.song}</Text>
+                                    <br />
+                                    <Text style={{ fontSize: '14px', color: '#666' }}>演唱者: {item.performer}</Text>
+                                  </>
+                                )}
                               </div>
                             </Space>
                           </List.Item>
@@ -298,10 +313,25 @@ const ConcertDetail = () => {
                     }}>
                       <Space>
                         <Badge count={index + 1} style={{ backgroundColor: '#87CEEB' }} />
-                        <div>
-                          <Text strong style={{ fontSize: '16px' }}>{item.song}</Text>
-                          <br />
-                          <Text style={{ fontSize: '14px', color: '#666' }}>演唱者: {item.performer}</Text>
+                        <div style={{ width: '100%' }}>
+                          {item.type === 'collection' ? (
+                            // 歌曲合集格式
+                            <>
+                              <Text strong style={{ fontSize: '16px' }}>{item.name}</Text>
+                              <br />
+                              <Text style={{ fontSize: '14px', color: '#666', marginTop: '4px', display: 'block' }}>
+                                {item.songs.join('、')}
+                              </Text>
+                              <Text style={{ fontSize: '14px', color: '#666', marginTop: '4px' }}>演唱者: {item.performer}</Text>
+                            </>
+                          ) : (
+                            // 單曲格式（向後兼容）
+                            <>
+                              <Text strong style={{ fontSize: '16px' }}>{item.song}</Text>
+                              <br />
+                              <Text style={{ fontSize: '14px', color: '#666' }}>演唱者: {item.performer}</Text>
+                            </>
+                          )}
                         </div>
                       </Space>
                     </List.Item>

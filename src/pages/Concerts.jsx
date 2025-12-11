@@ -172,7 +172,7 @@ const Concerts = () => {
               {/* 上層：左（圖+標題），右（日期/地點/場地） */}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
                 {/* 上左：標題（縮短寬度） */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: '0 1 42%' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: '0 1 42%' }}>
                   <Title level={3} style={{
                     color: '#333',
                     margin: 0,
@@ -182,6 +182,17 @@ const Concerts = () => {
                   }}>
                     {concert.concertName}
                   </Title>
+                  {concert.showNumber && (
+                    <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                      <Text style={{
+                        fontSize: '14px',
+                        color: '#999',
+                        fontWeight: 500
+                      }}>
+                        {concert.showNumber}
+                      </Text>
+                    </div>
+                  )}
                 </div>
 
                 {/* 上右：日期、地點、場地 */}

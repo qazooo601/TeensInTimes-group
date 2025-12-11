@@ -92,7 +92,7 @@ const Music = () => {
               </Space>
 
               {/* 單曲播放按鈕 - 顯示在最右側 */}
-              {!isAlbum && item.songs.length > 0 && (
+              {!isAlbum && item.songs.length > 0 && item.songs[0].audioUrl && (
                 <Button
                   type="primary"
                   icon={<SoundOutlined />}
@@ -106,9 +106,7 @@ const Music = () => {
                   }}
                   onClick={(e) => {
                     e.stopPropagation();
-                    if (item.songs[0].audioUrl) {
-                      window.open(item.songs[0].audioUrl, '_blank');
-                    }
+                    window.open(item.songs[0].audioUrl, '_blank');
                   }}
                 >
                   播放

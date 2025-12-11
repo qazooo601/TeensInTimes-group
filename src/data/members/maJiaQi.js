@@ -8,7 +8,7 @@ export const maJiaQiDetails = {
       releaseDate: '2021',
       type: '單曲',
       description: '在《快樂星球5》第5集中演唱的歌曲',
-      audioUrl: 'https://example.com/audio/mjq_zhiyouwo.mp3'
+      audioUrl: ''
     },
     {
       id: 'mjq_song_002',
@@ -16,7 +16,7 @@ export const maJiaQiDetails = {
       releaseDate: '2022-12-12',
       type: '單曲',
       description: '首支個人單曲，20歲生日單曲，參與作詞及作曲',
-      audioUrl: 'https://example.com/audio/mjq_zhiyouwo.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=VHUYTV3P3IQ&si=f-4N5kqQMYrOEkHs'
     },
     {
       id: 'mjq_song_003',
@@ -24,7 +24,7 @@ export const maJiaQiDetails = {
       releaseDate: '2024-06-17',
       type: '單曲',
       description: '個人第二首單曲',
-      audioUrl: 'https://example.com/audio/mjq_qingchun_wuhui.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=T0HSh-PAgH8&si=PYS4u8rbKspnW8Ai'
     },
     {
       id: 'mjq_song_004',
@@ -32,7 +32,7 @@ export const maJiaQiDetails = {
       releaseDate: '2025-04-23',
       type: '單曲',
       description: '國家大劇院音樂劇<戰爭與和平>——音樂精選',
-      audioUrl: 'https://example.com/audio/mjq_qingchun_wuhui.mp3'
+      audioUrl: ''
     },
     {
       id: 'mjq_album_001',
@@ -40,32 +40,27 @@ export const maJiaQiDetails = {
       releaseDate: '2023-08-28',
       type: '專輯',
       description: '騰訊音樂榜2023年由你榜年度EP',
-      audioUrl: 'https://example.com/audio/mjq_qingchun.mp3',
+      audioUrl: 'https://music.youtube.com/playlist?list=OLAK5uy_mrrVjBs1Ot4shA752jUj7idZ3mKmugg3k',
       songs: [
         {
           title: 'Forever Child',
-          duration: '3:45',
-          audioUrl: 'https://example.com/audio/mjq_qingchun_wuhui.mp3'
+          audioUrl: 'https://music.youtube.com/watch?v=XgEZxVyvjS4&si=SDKeikK97VCwjPD8'
         },
         {
           title: '有些人',
-          duration: '4:12',
-          audioUrl: 'https://example.com/audio/mjq_mengxiang_feixiang.mp3'
+          audioUrl: 'https://music.youtube.com/watch?v=MLxOBNmagq0&si=8dcHypRxBFxsB_2b'
         },
         {
           title: '偏不',
-          duration: '3:28',
-          audioUrl: 'https://example.com/audio/mjq_shiguang_ranran.mp3'
+          audioUrl: 'https://music.youtube.com/watch?v=YOqRkz59Ifg&si=aRpNWxUEClx69_Wl'
         },
         {
           title: '不肯睡的靈魂',
-          duration: '3:28',
-          audioUrl: 'https://example.com/audio/mjq_shiguang_ranran.mp3'
+          audioUrl: 'https://music.youtube.com/watch?v=kG-sszz_dg8&si=zT0HzI3AlEt5WaM2'
         },
         {
           title: 'Fri Friday',
-          duration: '3:28',
-          audioUrl: 'https://example.com/audio/mjq_shiguang_ranran.mp3'
+          audioUrl: 'https://music.youtube.com/watch?v=OVFFMKR-WIk&si=S40bFoHZh4OaltUx'
         }
       ]
     },
@@ -75,7 +70,7 @@ export const maJiaQiDetails = {
       releaseDate: '2024-04-22',
       type: '合作',
       description: '張頌文、林家川、曾舜晞',
-      audioUrl: 'https://example.com/audio/mjq_qingchun_wudi.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=VnUPGuzqytM&si=J7l7EYryd5FyAU2C'
     },
   ],
 

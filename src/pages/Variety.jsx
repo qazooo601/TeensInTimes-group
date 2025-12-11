@@ -126,14 +126,32 @@ const Variety = () => {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
               <Space direction="vertical" size="small" style={{ flex: 1 }}>
                 {/* 節目名稱 */}
-                <Title level={3} style={{
-                  color: '#333',
-                  margin: 0,
-                  fontSize: '20px',
-                  fontWeight: 'bold'
-                }}>
-                  {item.title}
-                </Title>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', gap: '8px' }}>
+                  <Title level={3} style={{
+                    color: '#333',
+                    margin: 0,
+                    fontSize: '20px',
+                    fontWeight: 'bold',
+                    flex: 1
+                  }}>
+                    {item.title}
+                  </Title>
+                  {item.isNew && (
+                    <Tag
+                      color="yellow"
+                      icon={<FireOutlined />}
+                      style={{
+                        fontSize: '12px',
+                        padding: '0 6px',
+                        lineHeight: '20px',
+                        margin: 0,
+                        flexShrink: 0
+                      }}
+                    >
+                      NEW
+                    </Tag>
+                  )}
+                </div>
 
                 {/* 播出年份 */}
                 <div style={{ display: 'flex', alignItems: 'center' }}>

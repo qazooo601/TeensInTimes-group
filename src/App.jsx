@@ -214,7 +214,7 @@ const AppLayout = ({ children, user, onLogout }) => {
       >
         <div style={{ textAlign: 'center' }}>
           <div style={{ fontSize: '16px', fontWeight: 'bold' }}>
-            © 2025 時代少年團滿滿乾貨
+            © 2025 TNT小網站
           </div>
           <div style={{
             fontSize: '14px',
@@ -223,7 +223,7 @@ const AppLayout = ({ children, user, onLogout }) => {
             position: 'relative',
             textAlign: 'center'
           }}>
-            <span>✨ 時代少年團永遠在一起 ✨</span>
+            <span>部分圖片與文字片段來自微博，影片與音樂連結來源於 Bilibili 與 YouTube Music</span>
             <div style={{
               position: 'absolute',
               right: '0',

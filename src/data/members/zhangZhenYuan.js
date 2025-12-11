@@ -8,7 +8,7 @@ export const zhangZhenYuanDetails = {
       releaseDate: '2018-10-22',
       type: '單曲',
       description: '首支個人單曲',
-      audioUrl: 'https://example.com/audio/zzy_haopengyou.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=LsKEXG1YW7o&si=GUaLrbdo2FnHUF1N'
     },
     {
       id: 'zzy_song_001',
@@ -16,7 +16,7 @@ export const zhangZhenYuanDetails = {
       releaseDate: '2020-05-14',
       type: '單曲',
       description: '',
-      audioUrl: 'https://example.com/audio/zzy_haopengyou.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=XQeRDa79Ejs&si=i3GaSWsW7d9XqGGr'
     },
     {
       id: 'zzy_song_001',
@@ -24,7 +24,7 @@ export const zhangZhenYuanDetails = {
       releaseDate: '2023-04-16',
       type: '單曲',
       description: '首支個人單曲',
-      audioUrl: 'https://example.com/audio/zzy_haopengyou.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=tkylMWfJUO4&si=0ALZ5xNleTWI3Wwg'
     },
     {
       id: 'zzy_song_001',
@@ -32,7 +32,7 @@ export const zhangZhenYuanDetails = {
       releaseDate: '2023-10-30',
       type: '單曲',
       description: '首支個人單曲',
-      audioUrl: 'https://example.com/audio/zzy_haopengyou.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=ydKfuEuAruk&si=aEhIIRY-iMVQteYm'
     },
     {
       id: 'zzy_song_001',
@@ -40,7 +40,7 @@ export const zhangZhenYuanDetails = {
       releaseDate: '2024-02-08',
       type: '單曲',
       description: '首支個人單曲',
-      audioUrl: 'https://example.com/audio/zzy_haopengyou.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=fPYmWBXqu_g&si=-AgQmYt8s8nAllsR'
     },
 
     {
@@ -49,32 +49,27 @@ export const zhangZhenYuanDetails = {
       releaseDate: '2024-12-16',
       type: '專輯',
       description: '張真源首張個人專輯',
-      audioUrl: 'https://example.com/audio/zzy_yinyuejufengcai.mp3',
+      audioUrl: 'https://music.youtube.com/playlist?list=OLAK5uy_l_AA72uISEjzv-U129V2M-zAbq1Z7G7hA',
       songs: [
         {
           title: 'One Night',
-          duration: '4:00',
-          audioUrl: 'https://example.com/audio/zzy_yinyuejumeili.mp3'
+          audioUrl: 'https://music.youtube.com/watch?v=eHRLJKYBptg&si=8Sa6c5OvqKOckI5o'
         },
         {
           title: 'Moonlight',
-          duration: '3:50',
-          audioUrl: 'https://example.com/audio/zzy_wutaifengcai.mp3'
+          audioUrl: 'https://music.youtube.com/watch?v=lrwoNVaFAtE&si=NpUe1ul5N0FY2ZGI'
         },
         {
           title: 'Kiss you goodbye',
-          duration: '4:15',
-          audioUrl: 'https://example.com/audio/zzy_biaoyanyishu.mp3'
+          audioUrl: 'https://music.youtube.com/watch?v=Q7ndcZc38OI&si=EB8gWEorzenuzxdz'
         },
         {
           title: '鏡花水月',
-          duration: '4:20',
-          audioUrl: 'https://example.com/audio/zzy_yinyuejumeili.mp3'
+          audioUrl: 'https://music.youtube.com/watch?v=e8WebEzDw7w&si=ivKCDkRXUWap-399'
         },
         {
           title: '萬花鏡',
-          duration: '4:20',
-          audioUrl: 'https://example.com/audio/zzy_yinyuejumeili.mp3'
+          audioUrl: 'https://music.youtube.com/watch?v=fu6Sz8axCu8&si=RNax4vXmQMNGTNwz'
         },
       ]
     }

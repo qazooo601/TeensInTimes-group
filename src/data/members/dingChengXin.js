@@ -8,7 +8,7 @@ export const dingChengXinDetails = {
       releaseDate: '2023-02-24',
       type: '單曲',
       description: '首支個人單曲，21歲生日單曲',
-      audioUrl: 'https://example.com/audio/dcx_yiqidanceba.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=78wAXHlZwZ4&si=A5w0gIw55ydceAqs'
     },
     {
       id: 'dcx_song_002',
@@ -16,7 +16,7 @@ export const dingChengXinDetails = {
       releaseDate: '2024-02-29',
       type: '單曲',
       description: '個人單曲，單曲企劃',
-      audioUrl: 'https://example.com/audio/dcx_yiqidanceba.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=FaZke8ChC_Y&si=EdBtPJJuLng9SrRS'
     },
     {
       id: 'dcx_song_003',
@@ -24,7 +24,7 @@ export const dingChengXinDetails = {
       releaseDate: '2024-02-29',
       type: '單曲',
       description: '個人單曲，單曲企劃',
-      audioUrl: 'https://example.com/audio/dcx_yiqidanceba.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=BsQkJCu62OU&si=6vt427JKGydlm9ox'
     },
     {
       id: 'dcx_song_004',
@@ -32,7 +32,7 @@ export const dingChengXinDetails = {
       releaseDate: '2025-02-24',
       type: '單曲',
       description: '個人單曲，23歲生日單曲',
-      audioUrl: 'https://example.com/audio/dcx_yiqidanceba.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=1LJDqs5awHU&si=NaZKlt8qi_h5joWZ'
     },
     {
       id: 'dcx_song_005',
@@ -40,7 +40,7 @@ export const dingChengXinDetails = {
       releaseDate: '2025-04-21',
       type: '單曲',
       description: '',
-      audioUrl: 'https://example.com/audio/dcx_yiqidanceba.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=1DDSLD0GhAY&si=aTK_oOMEHJt8aB40'
     },
     {
       id: 'dcx_collab_001',
@@ -48,7 +48,7 @@ export const dingChengXinDetails = {
       releaseDate: '2022-06-16',
       type: '合作',
       description: '張凱麗、劉敏濤、楊冪、李斯丹妮、趙今麥、韓東君',
-      audioUrl: 'https://example.com/audio/dcx_mengxiang_chengzhen.mp3'
+      audioUrl: ''
     },
     {
       id: 'dcx_collab_002',
@@ -56,7 +56,7 @@ export const dingChengXinDetails = {
       releaseDate: '2023-07-12',
       type: '合作',
       description: '何炅、檀健次、秦霄賢、王鶴棣、楊迪、吳澤林',
-      audioUrl: 'https://example.com/audio/dcx_321kankan.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=dWULeTBtM8U&si=IxNsnz16aDCr4ciJ'
     }
   ],
 

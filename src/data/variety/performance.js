@@ -571,5 +571,16 @@ export const performanceVariety = [
     color: '#FF6B6B',
     episodes: '馬嘉祺、丁程鑫《惡作劇》\n宋亞軒、劉耀文《只對你有感覺》\n張真源、嚴浩翔、賀峻霖《迷魂計》\n時代少年團《當》',
     coverImage: '/images/variety/performance/.jpg'
+  },
+  {
+    id: 'performanceVariety_053',
+    title: '芒果TV雙十一狂歡夜',
+    year: '2025-11-10',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '',
+    coverImage: '/images/variety/performance/芒果TV雙十一狂歡夜.jpg'
   }
 ];

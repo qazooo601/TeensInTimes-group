@@ -8,7 +8,7 @@ export const songYaXuanDetails = {
       releaseDate: '2023-03-04',
       type: '單曲',
       description: '首支個人單曲',
-      audioUrl: 'https://example.com/audio/syx_523pm.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=KmJDVEEy48g&si=fAlgufn4ZXbO0OiC'
     },
     {
       id: 'syx_song_002',
@@ -16,7 +16,7 @@ export const songYaXuanDetails = {
       releaseDate: '2024-03-25',
       type: '單曲',
       description: '',
-      audioUrl: 'https://example.com/audio/syx_523pm.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=ejiFmEIpgfM&si=zWjtiJ655l1sC_HC'
     },
     {
       id: 'syx_song_003',
@@ -24,7 +24,7 @@ export const songYaXuanDetails = {
       releaseDate: '2024-12-02',
       type: '單曲',
       description: '',
-      audioUrl: 'https://example.com/audio/syx_523pm.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=5RLbcSEEy_A&si=YYyLgevw5tC6Vqkq'
     },
     {
       id: 'syx_song_004',
@@ -32,7 +32,7 @@ export const songYaXuanDetails = {
       releaseDate: '2025-03-03',
       type: '單曲',
       description: '',
-      audioUrl: 'https://example.com/audio/syx_523pm.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=4qLnOmpB5r4&si=XFBk4WPVT8aTXsvO'
     }
   ],
 

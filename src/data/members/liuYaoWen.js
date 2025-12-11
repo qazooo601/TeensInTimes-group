@@ -8,7 +8,7 @@ export const liuYaoWenDetails = {
       releaseDate: '2021-09-23',
       type: '單曲',
       description: '首支個人單曲',
-      audioUrl: 'https://example.com/audio/lyw_bijiaolangman.mp3'
+      audioUrl: ''
     },
     {
       id: 'lyw_song_002',
@@ -16,7 +16,7 @@ export const liuYaoWenDetails = {
       releaseDate: '2022-05-20',
       type: '單曲',
       description: '個人單曲',
-      audioUrl: 'https://example.com/audio/lyw_bijiaolangman.mp3'
+      audioUrl: ''
     },
     {
       id: 'lyw_song_003',
@@ -24,7 +24,7 @@ export const liuYaoWenDetails = {
       releaseDate: '2022-12-09',
       type: '單曲',
       description: '個人原創單曲',
-      audioUrl: 'https://example.com/audio/lyw_bijiaolangman.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=rLXiQlIVKXk&si=SGvHetOXffgBSOP1'
     },
     {
       id: 'lyw_song_004',
@@ -32,23 +32,55 @@ export const liuYaoWenDetails = {
       releaseDate: '2023-04-04',
       type: '單曲',
       description: '個人原創單曲',
-      audioUrl: 'https://example.com/audio/lyw_bijiaolangman.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=NHjBJmjuPmw&si=cwe18fksMGoGBO1Y'
     },
     {
       id: 'lyw_song_005',
-      title: 'FEEL ME',
-      releaseDate: '2023-08-21',
+      title: 'Last Night',
+      releaseDate: '2023-05-03',
       type: '單曲',
-      description: '個人原創單曲',
-      audioUrl: 'https://example.com/audio/lyw_bijiaolangman.mp3'
+      description: '個人單曲',
+      audioUrl: ''
     },
     {
       id: 'lyw_song_006',
+      title: 'FEEL ME',
+      releaseDate: '2023-08-21',
+      type: '單曲',
+      description: '個人單曲',
+      audioUrl: ''
+    },
+    {
+      id: 'lyw_song_007',
       title: 'Blue',
       releaseDate: '2023-09-23',
       type: '單曲',
+      description: '個人單曲',
+      audioUrl: ''
+    },
+    {
+      id: 'lyw_song_008',
+      title: 'One More Night',
+      releaseDate: '2024-07-08',
+      type: '單曲',
       description: '個人原創單曲',
-      audioUrl: 'https://example.com/audio/lyw_bijiaolangman.mp3'
+      audioUrl: 'https://music.youtube.com/watch?v=K884Xpe3Gj8&si=m746qa_1OarlSDzf'
+    },
+    {
+      id: 'lyw_song_009',
+      title: 'SUGAR',
+      releaseDate: '2024-10-21',
+      type: '單曲',
+      description: '個人單曲',
+      audioUrl: 'https://music.youtube.com/watch?v=8O81-BzY2p0&si=cEXxqhKCdd0OxHsl'
+    },
+    {
+      id: 'lyw_song_010',
+      title: 'SAUCE',
+      releaseDate: '2025-11-17',
+      type: '單曲',
+      description: '個人單曲',
+      audioUrl: 'https://music.youtube.com/watch?v=bpkYhpsZJ-M&si=H9_FyZAWVgRXB1PU'
     },
     {
       id: 'lyw_album_001',
@@ -56,32 +88,27 @@ export const liuYaoWenDetails = {
       releaseDate: '2025-03-31',
       type: '專輯',
       description: '劉耀文首張個人專輯',
-      audioUrl: 'https://example.com/audio/lyw_rapfengcai.mp3',
+      audioUrl: 'https://music.youtube.com/playlist?list=OLAK5uy_k5Ov-YSOdy40zGB27fWgxoZLL3aPPDcxk',
       songs: [
         {
           title: 'Nighty Night 晚安',
-          duration: '3:45',
-          audioUrl: 'https://example.com/audio/lyw_rapliliang.mp3'
+          audioUrl: 'https://music.youtube.com/watch?v=bCfH-uNjcGY&si=RpsEXuFW-K7959KI'
         },
         {
           title: 'FlexXX 炫',
-          duration: '4:20',
-          audioUrl: 'https://example.com/audio/lyw_jiezouzhangkong.mp3'
+          audioUrl: 'https://music.youtube.com/watch?v=Vm9I0mqN_Fo&si=SYCqsXufKsVcj6X4'
         },
         {
           title: 'Trauma 傷',
-          duration: '3:55',
-          audioUrl: 'https://example.com/audio/lyw_yunlvzhimei.mp3'
+          audioUrl: 'https://music.youtube.com/watch?v=P8y4waoeXzo&si=pYO6nng8pasvKAxI'
         },
         {
           title: 'In Two 迷霧',
-          duration: '3:55',
-          audioUrl: 'https://example.com/audio/lyw_yunlvzhimei.mp3'
+          audioUrl: 'https://music.youtube.com/watch?v=OuPKDnmNstw&si=qLCtSJ_yJ3BW-wd1'
         },
         {
           title: 'Kill Night 耀',
-          duration: '3:55',
-          audioUrl: 'https://example.com/audio/lyw_yunlvzhimei.mp3'
+          audioUrl: 'https://music.youtube.com/watch?v=jN6V3T8GVWE&si=YK_5BbOBLH7VDRlB'
         },
       ]
     },
@@ -91,7 +118,7 @@ export const liuYaoWenDetails = {
       releaseDate: '2022',
       type: '合作',
       description: '無限超越班成員',
-      audioUrl: 'https://example.com/audio/lyw_sui.mp3'
+      audioUrl: ''
     },
   ],
 
