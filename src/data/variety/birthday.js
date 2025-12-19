@@ -386,7 +386,7 @@ export const birthdayRecord = [
   },
   {
     id: 'birthday_251',
-    title: '马嘉祺篇《》',
+    title: '马嘉祺篇《HaHaHeart》',
     title2: '2025「爱你爱我」一起庆生',
     category: '生日紀錄',
     year: '2025-12-12',
@@ -395,8 +395,8 @@ export const birthdayRecord = [
     emoji: '🎂',
     color: '#FF79BC',
     episodes: 1,
-    videoUrl: '',
-    videoUrl2: '',
+    videoUrl: 'https://www.bilibili.com/video/BV13Um3BKE3C/?spm_id_from=333.1387.upload.video_card.click',
+    videoUrl2: 'https://www.bilibili.com/bangumi/play/ep2485402?spm_id_from=333.1387.upload.video_card.click',
     coverImage: '/images/variety/birthday/birthday_251.jpg'
   }
 ];

@@ -398,11 +398,11 @@ export const selfMadeVariety = [
     category: '團綜',
     year: '2025-10-28',
     participants: '全體成員',
-    description: '最新一期：你會怎麼過冬天( 2、6 ) 2025-12-02',
+    description: '最新一期：今年團建去哪裡( 3、5 ) 2025-12-16',
     emoji: '🏃',
     color: '#DDA0DD',
-    episodes: 5,
-    videoUrl: 'https://www.bilibili.com/video/BV1Vuy6ByEqg/?spm_id_from=333.1387.upload.video_card.click&vd_source',
+    episodes: 6,
+    videoUrl: 'https://www.bilibili.com/video/BV1UNqaBfEst/?spm_id_from=333.1387.list.card_archive.click',
     coverImage: '/images/variety/self-made/我有一个朋友.jpg',
     isNew: true // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   }

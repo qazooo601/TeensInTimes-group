@@ -1052,7 +1052,7 @@ export const concertsData = [
         D1: 'https://www.bilibili.com/video/BV1wB2pBUEcY/?spm_id_from=333.1365.list.card_archive.click',
         D2: 'https://www.bilibili.com/video/BV1da2ZBzEUg/?spm_id_from=333.1365.list.card_archive.click'
       },
-      rehearsal: '聯排影片連結',
+      rehearsal: 'https://www.bilibili.com/video/BV1cbmoB2EUw/?spm_id_from=333.1387.list.card_archive.click',
       short: 'https://www.bilibili.com/video/BV1imUGBUES4/?spm_id_from=333.1365.list.card_archive.click'
     },
     setlist: {

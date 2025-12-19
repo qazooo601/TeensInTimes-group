@@ -106,6 +106,19 @@ export const externalVariety = [
   },
   {
     id: 'externalVariety_009',
+    title: '快樂大本營',
+    category: '嘉賓遊戲綜藝',
+    year: '2021-05-29、2021-06-05、2021-06-12、2021-06-19、2021-06-26',
+    participants: '時代少年團',
+    description: '0529期主題：馬伯騫公主抱宋茜/宋亞軒、劉耀文\n0605期主題：宋亞軒劉耀文隊友變對手/宋亞軒、劉耀文\n0612期主題：黃景瑜張哲瀚變身最強幹飯人/嚴浩翔、賀峻霖\n0619期主題：張彬彬許凱毛不易解鎖新身份/嚴浩翔、賀峻霖\n0626期主題：丁禹兮馬嘉祺宋祖兒改名大作/馬嘉祺',
+    emoji: '🎭',
+    color: '#87CEEB',
+    episodes: 5,
+    videoUrl: '',
+    coverImage: '/images/variety/external/20210529快樂大本營.jpg'
+  },
+  {
+    id: 'externalVariety_010',
     title: '夏日少年派',
     category: '盲盒競技',
     year: '2021-07-23',
@@ -118,7 +131,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/夏日少年派.jpg'
   },
   {
-    id: 'externalVariety_010',
+    id: 'externalVariety_011',
     title: '你好，星期六',
     category: '棚內趣味藝能綜藝',
     year: '2022-08-13',
@@ -131,7 +144,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/20220813你好星期六.jpg'
   },
   {
-    id: 'externalVariety_011',
+    id: 'externalVariety_012',
     title: '你好，星期六',
     category: '棚內趣味藝能綜藝',
     year: '2022-08-15',
@@ -144,7 +157,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/20220815你好星期六.jpg'
   },
   {
-    id: 'externalVariety_012',
+    id: 'externalVariety_013',
     title: '你好，星期六',
     category: '棚內趣味藝能綜藝',
     year: '2023-02-04',
@@ -157,7 +170,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/20230204你好星期六.jpg'
   },
   {
-    id: 'externalVariety_013',
+    id: 'externalVariety_014',
     title: '全員加速中第三季',
     category: '生存挑戰',
     year: '2023-06-10',
@@ -170,7 +183,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/全員加速中3.jpg'
   },
   {
-    id: 'externalVariety_014',
+    id: 'externalVariety_015',
     title: '你好，星期六',
     category: '棚內趣味藝能綜藝',
     year: '2023-09-02',
@@ -183,7 +196,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/20230902你好星期六.jpg'
   },
   {
-    id: 'externalVariety_015',
+    id: 'externalVariety_016',
     title: '王牌對王牌第八季',
     category: '遊戲競技',
     year: '	2023-11-17',
@@ -196,7 +209,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/王牌对王牌8-4.jpg'
   },
   {
-    id: 'externalVariety_016',
+    id: 'externalVariety_017',
     title: '這是我的島',
     category: '海島探索成長',
     year: '2024-04-12',
@@ -209,7 +222,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/這是我的島.jpg'
   },
   {
-    id: 'externalVariety_017',
+    id: 'externalVariety_018',
     title: '你好星期六',
     category: '棚內趣味藝能綜藝',
     year: '2024-07-27',
@@ -222,7 +235,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/20240727你好星期六.jpg'
   },
   {
-    id: 'externalVariety_018',
+    id: 'externalVariety_019',
     title: '你好星期六',
     category: '棚內趣味藝能綜藝',
     year: '2024-08-10',
@@ -235,7 +248,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/20240810你好星期六.jpg'
   },
   {
-    id: 'externalVariety_019',
+    id: 'externalVariety_020',
     title: '戰至巔峰第三季',
     category: '電競',
     year: '2024-10-19',
@@ -248,7 +261,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/戰至巔峰3.jpg'
   },
   {
-    id: 'externalVariety_020',
+    id: 'externalVariety_021',
     title: '這是我的西遊',
     category: '探索成長',
     year: '2025-04-25',
@@ -261,7 +274,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/這是我的西遊.jpg'
   },
   {
-    id: 'externalVariety_021',
+    id: 'externalVariety_022',
     title: '麻花特開心第二季',
     category: '團建遊戲',
     year: '2025-06-14',
@@ -274,7 +287,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/麻花特開心2.jpg'
   },
   {
-    id: 'externalVariety_022',
+    id: 'externalVariety_023',
     title: '你好，星期六',
     category: '棚內趣味藝能綜藝',
     year: '2025-07-12',
@@ -287,7 +300,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/20250712你好星期六.jpg'
   },
   {
-    id: 'externalVariety_023',
+    id: 'externalVariety_024',
     title: '戰至巔峰第四季',
     category: '電競',
     year: '2025-07-22',
@@ -300,7 +313,7 @@ export const externalVariety = [
     coverImage: '/images/variety/external/戰至巔峰4.jpg'
   },
   {
-    id: 'externalVariety_024',
+    id: 'externalVariety_025',
     title: '王牌對王牌第九季',
     category: '遊戲競技',
     year: '	2025-09-05',
