@@ -178,7 +178,7 @@ export const liuYaoWenDetails = {
       title: '萌探探探案第二季',
       role: '常駐嘉賓',
       year: '2022-05-27',
-      description: '常駐嘉賓'
+      description: ''
     },
     {
       id: 'lyw_variety_009',
@@ -192,14 +192,14 @@ export const liuYaoWenDetails = {
       title: '無限超越班第一季',
       role: '常駐嘉賓',
       year: '2022-12-17',
-      description: '常駐嘉賓'
+      description: ''
     },
     {
       id: 'lyw_variety_011',
       title: '宇宙閃爍請注意',
       role: '主要嘉賓',
-      year: '2025',
-      description: '尚未開播'
+      year: '2025-12-27',
+      description: ''
     }
   ],
 

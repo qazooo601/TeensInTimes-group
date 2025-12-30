@@ -491,5 +491,17 @@ export const documentaryRecord = [
     episodes: '03:52:03',
     videoUrl: 'https://www.bilibili.com/video/BV1n6HnzAEZi/?spm_id_from=333.1387.homepage.video_card.click',
     coverImage: '/images/variety/documentary/长赢.jpg'
+  },
+  {
+    id: 'documentaryRecord_042',
+    title: '《光辉岁月》爱你爱我',
+    category: '音樂紀錄',
+    year: '2025-12-25',
+    description: '➊2025.09.27 戰至巔峰總決賽➋丁的〈刺殺小說家2〉路演➌賀的〈令人心動的offer7〉錄製結束➍宋的〈王牌對王牌9〉錄製結束➎馬跟宋的畢業大戲〈四川好人〉➏「愛你愛我」演唱會-貴陽場\n宋:心情信箱。張:匿名對話。馬:畫一幅畫。嚴:記錄演唱會現場的粉絲。賀:看雙子座流星雨。劉:寫一首"你我Ta"的歌。丁:去地壇看七朵金花。',
+    emoji: '📹',
+    color: '#00AD00',
+    episodes: '上 01:59:44 / 下 03:10:42',
+    videoUrl: 'https://www.bilibili.com/video/BV19LBDBZEyt?spm_id_from=333.788.videopod.episodes&vd_source=212b4e5ec5ac590b986ff962f6fadb32',
+    coverImage: '/images/variety/documentary/爱你爱我.jpg'
   }
 ];

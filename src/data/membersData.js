@@ -8,7 +8,7 @@ export const membersData = [
     weibo: 'https://weibo.com/u/6290114447',
     birthday: '2002-12-12',
     fanName: '小氣球',
-    supportColor: ['#9A91F2', '#EAF2FF'],
+    supportColor: ['#CC66FF', '#F5E6FF'],
     image: '/images/members/ma-jiaqi.jpg',
     emoji: '🎈',
     position: '隊長',

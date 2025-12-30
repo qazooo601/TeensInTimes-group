@@ -367,6 +367,13 @@ export const dingChengXinDetails = {
       award: '2025微博電影之夜',
       year: '2025-06-13',
       description: '獲獎'
+    },
+    {
+      id: 'dcx_award_012',
+      title: '年度新人',
+      award: '2024-2025年度中國電影大數據暨電影頻道M榜',
+      year: '2025-10-30',
+      description: '獲獎作品：《刺殺小說家2》 | 獲獎'
     }
   ]
 };

@@ -159,6 +159,13 @@ export const heJunLinDetails = {
       year: '2025-09-12',
       description: ''
     },
+    {
+      id: 'hjl_variety_015',
+      title: '2025騰訊視頻星光大賞',
+      role: '主持人',
+      year: '2025-12-26',
+      description: ''
+  },
   ],
 
   // 影視劇
