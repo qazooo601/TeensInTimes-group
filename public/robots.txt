@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # 網站地圖位置
-Sitemap: https://teensintimes-website.zeabur.app/welcome/sitemap.xml
+Sitemap: https://teensintimes-website.zeabur.app/sitemap.xml
 
 # 說明：請將 yourdomain.com 替換為您的實際網域名稱
 
