@@ -1,12 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button, Card, Typography, Tag, Space } from 'antd';
 import { HeartOutlined, StarOutlined, CrownOutlined, GiftOutlined, HomeOutlined } from '@ant-design/icons';
 
 const { Title, Paragraph } = Typography;
 
 const Welcome = () => {
+  const navigate = useNavigate();
+
   const handleEnterHome = () => {
-    window.location.href = '/';
+    navigate('/');
   };
   return (
     <div style={{
