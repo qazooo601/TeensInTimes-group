@@ -170,6 +170,14 @@ export const songYaXuanDetails = {
       type: '電視劇',
       description: 'TF家族自製劇'
     },
+    {
+      id: 'syx_movie_003',
+      title: '四川好人',
+      role: '兒子',
+      year: '2025-10',
+      type: '話劇',
+      description: '畢業大戲，演出地點：北京人藝實驗劇場'
+    },
   ],
 
   // 獲獎

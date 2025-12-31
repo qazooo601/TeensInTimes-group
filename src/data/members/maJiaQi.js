@@ -205,6 +205,22 @@ export const maJiaQiDetails = {
       year: '2024-12-22、27',
       type: '話劇',
       description: '演出地點：北京藝術中心'
+    },
+    {
+      id: 'mjq_movie_008',
+      title: '四川好人',
+      role: '工人',
+      year: '2025-10',
+      type: '話劇',
+      description: '畢業大戲，演出地點：北京人藝實驗劇場'
+    },
+    {
+      id: 'mjq_movie_009',
+      title: '我們生活在南京',
+      role: '白楊',
+      year: '2026',
+      type: '電視劇',
+      description: '尚未播出，12月29官宣陣容，由張子楓、馬嘉祺、馮紹峰、曹炳琨領銜主演'
     }
   ],
 
