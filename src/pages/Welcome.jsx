@@ -9,6 +9,15 @@ const Welcome = () => {
   const navigate = useNavigate();
 
   const handleEnterHome = () => {
+    // 創建一個訪客用戶並保存到 localStorage
+    const guestUser = {
+      name: '訪客',
+      isGuest: true,
+      joinDate: new Date().toISOString()
+    };
+    localStorage.setItem('user', JSON.stringify(guestUser));
+
+    // 導航到首頁
     navigate('/');
   };
   return (
