@@ -7,8 +7,8 @@ WORKDIR /app
 # 複製 package.json 和 package-lock.json
 COPY package*.json ./
 
-# 安裝依賴
-RUN npm ci --only=production
+# 安裝所有依賴（包括 devDependencies，建置需要）
+RUN npm ci
 
 # 複製所有專案檔案
 COPY . .
@@ -22,20 +22,13 @@ FROM nginx:alpine
 # 複製建置好的檔案到 nginx
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# 複製 nginx 配置（用於處理 React Router）
-RUN echo 'server { \
-    listen 80; \
-    server_name _; \
-    root /usr/share/nginx/html; \
-    index index.html; \
-    location / { \
-        try_files $uri $uri/ /index.html; \
-    } \
-}' > /etc/nginx/conf.d/default.conf
+# 複製啟動腳本（支援 Zeabur 的動態 PORT）
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
 
-# 暴露 80 端口
+# 暴露端口（Zeabur 會使用 PORT 環境變數）
 EXPOSE 80
 
-# 啟動 nginx
-CMD ["nginx", "-g", "daemon off;"]
+# 使用啟動腳本
+CMD ["/docker-entrypoint.sh"]
 
