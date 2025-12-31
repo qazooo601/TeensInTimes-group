@@ -1,13 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Button, Card, Typography, Tag, Space } from 'antd';
 import { HeartOutlined, StarOutlined, CrownOutlined, GiftOutlined, HomeOutlined } from '@ant-design/icons';
 
 const { Title, Paragraph } = Typography;
 
 const Welcome = () => {
-  const navigate = useNavigate();
-
   const handleEnterHome = () => {
     // 創建一個訪客用戶並保存到 localStorage
     const guestUser = {
@@ -17,8 +14,8 @@ const Welcome = () => {
     };
     localStorage.setItem('user', JSON.stringify(guestUser));
 
-    // 導航到首頁
-    navigate('/');
+    // 使用 window.location 強制刷新頁面，讓 App 重新讀取 localStorage
+    window.location.href = '/';
   };
   return (
     <div style={{
