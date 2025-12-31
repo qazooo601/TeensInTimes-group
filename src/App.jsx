@@ -302,6 +302,16 @@ function App() {
     const savedUser = localStorage.getItem('user');
     if (savedUser) {
       setUser(JSON.parse(savedUser));
+    } else {
+      // 如果沒有用戶資訊，自動創建訪客用戶
+      // 這樣可以讓 Google 爬蟲和首次訪問的用戶都能直接訪問內容
+      const guestUser = {
+        name: '訪客',
+        isGuest: true,
+        joinDate: new Date().toISOString()
+      };
+      localStorage.setItem('user', JSON.stringify(guestUser));
+      setUser(guestUser);
     }
     setLoading(false);
   }, []);

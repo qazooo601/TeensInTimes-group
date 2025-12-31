@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 首頁 -->
+  <url>
+    <loc>https://teensintimes-website.zeabur.app/</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 歡迎頁 -->
+  <url>
+    <loc>https://teensintimes-website.zeabur.app/welcome</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 成員列表 -->
+  <url>
+    <loc>https://teensintimes-website.zeabur.app/members</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 音樂 -->
+  <url>
+    <loc>https://teensintimes-website.zeabur.app/music</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 演唱會 -->
+  <url>
+    <loc>https://teensintimes-website.zeabur.app/concerts</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 綜藝節目 -->
+  <url>
+    <loc>https://teensintimes-website.zeabur.app/variety</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 說明：
+    - 請將 yourdomain.com 替換為您的實際網域名稱
+    - lastmod: 頁面最後修改日期
+    - changefreq: 頁面更新頻率 (always, hourly, daily, weekly, monthly, yearly, never)
+    - priority: 頁面相對重要性 (0.0 到 1.0)
+  -->
+</urlset>
+
