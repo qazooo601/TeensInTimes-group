@@ -1,0 +1,45 @@
+# 依賴套件
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 建置產出
+dist
+dist-ssr
+*.local
+
+# 編輯器
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Git
+.git
+.gitignore
+
+# 環境變數
+.env
+.env.local
+.env.production
+
+# 測試
+coverage
+*.test.js
+*.spec.js
+
+# 文檔
+*.md
+.github
+
+# 其他
+.cache
+.temp
+
