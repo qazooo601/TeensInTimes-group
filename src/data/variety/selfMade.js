@@ -230,13 +230,13 @@ export const selfMadeVariety = [
     category: '日常生活',
     year: '2022-10-05~至今',
     participants: '全體成員',
-    description: '最新一期：情緒換乘式 2025-11-08',
+    description: '最新一期：元旦大作戰 2026-01-01',
     emoji: '🏃',
     color: '#DDA0DD',
-    episodes: 68,
+    episodes: 69,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3976590?type=series',
     coverImage: '/images/variety/self-made/浅炸一下吧.jpg',
-    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
+    isNew: true // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_018',
