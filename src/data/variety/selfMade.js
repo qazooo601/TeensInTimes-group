@@ -268,7 +268,7 @@ export const selfMadeVariety = [
   },
   {
     id: 'sdfjVariety_020',
-    title: '時代夏令營2',
+    title: '时代夏令营2',
     category: '團綜',
     year: '2023-04-14',
     participants: '全體成員',

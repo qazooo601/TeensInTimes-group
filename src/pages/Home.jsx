@@ -38,7 +38,7 @@ const Home = () => {
           }}>
             ✨ 破天下，定風雲，時代少年並肩行 ✨<br/>
             時代少年團（Teens in Times，簡稱TNT、小炸）<br/>
-            粉絲名：爆米花、大米爆
+            粉絲名：爆米花（又稱：大米爆、樓絲）
           </Paragraph>
           <div
             style={{

@@ -11,16 +11,16 @@ export const musicData = [
     emoji: '🌙',
     description: '舞象之年實體專輯，帶領聽眾進入奇幻的音樂世界。',
     songs: [
-      { song: '全校通報', performer: '全體', theme: '舞', audioUrl: 'https://music.youtube.com/watch?v=C9s_TzBaUAU&si=Qd_JrPlBD0xPAFt3' },
-      { song: '無盡的冒險', performer: '全體', theme: '舞', audioUrl: 'https://music.youtube.com/watch?v=nWcvVgYLK08&si=LrR4wN4AhGIKh3io' },
-      { song: '姐姐真漂亮', performer: '全體', theme: '象', audioUrl: 'https://music.youtube.com/watch?v=A0jQddEk5BY&si=Lgu2ZUD2epwVL_zw' },
-      { song: '相遇', performer: '全體', theme: '象', audioUrl: 'https://music.youtube.com/watch?v=adn-PfjRSrs&si=E2tlnkKtZyKLhoaH' },
-      { song: '少年美', performer: '全體', theme: 'EP《少年江湖》', audioUrl: 'https://music.youtube.com/watch?v=lFou1drurbk&si=ZZGT3t_DunD32vhG' },
-      { song: '劍雨江湖', performer: '全體', theme: 'EP《少年江湖》', audioUrl: 'https://music.youtube.com/watch?v=WC8JOvi90F8&si=TZ0t_YVhxJnGS00y' },
-      { song: '只有我一個人覺得?', performer: '全體', theme: '之', audioUrl: 'https://music.youtube.com/watch?v=WCVZyayqI_s&si=nZcWfvJ-UDglm9B-' },
-      { song: '要你管', performer: '全體', theme: '之', audioUrl: 'https://music.youtube.com/watch?v=tXBWg7Ijubw&si=2IbQ_9uEfHlHY_9A' },
-      { song: '少年時代', performer: '全體', theme: '年', audioUrl: 'https://music.youtube.com/watch?v=MuT6IvgdVDg&si=mtNJfjKTAiedgWgh' },
-      { song: '小小孩', performer: '全體', theme: '年', audioUrl: 'https://music.youtube.com/watch?v=eyUWtdi3uIw&si=ty9sjKOA2uniLlyd' }
+      { song: '全校通報', performer: '全員', theme: '舞', audioUrl: 'https://music.youtube.com/watch?v=C9s_TzBaUAU&si=Qd_JrPlBD0xPAFt3' },
+      { song: '無盡的冒險', performer: '全員', theme: '舞', audioUrl: 'https://music.youtube.com/watch?v=nWcvVgYLK08&si=LrR4wN4AhGIKh3io' },
+      { song: '姐姐真漂亮', performer: '全員', theme: '象', audioUrl: 'https://music.youtube.com/watch?v=A0jQddEk5BY&si=Lgu2ZUD2epwVL_zw' },
+      { song: '相遇', performer: '全員', theme: '象', audioUrl: 'https://music.youtube.com/watch?v=adn-PfjRSrs&si=E2tlnkKtZyKLhoaH' },
+      { song: '少年美', performer: '全員', theme: 'EP《少年江湖》', audioUrl: 'https://music.youtube.com/watch?v=lFou1drurbk&si=ZZGT3t_DunD32vhG' },
+      { song: '劍雨江湖', performer: '全員', theme: 'EP《少年江湖》', audioUrl: 'https://music.youtube.com/watch?v=WC8JOvi90F8&si=TZ0t_YVhxJnGS00y' },
+      { song: '只有我一個人覺得?', performer: '全員', theme: '之', audioUrl: 'https://music.youtube.com/watch?v=WCVZyayqI_s&si=nZcWfvJ-UDglm9B-' },
+      { song: '要你管', performer: '全員', theme: '之', audioUrl: 'https://music.youtube.com/watch?v=tXBWg7Ijubw&si=2IbQ_9uEfHlHY_9A' },
+      { song: '少年時代', performer: '全員', theme: '年', audioUrl: 'https://music.youtube.com/watch?v=MuT6IvgdVDg&si=mtNJfjKTAiedgWgh' },
+      { song: '小小孩', performer: '全員', theme: '年', audioUrl: 'https://music.youtube.com/watch?v=eyUWtdi3uIw&si=ty9sjKOA2uniLlyd' }
     ]
   },
   {
@@ -33,16 +33,16 @@ export const musicData = [
     emoji: '🏰',
     description: '烏托邦少年實體專輯，探索理想世界的音樂之旅。',
     songs: [
-      { song: '我喜歡你', performer: '全體', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=rs73Kb5-sAg&si=zT4sgVcIqcdkRWRn' },
-      { song: '朱雀', performer: '全體', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=NOwfmW5VKU0&si=hbdS2K8vfuhi0yYb' },
-      { song: '傻瓜', performer: '全體', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=7s0Gp7qD7Cw&si=ff3DsG6Meap4ivlG' },
-      { song: '哪吒', performer: '全體', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=0QmUX9WlJZg&si=yBfqr5NMfGd0Vzuv' },
-      { song: '醉', performer: '全體', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=PbllXkvxg2Y&si=q7NXyn9LnMvRgwTK' },
-      { song: '男兒歌', performer: '全體', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=mN4ChExj_SQ&si=korc47gOfg81p3Mr' },
-      { song: '絕配', performer: '全體', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=kpw0jutw8oM&si=qTXso9Iqs_Zc-v87' },
-      { song: '哭泣的遊戲', performer: '全體', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=CEY0Wvhl0_8&si=YLiT6aGsDko8f0GX' },
-      { song: '俠', performer: '全體', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=1PUyCdth_4Y&si=HhdHfC-nkfhDwLfR' },
-      { song: '理想之途', performer: '全體', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=mrW7uqAK6s4&si=WrXGN7w5XIA6YSHV' },
+      { song: '我喜歡你', performer: '全員', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=rs73Kb5-sAg&si=zT4sgVcIqcdkRWRn' },
+      { song: '朱雀', performer: '全員', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=NOwfmW5VKU0&si=hbdS2K8vfuhi0yYb' },
+      { song: '傻瓜', performer: '全員', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=7s0Gp7qD7Cw&si=ff3DsG6Meap4ivlG' },
+      { song: '哪吒', performer: '全員', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=0QmUX9WlJZg&si=yBfqr5NMfGd0Vzuv' },
+      { song: '醉', performer: '全員', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=PbllXkvxg2Y&si=q7NXyn9LnMvRgwTK' },
+      { song: '男兒歌', performer: '全員', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=mN4ChExj_SQ&si=korc47gOfg81p3Mr' },
+      { song: '絕配', performer: '全員', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=kpw0jutw8oM&si=qTXso9Iqs_Zc-v87' },
+      { song: '哭泣的遊戲', performer: '全員', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=CEY0Wvhl0_8&si=YLiT6aGsDko8f0GX' },
+      { song: '俠', performer: '全員', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=1PUyCdth_4Y&si=HhdHfC-nkfhDwLfR' },
+      { song: '理想之途', performer: '全員', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=mrW7uqAK6s4&si=WrXGN7w5XIA6YSHV' },
       { song: '若想念飛行', performer: '馬嘉祺/嚴浩翔', theme: 'Disc2 碎片集', audioUrl: 'https://music.youtube.com/watch?v=XB5QsJzDE4I&si=bn1vuDilBAZrWIzI' },
       { song: '煙花升停在星夜', performer: '宋亞軒/劉耀文', theme: 'Disc2 碎片集', audioUrl: 'https://music.youtube.com/watch?v=MG1BzFTWwkg&si=OiLbTieqmHthreTW' },
       { song: '親親愛', performer: '丁程鑫/張真源/賀峻霖', theme: 'Disc2 碎片集', audioUrl: 'https://music.youtube.com/watch?v=NfCqYHgZWns&si=RBSxU-bWXlGo_Bx0' },
@@ -60,17 +60,17 @@ export const musicData = [
     emoji: '🔥',
     description: '叄重樓實體專輯，展現時代少年團的爆發力。',
     songs: [
-      { song: '樓外樓', performer: '全體', theme: '樓外樓', audioUrl: 'https://music.youtube.com/watch?v=aoMX4-K7yTU&si=fh1VvEEAmSs68Q3k' },
-      { song: '躺著真舒服', performer: '全體', theme: '樓外樓', audioUrl: 'https://music.youtube.com/watch?v=9pL6hGku9dA&si=awrIfhxz2Th3eUy-' },
-      { song: '大時代', performer: '全體', theme: '樓外樓', audioUrl: 'https://music.youtube.com/watch?v=uDhFykApbrw&si=9fBiJESXJdQ3m7R0' },
-      { song: '愛到1440', performer: '全體', theme: '樓間樓', audioUrl: 'https://music.youtube.com/watch?v=ce1mtdIAkVU&si=lcKV_EP77VAHzOFc' },
-      { song: '非我不可', performer: '全體', theme: '樓間樓', audioUrl: 'https://music.youtube.com/watch?v=c4ei6C5JOlk&si=EIKH4CY1LDaIiJiK' },
-      { song: '那些我沒說的話', performer: '全體', theme: '樓間樓', audioUrl: 'https://music.youtube.com/watch?v=tpaDG85r1Ak&si=tb7A7MWVM6TnqvVT' },
-      { song: '好望角', performer: '全體', theme: '樓間樓', audioUrl: 'https://music.youtube.com/watch?v=Odq43TOmIlU&si=hMl_XYXwF6lcqMfL' },
-      { song: '夢', performer: '全體', theme: '樓非樓', audioUrl: 'https://music.youtube.com/watch?v=Uh7trdudbjw&si=cMZXCKDgWHKg43CA' },
-      { song: '月夜狂想曲', performer: '全體', theme: '樓非樓', audioUrl: 'https://music.youtube.com/watch?v=laBr4V0ugR0&si=WlfgvJ0kpouG5Pzu' },
-      { song: '還會再相遇', performer: '全體', theme: '樓非樓', audioUrl: 'https://music.youtube.com/watch?v=bn1VRWK2o88&si=gd8ZLSrXocthtkMY' },
-      { song: '臥室巨星', performer: '全體', theme: '樓非樓', audioUrl: 'https://music.youtube.com/watch?v=YJme18M6F2o&si=z3dDFG8JVByOpRc7' }
+      { song: '樓外樓', performer: '全員', theme: '樓外樓', audioUrl: 'https://music.youtube.com/watch?v=aoMX4-K7yTU&si=fh1VvEEAmSs68Q3k' },
+      { song: '躺著真舒服', performer: '全員', theme: '樓外樓', audioUrl: 'https://music.youtube.com/watch?v=9pL6hGku9dA&si=awrIfhxz2Th3eUy-' },
+      { song: '大時代', performer: '全員', theme: '樓外樓', audioUrl: 'https://music.youtube.com/watch?v=uDhFykApbrw&si=9fBiJESXJdQ3m7R0' },
+      { song: '愛到1440', performer: '全員', theme: '樓間樓', audioUrl: 'https://music.youtube.com/watch?v=ce1mtdIAkVU&si=lcKV_EP77VAHzOFc' },
+      { song: '非我不可', performer: '全員', theme: '樓間樓', audioUrl: 'https://music.youtube.com/watch?v=c4ei6C5JOlk&si=EIKH4CY1LDaIiJiK' },
+      { song: '那些我沒說的話', performer: '全員', theme: '樓間樓', audioUrl: 'https://music.youtube.com/watch?v=tpaDG85r1Ak&si=tb7A7MWVM6TnqvVT' },
+      { song: '好望角', performer: '全員', theme: '樓間樓', audioUrl: 'https://music.youtube.com/watch?v=Odq43TOmIlU&si=hMl_XYXwF6lcqMfL' },
+      { song: '夢', performer: '全員', theme: '樓非樓', audioUrl: 'https://music.youtube.com/watch?v=Uh7trdudbjw&si=cMZXCKDgWHKg43CA' },
+      { song: '月夜狂想曲', performer: '全員', theme: '樓非樓', audioUrl: 'https://music.youtube.com/watch?v=laBr4V0ugR0&si=WlfgvJ0kpouG5Pzu' },
+      { song: '還會再相遇', performer: '全員', theme: '樓非樓', audioUrl: 'https://music.youtube.com/watch?v=bn1VRWK2o88&si=gd8ZLSrXocthtkMY' },
+      { song: '臥室巨星', performer: '全員', theme: '樓非樓', audioUrl: 'https://music.youtube.com/watch?v=YJme18M6F2o&si=z3dDFG8JVByOpRc7' }
     ]
   },
   {
@@ -83,12 +83,13 @@ export const musicData = [
     emoji: '👑',
     description: '加冠專輯，追尋音樂理想的堅持與追求。',
     songs: [
-      { song: '至少我還算快樂', performer: '全體', audioUrl: 'https://music.youtube.com/watch?v=voQvtBQe-kY&si=XHtEXn7gk00GJw59' },
-      { song: '全世界我最美', performer: '全體', audioUrl: 'https://music.youtube.com/watch?v=TNP3CxKmRhM&si=lpvM1icv5XJufzpS' },
-      { song: '登頂', performer: '全體', audioUrl: 'https://music.youtube.com/watch?v=iKAb4J5NVkA&si=9wwxRSYblXbx2yz2' },
-      { song: 'I like U like', performer: '全體', audioUrl: 'https://music.youtube.com/watch?v=pyTJiGFQDqM&si=Xwwv9Z-g5dNt64mo' },
-      { song: '冠軍', performer: '全體', audioUrl: 'https://music.youtube.com/watch?v=mOmPCAxJ05g&si=JWG06areNL8Yb5ZM' },
-      { song: '這一程', performer: '全體', audioUrl: 'https://music.youtube.com/watch?v=RnMY3bGbTGQ&si=woIveFhl876Xr-Xw' },
+      { song: '至少我還算快樂', performer: '全員', audioUrl: 'https://music.youtube.com/watch?v=voQvtBQe-kY&si=XHtEXn7gk00GJw59' },
+      { song: '全世界我最美', performer: '全員', audioUrl: 'https://music.youtube.com/watch?v=TNP3CxKmRhM&si=lpvM1icv5XJufzpS' },
+      { song: '登頂', performer: '全員', audioUrl: 'https://music.youtube.com/watch?v=iKAb4J5NVkA&si=9wwxRSYblXbx2yz2' },
+      { song: 'I like U like', performer: '全員', audioUrl: 'https://music.youtube.com/watch?v=pyTJiGFQDqM&si=Xwwv9Z-g5dNt64mo' },
+      { song: '冠軍', performer: '全員', audioUrl: 'https://music.youtube.com/watch?v=mOmPCAxJ05g&si=JWG06areNL8Yb5ZM' },
+      { song: '這一程', performer: '全員', audioUrl: 'https://music.youtube.com/watch?v=RnMY3bGbTGQ&si=woIveFhl876Xr-Xw' },
+      { song: '冬日來信', performer: '全員', audioUrl: 'https://music.youtube.com/watch?v=VK5nB9pFFSU&list=RDAMVMVK5nB9pFFSU' },
     ]
   },
 
@@ -142,7 +143,7 @@ export const musicData = [
     emoji: '🎤',
     description: '時代少年團團綜《少年夢遊記》主題曲',
     songs: [
-      { song: '夢遊記', performer: '全體', audioUrl: 'https://music.youtube.com/watch?v=XQl06RIr0G4&si=8P-GXqac5luUHDwI' }
+      { song: '夢遊記', performer: '全員', audioUrl: 'https://music.youtube.com/watch?v=XQl06RIr0G4&si=8P-GXqac5luUHDwI' }
     ]
   },
   {
@@ -155,7 +156,7 @@ export const musicData = [
     emoji: '🍿',
     description: '百萬粉絲紀念單曲',
     songs: [
-      { song: '爆米花', performer: '全體', audioUrl: 'https://music.youtube.com/watch?v=aBCawtGm4ws&si=nJ8jvuNZeQWcfxCz' }
+      { song: '爆米花', performer: '全員', audioUrl: 'https://music.youtube.com/watch?v=aBCawtGm4ws&si=nJ8jvuNZeQWcfxCz' }
     ]
   },
   {
@@ -168,7 +169,7 @@ export const musicData = [
     emoji: '🎥',
     description: '電影《晴雅集》同名宣傳推廣曲',
     songs: [
-      { song: '晴雅集', performer: '全體', audioUrl: 'https://music.youtube.com/watch?v=YgvLJhx4sUE&si=W6kI-j_och6cSY2W' }
+      { song: '晴雅集', performer: '全員', audioUrl: 'https://music.youtube.com/watch?v=YgvLJhx4sUE&si=W6kI-j_och6cSY2W' }
     ]
   },
   {
@@ -181,7 +182,7 @@ export const musicData = [
     emoji: '🎤',
     description: '向廣大青少年宣傳黨的十九届五中全會精神',
     songs: [
-      { song: '2035是這young', performer: '全體', audioUrl: '' }
+      { song: '2035是這young', performer: '全員', audioUrl: '' }
     ]
   },
   {
@@ -194,7 +195,7 @@ export const musicData = [
     emoji: '🎤',
     description: '綜藝節目《向上吧少年》主題曲',
     songs: [
-      { song: '向上吧少年', performer: '全體', audioUrl: 'https://music.youtube.com/watch?v=ALB5Vah6vQA&si=FlHx9KTReK9ajw09' }
+      { song: '向上吧少年', performer: '全員', audioUrl: 'https://music.youtube.com/watch?v=ALB5Vah6vQA&si=FlHx9KTReK9ajw09' }
     ]
   },
   {
@@ -207,7 +208,7 @@ export const musicData = [
     emoji: '🎤',
     description: '綜藝節目《快樂大本營》2021年全新主題曲/片頭曲',
     songs: [
-      { song: '快樂感', performer: '全體', audioUrl: '' }
+      { song: '快樂感', performer: '全員', audioUrl: '' }
     ]
   },
   {
@@ -233,7 +234,7 @@ export const musicData = [
     emoji: '🎤',
     description: '《有你》',
     songs: [
-      { song: '有你', performer: '全體', audioUrl: '' }
+      { song: '有你', performer: '全員', audioUrl: '' }
     ]
   },
   {
@@ -246,7 +247,7 @@ export const musicData = [
     emoji: '🎤',
     description: '索尼音樂 × 時代峰峻 攜手打造時代少年團全新單曲《漸暖》',
     songs: [
-      { song: '漸暖', performer: '全體', audioUrl: 'https://music.youtube.com/watch?v=mFzK3-CUksc&si=VAP0dHXRRgJ5zkjk' }
+      { song: '漸暖', performer: '全員', audioUrl: 'https://music.youtube.com/watch?v=mFzK3-CUksc&si=VAP0dHXRRgJ5zkjk' }
     ]
   },
   {
@@ -272,7 +273,7 @@ export const musicData = [
     emoji: '🎤',
     description: '《100道光芒》',
     songs: [
-      { song: '100道光芒', performer: '全體', audioUrl: '' }
+      { song: '100道光芒', performer: '全員', audioUrl: '' }
     ]
   },
   {
@@ -298,7 +299,7 @@ export const musicData = [
     emoji: '🎤',
     description: '',
     songs: [
-      { song: '有你的季節', performer: '全體', audioUrl: 'https://music.youtube.com/watch?v=McbVR3J5IQk&si=RdeYVgzJ2UbK0vTo' }
+      { song: '有你的季節', performer: '全員', audioUrl: 'https://music.youtube.com/watch?v=McbVR3J5IQk&si=RdeYVgzJ2UbK0vTo' }
     ]
   },
   {
@@ -311,7 +312,7 @@ export const musicData = [
     emoji: '🎤',
     description: '時代少年團團綜《時代夏令營2》主題曲',
     songs: [
-      { song: '背對地球奔跑', performer: '全體', audioUrl: '' }
+      { song: '背對地球奔跑', performer: '全員', audioUrl: '' }
     ]
   },
   {
@@ -324,7 +325,7 @@ export const musicData = [
     emoji: '🎤',
     description: '',
     songs: [
-      { song: '青春不枉', performer: '全體', audioUrl: 'https://music.youtube.com/watch?v=18c631_mxCM&si=Gl6oBGvxrJIppa4t' }
+      { song: '青春不枉', performer: '全員', audioUrl: 'https://music.youtube.com/watch?v=18c631_mxCM&si=Gl6oBGvxrJIppa4t' }
     ]
   },
   {
@@ -350,7 +351,7 @@ export const musicData = [
     emoji: '🎤',
     description: '時代少年團團綜《非去不可》主題曲',
     songs: [
-      { song: '好望角（Hakuna Matata ver.）', performer: '全體', audioUrl: 'https://music.youtube.com/watch?v=srXn7fMz1sM&si=u9VM7pZ2UunzK3P7' }
+      { song: '好望角（Hakuna Matata ver.）', performer: '全員', audioUrl: 'https://music.youtube.com/watch?v=srXn7fMz1sM&si=u9VM7pZ2UunzK3P7' }
     ]
   }
 ];
