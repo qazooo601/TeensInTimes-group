@@ -23,7 +23,7 @@ export const zhangZhenYuanDetails = {
       title: '愛在終局之前',
       releaseDate: '2023-04-16',
       type: '單曲',
-      description: '首支個人單曲',
+      description: '',
       audioUrl: 'https://music.youtube.com/watch?v=tkylMWfJUO4&si=0ALZ5xNleTWI3Wwg'
     },
     {
@@ -31,7 +31,7 @@ export const zhangZhenYuanDetails = {
       title: '蝴蝶',
       releaseDate: '2023-10-30',
       type: '單曲',
-      description: '首支個人單曲',
+      description: '',
       audioUrl: 'https://music.youtube.com/watch?v=ydKfuEuAruk&si=aEhIIRY-iMVQteYm'
     },
     {
@@ -39,7 +39,7 @@ export const zhangZhenYuanDetails = {
       title: '出淵',
       releaseDate: '2024-02-08',
       type: '單曲',
-      description: '首支個人單曲',
+      description: '',
       audioUrl: 'https://music.youtube.com/watch?v=fPYmWBXqu_g&si=-AgQmYt8s8nAllsR'
     },
 
@@ -78,20 +78,6 @@ export const zhangZhenYuanDetails = {
   // 綜藝節目
   variety: [
     {
-      id: 'zzy_variety_001',
-      title: '天天向上',
-      role: '嘉賓',
-      year: '2017-04-14',
-      description: ''
-    },
-    {
-      id: 'zzy_variety_002',
-      title: '快樂大本營',
-      role: '嘉賓',
-      year: '2017-11-11',
-      description: '台風時子時期/超人誕生日記'
-    },
-    {
       id: 'zzy_variety_003',
       title: '跨次元新星',
       role: '嘉賓',
@@ -101,9 +87,9 @@ export const zhangZhenYuanDetails = {
     {
       id: 'zzy_variety_004',
       title: '夏日少年派',
-      role: '固定嘉賓',
-      year: '2021-07-23',
-      description: ''
+      role: '主要嘉賓',
+      year: '2021-07-23~2021-10-15',
+      description: '共12期。該節目嘉賓每期隨機分成兩個陣容進行PK，以"開盲盒"的形式迎接挑戰，帶領觀眾走進回憶，感受時代印記的快樂與美好。'
     },
     {
       id: 'zzy_variety_005',

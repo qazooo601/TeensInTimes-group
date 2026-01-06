@@ -15,7 +15,7 @@ export const dingChengXinDetails = {
       title: 'Monster',
       releaseDate: '2024-02-29',
       type: '單曲',
-      description: '個人單曲，單曲企劃',
+      description: '',
       audioUrl: 'https://music.youtube.com/watch?v=FaZke8ChC_Y&si=EdBtPJJuLng9SrRS'
     },
     {
@@ -23,7 +23,7 @@ export const dingChengXinDetails = {
       title: 'Interlude',
       releaseDate: '2024-02-29',
       type: '單曲',
-      description: '個人單曲，單曲企劃',
+      description: '',
       audioUrl: 'https://music.youtube.com/watch?v=BsQkJCu62OU&si=6vt427JKGydlm9ox'
     },
     {

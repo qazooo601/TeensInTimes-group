@@ -7,23 +7,23 @@ export const liuYaoWenDetails = {
       title: 'Got You',
       releaseDate: '2021-09-23',
       type: '單曲',
-      description: '首支個人單曲',
-      audioUrl: ''
+      description: '',
+      audioUrl: 'https://music.youtube.com/watch?v=OFWjaTo72VQ&si=KCsCrogbPoZz085U'
     },
     {
       id: 'lyw_song_002',
       title: 'Falling You',
       releaseDate: '2022-05-20',
       type: '單曲',
-      description: '個人單曲',
-      audioUrl: ''
+      description: '',
+      audioUrl: 'https://music.youtube.com/watch?v=6JERWI9-Vkc&si=YOct0te9dsxTYTg_'
     },
     {
       id: 'lyw_song_003',
       title: '不冬眠',
       releaseDate: '2022-12-09',
       type: '單曲',
-      description: '個人原創單曲',
+      description: '',
       audioUrl: 'https://music.youtube.com/watch?v=rLXiQlIVKXk&si=SGvHetOXffgBSOP1'
     },
     {
@@ -31,7 +31,7 @@ export const liuYaoWenDetails = {
       title: '耀眼的你',
       releaseDate: '2023-04-04',
       type: '單曲',
-      description: '個人原創單曲',
+      description: '',
       audioUrl: 'https://music.youtube.com/watch?v=NHjBJmjuPmw&si=cwe18fksMGoGBO1Y'
     },
     {
@@ -39,31 +39,31 @@ export const liuYaoWenDetails = {
       title: 'Last Night',
       releaseDate: '2023-05-03',
       type: '單曲',
-      description: '個人單曲',
-      audioUrl: ''
+      description: '',
+      audioUrl: 'https://music.youtube.com/watch?v=hxLhSq776QY&si=9r-ZV1CEKXGEEUMg'
     },
     {
       id: 'lyw_song_006',
       title: 'FEEL ME',
       releaseDate: '2023-08-21',
       type: '單曲',
-      description: '個人單曲',
-      audioUrl: ''
+      description: '',
+      audioUrl: 'https://music.youtube.com/watch?v=OKtDo2dS5z0&si=kwzRZzMEDZ9pZoKt'
     },
     {
       id: 'lyw_song_007',
       title: 'Blue',
       releaseDate: '2023-09-23',
       type: '單曲',
-      description: '個人單曲',
-      audioUrl: ''
+      description: '',
+      audioUrl: 'https://music.youtube.com/watch?v=XVW8VuQcT4g&si=9odcbRVp1_IPPTL8'
     },
     {
       id: 'lyw_song_008',
       title: 'One More Night',
       releaseDate: '2024-07-08',
       type: '單曲',
-      description: '個人原創單曲',
+      description: '',
       audioUrl: 'https://music.youtube.com/watch?v=K884Xpe3Gj8&si=m746qa_1OarlSDzf'
     },
     {
@@ -71,7 +71,7 @@ export const liuYaoWenDetails = {
       title: 'SUGAR',
       releaseDate: '2024-10-21',
       type: '單曲',
-      description: '個人單曲',
+      description: '',
       audioUrl: 'https://music.youtube.com/watch?v=8O81-BzY2p0&si=cEXxqhKCdd0OxHsl'
     },
     {
@@ -79,7 +79,7 @@ export const liuYaoWenDetails = {
       title: 'SAUCE',
       releaseDate: '2025-11-17',
       type: '單曲',
-      description: '個人單曲',
+      description: '',
       audioUrl: 'https://music.youtube.com/watch?v=bpkYhpsZJ-M&si=H9_FyZAWVgRXB1PU'
     },
     {

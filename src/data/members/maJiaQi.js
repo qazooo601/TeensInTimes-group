@@ -23,7 +23,7 @@ export const maJiaQiDetails = {
       title: '蜉蝣',
       releaseDate: '2024-06-17',
       type: '單曲',
-      description: '個人第二首單曲',
+      description: '',
       audioUrl: 'https://music.youtube.com/watch?v=T0HSh-PAgH8&si=PYS4u8rbKspnW8Ai'
     },
     {

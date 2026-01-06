@@ -7,7 +7,7 @@ export const heJunLinDetails = {
       title: '破',
       releaseDate: '2018-10-29',
       type: '單曲',
-      description: '首支個人單曲',
+      description: '',
       audioUrl: 'https://music.youtube.com/watch?v=QC-km_PFAEY&si=GnyafpY5vc1-kAKR'
     },
     {
@@ -166,6 +166,13 @@ export const heJunLinDetails = {
       year: '2025-12-26',
       description: ''
   },
+  {
+    id: 'hjl_variety_016',
+    title: '2025王者榮耀挑戰者杯決賽',
+    role: '主持人、評委',
+    year: '2026-01-02',
+    description: ''
+},
   ],
 
   // 影視劇
@@ -210,7 +217,7 @@ export const heJunLinDetails = {
       id: 'hjl_award_001',
       title: '獎項',
       award: '活動',
-      year: '2022',
+      year: '202?',
       description: '備註'
     }
   ]
