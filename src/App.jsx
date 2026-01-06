@@ -214,7 +214,7 @@ const AppLayout = ({ children, user, onLogout }) => {
       >
         <div style={{ textAlign: 'center' }}>
           <div style={{ fontSize: '16px', fontWeight: 'bold' }}>
-            © 2025 TNT小網站
+            © 2025 粉絲自製網站-TNT時代少年團
           </div>
           <div style={{
             fontSize: '14px',
