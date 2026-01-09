@@ -286,13 +286,13 @@ export const selfMadeVariety = [
     category: '團綜',
     year: '2023-07-04',
     participants: '全體成員',
-    description: '最新一期：魔丸行( 2、5、7 ) 2025-10-31',
+    description: '最新一期：節奏行( 2、3、5 ) 2026-01-07',
     emoji: '🏃',
     color: '#DDA0DD',
     episodes: 31,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3979917?type=series',
     coverImage: '/images/variety/self-made/三人行.jpg',
-    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
+    isNew: true // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   },
   {
     id: 'sdfjVariety_022',

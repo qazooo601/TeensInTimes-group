@@ -165,7 +165,8 @@ const Concerts = () => {
                 boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
                 transition: 'all 0.3s ease',
                 background: 'linear-gradient(135deg,hsl(59, 100.00%, 89.00%) 0%,rgb(240, 237, 88) 100%)',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                maxWidth: '92%',     // 防止在極小螢幕的手機上超出範圍
               }}
               styles={{ body: { padding: '20px' } }}
             >

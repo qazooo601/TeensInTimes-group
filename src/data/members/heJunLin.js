@@ -37,7 +37,7 @@ export const heJunLinDetails = {
     {
       id: 'hjl_song_005',
       title: '謐境',
-      releaseDate: '2024',
+      releaseDate: '2024-08-12',
       type: '單曲',
       description: '',
       audioUrl: 'https://music.youtube.com/watch?v=b3N40V1JlQg&si=B1MV8oaAyJMFIEQw'
@@ -45,7 +45,7 @@ export const heJunLinDetails = {
     {
       id: 'hjl_song_006',
       title: '殘影',
-      releaseDate: '2025',
+      releaseDate: '2025-04-28',
       type: '單曲',
       description: '',
       audioUrl: 'https://music.youtube.com/watch?v=s4Z747j9Pzk&si=ImEvDQETHha5DGq4'

@@ -208,7 +208,7 @@ const MemberDetail = () => {
           }}>
             {member.memberNameEn}
           </Title>
-          <Space>
+          <Space wrap>
             <Tag color="gold" icon={<HeartOutlined />}>{member.fanName}</Tag>
             <Tag color="default" icon={<CalendarOutlined />}>{member.birthday}</Tag>
             <Tag

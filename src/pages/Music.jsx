@@ -35,7 +35,8 @@ const Music = () => {
           boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
           transition: 'all 0.3s ease',
           background: backgroundColor,
-          cursor: isAlbum ? 'pointer' : 'default'
+          cursor: isAlbum ? 'pointer' : 'default',
+          maxWidth: '92%',     // 防止在極小螢幕的手機上超出範圍
         }}
         styles={{ body: { padding: '20px' } }}
       >

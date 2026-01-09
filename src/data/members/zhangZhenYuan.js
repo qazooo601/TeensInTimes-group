@@ -11,7 +11,7 @@ export const zhangZhenYuanDetails = {
       audioUrl: 'https://music.youtube.com/watch?v=LsKEXG1YW7o&si=GUaLrbdo2FnHUF1N'
     },
     {
-      id: 'zzy_song_001',
+      id: 'zzy_song_002',
       title: '心橋',
       releaseDate: '2020-05-14',
       type: '單曲',
@@ -19,7 +19,7 @@ export const zhangZhenYuanDetails = {
       audioUrl: 'https://music.youtube.com/watch?v=XQeRDa79Ejs&si=i3GaSWsW7d9XqGGr'
     },
     {
-      id: 'zzy_song_001',
+      id: 'zzy_song_003',
       title: '愛在終局之前',
       releaseDate: '2023-04-16',
       type: '單曲',
@@ -27,7 +27,7 @@ export const zhangZhenYuanDetails = {
       audioUrl: 'https://music.youtube.com/watch?v=tkylMWfJUO4&si=0ALZ5xNleTWI3Wwg'
     },
     {
-      id: 'zzy_song_001',
+      id: 'zzy_song_004',
       title: '蝴蝶',
       releaseDate: '2023-10-30',
       type: '單曲',
@@ -35,12 +35,20 @@ export const zhangZhenYuanDetails = {
       audioUrl: 'https://music.youtube.com/watch?v=ydKfuEuAruk&si=aEhIIRY-iMVQteYm'
     },
     {
-      id: 'zzy_song_001',
+      id: 'zzy_song_005',
       title: '出淵',
       releaseDate: '2024-02-08',
       type: '單曲',
       description: '',
       audioUrl: 'https://music.youtube.com/watch?v=fPYmWBXqu_g&si=-AgQmYt8s8nAllsR'
+    },
+    {
+      id: 'zzy_song_006',
+      title: 'Someone Like You',
+      releaseDate: '2026-01-12',
+      type: '單曲',
+      description: '',
+      audioUrl: ''
     },
 
     {

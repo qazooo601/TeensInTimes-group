@@ -101,7 +101,8 @@ const Variety = () => {
           border: `3px solid ${item.color}`,
           boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
           transition: 'all 0.3s ease',
-          background: backgroundColor
+          background: backgroundColor,
+          maxWidth: '92%',     // 防止在極小螢幕的手機上超出範圍
         }}
         styles={{ body: { padding: '20px' } }}
       >
