@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Typography, Card, Tag, Space, Row, Col, Button, Avatar } from 'antd';
-import { HeartOutlined, FireOutlined, TrophyOutlined, StarOutlined, TeamOutlined, RightOutlined } from '@ant-design/icons';
+import { HeartOutlined, FireOutlined, TrophyOutlined, StarOutlined, TeamOutlined, RightOutlined, EyeOutlined } from '@ant-design/icons';
 import { BsSinaWeibo } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import { membersData } from '../data/membersData';
@@ -11,6 +11,18 @@ const { Title, Paragraph, Text } = Typography;
 
 const Home = () => {
   const navigate = useNavigate();
+  const [visitCount, setVisitCount] = useState(0);
+
+  useEffect(() => {
+    // 從 localStorage 讀取瀏覽次數，如果沒有則初始化為0
+    const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
+    // 增加計數
+    const newCount = storedCount + 1;
+    // 保存到 localStorage
+    localStorage.setItem('homeVisitCount', newCount.toString());
+    // 更新狀態
+    setVisitCount(newCount);
+  }, []);
 
 
   const handleMemberClick = (member) => {
@@ -19,6 +31,28 @@ const Home = () => {
 
   return (
     <div style={{ padding: '24px', position: 'relative' }}>
+      {/* 瀏覽次數 - 右上角 */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '24px',
+          right: '24px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '6px',
+          padding: '6px 12px',
+          backgroundColor: '#FFD700',
+          borderRadius: '20px',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+          zIndex: 10
+        }}
+      >
+        <EyeOutlined style={{ color: '#000', fontSize: '16px' }} />
+        <Text strong style={{ color: '#000', fontSize: '14px' }}>
+          {visitCount}
+        </Text>
+      </div>
+
       {/* 歡迎區域 */}
       <div style={{ marginBottom: '40px' }}>
         <div style={{ textAlign: 'center' }}>
