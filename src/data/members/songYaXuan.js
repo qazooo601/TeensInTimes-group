@@ -106,7 +106,7 @@ export const songYaXuanDetails = {
       title: '王牌對王牌第七季',
       role: '王牌家族',
       year: '2022-02-25',
-      description: '王牌師弟'
+      description: '王牌師弟。接續擔任《王牌少年加載中》的主持人。'
     },
     {
       id: 'syx_variety_011',

@@ -48,7 +48,7 @@ export const zhangZhenYuanDetails = {
       releaseDate: '2026-01-12',
       type: '單曲',
       description: '',
-      audioUrl: ''
+      audioUrl: 'https://music.youtube.com/watch?v=oI5-1lMGxdY&si=7YbQQb4DgLmAibTi'
     },
 
     {

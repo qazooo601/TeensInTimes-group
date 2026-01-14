@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { Card, Typography, Avatar, Tag, Space, Button, Divider, List, Badge, Collapse } from 'antd';
 import { ArrowLeftOutlined, CalendarOutlined, EnvironmentOutlined, BankOutlined, StarOutlined, FireOutlined, DownOutlined, RightOutlined } from '@ant-design/icons';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -24,6 +25,12 @@ const ConcertDetail = () => {
       }
     }
   }
+
+  usePageTitle(
+    concert
+      ? `${concert.title || '演唱會'} 詳細資訊｜TNT時代少年團`
+      : '演唱會詳細資訊｜TNT時代少年團'
+  );
 
   // 如果沒有傳入特定演唱會，顯示所有演唱會列表
   if (!concert) {

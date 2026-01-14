@@ -3,11 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { Card, Typography, Space, Avatar, Divider, Button } from 'antd';
 import { CalendarOutlined, PlayCircleOutlined, UserOutlined, FolderOutlined, SoundOutlined, CustomerServiceOutlined } from '@ant-design/icons';
 import { musicData } from '../data/musicData';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const { Title, Paragraph, Text } = Typography;
 
 const Music = () => {
   const navigate = useNavigate();
+
+  usePageTitle('歌曲｜TNT時代少年團');
 
 
   // 分離專輯和單曲

@@ -3,12 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { Card, Typography, Badge, Tag, Space, Button } from 'antd';
 import { FireOutlined, StarOutlined, CalendarOutlined, EnvironmentOutlined, BankOutlined, PlayCircleOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { concertsData } from '../data/concertsData';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const { Title, Paragraph, Text } = Typography;
 
 const Concerts = () => {
   const navigate = useNavigate();
 
+  usePageTitle('演唱會｜TNT時代少年團');
 
   const getStatusTag = (status) => {
     switch (status) {

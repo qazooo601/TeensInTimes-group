@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Card, Typography, Avatar, Tag, Space, Divider, Button, Collapse } from 'antd';
 import { CalendarOutlined, PlayCircleOutlined, UserOutlined, FireOutlined, VideoCameraOutlined, DownOutlined, RightOutlined, RocketOutlined, ThunderboltOutlined, SmileOutlined, CustomerServiceOutlined, QqOutlined, BilibiliOutlined, YoutubeOutlined, WeiboOutlined, GiftOutlined } from '@ant-design/icons';
 import { selfMadeVariety, documentaryRecord, birthdayRecord, externalVariety, performanceVariety, tfFamilyPeriodVariety, tytPeriodVariety } from '../data/variety';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const { Title, Paragraph, Text } = Typography;
 const { Panel } = Collapse;
@@ -19,6 +20,8 @@ const Variety = () => {
     tfFamilyPeriod: true,
     typhoonPeriod: true
   });
+
+  usePageTitle('綜藝節目｜TNT時代少年團');
 
   // 生日紀錄依年份分組（年份由新到舊）
   const birthdayByYear = useMemo(() => {

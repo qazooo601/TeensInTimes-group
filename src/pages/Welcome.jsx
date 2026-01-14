@@ -1,10 +1,13 @@
 import React from 'react';
 import { Button, Card, Typography, Tag, Space } from 'antd';
 import { HeartOutlined, StarOutlined, CrownOutlined, GiftOutlined, HomeOutlined } from '@ant-design/icons';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const { Title, Paragraph } = Typography;
 
 const Welcome = () => {
+  usePageTitle('歡迎認識TNT時代少年團');
+
   const handleEnterHome = () => {
     // 創建一個訪客用戶並保存到 localStorage
     const guestUser = {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { Card, Typography, Avatar, Tag, Space, Button, Divider, List, Badge } from 'antd';
 import { ArrowLeftOutlined, CalendarOutlined, PlayCircleOutlined, UserOutlined, DownOutlined, RightOutlined, SoundOutlined } from '@ant-design/icons';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -23,6 +24,12 @@ const MusicDetail = () => {
       }
     }
   }
+
+  usePageTitle(
+    album
+      ? `${album.name} 專輯｜TNT時代少年團`
+      : '專輯詳情｜TNT時代少年團'
+  );
 
   // 如果沒有傳入特定專輯，顯示所有專輯列表
   if (!album) {

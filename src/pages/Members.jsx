@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, Typography, Avatar, Tag, Space, Button } from 'antd';
+import { Card, Typography, Avatar, Tag, Space, Button, Row, Col } from 'antd';
 import { HeartOutlined, FireOutlined, EditOutlined } from '@ant-design/icons';
 import { BsSinaWeibo } from "react-icons/bs";
 import { membersData } from '../data/membersData';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const { Title, Paragraph, Text } = Typography;
 
 const Members = () => {
   const navigate = useNavigate();
+  const [imageErrors, setImageErrors] = useState({});
+
+  usePageTitle('成員介紹｜TNT時代少年團');
 
   // 計算年齡的函數
   const calculateAge = (birthday) => {
@@ -90,7 +94,6 @@ const Members = () => {
               hoverable
               onClick={() => handleMemberClick(member)}
               style={{
-                textAlign: 'center',
                 borderRadius: '20px',
                 border: `3px solid ${primaryColor}`,
                 boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
@@ -100,50 +103,75 @@ const Members = () => {
               }}
               styles={{ body: { padding: '20px' } }}
             >
-            <Avatar
-              size={60}
-              src={member.image}
-              style={{
-                backgroundColor: primaryColor,
-                marginBottom: '12px',
-                fontSize: '24px',
-                border: `2px solid ${primaryColor}`,
-                boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
-              }}
-              onError={() => {
-                // 如果圖片載入失敗，顯示 emoji 作為備用
-                return member.emoji;
-              }}
-            >
-              {member.emoji}
-            </Avatar>
-            <Title level={3} style={{
-              color: '#333',
-              marginBottom: '8px',
-              fontSize: '20px'
-            }}>
-              {member.memberName}
-            </Title>
-            <Text style={{
-              color: (() => {
-                const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                // 為不同顏色創建對應的深色版本
-                const colorMap = {
-                  '#CC66FF': '#524889',
-                  '#FFD700': '#B8860B',
-                  '#63C3DE': '#1D738B',
-                  '#FFFFFF': '#757575',
-                  '#C0EBD7': '#37A471',
-                  '#FF5546': '#CC0000',
-                  '#ADD5A2': '#62AC4D'
-                };
-                return colorMap[baseColor] || '#333';
-              })(),
-              fontSize: '14px'
-            }}>
-              {member.fanName}<br/>
-              {member.birthday} | {calculateAge(member.birthday)}歲
-            </Text>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              {/* 左側圖片 */}
+              <div style={{ flexShrink: 0, textAlign: 'center' }}>
+                {imageErrors[member.memberCode] || !member.image ? (
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      width: '80px',
+                      height: '80px',
+                      backgroundColor: primaryColor,
+                      fontSize: '32px',
+                      border: `2px solid ${primaryColor}`,
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                      borderRadius: '8px',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}
+                  >
+                    {member.emoji}
+                  </div>
+                ) : (
+                  <img
+                    src={member.image}
+                    alt={member.memberName}
+                    onError={() => setImageErrors(prev => ({ ...prev, [member.memberCode]: true }))}
+                    style={{
+                      width: '80px',
+                      height: 'auto',
+                      maxWidth: '80px',
+                      border: `2px solid ${primaryColor}`,
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                      borderRadius: '8px',
+                      display: 'block'
+                    }}
+                  />
+                )}
+              </div>
+
+              {/* 右側資訊 */}
+              <div style={{ flex: 1, textAlign: 'left', minWidth: 0 }}>
+                <Title level={3} style={{
+                  color: '#333',
+                  marginBottom: '8px',
+                  fontSize: '20px'
+                }}>
+                  {member.memberName}
+                </Title>
+                <Text style={{
+                  color: (() => {
+                    const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                    // 為不同顏色創建對應的深色版本
+                    const colorMap = {
+                      '#CC66FF': '#524889',
+                      '#FFD700': '#B8860B',
+                      '#63C3DE': '#1D738B',
+                      '#FFFFFF': '#757575',
+                      '#C0EBD7': '#37A471',
+                      '#FF5546': '#CC0000',
+                      '#ADD5A2': '#62AC4D'
+                    };
+                    return colorMap[baseColor] || '#333';
+                  })(),
+                  fontSize: '14px'
+                }}>
+                  {member.fanName}<br/>
+                  {member.birthday} | {calculateAge(member.birthday)}歲
+                </Text>
+              </div>
+            </div>
           </Card>
           );
         })}

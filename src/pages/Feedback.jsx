@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Typography, Form, Input, Select, Button, Card, message, Steps } from 'antd';
 import { MailOutlined, FormOutlined } from '@ant-design/icons';
 import emailjs from '@emailjs/browser';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -22,6 +23,8 @@ const Feedback = () => {
   const [sendingEmail, setSendingEmail] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState(null);
+
+  usePageTitle('意見回饋｜TNT時代少年團');
 
   const pageOptions = useMemo(() => [
     { label: '首頁', value: '首頁' },

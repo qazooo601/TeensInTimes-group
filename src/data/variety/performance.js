@@ -426,7 +426,7 @@ export const performanceVariety = [
     description: '',
     emoji: '🎊',
     color: '#FF6B6B',
-    episodes: '',
+    episodes: '《樓外樓》',
     coverImage: '/images/variety/performance/.jpg'
   },
   {
@@ -443,7 +443,7 @@ export const performanceVariety = [
   {
     id: 'performanceVariety_041',
     title: '和合之家——2025中國網絡視聽年度盛典',
-    year: '2025-01-24',
+    year: '2024-01-24',
     participants: '全體成員',
     description: '',
     emoji: '🎊',
@@ -525,7 +525,7 @@ export const performanceVariety = [
     description: '',
     emoji: '🎊',
     color: '#FF6B6B',
-    episodes: '',
+    episodes: '《夢》',
     coverImage: '/images/variety/performance/.jpg'
   },
   {
@@ -563,13 +563,13 @@ export const performanceVariety = [
   },
   {
     id: 'performanceVariety_052',
-    title: '跨年晚會表演"灣區升明月"2025大灣區電影音樂晚會',
+    title: '"灣區升明月"2025大灣區電影音樂晚會',
     year: '2025-09-28',
     participants: '全體成員',
     description: '',
     emoji: '🎊',
     color: '#FF6B6B',
-    episodes: '馬嘉祺、丁程鑫《惡作劇》\n宋亞軒、劉耀文《只對你有感覺》\n張真源、嚴浩翔、賀峻霖《迷魂計》\n時代少年團《當》',
+    episodes: '馬嘉祺、丁程鑫《惡作劇》\n宋亞軒、劉耀文《只對你有感覺》\n張真源、嚴浩翔、賀峻霖《迷魂計》\n全員《當》',
     coverImage: '/images/variety/performance/.jpg'
   },
   {
@@ -580,7 +580,18 @@ export const performanceVariety = [
     description: '',
     emoji: '🎊',
     color: '#FF6B6B',
-    episodes: '',
+    episodes: '《春風裡洗過的太陽》《夏天的風》《惱人的秋風》《留不住的雪》全員《冠軍》',
     coverImage: '/images/variety/performance/芒果TV雙十一狂歡夜.jpg'
+  },
+  {
+    id: 'performanceVariety_054',
+    title: '2025-2026湖南衛視芒果TV跨年晚會',
+    year: '2025-12-31',
+    participants: '全體成員',
+    description: '',
+    emoji: '🎊',
+    color: '#FF6B6B',
+    episodes: '王嘉爾、時代少年團《對你愛不完》\n全員《冬日來信》宋亞軒、張真源《豆漿油條》馬嘉祺、丁程鑫《又是豔陽日》劉耀文、嚴浩翔、賀峻霖《日不落》全員《戀愛ING》\n華晨宇、時代少年團《快樂出發》',
+    coverImage: '/images/variety/performance/2025-2026湖南衛視芒果TV跨年晚會.jpg'
   }
 ];

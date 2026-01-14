@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { Card, Typography, Avatar, Tag, Space, Button, Divider, List, Collapse } from 'antd';
+import { Card, Typography, Avatar, Tag, Space, Button, Divider, List, Collapse, Row, Col } from 'antd';
 import { ArrowLeftOutlined, HeartOutlined, StarOutlined, CalendarOutlined, PlayCircleOutlined, DownOutlined, RightOutlined, VideoCameraOutlined, SoundOutlined, MonitorOutlined, TrophyOutlined, UserOutlined } from '@ant-design/icons';
 import { BsSinaWeibo } from "react-icons/bs";
 import { membersData } from '../data/membersData';
 import { getMemberDetails } from '../data/members/index';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -18,6 +19,7 @@ const MemberDetail = () => {
     variety: false,
     awards: false
   });
+  const [imageError, setImageError] = useState(false);
 
   // 從 URL 參數或 location.state 獲取成員資料
   let member = location.state?.member;
@@ -34,6 +36,18 @@ const MemberDetail = () => {
 
   // 獲取成員詳細資料
   const memberDetails = member ? getMemberDetails(member.memberCode) : null;
+
+  // 設定分頁標題
+  usePageTitle(
+    member
+      ? `${member.memberName} ｜TNT時代少年團`
+      : '成員介紹｜TNT時代少年團'
+  );
+
+  // 當成員改變時重置圖片錯誤狀態
+  useEffect(() => {
+    setImageError(false);
+  }, [member?.memberCode]);
 
   // 切換區塊展開/收合
   const toggleSection = (section) => {
@@ -164,84 +178,111 @@ const MemberDetail = () => {
         }}
         styles={{ body: { padding: '40px' } }}
       >
-        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-          <Avatar
-            size={120}
-            src={member.image}
-            style={{
-              backgroundColor: Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor,
-              marginBottom: '15px',
-              fontSize: '48px',
-              border: `3px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}`,
-              boxShadow: '0 4px 16px rgba(0,0,0,0.2)'
-            }}
-            onError={() => {
-              return member.emoji;
-            }}
-          >
-            {member.emoji}
-          </Avatar>
-          <Title level={1} style={{
-            color: (() => {
-              const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-              // 為不同顏色創建對應的深色版本
-              const colorMap = {
-                '#9A91F2': '#8076B7',
-                '#FFD700': '#B8860B',
-                '#63C3DE': '#4B9DB4',
-                '#FFFFFF': '#919191',
-                '#C0EBD7': '#37A471',
-                '#FF5546': '#CC0000',
-                '#ADD5A2': '#89C379'
-              };
-              return colorMap[baseColor] || '#333';
-            })(),
-            marginBottom: '8px',
-            fontSize: '36px'
-          }}>
-            {member.memberName}
-          </Title>
-          <Title level={2} style={{
-            color: '#333',
-            marginBottom: '10px',
-            fontSize: '24px'
-          }}>
-            {member.memberNameEn}
-          </Title>
-          <Space wrap>
-            <Tag color="gold" icon={<HeartOutlined />}>{member.fanName}</Tag>
-            <Tag color="default" icon={<CalendarOutlined />}>{member.birthday}</Tag>
-            <Tag
-              color="red"
-              icon={<BsSinaWeibo style={{ transform: 'translateY(2px)', marginRight: '4px' }}/>}
-              style={{ cursor: 'pointer' }}
-              onClick={() => window.open(member.weibo, '_blank')}
-            >
-              @{member.memberNameCn}
-            </Tag>
-          </Space>
-        </div>
+        <Row gutter={[32, 32]} align="top">
+          {/* 左側圖片 - 大螢幕顯示，小螢幕時隱藏 */}
+          <Col xs={24} md={8} style={{ textAlign: 'center' }}>
+            {imageError || !member.image ? (
+              <div
+                style={{
+                  display: 'inline-flex',
+                  width: '80%',
+                  maxWidth: '300px',
+                  aspectRatio: '1',
+                  backgroundColor: Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor,
+                  fontSize: '48px',
+                  border: `3px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}`,
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+                  borderRadius: '8px',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                {member.emoji}
+              </div>
+            ) : (
+              <img
+                src={member.image}
+                alt={member.memberName}
+                onError={() => setImageError(true)}
+                style={{
+                  width: '100%',
+                  maxWidth: '100%',
+                  height: 'auto',
+                  border: `3px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}`,
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+                  borderRadius: '8px',
+                  display: 'block'
+                }}
+              />
+            )}
+          </Col>
 
-        <Divider style={{ borderColor: Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor }} />
+          {/* 右側資訊 */}
+          <Col xs={24} md={16}>
+            <div style={{ textAlign: 'center' }}>
+              <Title level={1} style={{
+                color: (() => {
+                  const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                  // 為不同顏色創建對應的深色版本
+                  const colorMap = {
+                    '#9A91F2': '#8076B7',
+                    '#FFD700': '#B8860B',
+                    '#63C3DE': '#4B9DB4',
+                    '#FFFFFF': '#919191',
+                    '#C0EBD7': '#37A471',
+                    '#FF5546': '#CC0000',
+                    '#ADD5A2': '#89C379'
+                  };
+                  return colorMap[baseColor] || '#333';
+                })(),
+                marginBottom: '8px',
+                fontSize: '36px'
+              }}>
+                {member.memberName}
+              </Title>
+              <Title level={2} style={{
+                color: '#333',
+                marginBottom: '10px',
+                fontSize: '24px'
+              }}>
+                {member.memberNameEn}
+              </Title>
+              <Space wrap style={{ marginBottom: '20px' }}>
+                <Tag color="gold" icon={<HeartOutlined />}>{member.fanName}</Tag>
+                <Tag color="default" icon={<CalendarOutlined />}>{member.birthday}</Tag>
+                <Tag
+                  color="red"
+                  icon={<BsSinaWeibo style={{ transform: 'translateY(2px)', marginRight: '4px' }}/>}
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => window.open(member.weibo, '_blank')}
+                >
+                  @{member.memberNameCn}
+                </Tag>
+              </Space>
+            </div>
 
-        <div style={{ textAlign: 'center' }}>
-          <Title level={3} style={{
-            color: '#333',
-            marginBottom: '10px'
-          }}>
-            成員介紹
-          </Title>
-          <Paragraph style={{
-            fontSize: '14px',
-            lineHeight: '1.8',
-            color: '#666',
-            textAlign: 'left',
-            maxWidth: '600px',
-            margin: '0 auto'
-          }}>
-            {member.content}
-          </Paragraph>
-        </div>
+            <Divider style={{ borderColor: Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor }} />
+
+            <div>
+              <Title level={3} style={{
+                color: '#333',
+                marginBottom: '10px',
+                textAlign: 'center'
+              }}>
+                成員介紹
+              </Title>
+              <Paragraph style={{
+                fontSize: '14px',
+                lineHeight: '1.8',
+                color: '#666',
+                textAlign: 'left',
+                whiteSpace: 'pre-line'
+              }}>
+                {member.content}
+              </Paragraph>
+            </div>
+          </Col>
+        </Row>
       </Card>
 
       {/* 詳細資料區塊 */}

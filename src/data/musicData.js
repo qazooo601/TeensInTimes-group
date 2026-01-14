@@ -182,7 +182,7 @@ export const musicData = [
     emoji: '🎤',
     description: '向廣大青少年宣傳黨的十九届五中全會精神',
     songs: [
-      { song: '2035是這young', performer: '全員', audioUrl: '' }
+      { song: '2035是這young', performer: '全員', audioUrl: 'https://www.bilibili.com/video/BV1NK4y1W7Jb/?share_source=copy_web&vd_source=d5373cefdf754ffa441bef10feb191a8' }
     ]
   },
   {
@@ -214,18 +214,31 @@ export const musicData = [
   {
     id: 'single_010',
     name: '國防少年',
-    releaseDate: '2021',
+    releaseDate: '2021-10-02',
     type: '單曲',
     category: 'single',
     image: '/images/music/國防少年.jpg',
     emoji: '🎤',
     description: '《今天我當「兵」》',
     songs: [
-      { song: '國防少年', performer: '馬嘉祺 / 宋亞軒 / 劉耀文 / 嚴浩翔 / 賀峻霖', audioUrl: '' }
+      { song: '國防少年', performer: '馬嘉祺 / 宋亞軒 / 劉耀文 / 嚴浩翔 / 賀峻霖', audioUrl: 'https://www.bilibili.com/video/BV1JL411s7hH' }
     ]
   },
   {
     id: 'single_011',
+    name: '青春走在新征程',
+    releaseDate: '2021-12-15',
+    type: '單曲',
+    category: 'single',
+    image: '/images/music/青春走在新征程.jpg',
+    emoji: '🎤',
+    description: '《青春走在新征程》MV',
+    songs: [
+      { song: '青春走在新征程', performer: '全員', audioUrl: 'https://www.bilibili.com/video/BV1BL4y1H7jC' }
+    ]
+  },
+  {
+    id: 'single_012',
     name: '有你',
     releaseDate: '2021-12-25',
     type: '單曲',
@@ -234,11 +247,11 @@ export const musicData = [
     emoji: '🎤',
     description: '《有你》',
     songs: [
-      { song: '有你', performer: '全員', audioUrl: '' }
+      { song: '有你', performer: '全員', audioUrl: ' https://www.bilibili.com/video/BV1xr4y1S7WS' }
     ]
   },
   {
-    id: 'single_012',
+    id: 'single_013',
     name: '漸暖',
     releaseDate: '2022-02-14',
     type: '單曲',
@@ -251,7 +264,20 @@ export const musicData = [
     ]
   },
   {
-    id: 'single_013',
+    id: 'single_014',
+    name: '披風',
+    releaseDate: '2022-04-24',
+    type: '單曲',
+    category: 'single',
+    image: '/images/music/披風.jpg',
+    emoji: '🎤',
+    description: '《披風》MV',
+    songs: [
+      { song: '披風', performer: '全員', audioUrl: 'https://www.bilibili.com/video/BV15v4y1N7A7' }
+    ]
+  },
+  {
+    id: 'single_015',
     name: '你要快樂',
     releaseDate: '2022-06-13',
     type: '單曲',
@@ -264,7 +290,7 @@ export const musicData = [
     ]
   },
   {
-    id: 'single_014',
+    id: 'single_016',
     name: '100道光芒',
     releaseDate: '2022-09-04',
     type: '單曲',
@@ -273,11 +299,11 @@ export const musicData = [
     emoji: '🎤',
     description: '《100道光芒》',
     songs: [
-      { song: '100道光芒', performer: '全員', audioUrl: '' }
+      { song: '100道光芒', performer: '全員', audioUrl: 'https://www.bilibili.com/video/BV1fY4y1T7ks' }
     ]
   },
   {
-    id: 'single_015',
+    id: 'single_017',
     name: '瑜 (Yú)',
     releaseDate: '2022-08-30',
     type: '單曲',
@@ -290,7 +316,7 @@ export const musicData = [
     ]
   },
   {
-    id: 'single_016',
+    id: 'single_018',
     name: '有你的季節',
     releaseDate: '2022-11-30',
     type: '單曲',
@@ -303,7 +329,7 @@ export const musicData = [
     ]
   },
   {
-    id: 'single_017',
+    id: 'single_019',
     name: '背對地球奔跑',
     releaseDate: '2023-04-17',
     type: '單曲',
@@ -312,11 +338,11 @@ export const musicData = [
     emoji: '🎤',
     description: '時代少年團團綜《時代夏令營2》主題曲',
     songs: [
-      { song: '背對地球奔跑', performer: '全員', audioUrl: '' }
+      { song: '背對地球奔跑', performer: '全員', audioUrl: 'https://www.bilibili.com/video/BV1b84y1T7Jk' }
     ]
   },
   {
-    id: 'single_018',
+    id: 'single_020',
     name: '青春不枉',
     releaseDate: '2023-05-03',
     type: '單曲',
@@ -329,7 +355,7 @@ export const musicData = [
     ]
   },
   {
-    id: 'single_018',
+    id: 'single_021',
     name: '認輸',
     releaseDate: '2023-12-21',
     type: '單曲',
@@ -342,7 +368,7 @@ export const musicData = [
     ]
   },
   {
-    id: 'single_019',
+    id: 'single_022',
     name: '好望角（Hakuna Matata ver.）',
     releaseDate: '2025-03-18',
     type: '單曲',

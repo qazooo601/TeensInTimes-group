@@ -6,12 +6,15 @@ import { useNavigate } from 'react-router-dom';
 import { membersData } from '../data/membersData';
 import { groupHonors } from '../data/honorsData';
 import UpdateTime from '../components/Layout/UpdateTime';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const { Title, Paragraph, Text } = Typography;
 
 const Home = () => {
   const navigate = useNavigate();
   const [visitCount, setVisitCount] = useState(0);
+
+  usePageTitle('TNT時代少年團');
 
   useEffect(() => {
     // 從 localStorage 讀取瀏覽次數，如果沒有則初始化為0
@@ -247,7 +250,7 @@ const Home = () => {
           <div style={{ fontSize: '14px', lineHeight: '1.6' }}>
             <div style={{ marginBottom: '8px' }}>以下為公開資訊：</div>
             <div style={{ marginBottom: '8px' }}>• 2015年，台風四子時期，成員：黃宇航、丁程鑫、敖子逸、黃其淋</div>
-            <div style={{ marginBottom: '8px' }}>• 2015~2017年，二代練習生成員：黃宇航、丁程鑫、潘政霖、敖子逸、黃其淋、代昊林、賀峻霖、殷湧智、曹峻瑋、嚴浩翔、張真源、陳泗旭、宋亞軒</div>
+            <div style={{ marginBottom: '8px' }}>• 2015~2016年，台風十二子時期，成員：黃宇航、黃其淋、丁程鑫、敖子逸、張真源、陳泗旭、曹峻瑋、賀峻霖、嚴浩翔、代昊林、殷湧智、潘政霖</div>
             <div style={{ marginBottom: '8px' }}>• 2017年4月《天天向上》由成員：丁程鑫、敖子逸、賀峻霖、張真源、宋亞軒，節目中稱之為完顏團</div>
             <div style={{ marginBottom: '8px' }}>• 2017年，台風十子時期，成員：丁程鑫、敖子逸、賀峻霖、張真源、陳泗旭、宋亞軒、劉耀文、陳璽達、李天澤、馬嘉祺</div>
             <div>• 2018年10月7日，TF家族推出的組合台風少年團正式出道，成員：丁程鑫(隊長)、馬嘉祺、宋亞軒、劉耀文、姚景元</div>
