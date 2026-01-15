@@ -19,12 +19,28 @@ const Home = () => {
   useEffect(() => {
     // 從 localStorage 讀取瀏覽次數，如果沒有則初始化為0
     const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
-    // 增加計數
-    const newCount = storedCount + 1;
-    // 保存到 localStorage
-    localStorage.setItem('homeVisitCount', newCount.toString());
-    // 更新狀態
-    setVisitCount(newCount);
+
+    // 檢查是否為外部連結進入
+    const referrer = document.referrer;
+    const currentOrigin = window.location.origin;
+    const isExternalLink = !referrer || !referrer.startsWith(currentOrigin);
+
+    // 檢查本次會話是否已經計數過（避免在同一個會話中重複計數）
+    const sessionCounted = sessionStorage.getItem('homeVisitCounted');
+
+    // 只有在從外部連結進入且本次會話尚未計數時才增加計數
+    if (isExternalLink && !sessionCounted) {
+      const newCount = storedCount + 1;
+      // 保存到 localStorage
+      localStorage.setItem('homeVisitCount', newCount.toString());
+      // 標記本次會話已計數
+      sessionStorage.setItem('homeVisitCounted', 'true');
+      // 更新狀態
+      setVisitCount(newCount);
+    } else {
+      // 如果不是外部連結或已經計數過，只顯示現有的計數
+      setVisitCount(storedCount);
+    }
   }, []);
 
 
