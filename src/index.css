@@ -54,6 +54,26 @@ body {
   border-radius: 8px !important;
 }
 
+/* 關於版主按鈕樣式 */
+.desktop-about-button {
+  color: #666 !important;
+}
+
+.desktop-about-button:hover {
+  color: #FFF7CC !important;
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* 移動端關於版主按鈕樣式 */
+.mobile-about-button {
+  color: #666 !important;
+}
+
+.mobile-about-button:hover {
+  color: #FFF7CC !important;
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
 /* 響應式設計 */
 @media (max-width: 768px) {
   /* 桌面端元素在小螢幕時隱藏 */
@@ -65,13 +85,18 @@ body {
     display: none !important;
   }
 
-  /* 移動端元素在小螢幕時隱藏（不要劉海） */
+  /* 移動端元素在小螢幕時顯示 */
   .mobile-header {
-    display: none !important;
+    display: flex !important;
   }
 
   .mobile-bottom-menu {
     display: block !important;
+  }
+
+  /* 小螢幕時隱藏關於版主按鈕 */
+  .desktop-about-button {
+    display: none !important;
   }
 
   .ant-layout-content {
@@ -102,5 +127,17 @@ body {
 
   .ant-layout-content {
     padding-bottom: 0 !important;
+  }
+
+  /* 大螢幕時隱藏 mobile-only 換行 */
+  .mobile-only {
+    display: none;
+  }
+}
+
+/* 小螢幕時顯示 mobile-only 換行 */
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block;
   }
 }

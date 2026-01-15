@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { ConfigProvider, Layout, Menu } from 'antd';
+import { ConfigProvider, Layout, Menu, Button } from 'antd';
 import zhTW from 'antd/locale/zh_TW';
 import {
   TeamOutlined,
   PlayCircleOutlined,
   CalendarOutlined,
   VideoCameraOutlined,
-  HomeOutlined
+  HomeOutlined,
+  UserOutlined
 } from '@ant-design/icons';
 import { LiaMicrophoneAltSolid } from "react-icons/lia";
 import Home from './pages/Home';
@@ -21,6 +22,7 @@ import Variety from './pages/Variety';
 import Profile from './pages/Profile';
 import Feedback from './pages/Feedback';
 import Welcome from './pages/Welcome';
+import About from './pages/About';
 import UpdateTime from './components/Layout/UpdateTime';
 
 const { Header, Content, Footer } = Layout;
@@ -153,16 +155,40 @@ const AppLayout = ({ children, user, onLogout }) => {
           }}
           className="custom-menu"
         />
-        <div style={{ width: '200px' }}></div>
+        <div style={{
+          width: '200px',
+          display: 'flex',
+          justifyContent: 'flex-end',
+          alignItems: 'center'
+        }}>
+          <Button
+            type="text"
+            onClick={() => window.location.href = '/about'}
+            className="desktop-about-button"
+            style={{
+              color: '#000',
+              fontSize: '13px',
+              fontWeight: '500',
+              padding: '4px 12px',
+              borderRadius: '8px',
+              transition: 'all 0.3s ease',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px'
+            }}
+          >
+            關於版主
+          </Button>
+        </div>
       </Header>
 
-      {/* 移動端 Header（只顯示 Logo） */}
+      {/* 移動端 Header（顯示 Logo 和關於版主） */}
       <Header
         className="mobile-header"
         style={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           background: '#FFD700',
           padding: '0 16px',
           boxShadow: '0 4px 12px rgba(255,215,0,0.3)'
@@ -192,6 +218,24 @@ const AppLayout = ({ children, user, onLogout }) => {
             }}
           />
         </div>
+        <Button
+          type="text"
+          icon={<UserOutlined />}
+          onClick={() => window.location.href = '/about'}
+          className="mobile-about-button"
+          style={{
+            color: '#000',
+            fontSize: '20px',
+            padding: '4px 8px',
+            borderRadius: '8px',
+            transition: 'all 0.3s ease',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            minWidth: '40px',
+            height: '40px'
+          }}
+        />
       </Header>
 
       <Content style={{
@@ -371,6 +415,7 @@ function App() {
                     <Route path="/variety" element={<Variety />} />
                     <Route path="/feedback" element={<Feedback />} />
                     <Route path="/profile" element={<Profile />} />
+                    <Route path="/about" element={<About />} />
                   </Routes>
                 </AppLayout>
               ) : (

@@ -74,8 +74,8 @@ const Home = () => {
             margin: '0 auto 16px'
           }}>
             ✨ 破天下，定風雲，時代少年並肩行 ✨<br/>
-            時代少年團（Teens in Times，簡稱TNT、小炸）<br/>
-            粉絲名：爆米花（又稱：大米爆、樓絲）
+            時代少年團（Teens in Times，<br className="mobile-only" />簡稱TNT、小炸）<br/>
+            粉絲名：爆米花（又稱：大米爆）/ <br className="mobile-only" />二代粉：樓絲
           </Paragraph>
           <div
             style={{
@@ -137,7 +137,7 @@ const Home = () => {
         <Card
           title={
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span><TeamOutlined /> 成員概覽</span>
+              <span><TeamOutlined /> 團體成員</span>
               <Button
                 type="link"
                 icon={<RightOutlined />}
@@ -238,7 +238,7 @@ const Home = () => {
 
         {/* 出道前的團體經歷 */}
         <Card
-          title={<> 出道前的團體經歷</>}
+          title={<> 出道前的成員經歷</>}
           style={{
             borderRadius: '15px',
             border: '2px solid #FFD700',
@@ -253,7 +253,12 @@ const Home = () => {
             <div style={{ marginBottom: '8px' }}>• 2015~2016年，台風十二子時期，成員：黃宇航、黃其淋、丁程鑫、敖子逸、張真源、陳泗旭、曹峻瑋、賀峻霖、嚴浩翔、代昊林、殷湧智、潘政霖</div>
             <div style={{ marginBottom: '8px' }}>• 2017年4月《天天向上》由成員：丁程鑫、敖子逸、賀峻霖、張真源、宋亞軒，節目中稱之為完顏團</div>
             <div style={{ marginBottom: '8px' }}>• 2017年，台風十子時期，成員：丁程鑫、敖子逸、賀峻霖、張真源、陳泗旭、宋亞軒、劉耀文、陳璽達、李天澤、馬嘉祺</div>
-            <div>• 2018年10月7日，TF家族推出的組合台風少年團正式出道，成員：丁程鑫(隊長)、馬嘉祺、宋亞軒、劉耀文、姚景元</div>
+            <div style={{ marginBottom: '8px' }}>• 2018年10月7日，TF家族推出的組合台風少年團正式出道，成員：丁程鑫(隊長)、馬嘉祺、宋亞軒、劉耀文、姚景元</div>
+            <div style={{ marginBottom: '8px', textAlign: 'center' }}>
+              <strong>
+                ~ 祝君武運昌隆，願君頂峰相見 !<br className="mobile-only" /> 思念的人終會相聚 ~
+              </strong>
+            </div>
           </div>
         </Card>
       </div>
