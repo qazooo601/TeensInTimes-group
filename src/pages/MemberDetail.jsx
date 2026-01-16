@@ -113,7 +113,7 @@ const MemberDetail = () => {
               >
                 <Avatar
                   size={60}
-                  src={memberData.image}
+                  src={memberData.images}
                   style={{
                     backgroundColor: primaryColor,
                     marginBottom: '12px',
@@ -181,7 +181,7 @@ const MemberDetail = () => {
         <Row gutter={[32, 32]} align="top">
           {/* 左側圖片 - 大螢幕顯示，小螢幕時隱藏 */}
           <Col xs={24} md={8} style={{ textAlign: 'center' }}>
-            {imageError || !member.image ? (
+            {imageError || !member.images ? (
               <div
                 style={{
                   display: 'inline-flex',
@@ -201,7 +201,7 @@ const MemberDetail = () => {
               </div>
             ) : (
               <img
-                src={member.image}
+                src={member.images}
                 alt={member.memberName}
                 onError={() => setImageError(true)}
                 style={{
