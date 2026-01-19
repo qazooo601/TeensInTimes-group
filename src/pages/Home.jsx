@@ -20,9 +20,6 @@ const Home = () => {
 
   useEffect(() => {
     const updateVisitCount = async () => {
-      // 檢查 Firebase 是否已配置
-      const isFirebaseConfigured = import.meta.env.VITE_FIREBASE_DATABASE_URL;
-
       // 檢查是否為外部連結進入（從外部連結點開網站）
       const referrer = document.referrer;
       const currentOrigin = window.location.origin;
@@ -31,11 +28,12 @@ const Home = () => {
       // 檢查本次會話是否已經計數過（避免在同一個會話中重複計數）
       const sessionCounted = sessionStorage.getItem('homeVisitCounted');
 
-      const countRef = ref(database, 'visitCount');
+      // 檢查 Firebase 是否可用
+      if (database) {
+        // 使用 Firebase Realtime Database
+        try {
+          const countRef = ref(database, 'visitCount');
 
-      try {
-        if (isFirebaseConfigured) {
-          // 使用 Firebase Realtime Database
           if (isExternalLink && !sessionCounted) {
             // 使用 transaction 增加計數（確保原子性操作）
             await runTransaction(countRef, (currentCount) => {
@@ -60,9 +58,9 @@ const Home = () => {
 
           // 清理監聽器
           return () => unsubscribe();
-        } else {
-          // Firebase 未配置，使用 localStorage 作為備用方案
-          console.warn('Firebase 未配置，使用 localStorage（僅限單一裝置）');
+        } catch (error) {
+          console.error('Firebase 操作失敗，回退到 localStorage:', error);
+          // 如果 Firebase 失敗，回退到 localStorage
           if (isExternalLink && !sessionCounted) {
             const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
             const newCount = storedCount + 1;
@@ -74,9 +72,8 @@ const Home = () => {
             setVisitCount(storedCount);
           }
         }
-      } catch (error) {
-        console.error('更新訪問計數失敗:', error);
-        // 如果 Firebase 失敗，回退到 localStorage
+      } else {
+        // Firebase 未配置，使用 localStorage 作為備用方案
         if (isExternalLink && !sessionCounted) {
           const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
           const newCount = storedCount + 1;

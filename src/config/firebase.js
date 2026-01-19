@@ -15,9 +15,29 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
-// 初始化 Firebase
-const app = initializeApp(firebaseConfig);
+// 檢查 Firebase 是否已配置
+const isFirebaseConfigured = 
+  firebaseConfig.apiKey && 
+  firebaseConfig.databaseURL && 
+  firebaseConfig.projectId;
 
-// 獲取 Realtime Database 實例
-export const database = getDatabase(app);
+// 只有在配置完整時才初始化 Firebase
+let app = null;
+let database = null;
+
+if (isFirebaseConfigured) {
+  try {
+    app = initializeApp(firebaseConfig);
+    database = getDatabase(app);
+  } catch (error) {
+    console.warn('Firebase 初始化失敗:', error);
+    console.warn('將使用 localStorage 作為備用方案');
+  }
+} else {
+  console.warn('Firebase 未配置，將使用 localStorage（僅限單一裝置）');
+  console.warn('如需跨裝置統一計數，請設置 Firebase 環境變數');
+}
+
+// 導出 database（可能為 null）
+export { database };
 
