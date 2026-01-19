@@ -8,6 +8,7 @@ export const concertsData = [
     location: '韓國',
     venue: '',
     image: '/images/concerts/成團夜.jpg',
+    groupPhoto: '/images/concerts/成團夜-大合照.jpg',
     emoji: '🎫',
     status: 'online', // offline, online, cancelled
     description: '',
@@ -41,6 +42,7 @@ export const concertsData = [
     location: '北京',
     venue: '',
     image: '/images/concerts/代號TNT.jpg',
+    groupPhoto: '/images/concerts/代號TNT-大合照.jpg',
     emoji: '🎫',
     status: 'online', // offline, online, cancelled
     description: '',
@@ -69,6 +71,7 @@ export const concertsData = [
     location: '重慶',
     venue: '',
     image: '/images/concerts/按時長大.jpg',
+    groupPhoto: '/images/concerts/按時長大-大合照.jpg',
     emoji: '🎫',
     status: 'online', // offline, online, cancelled
     description: '按時長大，是不慌不忙，是自然而然，帶著最初的模樣，循著獨有的頻率。\n迷茫有時，驚喜有時，踟躕著，期待著。\n人生海海，山山而川；彼此陪伴，匯作勇氣。\n撥開雲層，拾階而上；懷抱熱愛，鮮活生長。\n向著遠方，向著未來。\n向著整個世界，闊步前行。\n寰宇浩蕩，少年並肩穿過時光隧道\n日月星辰，共同見證少年按時長大\n11月28日，與時代少年團不見不散！',
@@ -111,6 +114,7 @@ export const concertsData = [
     location: '重慶',
     venue: '',
     image: '/images/concerts/火力全開.jpg',
+    groupPhoto: '/images/concerts/火力全開-大合照.jpg',
     emoji: '🔥',
     status: 'online',
     description: '翎羽正燃 浴火重生🔥\n無限能量 火力全開🔥\n\n少年赤誠 少年無畏 少年遙望 少年承擔',
@@ -149,6 +153,7 @@ export const concertsData = [
     location: '',
     venue: '',
     image: '/images/concerts/火力全開·無盡夏.jpg',
+    groupPhoto: '/images/concerts/火力全開·無盡夏-大合照.jpg',
     emoji: '🌟',
     status: 'online',
     description: '每一年的夏天都會過去，但我們相聚在夏天的約定，不曾改變。\n\n"無論分開多久，都會再次相遇。"',
@@ -187,6 +192,7 @@ export const concertsData = [
     location: '	海南省海口市',
     venue: '海口市五源河體育場',
     image: '/images/concerts/理想之途.jpg',
+    groupPhoto: '/images/concerts/理想之途-大合照.jpg',
     emoji: '🌟',
     status: 'offline',
     showNumber: '第1場',
@@ -231,6 +237,7 @@ export const concertsData = [
     location: '青島',
     venue: '',
     image: '/images/concerts/參重樓-青島站.jpg',
+    groupPhoto: '/images/concerts/參重樓-青島站-大合照.jpg',
     emoji: '🌟',
     status: 'cancelled',
     description: '未辦成',
@@ -248,6 +255,7 @@ export const concertsData = [
     location: '',
     venue: '',
     image: '/images/concerts/造夏.jpg',
+    groupPhoto: '/images/concerts/造夏-大合照.jpg',
     emoji: '🌟',
     status: 'online',
     description: '',
@@ -279,6 +287,10 @@ export const concertsData = [
     location: '澳門',
     venue: '銀河綜藝館',
     image: '/images/concerts/參重樓暨出道四周年.jpg',
+    groupPhoto: {
+      day1: '/images/concerts/參重樓暨出道四周年-D1-大合照.jpg',
+      day2: '/images/concerts/參重樓暨出道四周年-D2-大合照.jpg'
+    },
     emoji: '🎤',
     status: 'offline',
     showNumber: '第2-3場',
@@ -368,6 +380,10 @@ export const concertsData = [
     location: '重慶',
     venue: '重慶龍興足球場',
     image: '/images/concerts/參重樓-樓間樓重慶站.jpg',
+    groupPhoto: {
+      day1: '/images/concerts/參重樓-樓間樓重慶站-D1-大合照.jpg',
+      day2: '/images/concerts/參重樓-樓間樓重慶站-D2-大合照.jpg'
+    },
     emoji: '☀️',
     status: 'offline',
     showNumber: '第4-5場',
@@ -452,10 +468,14 @@ export const concertsData = [
     location: '常州',
     venue: '奥林匹克體育中心體育館',
     image: '/images/concerts/參重樓-樓非樓常州站.jpg',
+    groupPhoto: {
+      day1: '/images/concerts/參重樓-樓非樓常州站-D1-大合照.jpg',
+      day2: '/images/concerts/參重樓-樓非樓常州站-D2-大合照.jpg'
+    },
     emoji: '🍂',
     status: 'offline',
     showNumber: '第6-7場',
-    description: '海浪回響，與海風協奏序曲。\n潮汐往覆，轉動孤島相連。\n每一次的潮漲潮落，都在倒數我們的盛夏之約。',
+    description: '撥開困頓迷霧，濾去嘈雜聲響。\n堅定成長，走出他者建構的坐標，尋回清晰穩固的內心秩序。\n\n樓非樓，霧終散，以更開闊平和的心境，與世界盎然交手。\n用更自由肆意的步伐，向著盛夏狂奔。\n約定在新的冒險途中相見，用當時當刻的瞬間鮮活，去燃燒我們的爛漫盛夏。\n\n別忘了我們的約定！',
     videoLinks: {
       concert: {
         D1: 'https://youtu.be/tkthHaCn-H0?si=NvtfV1HZK13oSMnT',
@@ -534,10 +554,14 @@ export const concertsData = [
     location: '澳門',
     venue: '銀河綜藝館',
     image: '/images/concerts/參重樓-樓非樓澳門站.jpg',
+    groupPhoto: {
+      day1: '/images/concerts/參重樓-樓非樓澳門站-D1-大合照.jpg',
+      day2: '/images/concerts/參重樓-樓非樓澳門站-D2-大合照.jpg'
+    },
     emoji: '❄️',
     status: 'offline',
     showNumber: '第8-9場',
-    description: '海浪回響，與海風協奏序曲。\n潮汐往覆，轉動孤島相連。\n每一次的潮漲潮落，都在倒數我們的盛夏之約。',
+    description: '撥開困頓迷霧，濾去嘈雜聲響。\n堅定成長，走出他者建構的坐標，尋回清晰穩固的內心秩序。\n\n樓非樓，霧終散，以更開闊平和的心境，與世界盎然交手。\n用更自由肆意的步伐，向著盛夏狂奔。\n約定在新的冒險途中相見，用當時當刻的瞬間鮮活，去燃燒我們的爛漫盛夏。\n\n別忘了我們的約定！',
     videoLinks: {
       concert: {
         D1: 'https://www.bilibili.com/video/BV1GRxWeyEva/?spm_id_from=333.1387.upload.video_card.click',
@@ -628,6 +652,10 @@ export const concertsData = [
     location: '重慶',
     venue: '龍興足球場',
     image: '/images/concerts/一起走過的日子.jpg',
+    groupPhoto: {
+      day1: '/images/concerts/一起走過的日子-D1-大合照.jpg',
+      day2: '/images/concerts/一起走過的日子-D2-大合照.jpg'
+    },
     emoji: '🌸',
     status: 'offline',
     showNumber: '第10-11場',
@@ -713,15 +741,19 @@ export const concertsData = [
   },
   {
     id: 'concert_014',
-    concertName: '加冠禮-冠歲海口站',
+    concertName: '加冠禮-冠歲',
     date: '2025-05-03、04',
     location: '海口',
     venue: '海口市五源河體育場',
-    image: '/images/concerts/加冠禮-冠歲海口站.jpg',
+    image: '/images/concerts/加冠禮-冠歲.jpg',
+    groupPhoto: {
+      day1: '/images/concerts/加冠禮-冠歲-D1-大合照.jpg',
+      day2: '/images/concerts/加冠禮-冠歲-D2-大合照.jpg'
+    },
     emoji: '🌞',
     status: 'offline',
     showNumber: '第12-13場',
-    description: '天光傾瀉的白晝，\n北冕座七顆星芒是更亮眼的存在！\n\n星光彙聚，榮耀加冠 \n少年長成，責任加身\n\n這場冠歲之禮，邀你共同見證！\n時代少年團「加冠禮」演唱會-「冠歲」海口站，我們不見不散！',
+    description: '2025，時代少年團全員加冠！\n\n成長是一場無聲細雨，不知不覺間浸透年歲。\n曾經稚嫩的臉龐漸漸刻畫出明朗的線條，\n夜空中的北冕座點亮少年們眼底的光芒，\n\n感謝大家讓我們在愛里完成一次次蛻變！\n感謝大家陪我們一起走過每一個重要時刻！\n更感謝每一份炙熱的支持，“加冠”更為“時代少年團”這個名字鑄就榮耀的冠冕！\n\n此刻順利相見是最珍貴的禮物，\n未來仍長，終會將不同地域的每份期待一一兌現！\n\n這場冠歲之禮，邀你共同見證！',
     videoLinks: {
       concert: {
         D1: 'https://www.bilibili.com/video/BV1uhJczSER4/?spm_id_from=333.1387.upload.video_card.click',
@@ -805,10 +837,14 @@ export const concertsData = [
     location: '大連',
     venue: '大連體育中心',
     image: '/images/concerts/加冠禮-冠軍大連站.jpg',
+    groupPhoto: {
+      day1: '/images/concerts/加冠禮-冠軍大連站-D1-大合照.jpg',
+      day2: '/images/concerts/加冠禮-冠軍大連站-D2-大合照.jpg'
+    },
     emoji: '🌞',
     status: 'offline',
     showNumber: '第14-15場',
-    description: '塵霧散去，照見成長軌跡，\n一關一勵，山海即是征途！\n\n少年加冠，前路在望，\n勇則冠軍，奔赴山海！',
+    description: '「加冠之年」，以「冠歲」為開篇，取「冠軍」為引領，時代少年團以嶄新姿態邁向下一個關口。\n\n「冠軍」之名，不僅是加冕之耀，更是抗鼎之責。\n\n成長路上的每一道關卡，我們以彼此為砥石，將少年銳氣打磨成堅韌與擔當。這一路的蛻變，感謝有你們的參與和見證。\n\n過去每一次的見面都是照亮前路的星光，\n未來每一次的見面將是點燃星火的約定。\n\n這一次，我們的首次北方之約終於兌現。\n跨過山海關，我們一同赴約！',
     videoLinks: {
       concert: {
         D1: 'https://www.bilibili.com/video/BV1kkbwzYEA3/?spm_id_from=333.1387.upload.video_card.click',
@@ -891,6 +927,12 @@ export const concertsData = [
     location: '上海',
     venue: '上海體育場',
     image: '/images/concerts/加冠禮-冠軍上海站.jpg',
+    groupPhoto: {
+      day1: '/images/concerts/加冠禮-冠軍上海站-D1-大合照.jpg',
+      day2: '/images/concerts/加冠禮-冠軍上海站-D2-大合照.jpg',
+      day3: '/images/concerts/加冠禮-冠軍上海站-D3-大合照.jpg',
+      day4: '/images/concerts/加冠禮-冠軍上海站-D4-大合照.jpg'
+    },
     emoji: '🍁',
     status: 'offline',
     showNumber: '第16-19場',
@@ -1043,6 +1085,10 @@ export const concertsData = [
     location: '貴陽',
     venue: '貴陽奧林匹克體育中心主體育場',
     image: '/images/concerts/2025·愛你愛我.jpg',
+    groupPhoto: {
+      day1: '/images/concerts/2025·愛你愛我-D1-大合照.jpg',
+      day2: '/images/concerts/2025·愛你愛我-D2-大合照.jpg'
+    },
     emoji: '🌞',
     status: 'offline',
     showNumber: '第20-21場',

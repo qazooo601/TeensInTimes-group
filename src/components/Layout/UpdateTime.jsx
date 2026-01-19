@@ -5,7 +5,7 @@ import { ClockCircleOutlined } from '@ant-design/icons';
 const { Text } = Typography;
 
 const UpdateTime = ({
-  date = '2026年1月12日',
+  date = '2026年1月19日',
   style = {},
   showIcon = false,
   size = 'small',

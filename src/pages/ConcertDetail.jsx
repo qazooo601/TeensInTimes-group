@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { Card, Typography, Avatar, Tag, Space, Button, Divider, List, Badge, Collapse } from 'antd';
+import { Card, Typography, Avatar, Tag, Space, Button, Divider, List, Badge, Collapse, Row, Col, Grid } from 'antd';
 import { ArrowLeftOutlined, CalendarOutlined, EnvironmentOutlined, BankOutlined, StarOutlined, FireOutlined, DownOutlined, RightOutlined } from '@ant-design/icons';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 const { Title, Paragraph, Text } = Typography;
+const { useBreakpoint } = Grid;
 
 const ConcertDetail = () => {
   const location = useLocation();
@@ -12,6 +13,7 @@ const ConcertDetail = () => {
   const [searchParams] = useSearchParams();
   const [expandedDays, setExpandedDays] = useState({});
   const [isSingleDayExpanded, setIsSingleDayExpanded] = useState(true);
+  const screens = useBreakpoint();
 
   // 從 URL 參數或 location.state 獲取演唱會資料
   let concert = location.state?.concert;
@@ -103,71 +105,158 @@ const ConcertDetail = () => {
         }}
         styles={{ body: { padding: '40px' } }}
       >
-        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-          <Avatar
-            size={120}
-            src={concert.image}
-            style={{
-              backgroundColor: '#87CEEB',
-              marginBottom: '15px',
-              fontSize: '48px',
-              border: '3px solid #87CEEB',
-              boxShadow: '0 4px 16px rgba(0,0,0,0.2)'
-            }}
-            onError={() => {
-              return concert.emoji;
-            }}
-          >
-            {concert.emoji}
-          </Avatar>
-          <Title level={1} style={{
-            color: '#333',
-            marginBottom: '8px',
-            fontSize: '36px'
-          }}>
-            {concert.concertName}
-          </Title>
-          <Space direction="vertical" size="small" style={{ width: '100%' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <Space>
-                <CalendarOutlined style={{ color: '#87CEEB' }} />
-                <Text strong>{concert.date}</Text>
+        <Row gutter={[32, 32]} style={{ marginBottom: '20px' }}>
+          {/* 左邊：圖片區域 */}
+          <Col xs={24} md={10} lg={9}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              {/* 主圖 */}
+              <div style={{ width: '100%' }}>
+                {concert.image ? (
+                  <img
+                    src={concert.image}
+                    alt={concert.concertName}
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      borderRadius: '12px',
+                      border: '3px solid #87CEEB',
+                      boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+                      objectFit: 'cover'
+                    }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                ) : (
+                  <div style={{
+                    width: '100%',
+                    aspectRatio: '4/3',
+                    backgroundColor: '#87CEEB',
+                    borderRadius: '12px',
+                    border: '3px solid #87CEEB',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '64px',
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.2)'
+                  }}>
+                    {concert.emoji || '🎵'}
+                  </div>
+                )}
+              </div>
+
+              {/* 大合照 - 只顯示單天演唱會的大合照 */}
+              {(() => {
+                // 如果是多天演唱會（setlist 是對象），不在左側顯示大合照
+                if (typeof concert.setlist === 'object' && !Array.isArray(concert.setlist)) {
+                  return null;
+                }
+
+                // 處理單天演唱會的大合照
+                if (!concert.groupPhoto) {
+                  return null;
+                }
+
+                let groupPhotos = [];
+
+                // 如果是字符串，轉為數組
+                if (typeof concert.groupPhoto === 'string') {
+                  groupPhotos = [concert.groupPhoto];
+                }
+                // 如果是數組，直接使用
+                else if (Array.isArray(concert.groupPhoto)) {
+                  groupPhotos = concert.groupPhoto;
+                }
+                // 如果是對象，但 setlist 不是多天格式，提取所有值
+                else if (typeof concert.groupPhoto === 'object') {
+                  groupPhotos = Object.values(concert.groupPhoto);
+                }
+
+                // 過濾掉空值
+                groupPhotos = groupPhotos.filter(photo => photo);
+
+                if (groupPhotos.length === 0) {
+                  return null;
+                }
+
+                return groupPhotos.map((photo, index) => (
+                  <div key={index} style={{ width: '100%' }}>
+                    <img
+                      src={photo}
+                      alt={`${concert.concertName} 大合照${groupPhotos.length > 1 ? ` (${index + 1})` : ''}`}
+                      style={{
+                        width: '100%',
+                        height: 'auto',
+                        borderRadius: '12px',
+                        border: '3px solid #87CEEB',
+                        boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+                        objectFit: 'cover'
+                      }}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                  </div>
+                ));
+              })()}
+            </div>
+          </Col>
+
+          {/* 右邊：文字資訊區域 */}
+          <Col xs={24} md={14} lg={15}>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <Title level={1} style={{
+                color: '#333',
+                marginBottom: '16px',
+                fontSize: '36px',
+                textAlign: screens.xs ? 'center' : 'left'
+              }}>
+                {concert.concertName}
+              </Title>
+
+              <Space direction="vertical" size="small" style={{ width: '100%', marginBottom: '24px', alignItems: 'flex-start' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', width: '100%', gap: '8px' }}>
+                  <Space>
+                    <CalendarOutlined style={{ color: '#87CEEB' }} />
+                    <Text strong>{concert.date}</Text>
+                  </Space>
+                  {getStatusTag(concert.status)}
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+                  <EnvironmentOutlined style={{ color: '#87CEEB', marginRight: '8px' }} />
+                  <Text>{concert.location}</Text>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+                  <BankOutlined style={{ color: '#87CEEB', marginRight: '8px' }} />
+                  <Text>{concert.venue}</Text>
+                </div>
               </Space>
-              {getStatusTag(concert.status)}
+
+              <Divider style={{ borderColor: '#87CEEB', margin: '16px 0' }} />
+
+              {/* 演唱會描述 */}
+              <div>
+                <Title level={3} style={{
+                  color: '#333',
+                  marginBottom: '10px'
+                }}>
+                  介紹
+                </Title>
+                <Paragraph style={{
+                  fontSize: '15px',
+                  lineHeight: '1.8',
+                  color: '#666',
+                  textAlign: 'left',
+                  whiteSpace: 'pre-line'
+                }}>
+                  {concert.description}
+                </Paragraph>
+              </div>
             </div>
-
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <EnvironmentOutlined style={{ color: '#87CEEB', marginRight: '8px' }} />
-              <Text>{concert.location}</Text>
-            </div>
-
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <BankOutlined style={{ color: '#87CEEB', marginRight: '8px' }} />
-              <Text>{concert.venue}</Text>
-            </div>
-          </Space>
-        </div>
-
-        <Divider style={{ borderColor: '#87CEEB' }} />
-
-        {/* 演唱會描述 */}
-        <div style={{ marginBottom: '24px' }}>
-          <Title level={3} style={{
-            color: '#333',
-            marginBottom: '10px'
-          }}>
-            介紹
-          </Title>
-          <Paragraph style={{
-            fontSize: '15px',
-            lineHeight: '1.8',
-            color: '#666',
-            textAlign: 'left',
-            whiteSpace: 'pre-line'
-          }}>
-            {concert.description}
-          </Paragraph>
-        </div>
+          </Col>
+        </Row>
 
         {/* 曲目列表 */}
         <div style={{ marginBottom: '24px' }}>
@@ -224,6 +313,27 @@ const ConcertDetail = () => {
 
                   {expandedDays[dayKey] && (
                     <div style={{ marginTop: '12px' }}>
+                      {/* 顯示該天的大合照 */}
+                      {concert.groupPhoto && typeof concert.groupPhoto === 'object' && concert.groupPhoto[dayKey] && (
+                        <div style={{ marginBottom: '16px', width: '100%' }}>
+                          <img
+                            src={concert.groupPhoto[dayKey]}
+                            alt={`${concert.concertName} ${dayData.theme} 大合照`}
+                            style={{
+                              width: '100%',
+                              maxWidth: '600px',
+                              height: 'auto',
+                              borderRadius: '12px',
+                              border: '3px solid #87CEEB',
+                              boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+                              objectFit: 'cover'
+                            }}
+                            onError={(e) => {
+                              e.target.style.display = 'none';
+                            }}
+                          />
+                        </div>
+                      )}
                       <List
                         dataSource={dayData.songs}
                         renderItem={(item, index) => (

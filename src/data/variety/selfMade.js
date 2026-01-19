@@ -230,10 +230,10 @@ export const selfMadeVariety = [
     category: '日常生活',
     year: '2022-10-05~至今',
     participants: '全體成員',
-    description: '最新一期：元旦大作戰 2026-01-01',
+    description: '最新一期：七人更是顶呱呱 2026-01-16',
     emoji: '🏃',
     color: '#DDA0DD',
-    episodes: 69,
+    episodes: 70,
     videoUrl: 'https://space.bilibili.com/3546630773016865/lists/3976590?type=series',
     coverImage: '/images/variety/self-made/浅炸一下吧.jpg',
     isNew: true // 手動設定：true 表示近一個月更新，會顯示 new 圖標
@@ -404,6 +404,6 @@ export const selfMadeVariety = [
     episodes: 6,
     videoUrl: 'https://www.bilibili.com/video/BV1UNqaBfEst/?spm_id_from=333.1387.list.card_archive.click',
     coverImage: '/images/variety/self-made/我有一个朋友.jpg',
-    isNew: true // 手動設定：true 表示近一個月更新，會顯示 new 圖標
+    isNew: false // 手動設定：true 表示近一個月更新，會顯示 new 圖標
   }
 ];
