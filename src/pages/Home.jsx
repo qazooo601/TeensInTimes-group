@@ -7,6 +7,8 @@ import { membersData } from '../data/membersData';
 import { groupHonors } from '../data/honorsData';
 import UpdateTime from '../components/Layout/UpdateTime';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { ref, get, set, runTransaction, onValue } from 'firebase/database';
+import { database } from '../config/firebase';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -17,30 +19,78 @@ const Home = () => {
   usePageTitle('TNT時代少年團');
 
   useEffect(() => {
-    // 從 localStorage 讀取瀏覽次數，如果沒有則初始化為0
-    const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
+    const updateVisitCount = async () => {
+      // 檢查 Firebase 是否已配置
+      const isFirebaseConfigured = import.meta.env.VITE_FIREBASE_DATABASE_URL;
 
-    // 檢查是否為外部連結進入
-    const referrer = document.referrer;
-    const currentOrigin = window.location.origin;
-    const isExternalLink = !referrer || !referrer.startsWith(currentOrigin);
+      // 檢查是否為外部連結進入（從外部連結點開網站）
+      const referrer = document.referrer;
+      const currentOrigin = window.location.origin;
+      const isExternalLink = !referrer || !referrer.startsWith(currentOrigin);
 
-    // 檢查本次會話是否已經計數過（避免在同一個會話中重複計數）
-    const sessionCounted = sessionStorage.getItem('homeVisitCounted');
+      // 檢查本次會話是否已經計數過（避免在同一個會話中重複計數）
+      const sessionCounted = sessionStorage.getItem('homeVisitCounted');
 
-    // 只有在從外部連結進入且本次會話尚未計數時才增加計數
-    if (isExternalLink && !sessionCounted) {
-      const newCount = storedCount + 1;
-      // 保存到 localStorage
-      localStorage.setItem('homeVisitCount', newCount.toString());
-      // 標記本次會話已計數
-      sessionStorage.setItem('homeVisitCounted', 'true');
-      // 更新狀態
-      setVisitCount(newCount);
-    } else {
-      // 如果不是外部連結或已經計數過，只顯示現有的計數
-      setVisitCount(storedCount);
-    }
+      const countRef = ref(database, 'visitCount');
+
+      try {
+        if (isFirebaseConfigured) {
+          // 使用 Firebase Realtime Database
+          if (isExternalLink && !sessionCounted) {
+            // 使用 transaction 增加計數（確保原子性操作）
+            await runTransaction(countRef, (currentCount) => {
+              return (currentCount || 0) + 1;
+            });
+            const snapshot = await get(countRef);
+            const newCount = snapshot.val() || 0;
+            setVisitCount(newCount);
+            sessionStorage.setItem('homeVisitCounted', 'true');
+          } else {
+            // 只獲取現有計數
+            const snapshot = await get(countRef);
+            const currentCount = snapshot.val() || 0;
+            setVisitCount(currentCount);
+          }
+
+          // 監聽計數變化（即時更新）
+          const unsubscribe = onValue(countRef, (snapshot) => {
+            const count = snapshot.val() || 0;
+            setVisitCount(count);
+          });
+
+          // 清理監聽器
+          return () => unsubscribe();
+        } else {
+          // Firebase 未配置，使用 localStorage 作為備用方案
+          console.warn('Firebase 未配置，使用 localStorage（僅限單一裝置）');
+          if (isExternalLink && !sessionCounted) {
+            const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
+            const newCount = storedCount + 1;
+            localStorage.setItem('homeVisitCount', newCount.toString());
+            setVisitCount(newCount);
+            sessionStorage.setItem('homeVisitCounted', 'true');
+          } else {
+            const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
+            setVisitCount(storedCount);
+          }
+        }
+      } catch (error) {
+        console.error('更新訪問計數失敗:', error);
+        // 如果 Firebase 失敗，回退到 localStorage
+        if (isExternalLink && !sessionCounted) {
+          const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
+          const newCount = storedCount + 1;
+          localStorage.setItem('homeVisitCount', newCount.toString());
+          setVisitCount(newCount);
+          sessionStorage.setItem('homeVisitCounted', 'true');
+        } else {
+          const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
+          setVisitCount(storedCount);
+        }
+      }
+    };
+
+    updateVisitCount();
   }, []);
 
 
