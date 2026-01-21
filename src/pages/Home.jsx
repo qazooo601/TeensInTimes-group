@@ -15,6 +15,7 @@ const { Title, Paragraph, Text } = Typography;
 const Home = () => {
   const navigate = useNavigate();
   const [visitCount, setVisitCount] = useState(0);
+  const [showAllHonors, setShowAllHonors] = useState(false);
 
   usePageTitle('TNT時代少年團');
 
@@ -281,7 +282,31 @@ const Home = () => {
 
         {/* 團體榮譽 */}
         <Card
-          title={<><TrophyOutlined /> 團體榮譽</>}
+          title={
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span><TrophyOutlined /> 團體榮譽</span>
+              <Button
+                type="link"
+                icon={
+                  <RightOutlined
+                    style={{
+                      transform: showAllHonors ? 'rotate(90deg)' : 'none',
+                      transition: 'transform 0.2s ease'
+                    }}
+                  />
+                }
+                onClick={() => setShowAllHonors(prev => !prev)}
+                style={{
+                  color: '#D6B600',
+                  padding: 0,
+                  height: 'auto',
+                  fontSize: '14px'
+                }}
+              >
+                {showAllHonors ? '收起' : '更多'}
+              </Button>
+            </div>
+          }
           style={{
             borderRadius: '15px',
             border: '2px solid #FFD700',
@@ -291,7 +316,7 @@ const Home = () => {
           }}
         >
           <div style={{ fontSize: '14px', lineHeight: '1.8' }}>
-            {groupHonors.map((honor) => (
+            {(showAllHonors ? groupHonors : groupHonors.slice(0, 5)).map((honor) => (
               <div key={honor.id} style={{ marginBottom: '8px' }}>
                 {honor.type} {honor.date} | {honor.award}
               </div>

@@ -118,28 +118,35 @@ export const zhangZhenYuanDetails = {
       title: '奔跑吧·生態篇',
       role: '常駐嘉賓',
       year: '2023-11-18',
-      description: ''
+      description: '共4期'
     },
     {
       id: 'zzy_variety_008',
       title: '奔跑吧第八季',
       role: '常駐嘉賓',
       year: '2024-04-26',
-      description: '常駐MC'
+      description: '共12期'
     },
     {
       id: 'zzy_variety_009',
       title: '奔跑吧·茶馬古道篇',
       role: '常駐嘉賓',
       year: '2024-11-23',
-      description: ''
+      description: '共8期'
     },
     {
       id: 'zzy_variety_010',
       title: '奔跑吧第九季',
       role: '常駐嘉賓',
       year: '2025-04-25',
-      description: ''
+      description: '共12期'
+    },
+    {
+      id: 'zzy_variety_011',
+      title: '奔跑吧·天路篇',
+      role: '常駐嘉賓',
+      year: '2025-11-22',
+      description: '共8期，參與期數：第1、2、3、4期'
     },
   ],
 

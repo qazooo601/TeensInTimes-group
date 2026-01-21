@@ -3,9 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { ConfigProvider, Layout, Menu, Button } from 'antd';
 import zhTW from 'antd/locale/zh_TW';
 import {
-  TeamOutlined,
   PlayCircleOutlined,
-  CalendarOutlined,
   VideoCameraOutlined,
   HomeOutlined,
   UserOutlined
@@ -29,6 +27,28 @@ const { Header, Content, Footer } = Layout;
 
 // 新的 AppLayout 組件，整合 App-simple.jsx 的布局
 const AppLayout = ({ children, user, onLogout }) => {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   const menuItems = [
     {
       key: 'music',
@@ -279,6 +299,34 @@ const AppLayout = ({ children, user, onLogout }) => {
           </div>
         </div>
       </Footer>
+
+      {/* 回到頂部按鈕（所有頁面共用） */}
+      {showScrollTop && (
+        <Button
+          type="primary"
+          shape="circle"
+          size="large"
+          onClick={scrollToTop}
+          style={{
+            position: 'fixed',
+            right: 24,
+            bottom: 96,
+            zIndex: 1100,
+            backgroundColor: '#FFD700',
+            borderColor: '#FFD700',
+            color: '#000',
+            padding: 0,
+            width: 56,
+            height: 56,
+            borderRadius: '50%',
+            fontWeight: 'normal',
+            fontSize: 14,
+            lineHeight: '56px'
+          }}
+        >
+          TOP
+        </Button>
+      )}
 
       {/* 移動端底部選單 */}
       <div

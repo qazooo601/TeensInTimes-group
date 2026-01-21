@@ -141,3 +141,26 @@ body {
     display: block;
   }
 }
+
+/* 專輯詳情頁面響應式樣式 */
+.album-info-content {
+  text-align: center;
+}
+
+.album-info-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start !important;
+}
+
+@media (min-width: 769px) {
+  .album-info-content {
+    text-align: left !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .album-info-content {
+    text-align: center !important;
+  }
+}

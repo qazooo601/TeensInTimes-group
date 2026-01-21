@@ -16,9 +16,9 @@ const firebaseConfig = {
 };
 
 // 檢查 Firebase 是否已配置
-const isFirebaseConfigured = 
-  firebaseConfig.apiKey && 
-  firebaseConfig.databaseURL && 
+const isFirebaseConfigured =
+  firebaseConfig.apiKey &&
+  firebaseConfig.databaseURL &&
   firebaseConfig.projectId;
 
 // 只有在配置完整時才初始化 Firebase

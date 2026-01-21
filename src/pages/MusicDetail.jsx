@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { Card, Typography, Avatar, Tag, Space, Button, Divider, List, Badge } from 'antd';
+import { Card, Typography, Tag, Space, Button, Divider, List, Badge, Row, Col } from 'antd';
 import { ArrowLeftOutlined, CalendarOutlined, PlayCircleOutlined, UserOutlined, DownOutlined, RightOutlined, SoundOutlined } from '@ant-design/icons';
 import { usePageTitle } from '../hooks/usePageTitle';
 
@@ -11,6 +11,7 @@ const MusicDetail = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [isSongsExpanded, setIsSongsExpanded] = useState(true);
+  const [imageError, setImageError] = useState(false);
 
   // 從 URL 參數或 location.state 獲取專輯資料
   let album = location.state?.album;
@@ -83,42 +84,82 @@ const MusicDetail = () => {
         }}
         styles={{ body: { padding: '40px' } }}
       >
-        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-          <Avatar
-            size={120}
-            src={album.image}
-            style={{
-              backgroundColor: '#87CEEB',
-              marginBottom: '15px',
-              fontSize: '48px',
-              border: '3px solid #87CEEB',
-              boxShadow: '0 4px 16px rgba(0,0,0,0.2)'
-            }}
-            onError={() => {
-              return album.emoji;
-            }}
-          >
-            {album.emoji}
-          </Avatar>
-          <Title level={1} style={{
-            color: '#333',
-            marginBottom: '8px',
-            fontSize: '36px'
-          }}>
-            {album.name}
-          </Title>
-          <Space direction="vertical" size="small" style={{ width: '100%' }}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <CalendarOutlined style={{ color: '#87CEEB', marginRight: '8px' }} />
-              <Text strong>{album.releaseDate}</Text>
+        {/* 響應式布局：大螢幕圖片在左，小螢幕圖片在上 */}
+        <Row gutter={[32, 24]} align="top">
+          {/* 圖片區域 */}
+          <Col xs={24} sm={24} md={8} lg={6}>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'flex-start'
+            }}>
+              {!imageError ? (
+                <img
+                  src={album.image}
+                  alt={album.name}
+                  onError={() => setImageError(true)}
+                  style={{
+                    width: '100%',
+                    maxWidth: '200px',
+                    height: 'auto',
+                    borderRadius: '8px',
+                    border: '3px solid #87CEEB',
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+                    objectFit: 'cover',
+                    aspectRatio: '1 / 1'
+                  }}
+                />
+              ) : (
+                <div
+                  style={{
+                    width: '100%',
+                    maxWidth: '200px',
+                    aspectRatio: '1 / 1',
+                    backgroundColor: '#87CEEB',
+                    borderRadius: '8px',
+                    border: '3px solid #87CEEB',
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+                    fontSize: '80px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  }}
+                >
+                  {album.emoji}
+                </div>
+              )}
             </div>
+          </Col>
 
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <PlayCircleOutlined style={{ color: '#87CEEB', marginRight: '8px' }} />
-              <Text>{album.songs.length} 首歌曲</Text>
+          {/* 內容區域 */}
+          <Col xs={24} sm={24} md={16} lg={18}>
+            <div
+              className="album-info-content"
+              style={{
+                marginBottom: '20px'
+              }}
+            >
+              <Title level={1} style={{
+                color: '#333',
+                marginBottom: '8px',
+                fontSize: '36px'
+              }}>
+                {album.name}
+              </Title>
+              <Space direction="vertical" size="small" style={{ width: '100%' }}>
+                <div className="album-info-item">
+                  <CalendarOutlined style={{ color: '#87CEEB', marginRight: '8px' }} />
+                  <Text strong>{album.releaseDate}</Text>
+                </div>
+
+                <div className="album-info-item">
+                  <PlayCircleOutlined style={{ color: '#87CEEB', marginRight: '8px' }} />
+                  <Text>{album.songs.length} 首歌曲</Text>
+                </div>
+              </Space>
             </div>
-          </Space>
-        </div>
+          </Col>
+        </Row>
 
         <Divider style={{ borderColor: '#87CEEB' }} />
 

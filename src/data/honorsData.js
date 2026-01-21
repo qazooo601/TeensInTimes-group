@@ -25,7 +25,7 @@ export const groupHonors = [
     id: 'honor_004',
     date: '2020-12-06',
     award: 'QQ音樂撲通心動表彰大會—年度人氣偶像團體',
-    type: '🎵',
+    type: '🏆',
     category: '人氣偶像團體'
   },
   {
@@ -46,7 +46,7 @@ export const groupHonors = [
     id: 'honor_007',
     date: '2021-01-20',
     award: '踏浪而上2020新浪影視綜藝盛典—年度綜藝《少年ON FIRE》',
-    type: '🏆',
+    type: '🎬',
     category: '年度綜藝'
   },
   {
@@ -284,7 +284,7 @@ export const groupHonors = [
     id: 'honor_041',
     date: '2024-07-03',
     award: '第十五屆華語金曲獎—年度最佳組合《烏托邦少年》',
-    type: '🏆',
+    type: '🎵',
     category: '年度最佳組合'
   },
   {
@@ -347,7 +347,7 @@ export const groupHonors = [
     id: 'honor_050',
     date: '2024-09-19',
     award: '微博音樂盛典—年度推薦演唱會《樓間樓演唱會》',
-    type: '🏆',
+    type: '🎤',
     category: '年度推薦演唱會'
   },
   {
@@ -387,7 +387,7 @@ export const groupHonors = [
   },
   {
     id: 'honor_056',
-    date: '2025-01',
+    date: '2025-01-08',
     award: '2024QQ音樂巔峰榜—年度巔峰十大單曲《夢》',
     type: '🎵',
     category: '年度巔峰十大單曲'
@@ -408,7 +408,7 @@ export const groupHonors = [
   },
   {
     id: 'honor_059',
-    date: '2025-04',
+    date: '2025-04-19',
     award: '第十七屆音樂盛典咪咕匯—十大金曲獎《樓外樓》',
     type: '🎵',
     category: '十大金曲獎'
@@ -422,7 +422,7 @@ export const groupHonors = [
   },
   {
     id: 'honor_061',
-    date: '2025-08',
+    date: '2025-08-25',
     award: '第32屆東方風雲榜—最佳組合',
     type: '🏆',
     category: '最佳組合'

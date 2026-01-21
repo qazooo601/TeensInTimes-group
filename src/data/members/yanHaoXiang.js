@@ -172,14 +172,14 @@ variety: [
     title: '極限挑戰第九季',
     role: '常駐嘉賓',
     year: '2023-04-16~2023-07-05',
-    description: '缺席第五、六、十二期'
+    description: '共12期，缺席第5、6、12期'
   },
   {
       id: 'yhx_variety_005',
       title: '極限挑戰第十季',
       role: '常駐嘉賓',
       year: '2024-04-21~2024-07-14',
-      description: '缺席第十期'
+      description: '共12期，缺席第10期'
     },
     {
       id: 'yhx_variety_006',

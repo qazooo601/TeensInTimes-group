@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, Typography, Avatar, Tag, Space, Divider, Button, Collapse } from 'antd';
 import { CalendarOutlined, PlayCircleOutlined, UserOutlined, FireOutlined, VideoCameraOutlined, DownOutlined, RightOutlined, RocketOutlined, ThunderboltOutlined, SmileOutlined, CustomerServiceOutlined, QqOutlined, BilibiliOutlined, YoutubeOutlined, WeiboOutlined, GiftOutlined } from '@ant-design/icons';
@@ -20,6 +20,22 @@ const Variety = () => {
     tfFamilyPeriod: true,
     typhoonPeriod: true
   });
+
+  // 控制右下快速導覽顯示時機（與全站 TOP 按鈕一致）
+  const [showQuickNav, setShowQuickNav] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowQuickNav(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   usePageTitle('綜藝節目｜TNT時代少年團');
 
@@ -458,7 +474,7 @@ const Variety = () => {
       )}
 
       {/* 生日紀錄區塊（依年份展開/收合） */}
-      <div id="section-birthday-main" style={{ marginBottom: '40px' }}>
+      <div id="section-birthday" style={{ marginBottom: '40px' }}>
         <div
           style={{
             display: 'flex',
@@ -544,6 +560,56 @@ const Variety = () => {
         <ThunderboltOutlined style={{ fontSize: '24px', color: '#848D94' }} />,
         '#848D94',
         'typhoonPeriod'
+      )}
+
+      {/* 右下角快速導向頁籤（顯示在 TOP 按鈕之上，出現時機與 TOP 一致） */}
+      {showQuickNav && (
+        <div
+          style={{
+            position: 'fixed',
+            right: 16,
+            bottom: 155, // 高於全站的 TOP 按鈕（bottom: 96），且盡量少遮到 Card
+            zIndex: 1150,
+            backgroundColor: 'rgba(0, 0, 0, 0.45)',
+            borderRadius: 0,
+            padding: 0,
+            width: 35,          // 更窄的長形直立長方形外框
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
+          }}
+        >
+          {/* 每個頁籤用「彩色正方形」包住文字 */}
+          {[
+            { key: 'selfMade', label: '團綜', color: 'purple' },
+            { key: 'documentary', label: '紀錄', color: 'green' },
+            { key: 'birthday', label: '生日', color: '#FF0080' },
+            { key: 'external', label: '外務', color: 'navy' },
+            { key: 'performance', label: '表演', color: 'red' },
+            { key: 'tfFamilyPeriod', label: 'TF', color: '#FFA500' },
+            { key: 'typhoonPeriod', label: '台風', color: '#848D94' },
+          ].map(item => (
+            <div
+              key={item.key}
+              onClick={() => scrollToSection(item.key)}
+              style={{
+                width: 35,
+                height: 35,
+                borderRadius: 0,
+                backgroundColor: item.color,
+                color: '#fff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: 12,
+                cursor: 'pointer',
+                boxShadow: '0 1px 0 rgba(0,0,0,0.2)'
+              }}
+            >
+              {item.label}
+            </div>
+          ))}
+        </div>
       )}
 
     </div>
