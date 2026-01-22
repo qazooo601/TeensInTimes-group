@@ -84,7 +84,14 @@ const ConcertDetail = () => {
       <div style={{ marginBottom: '24px' }}>
         <Button
           icon={<ArrowLeftOutlined />}
-          onClick={() => navigate('/concerts')}
+          onClick={() => {
+            // 保存當前滾動位置
+            const currentPosition = window.scrollY;
+            sessionStorage.setItem('scroll_/concert-detail', currentPosition.toString());
+            // 標記為返回導航
+            sessionStorage.setItem('nav_type_/concerts', 'back');
+            navigate('/concerts');
+          }}
           style={{
             background: '#FFD700',
             border: 'none',

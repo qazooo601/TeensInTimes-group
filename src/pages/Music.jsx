@@ -29,6 +29,11 @@ const Music = () => {
         hoverable={isAlbum}
         onClick={() => {
           if (isAlbum) {
+            // 保存當前滾動位置
+            const currentPosition = window.scrollY;
+            sessionStorage.setItem('scroll_/music', currentPosition.toString());
+            // 標記為前進導航
+            sessionStorage.setItem('nav_type_/music-detail', 'forward');
             navigate('/music-detail', { state: { album: item } });
           }
         }}

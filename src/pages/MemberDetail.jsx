@@ -98,6 +98,11 @@ const MemberDetail = () => {
                 key={index}
                 hoverable
                 onClick={() => {
+                  // 保存當前滾動位置
+                  const currentPosition = window.scrollY;
+                  sessionStorage.setItem('scroll_/member-detail', currentPosition.toString());
+                  // 標記為前進導航
+                  sessionStorage.setItem('nav_type_/member-detail', 'forward');
                   navigate('/member-detail', { state: { member: memberData } });
                 }}
                 style={{
@@ -155,7 +160,14 @@ const MemberDetail = () => {
       <div style={{ marginBottom: '24px' }}>
         <Button
           icon={<ArrowLeftOutlined />}
-          onClick={() => navigate('/members')}
+          onClick={() => {
+            // 保存當前滾動位置
+            const currentPosition = window.scrollY;
+            sessionStorage.setItem('scroll_/member-detail', currentPosition.toString());
+            // 標記為返回導航
+            sessionStorage.setItem('nav_type_/members', 'back');
+            navigate('/members');
+          }}
           style={{
             background: '#FFD700',
             border: 'none',

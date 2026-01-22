@@ -29,6 +29,11 @@ const Members = () => {
   };
 
   const handleMemberClick = (member) => {
+    // 保存當前滾動位置
+    const currentPosition = window.scrollY;
+    sessionStorage.setItem('scroll_/members', currentPosition.toString());
+    // 標記為前進導航
+    sessionStorage.setItem('nav_type_/member-detail', 'forward');
     // 使用 React Router 導航到成員詳細頁面
     navigate('/member-detail', { state: { member } });
   };

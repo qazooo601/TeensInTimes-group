@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { ConfigProvider, Layout, Menu, Button } from 'antd';
 import zhTW from 'antd/locale/zh_TW';
 import {
@@ -22,12 +22,16 @@ import Feedback from './pages/Feedback';
 import Welcome from './pages/Welcome';
 import About from './pages/About';
 import UpdateTime from './components/Layout/UpdateTime';
+import { useScrollRestoration } from './hooks/useScrollRestoration';
 
 const { Header, Content, Footer } = Layout;
 
 // 新的 AppLayout 組件，整合 App-simple.jsx 的布局
 const AppLayout = ({ children, user, onLogout }) => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // 使用滾動位置恢復功能
+  useScrollRestoration();
 
   useEffect(() => {
     const handleScroll = () => {

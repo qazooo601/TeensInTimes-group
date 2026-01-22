@@ -159,6 +159,11 @@ const Concerts = () => {
               key={concert.id}
               hoverable
               onClick={() => {
+                // 保存當前滾動位置
+                const currentPosition = window.scrollY;
+                sessionStorage.setItem('scroll_/concerts', currentPosition.toString());
+                // 標記為前進導航
+                sessionStorage.setItem('nav_type_/concert-detail', 'forward');
                 navigate('/concert-detail', { state: { concert } });
               }}
               style={{

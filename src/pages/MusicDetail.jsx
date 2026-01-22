@@ -63,7 +63,14 @@ const MusicDetail = () => {
       <div style={{ marginBottom: '24px' }}>
         <Button
           icon={<ArrowLeftOutlined />}
-          onClick={() => navigate('/music')}
+          onClick={() => {
+            // 保存當前滾動位置
+            const currentPosition = window.scrollY;
+            sessionStorage.setItem('scroll_/music-detail', currentPosition.toString());
+            // 標記為返回導航
+            sessionStorage.setItem('nav_type_/music', 'back');
+            navigate('/music');
+          }}
           style={{
             background: '#FFD700',
             border: 'none',
