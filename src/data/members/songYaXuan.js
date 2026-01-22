@@ -172,12 +172,68 @@ export const songYaXuanDetails = {
     },
     {
       id: 'syx_movie_003',
+      title: '萬水朝東',
+      role: '八辦機要員',
+      year: '2022',
+      type: '話劇',
+      description: '學校作品'
+    },
+    {
+      id: 'syx_movie_004',
+      title: '螳螂與雞',
+      role: '螳螂小宋',
+      year: '2023',
+      type: '話劇',
+      description: '學校作品'
+    },
+    {
+      id: 'syx_movie_005',
+      title: '核酸點',
+      role: '',
+      year: '2023',
+      type: '話劇',
+      description: '學校作品'
+    },
+    {
+      id: 'syx_movie_006',
+      title: '搬家師傅',
+      role: '',
+      year: '2023',
+      type: '話劇',
+      description: '學校作品'
+    },
+    {
+      id: 'syx_movie_007',
+      title: '神木',
+      role: '元鳳鳴',
+      year: '2023',
+      type: '話劇',
+      description: '學校作品'
+    },
+    {
+      id: 'syx_movie_008',
+      title: '日出',
+      role: '黃省三',
+      year: '2023',
+      type: '話劇',
+      description: '學校作品'
+    },
+    {
+      id: 'syx_movie_009',
+      title: '麥克白',
+      role: '麥克白',
+      year: '2024',
+      type: '話劇',
+      description: '學校作品'
+    },
+    {
+      id: 'syx_movie_010',
       title: '四川好人',
       role: '兒子',
-      year: '2025-10',
+      year: '2025-10-24~30',
       type: '話劇',
       description: '畢業大戲，演出地點：北京人藝實驗劇場'
-    },
+    }
   ],
 
   // 獲獎

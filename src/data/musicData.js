@@ -31,7 +31,7 @@ export const musicData = [
     category: 'album',
     image: '/images/music/專-烏托邦少年.jpg',
     emoji: '🏰',
-    description: '烏托邦少年實體專輯，探索理想世界的音樂之旅。',
+    description: '邀夥伴同行，探索未知冒險；\n攜夢想出發，共赴奇遇旅程。\n巡遊浪漫烏托邦，少年們的故事就在前方。\n\n時代少年團《烏托邦少年》實體專輯，預售正式啓動',
     songs: [
       { song: '我喜歡你', performer: '全員', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=rs73Kb5-sAg&si=zT4sgVcIqcdkRWRn' },
       { song: '朱雀', performer: '全員', theme: 'Disc1 完結集', audioUrl: 'https://music.youtube.com/watch?v=NOwfmW5VKU0&si=hbdS2K8vfuhi0yYb' },

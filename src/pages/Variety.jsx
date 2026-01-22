@@ -125,7 +125,7 @@ const Variety = () => {
         }}
         styles={{ body: { padding: '20px' } }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
           {/* 左側圖片 */}
           <Avatar
             size={80}
@@ -252,7 +252,7 @@ const Variety = () => {
         }}
         styles={{ body: { padding: '20px' } }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
           <Avatar
             size={80}
             src={item.coverImage}
@@ -587,7 +587,7 @@ const Variety = () => {
             { key: 'external', label: '外務', color: 'navy' },
             { key: 'performance', label: '表演', color: 'red' },
             { key: 'tfFamilyPeriod', label: 'TF', color: '#FFA500' },
-            { key: 'typhoonPeriod', label: '台風', color: '#848D94' },
+            { key: 'typhoonPeriod', label: 'TYT', color: '#848D94' },
           ].map(item => (
             <div
               key={item.key}

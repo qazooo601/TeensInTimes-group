@@ -10,8 +10,8 @@ export const concertsData = [
     image: '/images/concerts/成團夜.jpg',
     groupPhoto: '/images/concerts/成團夜-大合照.jpg',
     emoji: '🎫',
-    status: 'online', // offline, online, cancelled
-    description: '',
+    status: 'offline', // offline, online, cancelled
+    description: '集體概念海報公佈！\n8月25日晚六點，鎖定騰訊音樂娛樂旗下 @QQ音樂 @酷狗音樂 @酷我音樂 @酷狗直播 以及B站 @嗶哩嗶哩 生放送一起見證他們的蛻變',
     videoLinks: {
       concert: 'https://youtu.be/07Zg-6g5bRc?si=e3uTUS6jp0vWxqia',
       rehearsal: '',
@@ -44,8 +44,8 @@ export const concertsData = [
     image: '/images/concerts/代號TNT.jpg',
     groupPhoto: '/images/concerts/代號TNT-大合照.jpg',
     emoji: '🎫',
-    status: 'online', // offline, online, cancelled
-    description: '',
+    status: 'offline', // offline, online, cancelled
+    description: '「代號TNT」集體海報釋出未來之門待啓，全新徵程將始\n七位少年蓄勢待發，11.23夢想為自己閃耀\n\n成長宣言肆意張揚，褪去稚氣見少年模樣，以冬日為起點，走向花路鋪就的每個四季。時代少年團出道快樂！',
     videoLinks: {
       concert: 'https://www.youtube.com/watch?v=kPiJid03QRw&list=RDkPiJid03QRw&start_radio=1',
       rehearsal: '',
@@ -110,14 +110,14 @@ export const concertsData = [
   {
     id: 'concert_004',
     concertName: '火力全開',
-    date: '2021-12-14',
+    date: '2021-12-03',
     location: '重慶',
     venue: '',
     image: '/images/concerts/火力全開.jpg',
     groupPhoto: '/images/concerts/火力全開-大合照.jpg',
     emoji: '🔥',
     status: 'online',
-    description: '翎羽正燃 浴火重生🔥\n無限能量 火力全開🔥\n\n少年赤誠 少年無畏 少年遙望 少年承擔',
+    description: '白駒過隙，不改少年赤誠\n一路歡歌，凝聚熱血無畏\n築夢征途，遙望朝夕韶華\n迎風向陽，承擔青春使命\n\n12月3日 18:00不見不散\n時代少年團火力全開演唱會 coming soon！',
     videoLinks: {
       concert: 'https://www.bilibili.com/video/BV1s44y1h7ja/?spm_id_from=333.1387.upload.video_card.click',
       rehearsal: '',
@@ -187,9 +187,39 @@ export const concertsData = [
   },
   {
     id: 'concert_006',
+    concertName: '奔向30-音樂分享會',
+    date: '2022-11-26',
+    location: '',
+    venue: '',
+    image: '/images/concerts/奔向30音樂分享會.jpg',
+    groupPhoto: '/images/concerts/奔向30音樂分享會-大合照.jpg',
+    emoji: '🌟',
+    status: 'online',
+    description: '三週年特別企划「三時有聲」第三篇章\n三載之聲奏響樂章，舞台精彩由你定義！\n11月26日我們#東方風雲榜奔向30音樂分享會#舞台見！',
+    videoLinks: {
+      concert: 'https://www.bilibili.com/video/BV1VR4y1Z7q3/?spm_id_from=333.337.search-card.all.click',
+      rehearsal: '',
+      short: ''
+    },
+    setlist: [
+      { song: '無盡的冒險', performer: '全員' },
+      { song: '小城夏天', performer: '劉耀文' },
+      { song: '正軌', performer: '嚴浩翔' },
+      { song: '魚', performer: '丁程鑫' },
+      { song: '每個眼神都只身荒野', performer: '宋亞軒' },
+      { song: '百憂戒', performer: '全員' },
+      { song: '陽光彩虹小白馬', performer: '賀峻霖' },
+      { song: '我期待', performer: '馬嘉祺' },
+      { song: '情話', performer: '張真源' },
+      { song: '我喜歡你', performer: '全員' },
+      { song: '有你的季節', performer: '全員' }
+    ]
+  },
+  {
+    id: 'concert_007',
     concertName: '理想之途',
     date: '2023-05-02',
-    location: '	海南省海口市',
+    location: '	海南海口',
     venue: '海口市五源河體育場',
     image: '/images/concerts/理想之途.jpg',
     groupPhoto: '/images/concerts/理想之途-大合照.jpg',
@@ -231,16 +261,16 @@ export const concertsData = [
     ]
   },
   {
-    id: 'concert_007',
-    concertName: '參重樓',
+    id: 'concert_008',
+    concertName: '參重樓-樓外樓',
     date: '2023-08-19、20',
     location: '青島',
-    venue: '',
+    venue: '青島國信體育中心體育場',
     image: '/images/concerts/參重樓-青島站.jpg',
     groupPhoto: '/images/concerts/參重樓-青島站-大合照.jpg',
     emoji: '🌟',
     status: 'cancelled',
-    description: '未辦成',
+    description: '未辦成\n\n在長大的過程，我們向「外」探索，看清「內」心的自己。\n迎面而來的種種成長課題，在催促身體長大的同時，也築建起穩固的精神世界。\n突破屏障，去浮空之樓的最頂處看看，外面是怎樣的景色。\n\n見面吧！以嶄新的面貌！\n•佩戴徽章，放下旁人目光。我認可我，馳騁在自己人生的主場。\n•田野路上，呼吸間感受成長。自由愜意，享受漂浮的失重。\n•城市迷宮，危險兇猛。有夥伴在身後，我們選擇不可替代。\n\n在夏末海風輕拂雲間時，打包一整季熱烈的回憶。\n盛夏記憶成為序章，向外走，共同走向屬於我們的未來。\n樓外有樓，亦有樂土。',
     videoLinks: {
       concert: '',
       rehearsal: '',
@@ -249,8 +279,8 @@ export const concertsData = [
     setlist: [ ]
   },
   {
-    id: 'concert_008',
-    concertName: '「造夏」音樂分享會',
+    id: 'concert_009',
+    concertName: '造夏-音樂分享會',
     date: '2023-08-27',
     location: '',
     venue: '',
@@ -258,7 +288,7 @@ export const concertsData = [
     groupPhoto: '/images/concerts/造夏-大合照.jpg',
     emoji: '🌟',
     status: 'online',
-    description: '',
+    description: '彩帶飄落，夏已入秋。\n\n6月的宿舍、7月的練習室、8月的DIY舞台，我們在期待、熱血和遺憾中並肩走過。\n夏季總該是肆意而熱烈的，就像是大雨過後，烈日總是會驅散烏雲，重新照亮天空。\n少年們的短暫失落會凝固為堅定的幹勁，去建造這個獨屬於我們的溫暖「夏日」。\n\n謝謝你一直都在！\n我們每時每刻地期盼著，下次見！🍿️',
     videoLinks: {
       concert: 'https://www.bilibili.com/video/BV1594y167QC/?spm_id_from=333.1387.upload.video_card.click',
       rehearsal: '',
@@ -281,11 +311,11 @@ export const concertsData = [
     ]
   },
   {
-    id: 'concert_009',
+    id: 'concert_010',
     concertName: '參重樓暨出道四周年',
     date: '2023-11-18、19',
     location: '澳門',
-    venue: '銀河綜藝館',
+    venue: '澳門銀河綜藝館',
     image: '/images/concerts/參重樓暨出道四周年.jpg',
     groupPhoto: {
       day1: '/images/concerts/參重樓暨出道四周年-D1-大合照.jpg',
@@ -374,7 +404,7 @@ export const concertsData = [
     }
   },
   {
-    id: 'concert_010',
+    id: 'concert_011',
     concertName: '參重樓-樓間樓',
     date: '2024-05-03、04',
     location: '重慶',
@@ -462,11 +492,11 @@ export const concertsData = [
     }
   },
   {
-    id: 'concert_011',
+    id: 'concert_012',
     concertName: '參重樓-樓非樓',
     date: '2024-08-16、17',
-    location: '常州',
-    venue: '奥林匹克體育中心體育館',
+    location: '江蘇常州',
+    venue: '常州奧林匹克體育中心體育場',
     image: '/images/concerts/參重樓-樓非樓常州站.jpg',
     groupPhoto: {
       day1: '/images/concerts/參重樓-樓非樓常州站-D1-大合照.jpg',
@@ -548,11 +578,11 @@ export const concertsData = [
     }
   },
   {
-    id: 'concert_012',
+    id: 'concert_013',
     concertName: '參重樓-樓非樓',
     date: '2024-08-23、24',
     location: '澳門',
-    venue: '銀河綜藝館',
+    venue: '澳門銀河綜藝館',
     image: '/images/concerts/參重樓-樓非樓澳門站.jpg',
     groupPhoto: {
       day1: '/images/concerts/參重樓-樓非樓澳門站-D1-大合照.jpg',
@@ -646,11 +676,11 @@ export const concertsData = [
     }
   },
   {
-    id: 'concert_013',
+    id: 'concert_014',
     concertName: '一起走過的日子',
     date: '2024-11-23、24',
     location: '重慶',
-    venue: '龍興足球場',
+    venue: '重慶龍興足球場',
     image: '/images/concerts/一起走過的日子.jpg',
     groupPhoto: {
       day1: '/images/concerts/一起走過的日子-D1-大合照.jpg',
@@ -740,7 +770,7 @@ export const concertsData = [
     }
   },
   {
-    id: 'concert_014',
+    id: 'concert_015',
     concertName: '加冠禮-冠歲',
     date: '2025-05-03、04',
     location: '海口',
@@ -831,11 +861,11 @@ export const concertsData = [
     }
   },
   {
-    id: 'concert_015',
+    id: 'concert_016',
     concertName: '加冠禮-冠軍大連站',
     date: '2025-07-25、26',
     location: '大連',
-    venue: '大連體育中心',
+    venue: '大連體育中心體育場',
     image: '/images/concerts/加冠禮-冠軍大連站.jpg',
     groupPhoto: {
       day1: '/images/concerts/加冠禮-冠軍大連站-D1-大合照.jpg',
@@ -921,7 +951,7 @@ export const concertsData = [
     }
   },
   {
-    id: 'concert_016',
+    id: 'concert_017',
     concertName: '加冠禮-冠軍上海站',
     date: '2025-08-20、21、23、24',
     location: '上海',
@@ -1079,7 +1109,7 @@ export const concertsData = [
     }
   },
   {
-    id: 'concert_017',
+    id: 'concert_018',
     concertName: '2025·愛你愛我',
     date: '2025-11-22、23',
     location: '貴陽',
