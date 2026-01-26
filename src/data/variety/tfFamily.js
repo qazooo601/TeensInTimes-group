@@ -386,7 +386,7 @@ export const tfFamilyPeriodVariety = [
     description: '場館：三亞-體育中心白鷺體育場\n此連結為時團舞台純享版',
     emoji: '🎯',
     color: '#FFA500',
-    episodes: 'D1 43:10 / D3 ??:??',
+    episodes: 'D1 43:10 / D3 44:06',
     videoUrl: 'https://space.bilibili.com/3546630773016865/search?keyword=2025%E6%96%B0%E5%B9%B4%E9%9F%B3%E4%B9%90%E4%BC%9A',
     coverImage: '/images/variety/tf-family/tf2026新年音乐会.jpg'
   }
