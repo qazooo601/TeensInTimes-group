@@ -1,16 +1,81 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, Typography, Badge, Tag, Space, Button } from 'antd';
+import { Card, Typography, Badge, Tag, Space, Button, Spin, message } from 'antd';
 import { FireOutlined, StarOutlined, CalendarOutlined, EnvironmentOutlined, BankOutlined, PlayCircleOutlined, VideoCameraOutlined } from '@ant-design/icons';
-import { concertsData } from '../data/concertsData';
+import { concertsData as localConcertsData } from '../data/concertsData';
 import { usePageTitle } from '../hooks/usePageTitle';
+import dbService from '../services/database';
 
 const { Title, Paragraph, Text } = Typography;
 
+// 格式化日期：只顯示日期部分（如果是 datetime 格式，只取日期部分）
+const formatDate = (dateString) => {
+  if (!dateString) return '';
+
+  // 如果已經是 YYYY-MM-DD 格式（只有日期），直接返回
+  if (/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
+    return dateString;
+  }
+
+  // 如果是 datetime 格式（包含時間），只取日期部分
+  if (dateString.includes('T') || dateString.includes(' ')) {
+    return dateString.split('T')[0].split(' ')[0];
+  }
+
+  // 其他格式直接返回
+  return dateString;
+};
+
 const Concerts = () => {
   const navigate = useNavigate();
+  const [concertsData, setConcertsData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   usePageTitle('演唱會｜TNT時代少年團');
+
+  // 從資料庫載入演唱會資料
+  useEffect(() => {
+    const loadConcertsData = async () => {
+      try {
+        setLoading(true);
+        const data = await dbService.getConcerts();
+        setConcertsData(data);
+        console.log('成功從資料庫載入演唱會資料:', data.length, '筆');
+      } catch (error) {
+        console.error('從資料庫載入演唱會資料失敗，使用本地資料:', error);
+        message.warning('無法連接到資料庫，使用本地資料');
+        setConcertsData(localConcertsData);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadConcertsData();
+  }, []);
+
+  // 返回演唱會列表時還原滾動位置（等待資料載入完成再還原，避免被「載入中」畫面截斷）
+  useEffect(() => {
+    if (loading) return;
+
+    const navType = sessionStorage.getItem('nav_type_/concerts');
+    const savedPosition = sessionStorage.getItem('scroll_/concerts');
+
+    if (navType === 'back' && savedPosition && savedPosition !== '0') {
+      const top = parseInt(savedPosition, 10) || 0;
+      // 使用 setTimeout 確保 DOM 已完全渲染
+      setTimeout(() => {
+        window.scrollTo({ top, behavior: 'auto' });
+      }, 200);
+    } else if (navType !== 'back') {
+      // 新進入頁面時滾動到頂部
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+
+    // 使用一次後就清掉導航標記，避免影響之後的進入行為
+    if (navType === 'back') {
+      sessionStorage.removeItem('nav_type_/concerts');
+    }
+  }, [loading]);
 
   const getStatusTag = (status) => {
     switch (status) {
@@ -135,6 +200,22 @@ const Concerts = () => {
     ) : null;
   };
 
+  if (loading) {
+    return (
+      <div style={{
+        padding: '24px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '400px',
+        fontSize: '20px',
+        color: '#FFD700'
+      }}>
+        載入中...
+      </div>
+    );
+  }
+
   return (
     <div style={{ padding: '24px', position: 'relative' }}>
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
@@ -207,7 +288,7 @@ const Concerts = () => {
                 <Space direction="vertical" size="small" style={{ minWidth: 0, flex: '1 1 58%' }}>
                   <div style={{ display: 'flex', alignItems: 'center' }}>
                     <CalendarOutlined style={{ color: '#ffd700', marginRight: '8px' }} />
-                    <Text strong>{concert.date}</Text>
+                    <Text strong>{formatDate(concert.date)}</Text>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center' }}>
                     <EnvironmentOutlined style={{ color: '#ffd700', marginRight: '8px' }} />

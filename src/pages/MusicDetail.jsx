@@ -1,10 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { Card, Typography, Tag, Space, Button, Divider, List, Badge, Row, Col } from 'antd';
+import { Card, Typography, Tag, Space, Button, Divider, List, Badge, Row, Col, Spin, message } from 'antd';
 import { ArrowLeftOutlined, CalendarOutlined, PlayCircleOutlined, UserOutlined, DownOutlined, RightOutlined, SoundOutlined } from '@ant-design/icons';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { musicData as localMusicData } from '../data/musicData';
+import dbService from '../services/database';
 
 const { Title, Paragraph, Text } = Typography;
+
+// 格式化日期：只顯示日期部分（如果是 datetime 格式，只取日期部分）
+const formatDate = (dateString) => {
+  if (!dateString) return '';
+
+  // 如果已經是 YYYY-MM-DD 格式（只有日期），直接返回
+  if (/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
+    return dateString;
+  }
+
+  // 如果是 datetime 格式（包含時間），只取日期部分
+  if (dateString.includes('T') || dateString.includes(' ')) {
+    return dateString.split('T')[0].split(' ')[0];
+  }
+
+  // 其他格式直接返回
+  return dateString;
+};
 
 const MusicDetail = () => {
   const location = useLocation();
@@ -12,25 +32,111 @@ const MusicDetail = () => {
   const [searchParams] = useSearchParams();
   const [isSongsExpanded, setIsSongsExpanded] = useState(true);
   const [imageError, setImageError] = useState(false);
+  const [album, setAlbum] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // 從 URL 參數或 location.state 獲取專輯資料
-  let album = location.state?.album;
-  if (!album) {
-    const albumParam = searchParams.get('album');
-    if (albumParam) {
+  // 從資料庫載入專輯資料
+  useEffect(() => {
+    const loadAlbumData = async () => {
       try {
-        album = JSON.parse(decodeURIComponent(albumParam));
-      } catch (e) {
-        console.error('解析專輯資料失敗:', e);
+        setLoading(true);
+
+        // 優先使用從 state 傳遞過來的專輯資料
+        let albumFromState = location.state?.album;
+
+        if (albumFromState) {
+          // 如果已經有專輯資料，直接使用（因為 Music.jsx 已經從資料庫載入了）
+          setAlbum(albumFromState);
+          setLoading(false);
+          return;
+        }
+
+        // 如果沒有從 state 獲取到，嘗試從 URL 參數獲取
+        const albumParam = searchParams.get('album');
+        if (albumParam) {
+          try {
+            albumFromState = JSON.parse(decodeURIComponent(albumParam));
+            setAlbum(albumFromState);
+            setLoading(false);
+            return;
+          } catch (e) {
+            console.error('解析專輯資料失敗:', e);
+          }
+        }
+
+        // 如果都沒有，嘗試從資料庫載入所有音樂資料，然後根據 ID 或名稱查找
+        const albumId = searchParams.get('id');
+        const albumName = searchParams.get('name');
+
+        if (albumId || albumName) {
+          try {
+            const musicData = await dbService.getMusic();
+            const foundAlbum = musicData.find(item =>
+              (albumId && item.id === albumId) ||
+              (albumName && item.name === albumName)
+            );
+
+            if (foundAlbum) {
+              setAlbum(foundAlbum);
+            } else {
+              // 如果資料庫中找不到，嘗試從本地資料查找
+              const localAlbum = localMusicData.find(item =>
+                (albumId && item.id === albumId) ||
+                (albumName && item.name === albumName)
+              );
+              if (localAlbum) {
+                setAlbum(localAlbum);
+                message.warning('使用本地資料');
+              } else {
+                message.error('找不到指定的專輯');
+              }
+            }
+          } catch (error) {
+            console.error('從資料庫載入專輯資料失敗，使用本地資料:', error);
+            // 如果資料庫連接失敗，嘗試從本地資料查找
+            const localAlbum = localMusicData.find(item =>
+              (albumId && item.id === albumId) ||
+              (albumName && item.name === albumName)
+            );
+            if (localAlbum) {
+              setAlbum(localAlbum);
+              message.warning('無法連接到資料庫，使用本地資料');
+            }
+          }
+        }
+      } catch (error) {
+        console.error('載入專輯資料失敗:', error);
+        message.error('載入專輯資料失敗');
+      } finally {
+        setLoading(false);
       }
-    }
-  }
+    };
+
+    loadAlbumData();
+  }, [location.state, searchParams]);
 
   usePageTitle(
     album
       ? `${album.name} 專輯｜TNT時代少年團`
       : '專輯詳情｜TNT時代少年團'
   );
+
+  // 載入中狀態
+  if (loading) {
+    return (
+      <div style={{
+        padding: '24px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '400px',
+        fontSize: '20px',
+        color: '#FFD700'
+      }}>
+        載入中...
+      </div>
+    );
+  }
 
   // 如果沒有傳入特定專輯，顯示所有專輯列表
   if (!album) {
@@ -156,7 +262,7 @@ const MusicDetail = () => {
               <Space direction="vertical" size="small" style={{ width: '100%' }}>
                 <div className="album-info-item">
                   <CalendarOutlined style={{ color: '#87CEEB', marginRight: '8px' }} />
-                  <Text strong>{album.releaseDate}</Text>
+                  <Text strong>{formatDate(album.releaseDate)}</Text>
                 </div>
 
                 <div className="album-info-item">

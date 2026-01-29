@@ -1,23 +1,89 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Card, Tag, Space, Row, Col, Button, Avatar } from 'antd';
+import { Typography, Card, Tag, Space, Row, Col, Button, Avatar, Spin, message, Image, Carousel } from 'antd';
 import { HeartOutlined, FireOutlined, TrophyOutlined, StarOutlined, TeamOutlined, RightOutlined, EyeOutlined } from '@ant-design/icons';
 import { BsSinaWeibo } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
-import { membersData } from '../data/membersData';
-import { groupHonors } from '../data/honorsData';
 import UpdateTime from '../components/Layout/UpdateTime';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { ref, get, set, runTransaction, onValue } from 'firebase/database';
 import { database } from '../config/firebase';
+import { dbService } from '../services/database';
 
 const { Title, Paragraph, Text } = Typography;
+
+// 格式化日期：轉成本地時區的 YYYY-MM-DD，避免少一天
+const formatDate = (dateString) => {
+  if (!dateString) return '';
+
+  const date = new Date(dateString);
+  if (Number.isNaN(date.getTime())) {
+    // 無法解析就退回原本前 10 碼
+    return String(dateString).slice(0, 10);
+  }
+
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
 
 const Home = () => {
   const navigate = useNavigate();
   const [visitCount, setVisitCount] = useState(0);
   const [showAllHonors, setShowAllHonors] = useState(false);
+  const [membersData, setMembersData] = useState([]);
+  const [groupHonors, setGroupHonors] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [homePhotos, setHomePhotos] = useState([]);
 
   usePageTitle('TNT時代少年團');
+
+  // 從資料庫載入資料
+  useEffect(() => {
+    const loadData = async () => {
+      setLoading(true);
+      try {
+        console.log('開始從資料庫載入資料...');
+        // 嘗試從資料庫載入資料
+        const [members, honors, photos] = await Promise.all([
+          dbService.getMembers(),
+          dbService.getGroupHonors(),
+          dbService.getHomePhotos()
+        ]);
+
+        console.log('成功載入資料:', { members: members.length, honors: honors.length, photos: photos.length });
+        setMembersData(members);
+        setGroupHonors(honors);
+        setHomePhotos(photos);
+        message.success(`成功從資料庫載入 ${members.length} 位成員、${honors.length} 筆榮譽資料和 ${photos.length} 張首頁照片`);
+      } catch (error) {
+        console.error('從資料庫載入資料失敗:', error);
+        console.error('錯誤詳情:', {
+          message: error.message,
+          code: error.code,
+          response: error.response?.data,
+          status: error.response?.status
+        });
+
+        // 載入失敗時保持空陣列，不顯示資料
+        setMembersData([]);
+        setGroupHonors([]);
+        setHomePhotos([]);
+
+        const errorMsg = error.response
+          ? `API 錯誤 (${error.response.status}): ${error.response.data?.error || error.message}`
+          : error.code === 'ERR_NETWORK'
+          ? '無法連接到後端 API 服務，請確認後端服務是否正在運行 (http://localhost:3003)'
+          : `無法連接到資料庫: ${error.message}`;
+
+        message.error(errorMsg);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadData();
+  }, []);
 
   useEffect(() => {
     const updateVisitCount = async () => {
@@ -96,6 +162,25 @@ const Home = () => {
     navigate('/member-detail', { state: { member } });
   };
 
+  if (loading) {
+    return (
+      <div style={{
+        padding: '24px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '400px',
+        fontSize: '20px',
+        color: '#FFD700'
+      }}>
+        載入中...
+      </div>
+    );
+  }
+
+  const fixedPhoto = homePhotos.find(photo => photo.photoType === 'fixed');
+  const carouselPhotos = homePhotos.filter(photo => photo.photoType === 'carousel');
+
   return (
     <div style={{ padding: '24px', position: 'relative' }}>
       {/* 瀏覽次數 - 右上角 */}
@@ -170,6 +255,34 @@ const Home = () => {
         </div>
       </div>
 
+      {/* 第一張照片 - 固定放在歡迎區域下方 */}
+      {fixedPhoto && (
+        <div style={{ width: '100%', maxWidth: '800px', margin: '0 auto 40px' }}>
+          <div
+            style={{
+              position: 'relative',
+              width: '100%',
+              borderRadius: '12px',
+              overflow: 'hidden',
+              boxShadow: '0 4px 12px rgba(255,215,0,0.3)'
+            }}
+          >
+            <Image
+              src={fixedPhoto.photoPath}
+              alt={fixedPhoto.altText || '時代少年團照片'}
+              style={{
+                width: '100%',
+                height: 'auto',
+                display: 'block'
+              }}
+              preview={{
+                mask: '點擊查看'
+              }}
+            />
+          </div>
+        </div>
+      )}
+
       {/* 卡片區域 */}
       <div style={{
         display: 'flex',
@@ -196,6 +309,53 @@ const Home = () => {
           11月23日，舉行出道暨新歌首唱會，並發布出道曲《全校通報》，從而正式出道。
           </Paragraph>
         </Card>
+
+        {/* 照片輪播區域 - 團體簡介後 */}
+        {carouselPhotos.length > 0 && (
+          <div style={{ width: '100%', maxWidth: '800px', marginBottom: '24px' }}>
+            <Carousel
+              autoplay
+              autoplaySpeed={3000}
+              dots={true}
+              effect="fade"
+              style={{
+                borderRadius: '12px',
+                overflow: 'hidden',
+                boxShadow: '0 4px 12px rgba(255,215,0,0.3)'
+              }}
+            >
+              {carouselPhotos.map((photo) => (
+                <div
+                  key={photo.id}
+                  style={{
+                    position: 'relative',
+                    width: '100%',
+                    aspectRatio: '16/9',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: '#f5f5f5'
+                  }}
+                >
+                  <Image
+                    src={photo.photoPath}
+                    alt={photo.altText || '時代少年團照片'}
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      maxHeight: '100%',
+                      objectFit: 'contain',
+                      display: 'block'
+                    }}
+                    preview={{
+                      mask: '點擊查看'
+                    }}
+                  />
+                </div>
+              ))}
+            </Carousel>
+          </div>
+        )}
 
         {/* 成員概覽 */}
         <Card
@@ -271,7 +431,7 @@ const Home = () => {
                       {member.memberName}
                     </Text>
                     <Text type="secondary" style={{ fontSize: '12px' }}>
-                      {member.birthday}
+                      {formatDate(member.birthday)}
                     </Text>
                   </div>
                 </Col>
@@ -279,6 +439,7 @@ const Home = () => {
             })}
           </Row>
         </Card>
+
 
         {/* 團體榮譽 */}
         <Card
@@ -318,7 +479,7 @@ const Home = () => {
           <div style={{ fontSize: '14px', lineHeight: '1.8' }}>
             {(showAllHonors ? groupHonors : groupHonors.slice(0, 5)).map((honor) => (
               <div key={honor.id} style={{ marginBottom: '8px' }}>
-                {honor.type} {honor.date} | {honor.award}
+                {honor.type} {formatDate(honor.date)} | {honor.award}
               </div>
             ))}
           </div>

@@ -431,9 +431,7 @@ function App() {
         height: '100vh',
         fontSize: '18px',
         color: '#FFD700'
-      }}>
-        載入中...
-      </div>
+      }}/>
     );
   }
 

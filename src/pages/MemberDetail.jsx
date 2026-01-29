@@ -1,13 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { Card, Typography, Avatar, Tag, Space, Button, Divider, List, Collapse, Row, Col } from 'antd';
+import { Card, Typography, Avatar, Tag, Space, Button, Divider, List, Collapse, Row, Col, Spin, message } from 'antd';
 import { ArrowLeftOutlined, HeartOutlined, StarOutlined, CalendarOutlined, PlayCircleOutlined, DownOutlined, RightOutlined, VideoCameraOutlined, SoundOutlined, MonitorOutlined, TrophyOutlined, UserOutlined } from '@ant-design/icons';
 import { BsSinaWeibo } from "react-icons/bs";
-import { membersData } from '../data/membersData';
-import { getMemberDetails } from '../data/members/index';
+import { membersData as localMembersData } from '../data/membersData';
+import { getMemberDetails as getLocalMemberDetails } from '../data/members/index';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { dbService } from '../services/database';
 
 const { Title, Paragraph, Text } = Typography;
+
+// 格式化日期：轉成本地時區的 YYYY-MM-DD，避免少一天
+const formatDate = (dateString) => {
+  if (!dateString) return '';
+
+  const date = new Date(dateString);
+  if (Number.isNaN(date.getTime())) {
+    // 無法解析就退回原本前 10 碼
+    return String(dateString).slice(0, 10);
+  }
+
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
 
 const MemberDetail = () => {
   const location = useLocation();
@@ -20,6 +37,36 @@ const MemberDetail = () => {
     awards: false
   });
   const [imageError, setImageError] = useState(false);
+  const [membersData, setMembersData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [memberDetails, setMemberDetails] = useState(null);
+  const [detailsLoading, setDetailsLoading] = useState(false);
+
+  // 從資料庫載入成員列表
+  useEffect(() => {
+    const loadMembers = async () => {
+      setLoading(true);
+      try {
+        const members = await dbService.getMembers();
+        setMembersData(members);
+      } catch (error) {
+        console.error('從資料庫載入成員資料失敗，使用本地資料:', error);
+        setMembersData(localMembersData);
+
+        const errorMsg = error.response
+          ? `API 錯誤 (${error.response.status}): ${error.response.data?.error || error.message}`
+          : error.code === 'ERR_NETWORK'
+          ? '無法連接到後端 API 服務，請確認後端服務是否正在運行 (http://localhost:3003)'
+          : `無法連接到資料庫: ${error.message}`;
+
+        message.warning(errorMsg);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadMembers();
+  }, []);
 
   // 從 URL 參數或 location.state 獲取成員資料
   let member = location.state?.member;
@@ -34,8 +81,84 @@ const MemberDetail = () => {
     }
   }
 
-  // 獲取成員詳細資料
-  const memberDetails = member ? getMemberDetails(member.memberCode) : null;
+  // 如果沒有從 state 或 URL 獲取到成員，嘗試從 membersData 中查找
+  if (!member && membersData.length > 0) {
+    const memberCode = searchParams.get('code');
+    if (memberCode) {
+      member = membersData.find(m => m.memberCode === memberCode);
+    }
+  }
+
+  // 合併本地資料以補充缺失的欄位（如 weibo, memberNameCn, images）
+  if (member) {
+    const localMember = localMembersData.find(m => m.memberCode === member.memberCode);
+    if (localMember) {
+      member = {
+        ...member,
+        weibo: member.weibo || localMember.weibo,
+        memberNameCn: member.memberNameCn || localMember.memberNameCn,
+        images: member.images || localMember.images || member.image
+      };
+    }
+  }
+
+  // 從資料庫載入成員詳細資料
+  useEffect(() => {
+    const loadMemberDetails = async () => {
+      if (!member?.memberCode) {
+        setMemberDetails(null);
+        return;
+      }
+
+      setDetailsLoading(true);
+      try {
+        const details = await dbService.getMemberDetails(member.memberCode);
+        // 將個人外務、影視作品、獲獎依年份由新到舊排序
+        const sortedDetails = {
+          ...details,
+          variety: (details.variety || []).slice().sort((a, b) => {
+            const yearA = String(a.year || '');
+            const yearB = String(b.year || '');
+            return yearB.localeCompare(yearA);
+          }),
+          movies: (details.movies || []).slice().sort((a, b) => {
+            const yearA = String(a.year || '');
+            const yearB = String(b.year || '');
+            return yearB.localeCompare(yearA);
+          }),
+          awards: (details.awards || []).slice().sort((a, b) => {
+            const yearA = String(a.year || '');
+            const yearB = String(b.year || '');
+            return yearB.localeCompare(yearA);
+          })
+        };
+
+        setMemberDetails(sortedDetails);
+      } catch (error) {
+        console.error('從資料庫載入成員詳細資料失敗:', error);
+
+
+        // 只有在網路錯誤或嚴重錯誤時才回退到本地資料
+        if (error.code === 'ERR_NETWORK') {
+          message.error('無法連接到後端 API 服務，請確認後端服務是否正在運行 (http://localhost:3003)');
+          // 不設置 memberDetails，讓頁面顯示載入失敗狀態
+          setMemberDetails(null);
+        } else {
+          // 其他錯誤：顯示錯誤但不回退到本地資料
+          const errorMsg = error.response
+            ? `資料庫錯誤: ${error.response.data?.message || error.message}`
+            : `載入失敗: ${error.message}`;
+
+          message.error(errorMsg);
+          setMemberDetails(null);
+        }
+      } finally {
+        setDetailsLoading(false);
+      }
+    };
+
+    loadMemberDetails();
+  }, [member?.memberCode]);
 
   // 設定分頁標題
   usePageTitle(
@@ -59,6 +182,22 @@ const MemberDetail = () => {
 
   // 如果沒有傳入特定成員，顯示所有成員列表
   if (!member) {
+    if (loading) {
+      return (
+        <div style={{
+          padding: '24px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '400px',
+          fontSize: '20px',
+          color: '#FFD700'
+        }}>
+          載入中...
+        </div>
+      );
+    }
+
     return (
       <div style={{ padding: '24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
@@ -261,15 +400,17 @@ const MemberDetail = () => {
               </Title>
               <Space wrap style={{ marginBottom: '20px' }}>
                 <Tag color="gold" icon={<HeartOutlined />}>{member.fanName}</Tag>
-                <Tag color="default" icon={<CalendarOutlined />}>{member.birthday}</Tag>
-                <Tag
-                  color="red"
-                  icon={<BsSinaWeibo style={{ transform: 'translateY(2px)', marginRight: '4px' }}/>}
-                  style={{ cursor: 'pointer' }}
-                  onClick={() => window.open(member.weibo, '_blank')}
-                >
-                  @{member.memberNameCn}
-                </Tag>
+                <Tag color="default" icon={<CalendarOutlined />}>{formatDate(member.birthday)}</Tag>
+                {member.weibo && (
+                  <Tag
+                    color="red"
+                    icon={<BsSinaWeibo style={{ transform: 'translateY(2px)', marginRight: '4px' }}/>}
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => window.open(member.weibo, '_blank')}
+                  >
+                    @{member.memberNameCn || member.memberName}
+                  </Tag>
+                )}
               </Space>
             </div>
 
@@ -298,7 +439,19 @@ const MemberDetail = () => {
       </Card>
 
       {/* 詳細資料區塊 */}
-      {memberDetails && (
+      {detailsLoading ? (
+        <div style={{
+          padding: '24px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '400px',
+          fontSize: '20px',
+          color: '#FFD700'
+        }}>
+          載入中...
+        </div>
+      ) : memberDetails && (
         <div style={{ marginTop: '24px' }}>
           {/* 個人歌曲 */}
           {memberDetails.songs && memberDetails.songs.length > 0 && (
@@ -382,7 +535,7 @@ const MemberDetail = () => {
                                   <Text strong style={{ fontSize: '15px' }}>{item.title}</Text>
                                   <br />
                                   <Text style={{ color: '#666', fontSize: '13px' }}>
-                                    發行日期: {item.releaseDate}
+                                    發行日期: {formatDate(item.releaseDate)}
                                   </Text>
                                   <br />
                                   <Text style={{ color: '#999', fontSize: '11px' }}>{item.description}</Text>
@@ -433,7 +586,7 @@ const MemberDetail = () => {
                                   <Text strong style={{ fontSize: '15px' }}>{item.title}</Text>
                                   <br />
                                   <Text style={{ color: '#666', fontSize: '13px' }}>
-                                    發行日期: {item.releaseDate} | 共 {item.songs ? item.songs.length : 0} 首歌曲
+                                    發行日期: {formatDate(item.releaseDate)} | 共 {item.songs ? item.songs.length : 0} 首歌曲
                                   </Text>
                                   <br />
                                   <Text style={{ color: '#999', fontSize: '11px' }}>{item.description}</Text>
@@ -524,7 +677,7 @@ const MemberDetail = () => {
                                   <Text strong style={{ fontSize: '15px' }}>{item.title}</Text>
                                   <br />
                                   <Text style={{ color: '#666', fontSize: '13px' }}>
-                                    發行日期: {item.releaseDate}
+                                    發行日期: {formatDate(item.releaseDate)}
                                   </Text>
                                   <br />
                                   <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -667,7 +820,7 @@ const MemberDetail = () => {
             </Card>
           )}
 
-          {/* 影視劇作品 */}
+          {/* 影視作品 */}
           {memberDetails.movies && memberDetails.movies.length > 0 && (
             <Card
               style={{
@@ -721,7 +874,7 @@ const MemberDetail = () => {
                     return colorMap[baseColor] || '#333';
                   })()
                 }}>
-                  影視劇作品 ({memberDetails.movies.length})
+                  影視作品 ({memberDetails.movies.length})
                 </Title>
                 {expandedSections.movies ? <DownOutlined /> : <RightOutlined />}
               </div>

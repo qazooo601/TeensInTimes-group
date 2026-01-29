@@ -1,17 +1,79 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, Typography, Space, Avatar, Divider, Button } from 'antd';
+import { Card, Typography, Space, Avatar, Divider, Button, Spin, message } from 'antd';
 import { CalendarOutlined, PlayCircleOutlined, UserOutlined, FolderOutlined, SoundOutlined, CustomerServiceOutlined } from '@ant-design/icons';
-import { musicData } from '../data/musicData';
+import { musicData as localMusicData } from '../data/musicData';
 import { usePageTitle } from '../hooks/usePageTitle';
+import dbService from '../services/database';
 
 const { Title, Paragraph, Text } = Typography;
 
+// 格式化日期：只顯示日期部分（如果是 datetime 格式，只取日期部分）
+const formatDate = (dateString) => {
+  if (!dateString) return '';
+
+  // 如果已經是 YYYY-MM-DD 格式（只有日期），直接返回
+  if (/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
+    return dateString;
+  }
+
+  // 如果是 datetime 格式（包含時間），只取日期部分
+  if (dateString.includes('T') || dateString.includes(' ')) {
+    return dateString.split('T')[0].split(' ')[0];
+  }
+
+  // 其他格式直接返回
+  return dateString;
+};
+
 const Music = () => {
   const navigate = useNavigate();
+  const [musicData, setMusicData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   usePageTitle('歌曲｜TNT時代少年團');
 
+  // 從資料庫載入音樂資料
+  useEffect(() => {
+    const loadMusicData = async () => {
+      try {
+        setLoading(true);
+        const data = await dbService.getMusic();
+        setMusicData(data);
+        console.log('成功從資料庫載入音樂資料:', data.length, '筆');
+      } catch (error) {
+        console.error('從資料庫載入音樂資料失敗，使用本地資料:', error);
+        message.warning('無法連接到資料庫，使用本地資料');
+        setMusicData(localMusicData);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadMusicData();
+  }, []);
+
+  // 返回歌曲列表時還原滾動位置（等待資料載入完成再還原，避免被「載入中」畫面截斷）
+  useEffect(() => {
+    if (loading) return;
+
+    const navType = sessionStorage.getItem('nav_type_/music');
+    const savedPosition = sessionStorage.getItem('scroll_/music');
+
+    if (navType === 'back' && savedPosition && savedPosition !== '0') {
+      const top = parseInt(savedPosition, 10) || 0;
+      // 使用 setTimeout 確保 DOM 已完全渲染
+      setTimeout(() => {
+        window.scrollTo({ top, behavior: 'auto' });
+      }, 200);
+    } else if (navType !== 'back') {
+      // 新進入頁面時滾動到頂部
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+
+    // 使用一次後就清掉導航標記，避免影響之後的進入行為
+    sessionStorage.removeItem('nav_type_/music');
+  }, [loading]);
 
   // 分離專輯和單曲
   const albums = musicData.filter(item => item.category === 'album');
@@ -84,7 +146,7 @@ const Music = () => {
                 {/* 發行日期 */}
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   <CalendarOutlined style={{ color: iconColor, marginRight: '8px' }} />
-                  <Text strong style={{ color: '#666' }}>{item.releaseDate}</Text>
+                  <Text strong style={{ color: '#666' }}>{formatDate(item.releaseDate)}</Text>
                 </div>
 
                 {/* 專輯顯示歌曲數量，單曲顯示演唱者 */}
@@ -127,6 +189,22 @@ const Music = () => {
       </Card>
     );
   };
+
+  if (loading) {
+    return (
+      <div style={{
+        padding: '24px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '400px',
+        fontSize: '20px',
+        color: '#FFD700'
+      }}>
+        載入中...
+      </div>
+    );
+  }
 
   return (
     <div style={{ padding: '24px', position: 'relative' }}>

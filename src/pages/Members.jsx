@@ -1,18 +1,97 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, Typography, Avatar, Tag, Space, Button, Row, Col } from 'antd';
+import { Card, Typography, Avatar, Tag, Space, Button, Row, Col, Spin, message } from 'antd';
 import { HeartOutlined, FireOutlined, EditOutlined } from '@ant-design/icons';
 import { BsSinaWeibo } from "react-icons/bs";
-import { membersData } from '../data/membersData';
+import { membersData as localMembersData } from '../data/membersData';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { dbService } from '../services/database';
 
 const { Title, Paragraph, Text } = Typography;
+
+// 格式化日期：轉成本地時區的 YYYY-MM-DD，避免少一天
+const formatDate = (dateString) => {
+  if (!dateString) return '';
+
+  const date = new Date(dateString);
+  if (Number.isNaN(date.getTime())) {
+    // 無法解析就退回原本前 10 碼
+    return String(dateString).slice(0, 10);
+  }
+
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
 
 const Members = () => {
   const navigate = useNavigate();
   const [imageErrors, setImageErrors] = useState({});
+  const [membersData, setMembersData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   usePageTitle('成員介紹｜TNT時代少年團');
+
+  // 從資料庫載入資料
+  useEffect(() => {
+    const loadData = async () => {
+      setLoading(true);
+      try {
+        console.log('開始從資料庫載入成員資料...');
+        const members = await dbService.getMembers();
+
+        console.log('成功載入成員資料:', { members: members.length });
+        setMembersData(members);
+        message.success(`成功從資料庫載入 ${members.length} 位成員資料`);
+      } catch (error) {
+        console.error('從資料庫載入成員資料失敗，使用本地資料:', error);
+        console.error('錯誤詳情:', {
+          message: error.message,
+          code: error.code,
+          response: error.response?.data,
+          status: error.response?.status
+        });
+
+        // 如果資料庫連接失敗，使用本地資料作為備用方案
+        setMembersData(localMembersData);
+
+        const errorMsg = error.response
+          ? `API 錯誤 (${error.response.status}): ${error.response.data?.error || error.message}`
+          : error.code === 'ERR_NETWORK'
+          ? '無法連接到後端 API 服務，請確認後端服務是否正在運行 (http://localhost:3003)'
+          : `無法連接到資料庫: ${error.message}`;
+
+        message.warning(errorMsg);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadData();
+  }, []);
+
+  // 返回列表時還原滾動位置（等待資料載入完成再還原，避免被「載入中」畫面截斷）
+  useEffect(() => {
+    if (loading) return;
+
+    const navType = sessionStorage.getItem('nav_type_/members');
+    const savedPosition = sessionStorage.getItem('scroll_/members');
+
+    if (navType === 'back' && savedPosition && savedPosition !== '0') {
+      const top = parseInt(savedPosition, 10) || 0;
+      // 使用 setTimeout 確保 DOM 已完全渲染
+      setTimeout(() => {
+        window.scrollTo({ top, behavior: 'auto' });
+      }, 200);
+    } else if (navType !== 'back') {
+      // 新進入頁面時滾動到頂部
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+
+    // 使用一次後就清掉導航標記，避免影響之後的進入行為
+    sessionStorage.removeItem('nav_type_/members');
+  }, [loading]);
 
   // 計算年齡的函數
   const calculateAge = (birthday) => {
@@ -39,6 +118,22 @@ const Members = () => {
   };
 
   const isSmallScreen = typeof window !== 'undefined' && window.innerWidth <= 768;
+
+  if (loading) {
+    return (
+      <div style={{
+        padding: '24px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '400px',
+        fontSize: '20px',
+        color: '#FFD700'
+      }}>
+        載入中...
+      </div>
+    );
+  }
 
   return (
     <div style={{ padding: '24px', position: 'relative' }}>
@@ -173,7 +268,7 @@ const Members = () => {
                   fontSize: '14px'
                 }}>
                   {member.fanName}<br/>
-                  {member.birthday} | {calculateAge(member.birthday)}歲
+                  {formatDate(member.birthday)} | {calculateAge(formatDate(member.birthday))}歲
                 </Text>
               </div>
             </div>
