@@ -10,6 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3003;
 
 // 資料庫連線設定
+// 優先使用環境變數，如果沒有則使用預設值（開發和生產使用同一個資料庫）
 const dbConfig = {
   host: process.env.DB_HOST || 'sjc1.clusters.zeabur.com',
   port: parseInt(process.env.DB_PORT) || 22919,
@@ -28,6 +29,15 @@ const dbConfig = {
   // 啟用多語句（如果需要）
   multipleStatements: false
 };
+
+// 顯示當前使用的資料庫配置（不顯示密碼）
+console.log('📊 資料庫連接設定:', {
+  host: dbConfig.host,
+  port: dbConfig.port,
+  user: dbConfig.user,
+  database: dbConfig.database,
+  source: process.env.DB_HOST ? '環境變數' : '預設值'
+});
 
 // 建立連線池
 const pool = mysql.createPool(dbConfig);
