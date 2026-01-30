@@ -35,6 +35,7 @@ const Home = () => {
   const [groupHonors, setGroupHonors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [homePhotos, setHomePhotos] = useState([]);
+  const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
 
   usePageTitle('TNT時代少年團');
 
@@ -280,6 +281,17 @@ const Home = () => {
               }}
             />
           </div>
+          {fixedPhoto.altText && (
+            <div style={{
+              textAlign: 'center',
+              marginTop: '12px',
+              color: '#666',
+              fontSize: '14px',
+              fontStyle: 'italic'
+            }}>
+              {fixedPhoto.altText}
+            </div>
+          )}
         </div>
       )}
 
@@ -318,6 +330,7 @@ const Home = () => {
               autoplaySpeed={3000}
               dots={true}
               effect="fade"
+              beforeChange={(from, to) => setCurrentCarouselIndex(to)}
               style={{
                 borderRadius: '12px',
                 overflow: 'hidden',
@@ -325,35 +338,49 @@ const Home = () => {
               }}
             >
               {carouselPhotos.map((photo) => (
-                <div
-                  key={photo.id}
-                  style={{
-                    position: 'relative',
-                    width: '100%',
-                    aspectRatio: '16/9',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: '#f5f5f5'
-                  }}
-                >
-                  <Image
-                    src={photo.photoPath}
-                    alt={photo.altText || '時代少年團照片'}
+                <div key={photo.id}>
+                  <div
                     style={{
+                      position: 'relative',
                       width: '100%',
-                      height: 'auto',
-                      maxHeight: '100%',
-                      objectFit: 'contain',
-                      display: 'block'
+                      aspectRatio: '16/9',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      backgroundColor: '#f5f5f5'
                     }}
-                    preview={{
-                      mask: '點擊查看'
-                    }}
-                  />
+                  >
+                    <Image
+                      src={photo.photoPath}
+                      alt={photo.altText || '時代少年團照片'}
+                      style={{
+                        width: '100%',
+                        height: 'auto',
+                        maxHeight: '100%',
+                        objectFit: 'contain',
+                        display: 'block'
+                      }}
+                      preview={{
+                        mask: '點擊查看'
+                      }}
+                    />
+                  </div>
                 </div>
               ))}
             </Carousel>
+            {/* AltText 顯示在輪播圖框外面 */}
+            {carouselPhotos[currentCarouselIndex]?.altText && (
+              <div style={{
+                textAlign: 'center',
+                marginTop: '12px',
+                color: '#666',
+                fontSize: '14px',
+                fontStyle: 'italic',
+                padding: '0 16px'
+              }}>
+                {carouselPhotos[currentCarouselIndex].altText}
+              </div>
+            )}
           </div>
         )}
 

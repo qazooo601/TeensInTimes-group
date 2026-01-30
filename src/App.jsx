@@ -126,7 +126,7 @@ const AppLayout = ({ children, user, onLogout }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          background: '#FFD700',
+          background: '#FFF566',
           padding: '0 24px',
           boxShadow: '0 4px 12px rgba(255,215,0,0.3)'
         }}
@@ -263,7 +263,7 @@ const AppLayout = ({ children, user, onLogout }) => {
       </Header>
 
       <Content style={{
-        background: '#FFFACD',
+        background: '#FFFBDB',
         minHeight: 'calc(100vh - 64px - 70px)',
         paddingBottom: '100px' // 為移動端底部選單與回饋按鈕留出空間
       }}>
@@ -316,8 +316,8 @@ const AppLayout = ({ children, user, onLogout }) => {
             right: 24,
             bottom: 96,
             zIndex: 1100,
-            backgroundColor: '#FFD700',
-            borderColor: '#FFD700',
+            backgroundColor: '#FFE96B',
+            borderColor: '#FFE96B',
             color: '#000',
             padding: 0,
             width: 56,
@@ -364,12 +364,12 @@ const AppLayout = ({ children, user, onLogout }) => {
                 cursor: 'pointer',
                 borderRadius: '8px',
                 transition: 'all 0.3s ease',
-                color: getMobileCurrentPath().includes(item.key) ? '#FFD700' : '#919191',
+                color: getMobileCurrentPath().includes(item.key) ? '#FFE96B' : '#919191',
                 backgroundColor: getMobileCurrentPath().includes(item.key) ? 'rgba(255, 215, 0, 0.1)' : 'transparent'
               }}
               onMouseEnter={(e) => {
                 if (!getMobileCurrentPath().includes(item.key)) {
-                  e.target.style.color = '#FFD700';
+                  e.target.style.color = '#FFE96B';
                 }
               }}
               onMouseLeave={(e) => {
@@ -430,7 +430,7 @@ function App() {
         alignItems: 'center',
         height: '100vh',
         fontSize: '18px',
-        color: '#FFD700'
+        color: '#FFE96B'
       }}/>
     );
   }
