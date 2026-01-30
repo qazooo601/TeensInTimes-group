@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // API 基礎 URL（從環境變數讀取）
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3003';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://teensintimes-backend.zeabur.app';
 
 // 建立 axios 實例
 const api = axios.create({

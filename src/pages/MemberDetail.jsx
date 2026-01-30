@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { Card, Typography, Avatar, Tag, Space, Button, Divider, List, Collapse, Row, Col, Spin, message } from 'antd';
-import { ArrowLeftOutlined, HeartOutlined, StarOutlined, CalendarOutlined, PlayCircleOutlined, DownOutlined, RightOutlined, VideoCameraOutlined, SoundOutlined, MonitorOutlined, TrophyOutlined, UserOutlined } from '@ant-design/icons';
+import { ArrowLeftOutlined, HeartOutlined, StarOutlined, CalendarOutlined, PlayCircleOutlined, DownOutlined, RightOutlined, VideoCameraOutlined, CustomerServiceOutlined, MonitorOutlined, TrophyOutlined, UserOutlined } from '@ant-design/icons';
 import { BsSinaWeibo } from "react-icons/bs";
 import { membersData as localMembersData } from '../data/membersData';
 import { getMemberDetails as getLocalMemberDetails } from '../data/members/index';
@@ -472,7 +472,7 @@ const MemberDetail = () => {
                 }}
                 onClick={() => toggleSection('songs')}
               >
-                <SoundOutlined style={{
+                <CustomerServiceOutlined style={{
                   color: (() => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
                     // 為不同顏色創建對應的深色版本

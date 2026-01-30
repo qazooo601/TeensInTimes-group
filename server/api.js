@@ -12,11 +12,11 @@ const PORT = process.env.PORT || 3003;
 // 資料庫連線設定
 // 優先使用環境變數，如果沒有則使用預設值（開發和生產使用同一個資料庫）
 const dbConfig = {
-  host: process.env.DB_HOST || 'sjc1.clusters.zeabur.com',
-  port: parseInt(process.env.DB_PORT) || 22919,
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '1h465rSGFVeQ3YL07g28ZfaHuREv9zJP',
-  database: process.env.DB_NAME || 'zeabur',
+  host: process.env.DB_HOST,
+  port: parseInt(process.env.DB_PORT),
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,

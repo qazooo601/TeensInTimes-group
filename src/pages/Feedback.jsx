@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Typography, Form, Input, Select, Button, Card, message, Steps } from 'antd';
-import { MailOutlined, FormOutlined } from '@ant-design/icons';
+import { MailOutlined, FormOutlined, InstagramOutlined } from '@ant-design/icons';
 import emailjs from '@emailjs/browser';
 import { usePageTitle } from '../hooks/usePageTitle';
 
@@ -13,7 +13,7 @@ const EMAILJS_CONFIG = {
   SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || 'your_service_id',
   TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'your_template_id',
   PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'your_public_key',
-  RECEIVER_EMAIL: import.meta.env.VITE_RECEIVER_EMAIL || 'your_email@example.com'
+  RECEIVER_EMAIL: import.meta.env.VITE_RECEIVER_EMAIL || '18lou_xuefen'
 };
 
 const Feedback = () => {
@@ -41,9 +41,9 @@ const Feedback = () => {
       // 保存表單資料到狀態（用於下一步顯示和發送郵件）
       setFormData(values);
 
-      // 進入下一步填寫郵箱
+      // 進入下一步填寫IG/FB帳號
       setCurrentStep(1);
-      message.success('表單提交成功，請填寫您的郵箱');
+      message.success('表單提交成功，請填寫您的IG/FB帳號');
     } catch (error) {
       message.error('提交失敗，請稍後再試');
     } finally {
@@ -57,13 +57,13 @@ const Feedback = () => {
       // 準備郵件模板參數
       const templateParams = {
         to_email: EMAILJS_CONFIG.RECEIVER_EMAIL,
-        from_email: values.email,
-        subject: `時團資料回饋 - ${formData.page} - ${formData.type}`,
+        from_email: values.instagram,
+        subject: `時團資料回饋 - ${formData.page} - ${formData.type} - ${values.instagram}`,
         page: formData.page,
         type: formData.type,
         content: formData.content,
-        user_email: values.email,
-        message: `畫面：${formData.page}\n修改類別：${formData.type}\n詳細內容：${formData.content}\n\n來自郵箱：${values.email}`,
+        user_email: values.instagram,
+        message: `畫面：${formData.page}\n修改類別：${formData.type}\n詳細內容：${formData.content}\n\n來自：${values.instagram}`,
       };
 
       // 發送郵件（使用 @emailjs/browser）
@@ -100,8 +100,8 @@ const Feedback = () => {
       icon: <FormOutlined />,
     },
     {
-      title: '填寫郵箱',
-      icon: <MailOutlined />,
+      title: '填寫IG/FB帳號',
+      icon: <InstagramOutlined />,
     },
   ];
 
@@ -173,14 +173,14 @@ const Feedback = () => {
             requiredMark
           >
             <Form.Item
-              label="您的郵箱"
-              name="email"
+              label="您的IG帳號/FB帳號"
+              name="instagram"
               rules={[
-                { required: true, message: '請輸入您的郵箱' },
-                { type: 'email', message: '請輸入有效的郵箱地址' }
+                { required: true, message: '請輸入您的IG帳號/FB帳號' },
+                { type: 'text', message: '請輸入有效的IG帳號/FB帳號' }
               ]}
             >
-              <Input placeholder="example@email.com" size="large" />
+              <Input placeholder="IG:example / FB:example" size="large" />
             </Form.Item>
 
             <div style={{
