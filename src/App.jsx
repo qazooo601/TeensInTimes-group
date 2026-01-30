@@ -126,7 +126,7 @@ const AppLayout = ({ children, user, onLogout }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          background: '#FFF566',
+          background: '#FFE852',
           padding: '0 24px',
           boxShadow: '0 4px 12px rgba(255,215,0,0.3)'
         }}
@@ -213,7 +213,7 @@ const AppLayout = ({ children, user, onLogout }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          background: '#FFD700',
+          background: '#FFE852',
           padding: '0 16px',
           boxShadow: '0 4px 12px rgba(255,215,0,0.3)'
         }}
@@ -263,7 +263,7 @@ const AppLayout = ({ children, user, onLogout }) => {
       </Header>
 
       <Content style={{
-        background: '#FFFBDB',
+        background: '#FFFBE0',
         minHeight: 'calc(100vh - 64px - 70px)',
         paddingBottom: '100px' // 為移動端底部選單與回饋按鈕留出空間
       }}>
