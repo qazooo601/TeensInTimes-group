@@ -1,0 +1,21 @@
+# API 服務專用的 Dockerfile
+FROM node:18-alpine
+
+# 設定工作目錄
+WORKDIR /app
+
+# 複製 package.json 和 package-lock.json
+COPY package*.json ./
+
+# 安裝依賴
+RUN npm ci --only=production
+
+# 複製所有專案檔案
+COPY . .
+
+# 暴露端口（Zeabur 會自動設定 PORT 環境變數）
+EXPOSE 3003
+
+# 啟動 API 服務
+CMD ["node", "server/api.js"]
+
