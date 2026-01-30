@@ -440,7 +440,7 @@ const Home = () => {
                     }}
                   >
                     <Avatar
-                      size={48}
+                      size={70}
                       src={member.image}
                       style={{
                         backgroundColor: primaryColor,
