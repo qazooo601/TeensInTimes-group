@@ -7,6 +7,7 @@
     "dev": "vite",
     "dev:api": "node server/api.js",
     "dev:all": "concurrently \"npm run dev\" \"npm run dev:api\"",
+    "start": "node server/api.js",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
