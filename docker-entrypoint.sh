@@ -10,11 +10,11 @@ server {
     server_name _;
     root /usr/share/nginx/html;
     index index.html;
-    
+
     location / {
         try_files \$uri \$uri/ /index.html;
     }
-    
+
     # 快取靜態資源
     location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
         expires 1y;
@@ -25,37 +25,3 @@ EOF
 
 # 啟動 nginx
 exec nginx -g "daemon off;"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

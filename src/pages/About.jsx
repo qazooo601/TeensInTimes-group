@@ -66,6 +66,7 @@ const About = () => {
                 網站特色
               </Title>
               <ul style={{ fontSize: '14px', lineHeight: '2', paddingLeft: '20px' }}>
+                <li>若資訊有誤 - 可以留言投稿 ( 在團體成員頁面，首頁 {'>'} 團體成員(更多) {'>'} 留言投稿 )</li>
                 <li>微博圖標 - 點擊可以連結到成員的微博</li>
                 <li>團體成員 - 點擊可以查看詳細資料</li>
                 <li>歌曲 專輯 - 點擊可以查看收錄單曲</li>

@@ -626,7 +626,7 @@ const Variety = () => {
             style={{ cursor: 'pointer' }}
             onClick={() => scrollToSection('performance')}
           >
-            表演舞台
+            活動/表演
           </Tag>
           <Tag
             color="orange"
@@ -754,7 +754,7 @@ const Variety = () => {
 
       {/* 表演舞台區塊 */}
       {renderVarietySection(
-        '表演舞台',
+        '活動/表演',
         varietyData.performance,
         <CustomerServiceOutlined style={{ fontSize: '24px', color: 'red' }} />,
         'red',
@@ -802,7 +802,7 @@ const Variety = () => {
             { key: 'documentary', label: '紀錄', color: 'green' },
             { key: 'birthday', label: '生日', color: '#FF0080' },
             { key: 'external', label: '外務', color: 'navy' },
-            { key: 'performance', label: '表演', color: 'red' },
+            { key: 'performance', label: '活動', color: 'red' },
             { key: 'tfFamilyPeriod', label: 'TF', color: '#FFA500' },
             { key: 'typhoonPeriod', label: 'TYT', color: '#848D94' },
           ].map(item => (
