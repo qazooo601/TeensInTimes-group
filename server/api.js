@@ -213,7 +213,8 @@ app.get('/api/home-photos', async (req, res) => {
         PhotoPath as photoPath,
         AltText as altText,
         PhotoType as photoType,
-        SortOrder as sortOrder
+        SortOrder as sortOrder,
+        UpdatedDate as updatedDate
       FROM HomePhotos
       WHERE IsActive = 1
       ORDER BY PhotoType ASC, SortOrder ASC`

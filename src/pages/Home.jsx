@@ -39,7 +39,7 @@ const Home = () => {
 
   usePageTitle('TNT時代少年團');
 
-  // 從資料庫載入資料
+  // 從資料庫載入資料（方案3：定期自動刷新）
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
@@ -56,7 +56,10 @@ const Home = () => {
         setMembersData(members);
         setGroupHonors(honors);
         setHomePhotos(photos);
-        message.success(`成功從資料庫載入 ${members.length} 位成員、${honors.length} 筆榮譽資料和 ${photos.length} 張首頁照片`);
+        // 只在首次載入時顯示成功訊息，避免定時刷新時頻繁提示
+        if (membersData.length === 0 && groupHonors.length === 0 && homePhotos.length === 0) {
+          message.success(`成功從資料庫載入 ${members.length} 位成員、${honors.length} 筆榮譽資料和 ${photos.length} 張首頁照片`);
+        }
       } catch (error) {
         console.error('從資料庫載入資料失敗:', error);
         console.error('錯誤詳情:', {
@@ -71,19 +74,32 @@ const Home = () => {
         setGroupHonors([]);
         setHomePhotos([]);
 
-        const errorMsg = error.response
-          ? `API 錯誤 (${error.response.status}): ${error.response.data?.error || error.message}`
-          : error.code === 'ERR_NETWORK'
-          ? '無法連接到後端 API 服務，請確認後端服務是否正在運行 (http://localhost:3003)'
-          : `無法連接到資料庫: ${error.message}`;
+        // 只在首次載入失敗時顯示錯誤訊息
+        if (membersData.length === 0 && groupHonors.length === 0 && homePhotos.length === 0) {
+          const errorMsg = error.response
+            ? `API 錯誤 (${error.response.status}): ${error.response.data?.error || error.message}`
+            : error.code === 'ERR_NETWORK'
+            ? '無法連接到後端 API 服務，請確認後端服務是否正在運行 (http://localhost:3003)'
+            : `無法連接到資料庫: ${error.message}`;
 
-        message.error(errorMsg);
+          message.error(errorMsg);
+        }
       } finally {
         setLoading(false);
       }
     };
 
+    // 立即載入一次
     loadData();
+
+    // 每 60 秒自動刷新資料（方案3）
+    const interval = setInterval(() => {
+      console.log('定時刷新資料...');
+      loadData();
+    }, 60000); // 60 秒
+
+    // 清理定時器
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -269,7 +285,7 @@ const Home = () => {
             }}
           >
             <Image
-              src={fixedPhoto.photoPath}
+              src={`${fixedPhoto.photoPath}?t=${fixedPhoto.updatedDate ? new Date(fixedPhoto.updatedDate).getTime() : Date.now()}`}
               alt={fixedPhoto.altText || '時代少年團照片'}
               style={{
                 width: '100%',
@@ -351,7 +367,7 @@ const Home = () => {
                     }}
                   >
                     <Image
-                      src={photo.photoPath}
+                      src={`${photo.photoPath}?t=${photo.updatedDate ? new Date(photo.updatedDate).getTime() : Date.now()}`}
                       alt={photo.altText || '時代少年團照片'}
                       style={{
                         width: '100%',
