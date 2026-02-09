@@ -9,6 +9,8 @@ import {
   UserOutlined
 } from '@ant-design/icons';
 import { LiaMicrophoneAltSolid } from "react-icons/lia";
+import { ref, runTransaction } from 'firebase/database';
+import { database } from './config/firebase';
 import Home from './pages/Home';
 import Members from './pages/Members';
 import MemberDetail from './pages/MemberDetail';
@@ -410,6 +412,48 @@ function App() {
       setUser(guestUser);
     }
     setLoading(false);
+  }, []);
+
+  // 全站進站次數統一在這裡紀錄，不再只限於首頁元件載入時
+  useEffect(() => {
+    const updateVisitCount = async () => {
+      try {
+        const referrer = document.referrer;
+        const currentOrigin = window.location.origin;
+        const isExternalLink = !referrer || !referrer.startsWith(currentOrigin);
+
+        // 避免同一個瀏覽器會話中重複計數
+        const sessionCounted = sessionStorage.getItem('siteVisitCounted');
+
+        if (!isExternalLink || sessionCounted) {
+          return;
+        }
+
+        if (database) {
+          const countRef = ref(database, 'visitCount');
+
+          // 使用 transaction 增加計數（確保原子性操作）
+          await runTransaction(countRef, (currentCount) => {
+            return (currentCount || 0) + 1;
+          });
+        } else {
+          // Firebase 未配置時，使用 localStorage 作為備用方案
+          const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
+          const newCount = storedCount + 1;
+          localStorage.setItem('homeVisitCount', newCount.toString());
+        }
+
+        sessionStorage.setItem('siteVisitCounted', 'true');
+      } catch (error) {
+        console.error('更新網站訪問次數失敗，回退到 localStorage:', error);
+        const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
+        const newCount = storedCount + 1;
+        localStorage.setItem('homeVisitCount', newCount.toString());
+        sessionStorage.setItem('siteVisitCounted', 'true');
+      }
+    };
+
+    updateVisitCount();
   }, []);
 
 

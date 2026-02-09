@@ -102,76 +102,44 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // 只負責讀取與監聽全站訪問次數，不再在這裡增加計數
   useEffect(() => {
-    const updateVisitCount = async () => {
-      // 檢查是否為外部連結進入（從外部連結點開網站）
-      const referrer = document.referrer;
-      const currentOrigin = window.location.origin;
-      const isExternalLink = !referrer || !referrer.startsWith(currentOrigin);
+    let unsubscribe;
 
-      // 檢查本次會話是否已經計數過（避免在同一個會話中重複計數）
-      const sessionCounted = sessionStorage.getItem('homeVisitCounted');
-
-      // 檢查 Firebase 是否可用
+    const loadVisitCount = async () => {
       if (database) {
-        // 使用 Firebase Realtime Database
         try {
           const countRef = ref(database, 'visitCount');
 
-          if (isExternalLink && !sessionCounted) {
-            // 使用 transaction 增加計數（確保原子性操作）
-            await runTransaction(countRef, (currentCount) => {
-              return (currentCount || 0) + 1;
-            });
-            const snapshot = await get(countRef);
-            const newCount = snapshot.val() || 0;
-            setVisitCount(newCount);
-            sessionStorage.setItem('homeVisitCounted', 'true');
-          } else {
-            // 只獲取現有計數
-            const snapshot = await get(countRef);
-            const currentCount = snapshot.val() || 0;
-            setVisitCount(currentCount);
-          }
+          // 先獲取當前計數
+          const snapshot = await get(countRef);
+          const currentCount = snapshot.val() || 0;
+          setVisitCount(currentCount);
 
-          // 監聽計數變化（即時更新）
-          const unsubscribe = onValue(countRef, (snapshot) => {
+          // 再監聽計數變化（即時更新）
+          unsubscribe = onValue(countRef, (snapshot) => {
             const count = snapshot.val() || 0;
             setVisitCount(count);
           });
-
-          // 清理監聽器
-          return () => unsubscribe();
         } catch (error) {
           console.error('Firebase 操作失敗，回退到 localStorage:', error);
-          // 如果 Firebase 失敗，回退到 localStorage
-          if (isExternalLink && !sessionCounted) {
-            const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
-            const newCount = storedCount + 1;
-            localStorage.setItem('homeVisitCount', newCount.toString());
-            setVisitCount(newCount);
-            sessionStorage.setItem('homeVisitCounted', 'true');
-          } else {
-            const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
-            setVisitCount(storedCount);
-          }
-        }
-      } else {
-        // Firebase 未配置，使用 localStorage 作為備用方案
-        if (isExternalLink && !sessionCounted) {
-          const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
-          const newCount = storedCount + 1;
-          localStorage.setItem('homeVisitCount', newCount.toString());
-          setVisitCount(newCount);
-          sessionStorage.setItem('homeVisitCounted', 'true');
-        } else {
           const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
           setVisitCount(storedCount);
         }
+      } else {
+        // Firebase 未配置時，使用 localStorage 作為備用方案
+        const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
+        setVisitCount(storedCount);
       }
     };
 
-    updateVisitCount();
+    loadVisitCount();
+
+    return () => {
+      if (unsubscribe) {
+        unsubscribe();
+      }
+    };
   }, []);
 
 
