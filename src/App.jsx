@@ -415,41 +415,49 @@ function App() {
   }, []);
 
   // 全站進站次數統一在這裡紀錄，不再只限於首頁元件載入時
+  // 只要透過網址、連結點進來的，無論進來是 "/members"、"/music"...等，都應該被記錄一次
   useEffect(() => {
     const updateVisitCount = async () => {
       try {
-        const referrer = document.referrer;
-        const currentOrigin = window.location.origin;
-        const isExternalLink = !referrer || !referrer.startsWith(currentOrigin);
-
         // 避免同一個瀏覽器會話中重複計數
         const sessionCounted = sessionStorage.getItem('siteVisitCounted');
 
-        if (!isExternalLink || sessionCounted) {
+        if (sessionCounted) {
+          console.log('本次會話已計數過，跳過計數');
           return;
         }
+
+        console.log('開始更新訪問次數...', {
+          referrer: document.referrer,
+          currentPath: window.location.pathname
+        });
 
         if (database) {
           const countRef = ref(database, 'visitCount');
 
           // 使用 transaction 增加計數（確保原子性操作）
           await runTransaction(countRef, (currentCount) => {
-            return (currentCount || 0) + 1;
+            const newCount = (currentCount || 0) + 1;
+            console.log('Firebase 計數更新:', currentCount, '->', newCount);
+            return newCount;
           });
         } else {
           // Firebase 未配置時，使用 localStorage 作為備用方案
           const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
           const newCount = storedCount + 1;
           localStorage.setItem('homeVisitCount', newCount.toString());
+          console.log('localStorage 計數更新:', storedCount, '->', newCount);
         }
 
         sessionStorage.setItem('siteVisitCounted', 'true');
+        console.log('訪問次數更新完成');
       } catch (error) {
         console.error('更新網站訪問次數失敗，回退到 localStorage:', error);
         const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
         const newCount = storedCount + 1;
         localStorage.setItem('homeVisitCount', newCount.toString());
         sessionStorage.setItem('siteVisitCounted', 'true');
+        console.log('已回退到 localStorage，計數:', storedCount, '->', newCount);
       }
     };
 

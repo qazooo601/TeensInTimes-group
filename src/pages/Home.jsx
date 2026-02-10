@@ -104,42 +104,32 @@ const Home = () => {
 
   // 只負責讀取與監聽全站訪問次數，不再在這裡增加計數
   useEffect(() => {
-    let unsubscribe;
+    if (database) {
+      const countRef = ref(database, 'visitCount');
 
-    const loadVisitCount = async () => {
-      if (database) {
-        try {
-          const countRef = ref(database, 'visitCount');
-
-          // 先獲取當前計數
-          const snapshot = await get(countRef);
-          const currentCount = snapshot.val() || 0;
-          setVisitCount(currentCount);
-
-          // 再監聽計數變化（即時更新）
-          unsubscribe = onValue(countRef, (snapshot) => {
-            const count = snapshot.val() || 0;
-            setVisitCount(count);
-          });
-        } catch (error) {
-          console.error('Firebase 操作失敗，回退到 localStorage:', error);
-          const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
-          setVisitCount(storedCount);
-        }
-      } else {
-        // Firebase 未配置時，使用 localStorage 作為備用方案
+      // 使用 onValue 監聽計數變化（會立即返回當前值並持續監聽）
+      // onValue 會立即觸發一次，然後持續監聽變化
+      const unsubscribe = onValue(countRef, (snapshot) => {
+        const count = snapshot.val() || 0;
+        console.log('Home 頁面監聽到訪問次數:', count);
+        setVisitCount(count);
+      }, (error) => {
+        // 監聽錯誤時回退到 localStorage
+        console.error('Firebase 監聽失敗，回退到 localStorage:', error);
         const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
         setVisitCount(storedCount);
-      }
-    };
+      });
 
-    loadVisitCount();
-
-    return () => {
-      if (unsubscribe) {
+      // 清理監聽器
+      return () => {
         unsubscribe();
-      }
-    };
+      };
+    } else {
+      // Firebase 未配置時，使用 localStorage 作為備用方案
+      const storedCount = parseInt(localStorage.getItem('homeVisitCount') || '0', 10);
+      console.log('Home 頁面從 localStorage 讀取訪問次數:', storedCount);
+      setVisitCount(storedCount);
+    }
   }, []);
 
 
