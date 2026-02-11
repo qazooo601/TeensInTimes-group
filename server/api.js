@@ -803,7 +803,8 @@ app.get('/api/group-info', async (req, res) => {
         FanName as fanName,
         DebutDate as debutDate,
         Description as description,
-        Content as content
+        Content as content,
+        Announcement as announcement
       FROM GroupInfo
       LIMIT 1`
     );

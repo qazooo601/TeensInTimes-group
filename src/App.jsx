@@ -6,7 +6,8 @@ import {
   PlayCircleOutlined,
   VideoCameraOutlined,
   HomeOutlined,
-  UserOutlined
+  UserOutlined,
+  SoundOutlined
 } from '@ant-design/icons';
 import { LiaMicrophoneAltSolid } from "react-icons/lia";
 import { ref, runTransaction } from 'firebase/database';
@@ -25,11 +26,223 @@ import Welcome from './pages/Welcome';
 import About from './pages/About';
 import UpdateTime from './components/Layout/UpdateTime';
 import { useScrollRestoration } from './hooks/useScrollRestoration';
+import dbService from './services/database';
 
 const { Header, Content, Footer } = Layout;
 
+// 跑馬燈公告組件 - 使用純 CSS 實現無縫循環，完全隔離避免觸發重新渲染
+const MarqueeAnnouncement = React.memo(({ announcement }) => {
+  const containerRef = React.useRef(null);
+  const contentRef = React.useRef(null);
+  const needsScrollRef = React.useRef(false);
+  const hasCheckedRef = React.useRef(false);
+  const animationTimerRef = React.useRef(null);
+  const announcementRef = React.useRef(announcement || '');
+  const spanRefs = React.useRef([]);
+
+  // 當公告內容更新時，更新 ref 並直接更新 DOM
+  React.useEffect(() => {
+    if (announcement !== undefined) {
+      announcementRef.current = announcement || '';
+      // 直接更新 span 元素的文字內容
+      if (spanRefs.current.length >= 2) {
+        spanRefs.current.forEach(span => {
+          if (span) {
+            span.textContent = announcementRef.current;
+          }
+        });
+      }
+      // 重置檢查狀態，以便重新檢查是否需要滾動
+      hasCheckedRef.current = false;
+      // 重新檢查是否需要滾動
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          if (containerRef.current && contentRef.current) {
+            const containerWidth = containerRef.current.offsetWidth;
+            const contentWidth = contentRef.current.scrollWidth;
+            const shouldScroll = contentWidth > containerWidth;
+
+            if (animationTimerRef.current) {
+              clearTimeout(animationTimerRef.current);
+              animationTimerRef.current = null;
+            }
+
+            needsScrollRef.current = shouldScroll;
+
+            if (contentRef.current) {
+              if (shouldScroll) {
+                contentRef.current.classList.add('needs-scroll');
+                animationTimerRef.current = setTimeout(() => {
+                  if (contentRef.current) {
+                    contentRef.current.classList.add('animating');
+                  }
+                }, 5000);
+              } else {
+                contentRef.current.classList.remove('needs-scroll', 'animating');
+              }
+            }
+          }
+        });
+      });
+    }
+  }, [announcement]);
+
+  React.useEffect(() => {
+    // 只在首次渲染和窗口大小改變時檢查
+    const checkOverflow = () => {
+      if (containerRef.current && contentRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+        // 只用第一段文字的寬度來判斷是否需要滾動
+        const firstSpan = spanRefs.current[0];
+        const singleContentWidth = firstSpan ? firstSpan.offsetWidth : contentRef.current.scrollWidth;
+        const shouldScroll = singleContentWidth > containerWidth;
+
+        // 清除之前的計時器
+        if (animationTimerRef.current) {
+          clearTimeout(animationTimerRef.current);
+          animationTimerRef.current = null;
+        }
+
+        needsScrollRef.current = shouldScroll;
+
+        // 直接操作 DOM，不觸發 React 重新渲染
+        if (contentRef.current) {
+          if (shouldScroll) {
+            contentRef.current.classList.add('needs-scroll');
+            // 停留 5 秒後開始滾動
+            animationTimerRef.current = setTimeout(() => {
+              if (contentRef.current) {
+                contentRef.current.classList.add('animating');
+              }
+            }, 5000);
+          } else {
+            contentRef.current.classList.remove('needs-scroll', 'animating');
+          }
+        }
+      }
+    };
+
+    // 使用 requestAnimationFrame 確保 DOM 已完全渲染
+    if (!hasCheckedRef.current) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          checkOverflow();
+          hasCheckedRef.current = true;
+        });
+      });
+    }
+
+    const handleResize = () => {
+      if (contentRef.current) {
+        contentRef.current.classList.remove('animating');
+      }
+      if (animationTimerRef.current) {
+        clearTimeout(animationTimerRef.current);
+        animationTimerRef.current = null;
+      }
+      hasCheckedRef.current = false; // 重置檢查狀態
+      checkOverflow();
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (animationTimerRef.current) {
+        clearTimeout(animationTimerRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      style={{
+        background: '#FFFCEB',
+        padding: '8px 0',
+        overflow: 'hidden',
+        position: 'relative',
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+      }}
+    >
+      <style>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-50% - 50px));
+          }
+        }
+        .marquee-wrapper {
+          display: inline-flex;
+          white-space: nowrap;
+        }
+        /* 預設只顯示第一段文字（不滾動時不需要重複內容） */
+        .marquee-wrapper span + span {
+          display: none;
+        }
+        /* 只有在需要滾動時才顯示第二段文字，並啟用無縫循環 */
+        .marquee-wrapper.needs-scroll span + span {
+          display: inline-block;
+        }
+        .marquee-wrapper.needs-scroll.animating {
+          animation: marquee 13s linear infinite;
+        }
+        .marquee-wrapper.needs-scroll.animating:hover {
+          animation-play-state: paused;
+        }
+        .marquee-content-static {
+          display: inline-block;
+          white-space: nowrap;
+        }
+      `}</style>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        color: '#000',
+        fontSize: '14px',
+        fontWeight: '500'
+      }}>
+        <SoundOutlined
+          style={{
+            fontSize: '16px',
+            marginLeft: '16px',
+            flexShrink: 0,
+            color: '#FF9A57'
+          }}
+        />
+        <div
+          ref={containerRef}
+          style={{ overflow: 'hidden', flex: 1, position: 'relative' }}
+        >
+          <div
+            ref={contentRef}
+            className="marquee-wrapper"
+            style={{ willChange: 'transform' }}
+          >
+            <span ref={el => { if (el) spanRefs.current[0] = el; }}>
+              {announcement || ''}
+            </span>
+            <span
+              ref={el => { if (el) spanRefs.current[1] = el; }}
+              style={{ marginLeft: '100px' }}
+            >
+              {announcement || ''}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}, (prevProps, nextProps) => {
+  // 只有當 announcement 改變時才重新渲染
+  // 但由於我們使用 useRef 和直接 DOM 操作，實際上不會觸發其他組件的重新載入
+  return prevProps.announcement === nextProps.announcement;
+});
+
 // 新的 AppLayout 組件，整合 App-simple.jsx 的布局
-const AppLayout = ({ children, user, onLogout }) => {
+const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   // 使用滾動位置恢復功能
@@ -264,9 +477,12 @@ const AppLayout = ({ children, user, onLogout }) => {
         />
       </Header>
 
+      {/* 跑馬燈公告 */}
+      <MarqueeAnnouncement announcement={announcement} />
+
       <Content style={{
         background: '#FFFBE0',
-        minHeight: 'calc(100vh - 64px - 70px)',
+        minHeight: 'calc(100vh - 64px - 40px - 70px)',
         paddingBottom: '100px' // 為移動端底部選單與回饋按鈕留出空間
       }}>
         {children}
@@ -389,11 +605,17 @@ const AppLayout = ({ children, user, onLogout }) => {
       </div>
     </Layout>
   );
-};
+}, (prevProps, nextProps) => {
+  // 只有當 user、children 或 announcement 真正改變時才重新渲染
+  return prevProps.user === nextProps.user &&
+         prevProps.children === nextProps.children &&
+         prevProps.announcement === nextProps.announcement;
+});
 
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [announcement, setAnnouncement] = useState('');
 
   useEffect(() => {
     // 從 localStorage 讀取用戶資訊
@@ -412,6 +634,28 @@ function App() {
       setUser(guestUser);
     }
     setLoading(false);
+  }, []);
+
+  // 從資料庫獲取公告內容
+  useEffect(() => {
+    const fetchAnnouncement = async () => {
+      try {
+        const groupInfo = await dbService.getGroupInfo();
+        const announcementValue = groupInfo?.announcement;
+
+        if (announcementValue && announcementValue.trim() !== '') {
+          setAnnouncement(announcementValue.trim());
+        } else {
+          // 如果資料庫沒有公告，使用預設值
+          setAnnouncement('公告：歡迎！本站會時時更新資料，如有任何問題可先至「關於版主」頁面瀏覽相關資訊。');
+        }
+      } catch (error) {
+        console.error('獲取公告內容失敗:', error);
+        // 發生錯誤時使用預設值
+        setAnnouncement('公告：歡迎！本站會時時更新資料，如有任何問題可先至「關於版主」頁面瀏覽相關資訊。');
+      }
+    };
+    fetchAnnouncement();
   }, []);
 
   // 全站進站次數統一在這裡紀錄，不再只限於首頁元件載入時
@@ -505,6 +749,7 @@ function App() {
                   user={user}
                   onLogout={handleLogout}
                   onUpdateProfile={handleUpdateProfile}
+                  announcement={announcement}
                 >
                   <Routes>
                     <Route path="/" element={<Home />} />

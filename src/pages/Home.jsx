@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Typography, Card, Tag, Space, Row, Col, Button, Avatar, Spin, message, Image, Carousel } from 'antd';
 import { HeartOutlined, FireOutlined, TrophyOutlined, StarOutlined, TeamOutlined, RightOutlined, EyeOutlined } from '@ant-design/icons';
 import { BsSinaWeibo } from "react-icons/bs";
@@ -36,11 +36,17 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [homePhotos, setHomePhotos] = useState([]);
   const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
+  const hasLoadedRef = useRef(false); // 追蹤是否已經載入過資料
 
   usePageTitle('時代少年團 Teens in Times');
 
-  // 從資料庫載入資料（方案3：定期自動刷新）
+  // 從資料庫載入資料（只載入一次，不自動刷新）
   useEffect(() => {
+    // 如果已經載入過，不再重複載入
+    if (hasLoadedRef.current) {
+      return;
+    }
+
     const loadData = async () => {
       setLoading(true);
       try {
@@ -56,10 +62,12 @@ const Home = () => {
         setMembersData(members);
         setGroupHonors(honors);
         setHomePhotos(photos);
-        // 只在首次載入時顯示成功訊息，避免定時刷新時頻繁提示
-        if (membersData.length === 0 && groupHonors.length === 0 && homePhotos.length === 0) {
-          message.success(`成功從資料庫載入 ${members.length} 位成員、${honors.length} 筆榮譽資料和 ${photos.length} 張首頁照片`);
-        }
+
+        // 標記為已載入
+        hasLoadedRef.current = true;
+
+        // 只在首次載入時顯示成功訊息
+        message.success(`成功從資料庫載入 ${members.length} 位成員、${honors.length} 筆榮譽資料和 ${photos.length} 張首頁照片`);
       } catch (error) {
         console.error('從資料庫載入資料失敗:', error);
         console.error('錯誤詳情:', {
@@ -74,16 +82,16 @@ const Home = () => {
         setGroupHonors([]);
         setHomePhotos([]);
 
-        // 只在首次載入失敗時顯示錯誤訊息
-        if (membersData.length === 0 && groupHonors.length === 0 && homePhotos.length === 0) {
-          const errorMsg = error.response
-            ? `API 錯誤 (${error.response.status}): ${error.response.data?.error || error.message}`
-            : error.code === 'ERR_NETWORK'
-            ? '無法連接到後端 API 服務，請確認後端服務是否正在運行 (http://localhost:3003)'
-            : `無法連接到資料庫: ${error.message}`;
+        // 標記為已載入（即使失敗也標記，避免重複嘗試）
+        hasLoadedRef.current = true;
 
-          message.error(errorMsg);
-        }
+        const errorMsg = error.response
+          ? `API 錯誤 (${error.response.status}): ${error.response.data?.error || error.message}`
+          : error.code === 'ERR_NETWORK'
+          ? '無法連接到後端 API 服務，請確認後端服務是否正在運行 (http://localhost:3003)'
+          : `無法連接到資料庫: ${error.message}`;
+
+        message.error(errorMsg);
       } finally {
         setLoading(false);
       }
@@ -91,15 +99,6 @@ const Home = () => {
 
     // 立即載入一次
     loadData();
-
-    // 每 60 秒自動刷新資料（方案3）
-    const interval = setInterval(() => {
-      console.log('定時刷新資料...');
-      loadData();
-    }, 60000); // 60 秒
-
-    // 清理定時器
-    return () => clearInterval(interval);
   }, []);
 
   // 只負責讀取與監聽全站訪問次數，不再在這裡增加計數
