@@ -342,20 +342,22 @@ const Variety = () => {
       >
         {/* 上方：左側圖片 + 右側資訊 */}
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', marginBottom: '8px' }}>
-          {/* 左側圖片 */}
-          <Avatar
-            size={80}
-            src={item.coverImage}
-            style={{
-              backgroundColor: item.color,
-              fontSize: '32px',
-              border: `3px solid ${item.color}`,
-              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-              flexShrink: 0
-            }}
-          >
-            {item.emoji}
-          </Avatar>
+          {/* 左側圖片（performance 區塊不顯示） */}
+          {sectionKey !== 'performance' && (
+            <Avatar
+              size={80}
+              src={item.coverImage}
+              style={{
+                backgroundColor: item.color,
+                fontSize: '32px',
+                border: `3px solid ${item.color}`,
+                boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                flexShrink: 0
+              }}
+            >
+              {item.emoji}
+            </Avatar>
+          )}
 
           {/* 右側資訊 */}
           <div style={{ flex: 1, minWidth: 0 }}>
@@ -404,11 +406,13 @@ const Variety = () => {
                 </div>
               )}
 
-              {/* 集數 */}
-              <div style={{ display: 'flex', alignItems: 'center', whiteSpace: 'pre-line' }}>
-                <VideoCameraOutlined style={{ color: item.color, marginRight: '8px' }} />
-                <Text style={{ color: '#666' }}>{item.episodes}</Text>
-              </div>
+              {/* 集數（performance 區塊不顯示） */}
+              {sectionKey !== 'performance' && (
+                <div style={{ display: 'flex', alignItems: 'center', whiteSpace: 'pre-line' }}>
+                  <VideoCameraOutlined style={{ color: item.color, marginRight: '8px' }} />
+                  <Text style={{ color: '#666' }}>{item.episodes}</Text>
+                </div>
+              )}
             </Space>
           </div>
         </div>
