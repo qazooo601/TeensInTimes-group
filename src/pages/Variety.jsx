@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, Typography, Avatar, Tag, Space, Divider, Button, Collapse, Spin, message } from 'antd';
-import { CalendarOutlined, PlayCircleOutlined, UserOutlined, FireOutlined, VideoCameraOutlined, DownOutlined, RightOutlined, RocketOutlined, ThunderboltOutlined, SmileOutlined, CustomerServiceOutlined, QqOutlined, BilibiliOutlined, YoutubeOutlined, WeiboOutlined, GiftOutlined } from '@ant-design/icons';
+import { CalendarOutlined, PlayCircleOutlined, UserOutlined, FireOutlined, VideoCameraOutlined, DownOutlined, UpOutlined, RightOutlined, RocketOutlined, ThunderboltOutlined, SmileOutlined, CustomerServiceOutlined, QqOutlined, BilibiliOutlined, YoutubeOutlined, WeiboOutlined, GiftOutlined } from '@ant-design/icons';
 import { selfMadeVariety, documentaryRecord, birthdayRecord, externalVariety, performanceVariety, tfFamilyPeriodVariety, tytPeriodVariety } from '../data/variety';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { dbService } from '../services/database';
@@ -24,6 +24,11 @@ const Variety = () => {
 
   // 控制右下快速導覽顯示時機（與全站 TOP 按鈕一致）
   const [showQuickNav, setShowQuickNav] = useState(false);
+
+  // 控制每個描述的展開/收起狀態
+  const [expandedDescriptions, setExpandedDescriptions] = useState({});
+  // 追蹤哪些描述需要展開（內容超過限制行數）
+  const [needsExpand, setNeedsExpand] = useState({});
 
   // 資料庫資料狀態
   const [varietyData, setVarietyData] = useState({
@@ -284,6 +289,25 @@ const Variety = () => {
   const renderVarietyCard = (item, sectionKey) => {
     const backgroundColor = `linear-gradient(135deg, ${item.color}20 0%, ${item.color}60 100%)`;
 
+    // 檢查描述是否需要展開的回調 ref
+    const checkIfNeedsExpand = (element) => {
+      if (element) {
+        // 使用 setTimeout 確保 DOM 已渲染並應用樣式
+        setTimeout(() => {
+          if (element && !expandedDescriptions[item.id]) {
+            // 只在收起狀態時檢查是否需要展開
+            const isOverflowing = element.scrollHeight > element.clientHeight;
+            if (isOverflowing) {
+              setNeedsExpand(prev => ({
+                ...prev,
+                [item.id]: true
+              }));
+            }
+          }
+        }, 100);
+      }
+    };
+
     return (
       <Card
         key={item.id}
@@ -298,7 +322,8 @@ const Variety = () => {
         }}
         styles={{ body: { padding: '20px' } }}
       >
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+        {/* 上方：左側圖片 + 右側資訊 */}
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', marginBottom: '8px' }}>
           {/* 左側圖片 */}
           <Avatar
             size={80}
@@ -316,95 +341,143 @@ const Variety = () => {
 
           {/* 右側資訊 */}
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-              <Space direction="vertical" size="small" style={{ flex: 1 }}>
-                {/* 節目名稱 */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', gap: '8px' }}>
-                  <Title level={3} style={{
-                    color: '#333',
-                    margin: 0,
-                    fontSize: '20px',
-                    fontWeight: 'bold',
-                    flex: 1
-                  }}>
-                    {item.title}
-                  </Title>
-                  {isNewVariety(item) && (
-                    <Tag
-                      color="yellow"
-                      icon={<FireOutlined />}
-                      style={{
-                        fontSize: '12px',
-                        padding: '0 6px',
-                        lineHeight: '20px',
-                        margin: 0,
-                        flexShrink: 0
-                      }}
-                    >
-                      NEW
-                    </Tag>
-                  )}
-                </div>
-
-                {/* 播出日期（後端已是字串，直接顯示） */}
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <CalendarOutlined style={{ color: item.color, marginRight: '8px' }} />
-                  <Text strong style={{ color: '#666' }}>
-                    {item.date || item.airDate || item.year}
-                  </Text>
-                </div>
-
-                {/* 參與成員（紀錄片不顯示） */}
-                {sectionKey !== 'documentary' && (
-                  <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <UserOutlined style={{ color: item.color, marginRight: '8px' }} />
-                    <Text style={{ color: '#666' }}>{item.participants}</Text>
-                  </div>
-                )}
-
-                {/* 集數 */}
-                <div style={{ display: 'flex', alignItems: 'center', whiteSpace: 'pre-line' }}>
-                  <VideoCameraOutlined style={{ color: item.color, marginRight: '8px' }} />
-                  <Text style={{ color: '#666' }}>{item.episodes}</Text>
-                </div>
-
-                {/* 分類標籤和播放按鈕 */}
-                <div style={{ marginTop: '8px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}>
-                  <Tag color={item.color}>
-                    {item.category}
+            <Space direction="vertical" size="small" style={{ width: '100%' }}>
+              {/* 節目名稱 */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', gap: '8px' }}>
+                <Title level={3} style={{
+                  color: '#333',
+                  margin: 0,
+                  fontSize: '20px',
+                  fontWeight: 'bold',
+                  flex: 1
+                }}>
+                  {item.title}
+                </Title>
+                {isNewVariety(item) && (
+                  <Tag
+                    color="yellow"
+                    icon={<FireOutlined />}
+                    style={{
+                      fontSize: '12px',
+                      padding: '0 6px',
+                      lineHeight: '20px',
+                      margin: 0,
+                      flexShrink: 0
+                    }}
+                  >
+                    NEW
                   </Tag>
-                  {item.videoUrl && (
-                    <Button
-                      type="primary"
-                      icon={<PlayCircleOutlined />}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(item.videoUrl, '_blank');
-                      }}
-                      style={{
-                        backgroundColor: item.color,
-                        borderColor: item.color,
-                        borderRadius: '20px',
-                        height: '28px',
-                        fontSize: '12px',
-                        fontWeight: 'bold',
-                        padding: '0 12px'
-                      }}
-                    >
-                      觀看影片
-                    </Button>
-                  )}
-                </div>
+                )}
+              </div>
 
-                {/* 描述 */}
-                <div style={{ marginTop: '8px' }}>
-                  <Text style={{ color: '#666', fontSize: '12px', display: 'block', whiteSpace: 'pre-line' }}>
-                    {item.description}
-                  </Text>
-                </div>
-              </Space>
+              {/* 播出日期（後端已是字串，直接顯示） */}
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <CalendarOutlined style={{ color: item.color, marginRight: '8px' }} />
+                <Text strong style={{ color: '#666' }}>
+                  {item.date || item.airDate || item.year}
+                </Text>
+              </div>
 
-            </div>
+              {/* 參與成員（紀錄片不顯示） */}
+              {sectionKey !== 'documentary' && (
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <UserOutlined style={{ color: item.color, marginRight: '8px' }} />
+                  <Text style={{ color: '#666' }}>{item.participants}</Text>
+                </div>
+              )}
+
+              {/* 集數 */}
+              <div style={{ display: 'flex', alignItems: 'center', whiteSpace: 'pre-line' }}>
+                <VideoCameraOutlined style={{ color: item.color, marginRight: '8px' }} />
+                <Text style={{ color: '#666' }}>{item.episodes}</Text>
+              </div>
+            </Space>
+          </div>
+        </div>
+
+        {/* 下方簡介 */}
+        <div style={{ borderTop: `1px solid ${item.color}30`, paddingTop: '8px' }}>
+          {/* 分類標籤和播放按鈕 */}
+          <div style={{ marginBottom: '8px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
+            <Tag color={item.color}>
+              {item.category}
+            </Tag>
+            {item.videoUrl && (
+              <Button
+                type="primary"
+                icon={<PlayCircleOutlined />}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open(item.videoUrl, '_blank');
+                }}
+                style={{
+                  backgroundColor: item.color,
+                  borderColor: item.color,
+                  borderRadius: '20px',
+                  height: '28px',
+                  fontSize: '12px',
+                  fontWeight: 'bold',
+                  padding: '0 12px'
+                }}
+              >
+                觀看影片
+              </Button>
+            )}
+          </div>
+
+          {/* 描述 */}
+          <div
+            style={{
+              cursor: needsExpand[item.id] ? 'pointer' : 'default',
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '6px'
+            }}
+            onClick={(e) => {
+              if (needsExpand[item.id]) {
+                e.stopPropagation();
+                setExpandedDescriptions(prev => ({
+                  ...prev,
+                  [item.id]: !prev[item.id]
+                }));
+              }
+            }}
+          >
+            <Text
+              ref={checkIfNeedsExpand}
+              className={expandedDescriptions[item.id] ? '' : 'variety-description-clamp'}
+              style={{
+                color: '#666',
+                fontSize: '12px',
+                whiteSpace: 'pre-line',
+                flex: 1,
+                ...(expandedDescriptions[item.id] ? {
+                  display: 'block'
+                } : {
+                  display: '-webkit-box',
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis'
+                })
+              }}
+            >
+              {item.description}
+            </Text>
+            {needsExpand[item.id] && (
+              <div style={{
+                flexShrink: 0,
+                display: 'flex',
+                alignItems: 'center',
+                color: item.color,
+                marginTop: '2px'
+              }}>
+                {expandedDescriptions[item.id] ? (
+                  <UpOutlined style={{ fontSize: '12px' }} />
+                ) : (
+                  <DownOutlined style={{ fontSize: '12px' }} />
+                )}
+              </div>
+            )}
           </div>
         </div>
       </Card>
@@ -423,11 +496,14 @@ const Variety = () => {
           border: `3px solid ${item.color}`,
           boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
           transition: 'all 0.3s ease',
-          background: backgroundColor
+          background: backgroundColor,
+          maxWidth: '92%',     // 防止在極小螢幕的手機上超出範圍
         }}
         styles={{ body: { padding: '20px' } }}
       >
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+        {/* 上方：左側圖片 + 右側資訊 */}
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', marginBottom: '8px' }}>
+          {/* 左側圖片 */}
           <Avatar
             size={80}
             src={item.coverImage}
@@ -442,83 +518,89 @@ const Variety = () => {
             {item.emoji}
           </Avatar>
 
+          {/* 右側資訊 */}
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-              <Space direction="vertical" size="small" style={{ flex: 1 }}>
-                <Title level={3} style={{
-                  color: '#333',
-                  margin: 0,
-                  fontSize: '20px',
-                  fontWeight: 'bold'
-                }}>
-                  {item.title}
-                </Title>
+            <Space direction="vertical" size="small" style={{ width: '100%' }}>
+              {/* 節目名稱 */}
+              <Title level={3} style={{
+                color: '#333',
+                margin: 0,
+                fontSize: '20px',
+                fontWeight: 'bold'
+              }}>
+                {item.title}
+              </Title>
 
+              {/* 播出日期 */}
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <CalendarOutlined style={{ color: item.color, marginRight: '8px' }} />
+                <Text strong style={{ color: '#666' }}>
+                  {formatDate(item.date || item.airDate || item.year)}
+                </Text>
+              </div>
+
+              {/* 參與成員（紀錄片不顯示） */}
+              {sectionKey !== 'documentary' && (
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <CalendarOutlined style={{ color: item.color, marginRight: '8px' }} />
-                  <Text strong style={{ color: '#666' }}>
-                    {formatDate(item.date || item.airDate || item.year)}
-                  </Text>
+                  <UserOutlined style={{ color: item.color, marginRight: '8px' }} />
+                  <Text style={{ color: '#666' }}>{item.participants}</Text>
                 </div>
+              )}
+            </Space>
+          </div>
+        </div>
 
-                {sectionKey !== 'documentary' && (
-                  <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <UserOutlined style={{ color: item.color, marginRight: '8px' }} />
-                    <Text style={{ color: '#666' }}>{item.participants}</Text>
-                  </div>
-                )}
+        {/* 下方簡介 */}
+        <div style={{ borderTop: `1px solid ${item.color}30`, paddingTop: '8px' }}>
+          {/* 並排的兩個播放按鈕，文字不同 */}
+          <div style={{ marginBottom: '8px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+            {item.videoUrl && (
+              <Button
+                type="primary"
+                icon={<PlayCircleOutlined />}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open(item.videoUrl, '_blank');
+                }}
+                style={{
+                  backgroundColor: item.color,
+                  borderColor: item.color,
+                  borderRadius: '20px',
+                  height: '28px',
+                  fontSize: '12px',
+                  fontWeight: 'bold',
+                  padding: '0 12px'
+                }}
+              >
+                {item.videoLabel1}
+              </Button>
+            )}
+            {item.videoUrl2 && (
+              <Button
+                type="default"
+                icon={<PlayCircleOutlined />}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open(item.videoUrl2, '_blank');
+                }}
+                style={{
+                  borderRadius: '20px',
+                  height: '28px',
+                  fontSize: '12px',
+                  fontWeight: 'bold',
+                  padding: '0 12px'
+                }}
+              >
+                {item.videoLabel2}
+              </Button>
+            )}
+          </div>
 
-                {/* 並排的兩個播放按鈕，文字不同 */}
-                <div style={{ marginTop: '8px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                  {item.videoUrl && (
-                    <Button
-                      type="primary"
-                      icon={<PlayCircleOutlined />}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(item.videoUrl, '_blank');
-                      }}
-                      style={{
-                        backgroundColor: item.color,
-                        borderColor: item.color,
-                        borderRadius: '20px',
-                        height: '28px',
-                        fontSize: '12px',
-                        fontWeight: 'bold',
-                        padding: '0 12px'
-                      }}
-                    >
-                      {item.videoLabel1}
-                    </Button>
-                  )}
-                  {item.videoUrl2 && (
-                    <Button
-                      type="default"
-                      icon={<PlayCircleOutlined />}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(item.videoUrl2, '_blank');
-                      }}
-                      style={{
-                        borderRadius: '20px',
-                        height: '28px',
-                        fontSize: '12px',
-                        fontWeight: 'bold',
-                        padding: '0 12px'
-                      }}
-                    >
-                      {item.videoLabel2}
-                    </Button>
-                  )}
-                </div>
-
-                <div style={{ marginTop: '8px' }}>
-                  <Text style={{ color: '#666', fontSize: '12px', display: 'block', whiteSpace: 'pre-line' }}>
-                    {item.description}
-                  </Text>
-                </div>
-              </Space>
-            </div>
+          {/* 描述 */}
+          <div>
+            <Text style={{ color: '#666', fontSize: '12px', display: 'block', whiteSpace: 'pre-line' }}>
+              {item.description}
+            </Text>
           </div>
         </div>
       </Card>
@@ -579,6 +661,18 @@ const Variety = () => {
   }
   return (
     <div style={{ padding: '24px', position: 'relative' }}>
+      <style>{`
+        .variety-description-clamp {
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+        }
+        @media (max-width: 767px) {
+          .variety-description-clamp {
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+          }
+        }
+      `}</style>
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
         <Title level={1} style={{
           color: '#EBC700',
