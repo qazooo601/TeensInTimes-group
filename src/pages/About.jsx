@@ -6,7 +6,7 @@ import { usePageTitle } from '../hooks/usePageTitle';
 const { Title, Paragraph, Text } = Typography;
 
 const About = () => {
-  usePageTitle('關於版主｜TNT時代少年團');
+  usePageTitle('關於版主｜時代少年團');
 
   return (
     <div style={{ padding: '24px', position: 'relative' }}>

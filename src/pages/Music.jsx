@@ -31,7 +31,7 @@ const Music = () => {
   const [musicData, setMusicData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  usePageTitle('歌曲｜TNT時代少年團');
+  usePageTitle('歌曲｜時代少年團');
 
   // 從資料庫載入音樂資料
   useEffect(() => {

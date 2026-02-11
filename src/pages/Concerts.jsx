@@ -31,7 +31,7 @@ const Concerts = () => {
   const [concertsData, setConcertsData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  usePageTitle('演唱會｜TNT時代少年團');
+  usePageTitle('演唱會｜時代少年團');
 
   // 從資料庫載入演唱會資料
   useEffect(() => {

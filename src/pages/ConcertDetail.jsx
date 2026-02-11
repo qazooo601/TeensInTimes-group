@@ -119,8 +119,8 @@ const ConcertDetail = () => {
 
   usePageTitle(
     concert
-      ? `${concert.concertName || concert.title || '演唱會'} 詳細資訊｜TNT時代少年團`
-      : '演唱會詳細資訊｜TNT時代少年團'
+      ? `${concert.concertName || concert.title || '演唱會'} 詳細資訊｜時代少年團`
+      : '演唱會詳細資訊｜時代少年團'
   );
 
   // 載入中狀態

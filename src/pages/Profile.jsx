@@ -4,7 +4,7 @@ import { usePageTitle } from '../hooks/usePageTitle';
 
 const Profile = () => {
   const user = JSON.parse(localStorage.getItem('user') || '{}');
-  usePageTitle('個人資料｜TNT時代少年團');
+  usePageTitle('個人資料｜時代少年團');
 
   const handleUpdateProfile = (updatedUser) => {
     localStorage.setItem('user', JSON.stringify(updatedUser));

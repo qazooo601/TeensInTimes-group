@@ -163,8 +163,8 @@ const MemberDetail = () => {
   // 設定分頁標題
   usePageTitle(
     member
-      ? `${member.memberName} ｜TNT時代少年團`
-      : '成員介紹｜TNT時代少年團'
+      ? `${member.memberName} ｜時代少年團`
+      : '成員介紹｜時代少年團'
   );
 
   // 當成員改變時重置圖片錯誤狀態

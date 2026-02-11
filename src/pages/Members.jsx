@@ -31,7 +31,7 @@ const Members = () => {
   const [membersData, setMembersData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  usePageTitle('成員介紹｜TNT時代少年團');
+  usePageTitle('成員介紹｜時代少年團');
 
   // 從資料庫載入資料
   useEffect(() => {

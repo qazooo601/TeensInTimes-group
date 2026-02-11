@@ -37,7 +37,7 @@ const Home = () => {
   const [homePhotos, setHomePhotos] = useState([]);
   const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
 
-  usePageTitle('TNT時代少年團');
+  usePageTitle('時代少年團 Teens in Times');
 
   // 從資料庫載入資料（方案3：定期自動刷新）
   useEffect(() => {

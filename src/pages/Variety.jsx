@@ -188,7 +188,7 @@ const Variety = () => {
     };
   }, []);
 
-  usePageTitle('綜藝節目｜TNT時代少年團');
+  usePageTitle('綜藝節目｜時代少年團');
 
   // 生日紀錄依 Category 和 Title2 分組
   const birthdayByCategoryAndTitle2 = useMemo(() => {
@@ -266,24 +266,42 @@ const Variety = () => {
 
   // 滾動到指定區塊並展開
   const scrollToSection = (sectionKey) => {
-    // 先展開對應區塊
-    if (!expandedSections[sectionKey]) {
-      setExpandedSections(prev => ({
-        ...prev,
-        [sectionKey]: true
-      }));
-    }
-
-    // 延遲滾動，確保區塊已展開
-    setTimeout(() => {
+    // 如果區塊已經展開，立即滾動
+    if (expandedSections[sectionKey]) {
       const element = document.getElementById(`section-${sectionKey}`);
       if (element) {
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+        // 使用 requestAnimationFrame 確保在下一幀執行，避免阻塞
+        requestAnimationFrame(() => {
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         });
       }
-    }, 100);
+      return;
+    }
+
+    // 如果區塊需要展開，先展開再滾動
+    setExpandedSections(prev => ({
+      ...prev,
+      [sectionKey]: true
+    }));
+
+    // 等待 React 完成渲染後再滾動
+    // 使用雙重 requestAnimationFrame 確保 DOM 已完全更新
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        // 再次檢查元素是否存在，並確認其高度已更新
+        const element = document.getElementById(`section-${sectionKey}`);
+        if (element) {
+          // 使用 scrollIntoView 滾動
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
   };
 
   const renderVarietyCard = (item, sectionKey) => {
