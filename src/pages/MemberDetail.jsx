@@ -7,6 +7,8 @@ import { membersData as localMembersData } from '../data/membersData';
 import { getMemberDetails as getLocalMemberDetails } from '../data/members/index';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { dbService } from '../services/database';
+import SEOHead from '../components/SEO/SEOHead';
+import { generateBreadcrumbStructuredData, generatePersonStructuredData } from '../utils/structuredData';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -41,6 +43,7 @@ const MemberDetail = () => {
   const [loading, setLoading] = useState(true);
   const [memberDetails, setMemberDetails] = useState(null);
   const [detailsLoading, setDetailsLoading] = useState(false);
+  const [seoDescription, setSeoDescription] = useState('時代少年團成員介紹：七位成員的詳細資料、個人作品、外務綜藝、影視作品、獲獎記錄等完整資訊。');
 
   // 從資料庫載入成員列表
   useEffect(() => {
@@ -134,6 +137,12 @@ const MemberDetail = () => {
         };
 
         setMemberDetails(sortedDetails);
+
+        // 根據成員資料生成 SEO description
+        if (member) {
+          const description = `${member.memberName}（${member.memberNameEn}）- 時代少年團成員。${member.content ? member.content.substring(0, 100) : '詳細成員介紹'}。包含個人作品、外務綜藝、影視作品、獲獎記錄等完整資訊。`;
+          setSeoDescription(description);
+        }
       } catch (error) {
         console.error('從資料庫載入成員詳細資料失敗:', error);
 
@@ -167,6 +176,18 @@ const MemberDetail = () => {
       : '成員介紹｜時代少年團'
   );
 
+  // 生成麵包屑結構化資料
+  const breadcrumbData = member
+    ? generateBreadcrumbStructuredData([
+        { name: '首頁', url: '/' },
+        { name: '成員', url: '/members' },
+        { name: member.memberName, url: `/member-detail?code=${member.memberCode}` }
+      ])
+    : generateBreadcrumbStructuredData([
+        { name: '首頁', url: '/' },
+        { name: '成員', url: '/members' }
+      ]);
+
   // 當成員改變時重置圖片錯誤狀態
   useEffect(() => {
     setImageError(false);
@@ -184,22 +205,35 @@ const MemberDetail = () => {
   if (!member) {
     if (loading) {
       return (
-        <div style={{
-          padding: '24px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          minHeight: '400px',
-          fontSize: '20px',
-          color: '#FFD700'
-        }}>
-          載入中...
-        </div>
+        <>
+          <SEOHead
+            title="成員介紹｜時代少年團"
+            description={seoDescription}
+            structuredData={breadcrumbData}
+          />
+          <div style={{
+            padding: '24px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: '400px',
+            fontSize: '20px',
+            color: '#FFD700'
+          }}>
+            載入中...
+          </div>
+        </>
       );
     }
 
     return (
-      <div style={{ padding: '24px' }}>
+      <>
+        <SEOHead
+          title="成員介紹｜時代少年團"
+          description={seoDescription}
+          structuredData={breadcrumbData}
+        />
+        <div style={{ padding: '24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <Title level={1} style={{
             color: '#FFD700',
@@ -290,12 +324,29 @@ const MemberDetail = () => {
           })}
         </div>
       </div>
+      </>
     );
   }
 
+  // 生成成員的結構化資料
+  const personStructuredData = member ? generatePersonStructuredData({
+    name: member.memberName,
+    nameEn: member.memberNameEn,
+    description: member.content,
+    image: member.images,
+    birthday: member.birthday
+  }) : null;
+
   // 顯示特定成員的詳細資訊
   return (
-    <div style={{ padding: '24px', position: 'relative' }}>
+    <>
+      <SEOHead
+        title={`${member.memberName} ｜時代少年團`}
+        description={seoDescription}
+        structuredData={personStructuredData || breadcrumbData}
+        image={member.images}
+      />
+      <div style={{ padding: '24px', position: 'relative' }}>
       <div style={{ marginBottom: '24px' }}>
         <Button
           icon={<ArrowLeftOutlined />}
@@ -990,6 +1041,7 @@ const MemberDetail = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

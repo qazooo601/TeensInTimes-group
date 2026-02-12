@@ -5,6 +5,8 @@ import { ArrowLeftOutlined, CalendarOutlined, PlayCircleOutlined, UserOutlined, 
 import { usePageTitle } from '../hooks/usePageTitle';
 import { musicData as localMusicData } from '../data/musicData';
 import dbService from '../services/database';
+import SEOHead from '../components/SEO/SEOHead';
+import { generateBreadcrumbStructuredData, generateMusicAlbumStructuredData } from '../utils/structuredData';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -34,6 +36,7 @@ const MusicDetail = () => {
   const [imageError, setImageError] = useState(false);
   const [album, setAlbum] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [seoDescription, setSeoDescription] = useState('時代少年團專輯詳細資訊：包含專輯名稱、發行日期、曲目列表、歌曲資訊等完整資料。');
 
   // 從資料庫載入專輯資料
   useEffect(() => {
@@ -47,6 +50,11 @@ const MusicDetail = () => {
         if (albumFromState) {
           // 如果已經有專輯資料，直接使用（因為 Music.jsx 已經從資料庫載入了）
           setAlbum(albumFromState);
+          // 生成 SEO description
+          if (albumFromState) {
+            const description = `${albumFromState.name} - 時代少年團專輯。發行日期：${formatDate(albumFromState.releaseDate)}，共 ${albumFromState.songs?.length || 0} 首歌曲。包含完整曲目列表、歌曲資訊、播放連結等詳細資料。`;
+            setSeoDescription(description);
+          }
           setLoading(false);
           return;
         }
@@ -78,6 +86,9 @@ const MusicDetail = () => {
 
             if (foundAlbum) {
               setAlbum(foundAlbum);
+              // 生成 SEO description
+              const description = `${foundAlbum.name} - 時代少年團專輯。發行日期：${formatDate(foundAlbum.releaseDate)}，共 ${foundAlbum.songs?.length || 0} 首歌曲。包含完整曲目列表、歌曲資訊、播放連結等詳細資料。`;
+              setSeoDescription(description);
             } else {
               // 如果資料庫中找不到，嘗試從本地資料查找
               const localAlbum = localMusicData.find(item =>
@@ -86,6 +97,9 @@ const MusicDetail = () => {
               );
               if (localAlbum) {
                 setAlbum(localAlbum);
+                // 生成 SEO description
+                const description = `${localAlbum.name} - 時代少年團專輯。發行日期：${formatDate(localAlbum.releaseDate)}，共 ${localAlbum.songs?.length || 0} 首歌曲。包含完整曲目列表、歌曲資訊、播放連結等詳細資料。`;
+                setSeoDescription(description);
                 message.warning('使用本地資料');
               } else {
                 message.error('找不到指定的專輯');
@@ -100,6 +114,9 @@ const MusicDetail = () => {
             );
             if (localAlbum) {
               setAlbum(localAlbum);
+              // 生成 SEO description
+              const description = `${localAlbum.name} - 時代少年團專輯。發行日期：${formatDate(localAlbum.releaseDate)}，共 ${localAlbum.songs?.length || 0} 首歌曲。包含完整曲目列表、歌曲資訊、播放連結等詳細資料。`;
+              setSeoDescription(description);
               message.warning('無法連接到資料庫，使用本地資料');
             }
           }
@@ -121,27 +138,61 @@ const MusicDetail = () => {
       : '專輯詳情｜TNT時代少年團'
   );
 
+  // 生成麵包屑結構化資料
+  const breadcrumbData = album
+    ? generateBreadcrumbStructuredData([
+        { name: '首頁', url: '/' },
+        { name: '歌曲', url: '/music' },
+        { name: album.name, url: `/music-detail` }
+      ])
+    : generateBreadcrumbStructuredData([
+        { name: '首頁', url: '/' },
+        { name: '歌曲', url: '/music' }
+      ]);
+
+  // 生成專輯的結構化資料
+  const albumStructuredData = album ? generateMusicAlbumStructuredData({
+    title: album.name,
+    description: seoDescription,
+    image: album.image,
+    releaseDate: album.releaseDate,
+    tracks: album.songs
+  }) : null;
+
   // 載入中狀態
   if (loading) {
     return (
-      <div style={{
-        padding: '24px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '400px',
-        fontSize: '20px',
-        color: '#FFD700'
-      }}>
-        載入中...
-      </div>
+      <>
+        <SEOHead
+          title="專輯詳情｜TNT時代少年團"
+          description={seoDescription}
+          structuredData={breadcrumbData}
+        />
+        <div style={{
+          padding: '24px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '400px',
+          fontSize: '20px',
+          color: '#FFD700'
+        }}>
+          載入中...
+        </div>
+      </>
     );
   }
 
   // 如果沒有傳入特定專輯，顯示所有專輯列表
   if (!album) {
     return (
-      <div style={{ padding: '24px' }}>
+      <>
+        <SEOHead
+          title="專輯詳情｜TNT時代少年團"
+          description={seoDescription}
+          structuredData={breadcrumbData}
+        />
+        <div style={{ padding: '24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <Title level={1} style={{
             color: '#FFD700',
@@ -160,12 +211,20 @@ const MusicDetail = () => {
           </Paragraph>
         </div>
       </div>
+      </>
     );
   }
 
 
   return (
-    <div style={{ padding: '24px' }}>
+    <>
+      <SEOHead
+        title={`${album.name} 專輯｜TNT時代少年團`}
+        description={seoDescription}
+        structuredData={albumStructuredData || breadcrumbData}
+        image={album.image}
+      />
+      <div style={{ padding: '24px' }}>
       <div style={{ marginBottom: '24px' }}>
         <Button
           icon={<ArrowLeftOutlined />}
@@ -390,6 +449,7 @@ const MusicDetail = () => {
         </div>
       </Card>
     </div>
+    </>
   );
 };
 

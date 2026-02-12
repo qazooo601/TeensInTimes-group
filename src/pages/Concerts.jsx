@@ -5,6 +5,8 @@ import { FireOutlined, StarOutlined, CalendarOutlined, EnvironmentOutlined, Bank
 import { concertsData as localConcertsData } from '../data/concertsData';
 import { usePageTitle } from '../hooks/usePageTitle';
 import dbService from '../services/database';
+import SEOHead from '../components/SEO/SEOHead';
+import { generateBreadcrumbStructuredData } from '../utils/structuredData';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -30,8 +32,15 @@ const Concerts = () => {
   const navigate = useNavigate();
   const [concertsData, setConcertsData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [seoDescription, setSeoDescription] = useState('時代少年團演唱會記錄：完整演唱會列表。包含日期、地點、場地、曲目列表、演唱會影片連結等詳細資料。');
 
   usePageTitle('演唱會｜時代少年團');
+
+  // 生成麵包屑結構化資料
+  const breadcrumbData = generateBreadcrumbStructuredData([
+    { name: '首頁', url: '/' },
+    { name: '演唱會', url: '/concerts' }
+  ]);
 
   // 從資料庫載入演唱會資料
   useEffect(() => {
@@ -41,10 +50,34 @@ const Concerts = () => {
         const data = await dbService.getConcerts();
         setConcertsData(data);
         console.log('成功從資料庫載入演唱會資料:', data.length, '筆');
+
+        // 根據最新資料生成 SEO description
+        if (data && data.length > 0) {
+          // 取得最新的 5 筆資料（資料庫已按日期排序）
+          const latestItems = data.slice(0, 5);
+          const latestNames = latestItems.map(item => item.concertName).filter(Boolean);
+
+          if (latestNames.length > 0) {
+            const latestText = latestNames.join('、');
+            const description = `時代少年團最新演唱會：${latestText}。完整演唱會記錄列表，包含日期、地點、場地、曲目列表、演唱會影片連結等詳細資料。`;
+            setSeoDescription(description);
+          }
+        }
       } catch (error) {
         console.error('從資料庫載入演唱會資料失敗，使用本地資料:', error);
         message.warning('無法連接到資料庫，使用本地資料');
         setConcertsData(localConcertsData);
+
+        // 如果使用本地資料，也嘗試生成 description
+        if (localConcertsData && localConcertsData.length > 0) {
+          const latestItems = localConcertsData.slice(0, 5);
+          const latestNames = latestItems.map(item => item.concertName).filter(Boolean);
+          if (latestNames.length > 0) {
+            const latestText = latestNames.join('、');
+            const description = `時代少年團最新演唱會：${latestText}。完整演唱會記錄列表，包含日期、地點、場地、曲目列表、演唱會影片連結等詳細資料。`;
+            setSeoDescription(description);
+          }
+        }
       } finally {
         setLoading(false);
       }
@@ -217,7 +250,13 @@ const Concerts = () => {
   }
 
   return (
-    <div style={{ padding: '24px', position: 'relative' }}>
+    <>
+      <SEOHead
+        title="演唱會｜時代少年團"
+        description={seoDescription}
+        structuredData={breadcrumbData}
+      />
+      <div style={{ padding: '24px', position: 'relative' }}>
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
         <Title level={1} style={{
           color: '#EBC700',
@@ -312,9 +351,8 @@ const Concerts = () => {
           );
         })}
       </div>
-
-
     </div>
+    </>
   );
 };
 

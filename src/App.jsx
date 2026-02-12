@@ -76,7 +76,7 @@ const MarqueeAnnouncement = React.memo(({ announcement }) => {
                   if (contentRef.current) {
                     contentRef.current.classList.add('animating');
                   }
-                }, 5000);
+                }, 3000);
               } else {
                 contentRef.current.classList.remove('needs-scroll', 'animating');
               }
@@ -612,6 +612,76 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
          prevProps.announcement === nextProps.announcement;
 });
 
+// 處理 meta description 日期前綴的組件（需要在 Router 內部使用 useLocation）
+const MetaDescriptionUpdater = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const updateMetaDescriptionWithDate = async () => {
+      try {
+        // 延遲執行，確保 SEOHead 組件先設置 description
+        await new Promise(resolve => setTimeout(resolve, 100));
+
+        const dateStr = await dbService.getLatestUpdate();
+        let formattedDate = '';
+
+        if (dateStr) {
+          const str = String(dateStr);
+
+          // 與 UpdateTime 組件相同的日期格式化邏輯
+          if (/^\d{4}-\d{2}-\d{2}/.test(str)) {
+            const [year, month, day] = str.split('-');
+            formattedDate = `${year}年${parseInt(month, 10)}月${parseInt(day, 10)}日`;
+          } else if (str.includes('年')) {
+            formattedDate = str;
+          } else {
+            const dateObj = new Date(str);
+            if (!Number.isNaN(dateObj.getTime())) {
+              const year = dateObj.getFullYear();
+              const month = dateObj.getMonth() + 1;
+              const day = dateObj.getDate();
+              formattedDate = `${year}年${month}月${day}日`;
+            } else {
+              formattedDate = str;
+            }
+          }
+        }
+
+        const datePrefix = formattedDate ? `${formattedDate}｜` : '';
+        const baseDesc = 'TNT時代少年團。此為自製網站，提供成員資訊、音樂作品、演唱會記錄、綜藝節目、紀錄片...時時更新最新資料';
+
+        // 檢查現有的 meta description
+        let meta = document.querySelector('meta[name="description"]');
+        let currentDesc = meta ? meta.content : '';
+
+        // 如果已經有日期前綴（以日期格式開頭，例如「2024年1月1日｜」），就不處理（避免重複添加）
+        // 檢查是否以「年」開頭或包含「年...月...日｜」的格式
+        if (currentDesc && (/^\d{4}年\d{1,2}月\d{1,2}日｜/.test(currentDesc) || currentDesc.match(/^\d{4}年.*月.*日｜/))) {
+          return;
+        }
+
+        // 如果有現有的 description 且不是預設的 baseDesc，就使用現有的並加上日期前綴
+        // 如果沒有現有的 description 或是預設的，才使用 baseDesc
+        let targetDesc = currentDesc && currentDesc !== baseDesc ? currentDesc : baseDesc;
+        const fullDesc = `${datePrefix}${targetDesc}`;
+
+        if (!meta) {
+          meta = document.createElement('meta');
+          meta.name = 'description';
+          document.head.appendChild(meta);
+        }
+        meta.content = fullDesc;
+      } catch (error) {
+        console.error('更新 meta description 失敗:', error);
+      }
+    };
+
+    updateMetaDescriptionWithDate();
+  }, [location.pathname]);
+
+  return null;
+};
+
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -647,12 +717,12 @@ function App() {
           setAnnouncement(announcementValue.trim());
         } else {
           // 如果資料庫沒有公告，使用預設值
-          setAnnouncement('公告：歡迎！本站會時時更新資料，如有任何問題可先至「關於版主」頁面瀏覽相關資訊。');
+          setAnnouncement('公告：歡迎赴宴！本站會時時更新資料，如有任何問題可先至「關於版主」頁面瀏覽相關資訊。');
         }
       } catch (error) {
         console.error('獲取公告內容失敗:', error);
         // 發生錯誤時使用預設值
-        setAnnouncement('公告：歡迎！本站會時時更新資料，如有任何問題可先至「關於版主」頁面瀏覽相關資訊。');
+        setAnnouncement('公告：歡迎赴宴！本站會時時更新資料，如有任何問題可先至「關於版主」頁面瀏覽相關資訊。');
       }
     };
     fetchAnnouncement();
@@ -734,6 +804,7 @@ function App() {
   return (
     <ConfigProvider locale={zhTW}>
       <Router>
+        <MetaDescriptionUpdater />
         <Routes>
           <Route
             path="/welcome"

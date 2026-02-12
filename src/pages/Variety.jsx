@@ -5,6 +5,8 @@ import { CalendarOutlined, PlayCircleOutlined, UserOutlined, FireOutlined, Video
 import { selfMadeVariety, documentaryRecord, birthdayRecord, externalVariety, performanceVariety, tfFamilyPeriodVariety, tytPeriodVariety } from '../data/variety';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { dbService } from '../services/database';
+import SEOHead from '../components/SEO/SEOHead';
+import { generateBreadcrumbStructuredData } from '../utils/structuredData';
 
 const { Title, Paragraph, Text } = Typography;
 const { Panel } = Collapse;
@@ -41,6 +43,7 @@ const Variety = () => {
     typhoonPeriod: []
   });
   const [loading, setLoading] = useState(true);
+  const [seoDescription, setSeoDescription] = useState('時代少年團綜藝節目：自製團綜、紀錄片、生日紀錄、外務綜藝、活動表演等完整列表。包含播出日期、參與成員、集數等詳細資料。');
 
   // 將日期字串格式化為本地時區的 YYYY-MM-DD，避免少一天
   const formatDate = (value) => {
@@ -147,6 +150,26 @@ const Variety = () => {
         });
 
         setVarietyData(categorized);
+
+        // 根據最新資料生成 SEO description
+        const totalCount = Object.values(categorized).reduce((sum, arr) => sum + arr.length, 0);
+        if (totalCount > 0) {
+          // 取得最新的 5 筆資料（從自製團綜開始）
+          const latestItems = [
+            ...categorized.selfMade.slice(0, 3),
+            ...categorized.documentary.slice(0, 2)
+          ].filter(Boolean);
+          const latestTitles = latestItems.map(item => item.title).filter(Boolean);
+
+          if (latestTitles.length > 0) {
+            const latestText = latestTitles.join('、');
+            const description = `時代少年團最新綜藝節目：${latestText}。完整自製團綜、紀錄片、生日紀錄、外務綜藝、活動表演列表，包含播出日期、參與成員、集數等詳細資料。`;
+            setSeoDescription(description);
+          } else {
+            const description = `時代少年團綜藝節目完整列表，共 ${totalCount} 個節目。包含自製團綜、紀錄片、生日紀錄、外務綜藝、活動表演等，提供播出日期、參與成員、集數等詳細資料。`;
+            setSeoDescription(description);
+          }
+        }
       } catch (error) {
         console.error('從資料庫載入綜藝節目資料失敗:', error);
         // 如果載入失敗，使用本地資料作為後備
@@ -189,6 +212,12 @@ const Variety = () => {
   }, []);
 
   usePageTitle('綜藝節目｜時代少年團');
+
+  // 生成麵包屑結構化資料
+  const breadcrumbData = generateBreadcrumbStructuredData([
+    { name: '首頁', url: '/' },
+    { name: '綜藝節目', url: '/variety' }
+  ]);
 
   // 生日紀錄依 Category 和 Title2 分組
   const birthdayByCategoryAndTitle2 = useMemo(() => {
@@ -682,7 +711,13 @@ const Variety = () => {
     );
   }
   return (
-    <div style={{ padding: '24px', position: 'relative' }}>
+    <>
+      <SEOHead
+        title="綜藝節目｜時代少年團"
+        description={seoDescription}
+        structuredData={breadcrumbData}
+      />
+      <div style={{ padding: '24px', position: 'relative' }}>
       <style>{`
         .variety-description-clamp {
           -webkit-line-clamp: 2;
@@ -946,6 +981,7 @@ const Variety = () => {
       )}
 
     </div>
+    </>
   );
 };
 

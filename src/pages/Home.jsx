@@ -8,6 +8,8 @@ import { usePageTitle } from '../hooks/usePageTitle';
 import { ref, get, set, runTransaction, onValue } from 'firebase/database';
 import { database } from '../config/firebase';
 import { dbService } from '../services/database';
+import SEOHead from '../components/SEO/SEOHead';
+import { generateWebsiteStructuredData, generateOrganizationStructuredData } from '../utils/structuredData';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -36,6 +38,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [homePhotos, setHomePhotos] = useState([]);
   const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
+  const [groupInfo, setGroupInfo] = useState(null);
   const hasLoadedRef = useRef(false); // 追蹤是否已經載入過資料
 
   usePageTitle('時代少年團 Teens in Times');
@@ -52,16 +55,18 @@ const Home = () => {
       try {
         console.log('開始從資料庫載入資料...');
         // 嘗試從資料庫載入資料
-        const [members, honors, photos] = await Promise.all([
+        const [members, honors, photos, info] = await Promise.all([
           dbService.getMembers(),
           dbService.getGroupHonors(),
-          dbService.getHomePhotos()
+          dbService.getHomePhotos(),
+          dbService.getGroupInfo()
         ]);
 
         console.log('成功載入資料:', { members: members.length, honors: honors.length, photos: photos.length });
         setMembersData(members);
         setGroupHonors(honors);
         setHomePhotos(photos);
+        setGroupInfo(info);
 
         // 標記為已載入
         hasLoadedRef.current = true;
@@ -155,8 +160,20 @@ const Home = () => {
   const fixedPhoto = homePhotos.find(photo => photo.photoType === 'fixed');
   const carouselPhotos = homePhotos.filter(photo => photo.photoType === 'carousel');
 
+  // 生成結構化資料
+  const structuredData = [
+    generateWebsiteStructuredData(),
+    ...(groupInfo ? [generateOrganizationStructuredData(groupInfo)] : [])
+  ];
+
   return (
-    <div style={{ padding: '24px', position: 'relative' }}>
+    <>
+      <SEOHead
+        title="時代少年團 Teens in Times"
+        description="TNT時代少年團。此為自製網站，提供成員資訊、音樂作品、演唱會記錄、綜藝節目、紀錄片...時時更新最新資料"
+        structuredData={structuredData}
+      />
+      <div style={{ padding: '24px', position: 'relative' }}>
       {/* 瀏覽次數 - 右上角 */}
       <div
         style={{
@@ -487,7 +504,7 @@ const Home = () => {
 
         {/* 出道前的團體經歷 */}
         <Card
-          title={<> 出道前的成員經歷</>}
+          title={<> 二代成員經歷</>}
           style={{
             borderRadius: '15px',
             border: '2px solid #FFD700',
@@ -511,9 +528,8 @@ const Home = () => {
           </div>
         </Card>
       </div>
-
-
     </div>
+    </>
   );
 };
 

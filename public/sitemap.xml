@@ -3,7 +3,7 @@
   <!-- 首頁 -->
   <url>
     <loc>https://teensintimes-website.zeabur.app/</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2026-02-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,15 +11,15 @@
   <!-- 歡迎頁 -->
   <url>
     <loc>https://teensintimes-website.zeabur.app/welcome</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2026-02-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
 
   <!-- 成員列表 -->
   <url>
     <loc>https://teensintimes-website.zeabur.app/members</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2026-02-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -27,7 +27,7 @@
   <!-- 音樂 -->
   <url>
     <loc>https://teensintimes-website.zeabur.app/music</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2026-02-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -35,7 +35,7 @@
   <!-- 演唱會 -->
   <url>
     <loc>https://teensintimes-website.zeabur.app/concerts</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2026-02-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -43,7 +43,7 @@
   <!-- 綜藝節目 -->
   <url>
     <loc>https://teensintimes-website.zeabur.app/variety</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2026-02-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

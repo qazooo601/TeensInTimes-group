@@ -5,6 +5,8 @@ import { ArrowLeftOutlined, CalendarOutlined, EnvironmentOutlined, BankOutlined,
 import { usePageTitle } from '../hooks/usePageTitle';
 import { concertsData as localConcertsData } from '../data/concertsData';
 import dbService from '../services/database';
+import SEOHead from '../components/SEO/SEOHead';
+import { generateBreadcrumbStructuredData, generateEventStructuredData } from '../utils/structuredData';
 
 const { Title, Paragraph, Text } = Typography;
 const { useBreakpoint } = Grid;
@@ -35,6 +37,7 @@ const ConcertDetail = () => {
   const [isSingleDayExpanded, setIsSingleDayExpanded] = useState(true);
   const [concert, setConcert] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [seoDescription, setSeoDescription] = useState('時代少年團演唱會詳細資訊：包含演唱會名稱、日期、地點、場地、曲目列表、演唱會影片連結等完整資料。');
   const screens = useBreakpoint();
 
   // 從資料庫載入演唱會資料
@@ -49,6 +52,14 @@ const ConcertDetail = () => {
         if (concertFromState) {
           // 如果已經有演唱會資料，直接使用（因為 Concerts.jsx 已經從資料庫載入了）
           setConcert(concertFromState);
+          // 生成 SEO description
+          if (concertFromState) {
+            const songCount = typeof concertFromState.setlist === 'object' && !Array.isArray(concertFromState.setlist)
+              ? Object.values(concertFromState.setlist).reduce((sum, day) => sum + (day.songs?.length || 0), 0)
+              : concertFromState.setlist?.length || 0;
+            const description = `${concertFromState.concertName} - 時代少年團演唱會。日期：${formatDate(concertFromState.date)}，地點：${concertFromState.location}，場地：${concertFromState.venue}，共 ${songCount} 首歌曲。包含完整曲目列表、演唱會影片連結等詳細資料。`;
+            setSeoDescription(description);
+          }
           setLoading(false);
           return;
         }
@@ -80,6 +91,12 @@ const ConcertDetail = () => {
 
             if (foundConcert) {
               setConcert(foundConcert);
+              // 生成 SEO description
+              const songCount = typeof foundConcert.setlist === 'object' && !Array.isArray(foundConcert.setlist)
+                ? Object.values(foundConcert.setlist).reduce((sum, day) => sum + (day.songs?.length || 0), 0)
+                : foundConcert.setlist?.length || 0;
+              const description = `${foundConcert.concertName} - 時代少年團演唱會。日期：${formatDate(foundConcert.date)}，地點：${foundConcert.location}，場地：${foundConcert.venue}，共 ${songCount} 首歌曲。包含完整曲目列表、演唱會影片連結等詳細資料。`;
+              setSeoDescription(description);
             } else {
               // 如果資料庫中找不到，嘗試從本地資料查找
               const localConcert = localConcertsData.find(item =>
@@ -88,6 +105,12 @@ const ConcertDetail = () => {
               );
               if (localConcert) {
                 setConcert(localConcert);
+                // 生成 SEO description
+                const songCount = typeof localConcert.setlist === 'object' && !Array.isArray(localConcert.setlist)
+                  ? Object.values(localConcert.setlist).reduce((sum, day) => sum + (day.songs?.length || 0), 0)
+                  : localConcert.setlist?.length || 0;
+                const description = `${localConcert.concertName} - 時代少年團演唱會。日期：${formatDate(localConcert.date)}，地點：${localConcert.location}，場地：${localConcert.venue}，共 ${songCount} 首歌曲。包含完整曲目列表、演唱會影片連結等詳細資料。`;
+                setSeoDescription(description);
                 message.warning('使用本地資料');
               } else {
                 message.error('找不到指定的演唱會');
@@ -102,6 +125,12 @@ const ConcertDetail = () => {
             );
             if (localConcert) {
               setConcert(localConcert);
+              // 生成 SEO description
+              const songCount = typeof localConcert.setlist === 'object' && !Array.isArray(localConcert.setlist)
+                ? Object.values(localConcert.setlist).reduce((sum, day) => sum + (day.songs?.length || 0), 0)
+                : localConcert.setlist?.length || 0;
+              const description = `${localConcert.concertName} - 時代少年團演唱會。日期：${formatDate(localConcert.date)}，地點：${localConcert.location}，場地：${localConcert.venue}，共 ${songCount} 首歌曲。包含完整曲目列表、演唱會影片連結等詳細資料。`;
+              setSeoDescription(description);
               message.warning('無法連接到資料庫，使用本地資料');
             }
           }
@@ -123,27 +152,62 @@ const ConcertDetail = () => {
       : '演唱會詳細資訊｜時代少年團'
   );
 
+  // 生成麵包屑結構化資料
+  const breadcrumbData = concert
+    ? generateBreadcrumbStructuredData([
+        { name: '首頁', url: '/' },
+        { name: '演唱會', url: '/concerts' },
+        { name: concert.concertName || '演唱會詳情', url: `/concert-detail` }
+      ])
+    : generateBreadcrumbStructuredData([
+        { name: '首頁', url: '/' },
+        { name: '演唱會', url: '/concerts' }
+      ]);
+
+  // 生成演唱會的結構化資料
+  const eventStructuredData = concert ? generateEventStructuredData({
+    title: concert.concertName,
+    description: concert.description || seoDescription,
+    image: concert.image,
+    date: concert.date,
+    venue: concert.venue,
+    location: concert.location
+  }) : null;
+
   // 載入中狀態
   if (loading) {
     return (
-      <div style={{
-        padding: '24px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '400px',
-        fontSize: '20px',
-        color: '#FFD700'
-      }}>
-        載入中...
-      </div>
+      <>
+        <SEOHead
+          title="演唱會詳細資訊｜時代少年團"
+          description={seoDescription}
+          structuredData={breadcrumbData}
+        />
+        <div style={{
+          padding: '24px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '400px',
+          fontSize: '20px',
+          color: '#FFD700'
+        }}>
+          載入中...
+        </div>
+      </>
     );
   }
 
   // 如果沒有傳入特定演唱會，顯示所有演唱會列表
   if (!concert) {
     return (
-      <div style={{ padding: '24px' }}>
+      <>
+        <SEOHead
+          title="演唱會詳細資訊｜時代少年團"
+          description={seoDescription}
+          structuredData={breadcrumbData}
+        />
+        <div style={{ padding: '24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <Title level={1} style={{
             color: '#FFD700',
@@ -162,6 +226,7 @@ const ConcertDetail = () => {
           </Paragraph>
         </div>
       </div>
+      </>
     );
   }
 
@@ -186,7 +251,14 @@ const ConcertDetail = () => {
   };
 
   return (
-    <div style={{ padding: '24px' }}>
+    <>
+      <SEOHead
+        title={`${concert.concertName || '演唱會'} 詳細資訊｜時代少年團`}
+        description={seoDescription}
+        structuredData={eventStructuredData || breadcrumbData}
+        image={concert.image}
+      />
+      <div style={{ padding: '24px' }}>
       <div style={{ marginBottom: '24px' }}>
         <Button
           icon={<ArrowLeftOutlined />}
@@ -575,6 +647,7 @@ const ConcertDetail = () => {
 
       </Card>
     </div>
+    </>
   );
 };
 

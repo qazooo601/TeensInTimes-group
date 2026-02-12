@@ -6,6 +6,8 @@ import { BsSinaWeibo } from "react-icons/bs";
 import { membersData as localMembersData } from '../data/membersData';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { dbService } from '../services/database';
+import SEOHead from '../components/SEO/SEOHead';
+import { generateBreadcrumbStructuredData } from '../utils/structuredData';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -32,6 +34,12 @@ const Members = () => {
   const [loading, setLoading] = useState(true);
 
   usePageTitle('成員介紹｜時代少年團');
+
+  // 生成麵包屑結構化資料
+  const breadcrumbData = generateBreadcrumbStructuredData([
+    { name: '首頁', url: '/' },
+    { name: '成員介紹', url: '/members' }
+  ]);
 
   // 從資料庫載入資料
   useEffect(() => {
@@ -136,7 +144,13 @@ const Members = () => {
   }
 
   return (
-    <div style={{ padding: '24px', position: 'relative' }}>
+    <>
+      <SEOHead
+        title="成員介紹｜時代少年團"
+        description="時團成員介紹：馬嘉祺、丁程鑫、宋亞軒、劉耀文、張真源、嚴浩翔、賀峻霖。查看每位成員的詳細資料、生日、微博..."
+        structuredData={breadcrumbData}
+      />
+      <div style={{ padding: '24px', position: 'relative' }}>
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
         <Title level={1} style={{
           color: '#EBC700',
@@ -297,6 +311,7 @@ const Members = () => {
         </Button>
       </div>
     </div>
+    </>
   );
 };
 

@@ -5,6 +5,8 @@ import { CalendarOutlined, PlayCircleOutlined, UserOutlined, FolderOutlined, Sou
 import { musicData as localMusicData } from '../data/musicData';
 import { usePageTitle } from '../hooks/usePageTitle';
 import dbService from '../services/database';
+import SEOHead from '../components/SEO/SEOHead';
+import { generateBreadcrumbStructuredData } from '../utils/structuredData';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -30,8 +32,15 @@ const Music = () => {
   const navigate = useNavigate();
   const [musicData, setMusicData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [seoDescription, setSeoDescription] = useState('時代少年團音樂作品：專輯、單曲完整列表。包含發行日期、歌曲資訊、播放連結等詳細資料。');
 
   usePageTitle('歌曲｜時代少年團');
+
+  // 生成麵包屑結構化資料
+  const breadcrumbData = generateBreadcrumbStructuredData([
+    { name: '首頁', url: '/' },
+    { name: '歌曲', url: '/music' }
+  ]);
 
   // 從資料庫載入音樂資料
   useEffect(() => {
@@ -41,10 +50,34 @@ const Music = () => {
         const data = await dbService.getMusic();
         setMusicData(data);
         console.log('成功從資料庫載入音樂資料:', data.length, '筆');
+
+        // 根據最新資料生成 SEO description
+        if (data && data.length > 0) {
+          // 取得最新的 5 筆資料（資料庫已按 ReleaseDate DESC 排序）
+          const latestItems = data.slice(0, 7);
+          const latestNames = latestItems.map(item => item.name).filter(Boolean);
+
+          if (latestNames.length > 0) {
+            const latestText = latestNames.join('、');
+            const description = `時代少年團最新音樂作品：${latestText}。完整專輯、單曲列表，包含發行日期、歌曲資訊、播放連結等詳細資料。`;
+            setSeoDescription(description);
+          }
+        }
       } catch (error) {
         console.error('從資料庫載入音樂資料失敗，使用本地資料:', error);
         message.warning('無法連接到資料庫，使用本地資料');
         setMusicData(localMusicData);
+
+        // 如果使用本地資料，也嘗試生成 description
+        if (localMusicData && localMusicData.length > 0) {
+          const latestItems = localMusicData.slice(0, 7);
+          const latestNames = latestItems.map(item => item.name).filter(Boolean);
+          if (latestNames.length > 0) {
+            const latestText = latestNames.join('、');
+            const description = `時代少年團最新音樂作品：${latestText}。完整專輯、單曲列表，包含發行日期、歌曲資訊、播放連結等詳細資料。`;
+            setSeoDescription(description);
+          }
+        }
       } finally {
         setLoading(false);
       }
@@ -207,7 +240,13 @@ const Music = () => {
   }
 
   return (
-    <div style={{ padding: '24px', position: 'relative' }}>
+    <>
+      <SEOHead
+        title="歌曲｜時代少年團"
+        description={seoDescription}
+        structuredData={breadcrumbData}
+      />
+      <div style={{ padding: '24px', position: 'relative' }}>
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
         <Title level={1} style={{
           color: '#EBC700',
@@ -253,9 +292,8 @@ const Music = () => {
           {singles.map(renderMusicCard)}
         </div>
       </div>
-
-
     </div>
+    </>
   );
 };
 
