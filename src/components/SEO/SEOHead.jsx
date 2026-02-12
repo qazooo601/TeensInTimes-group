@@ -9,7 +9,7 @@ import { useLocation } from 'react-router-dom';
  * @param {string} props.keywords - 頁面關鍵字（可選）
  * @param {string} props.image - 頁面圖片 URL（可選，預設為 logo）
  * @param {string} props.type - Open Graph 類型（可選，預設為 'website'）
- * @param {Object} props.structuredData - 結構化資料物件（可選）
+ * @param {Object|Array} props.structuredData - 結構化資料物件或陣列（可選，符合 Schema.org JSON-LD 格式）
  */
 const SEOHead = ({
   title = '時代少年團',
@@ -79,17 +79,23 @@ const SEOHead = ({
     updateOrCreateMeta('twitter:description', description, true);
     updateOrCreateMeta('twitter:image', fullImageUrl, true);
 
-    // 移除舊的結構化資料（如果存在）
-    const oldStructuredData = document.querySelector('script[type="application/ld+json"]');
-    if (oldStructuredData) {
-      oldStructuredData.remove();
-    }
+    // 移除所有舊的結構化資料（可能有多個）
+    const oldStructuredDataScripts = document.querySelectorAll('script[type="application/ld+json"]');
+    oldStructuredDataScripts.forEach(script => script.remove());
 
     // 添加新的結構化資料
     if (structuredData) {
       const script = document.createElement('script');
       script.type = 'application/ld+json';
-      script.text = JSON.stringify(structuredData);
+
+      // 處理陣列或單一物件格式
+      // 如果 structuredData 是陣列，直接使用；如果是單一物件，包裝成陣列
+      // 根據 Schema.org 規範，多個結構化資料可以放在一個 script 標籤中作為陣列
+      const dataToSerialize = Array.isArray(structuredData)
+        ? structuredData
+        : [structuredData];
+
+      script.text = JSON.stringify(dataToSerialize, null, 2);
       document.head.appendChild(script);
     }
   }, [title, description, keywords, image, type, structuredData, fullUrl, fullImageUrl, location.pathname]);
