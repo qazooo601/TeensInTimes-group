@@ -72,6 +72,13 @@ const MemberDetail = () => {
           gradientColors: ['#C0EBD7', '#F98D74'],
           borderColor: '#C0EBD7'
         };
+      case 7:
+        // Id=7: 流動漸變色 #ADD5A2 → #B0E0E6 → #FFB6C1 → #E6E6FA → #FFFACD → #FFDAB9 → #ADD5A2，邊框 #ADD5A2
+        return {
+          gradientColors: ['#ADD5A2', '#B0E0E6', '#FFB6C1', '#E6E6FA', '#FFFACD', '#FFDAB9', '#ADD5A2'],
+          borderColor: '#ADD5A2',
+          hasIridescentEffect: true
+        };
       default:
         // 預設：使用資料庫的 supportColor，邊框使用第一個顏色
         const colors = Array.isArray(supportColor)
@@ -84,12 +91,17 @@ const MemberDetail = () => {
     }
   };
 
-  // 生成漸層樣式（支援 2 個或 3 個顏色）
+  // 生成漸層樣式（支援 2、3 個顏色，以及多色漸變）
   const generateGradient = (colors, opacity = '') => {
     if (colors.length === 2) {
       return `linear-gradient(135deg, ${colors[0]}${opacity} 0%, ${colors[1]}${opacity} 100%)`;
     } else if (colors.length === 3) {
       return `linear-gradient(135deg, ${colors[0]}${opacity} 0%, ${colors[1]}${opacity} 50%, ${colors[2]}${opacity} 100%)`;
+    } else if (colors.length > 3) {
+      const colorStops = colors.map((color, i) =>
+        `${color}${opacity} ${(i / (colors.length - 1)) * 100}%`
+      ).join(', ');
+      return `linear-gradient(135deg, ${colorStops})`;
     } else {
       return `${colors[0]}${opacity}`;
     }

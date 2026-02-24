@@ -431,6 +431,13 @@ const Home = () => {
                       gradientColors: ['#C0EBD7', '#F98D74'],
                       borderColor: '#C0EBD7'
                     };
+                  case 7:
+                    // Id=7: 流動漸變色 #ADD5A2 → #B0E0E6 → #FFB6C1 → #E6E6FA → #FFFACD → #FFDAB9 → #ADD5A2，邊框 #ADD5A2
+                    return {
+                      gradientColors: ['#ADD5A2', '#B0E0E6', '#FFB6C1', '#E6E6FA', '#FFFACD', '#FFDAB9', '#ADD5A2'],
+                      borderColor: '#ADD5A2',
+                      hasIridescentEffect: true
+                    };
                   default:
                     // 預設：使用資料庫的 supportColor，邊框使用第一個顏色
                     const colors = Array.isArray(member.supportColor)
@@ -447,12 +454,18 @@ const Home = () => {
               const gradientColors = colorConfig.gradientColors;
               const borderColor = colorConfig.borderColor;
 
-              // 生成漸層樣式（支援 2 個或 3 個顏色）
+              // 生成漸層樣式（支援 2 個或 3 個顏色，以及多色漸變）
               const generateGradient = (colors, opacity = '') => {
                 if (colors.length === 2) {
                   return `linear-gradient(135deg, ${colors[0]}${opacity} 0%, ${colors[1]}${opacity} 100%)`;
                 } else if (colors.length === 3) {
                   return `linear-gradient(135deg, ${colors[0]}${opacity} 0%, ${colors[1]}${opacity} 50%, ${colors[2]}${opacity} 100%)`;
+                } else if (colors.length > 3) {
+                  // 多色漸變
+                  const colorStops = colors.map((color, i) =>
+                    `${color}${opacity} ${(i / (colors.length - 1)) * 100}%`
+                  ).join(', ');
+                  return `linear-gradient(135deg, ${colorStops})`;
                 } else {
                   return `${colors[0]}${opacity}`;
                 }
@@ -460,22 +473,74 @@ const Home = () => {
 
               const avatarGradient = generateGradient(gradientColors);
               const hoverBackgroundStyle = generateGradient(gradientColors, '40');
+              const hasIridescentEffect = colorConfig.hasIridescentEffect || false;
+
+              // 為 Id=7 生成靜態漸變背景（如果動畫不工作，至少顯示靜態漸變）
+              const staticIridescentBackground = hasIridescentEffect
+                ? generateGradient(gradientColors, '50')
+                : null;
 
               return (
+                <>
+                  {/* 為 Id=7 添加流動漸變色效果的 CSS */}
+                  {hasIridescentEffect && (
+                    <style>
+                      {`
+                        @keyframes iridescent-flow-${index} {
+                          0% {
+                            background-position: 0% 50%;
+                          }
+                          100% {
+                            background-position: 200% 50%;
+                          }
+                        }
+
+                        .iridescent-effect-home-${index}:hover {
+                          position: relative;
+                          overflow: hidden;
+                          background-image: repeating-linear-gradient(
+                            90deg,
+                            ${gradientColors.map((color, i) => {
+                              const pos = (i / (gradientColors.length - 1)) * 100;
+                              return `${color}60 ${pos}%`;
+                            }).join(', ')},
+                            ${gradientColors.map((color, i) => {
+                              const pos = (i / (gradientColors.length - 1)) * 100;
+                              return `${color}60 ${100 + pos}%`;
+                            }).join(', ')}
+                          ) !important;
+                          background-size: 300% 100% !important;
+                          background-repeat: no-repeat;
+                          animation: iridescent-flow-${index} 3s linear infinite;
+                          border-color: ${borderColor} !important;
+                        }
+                      `}
+                    </style>
+                  )}
                 <Col xs={12} sm={8} md={6} key={index}>
                   <div
+                    className={hasIridescentEffect ? `iridescent-effect-home-${index}` : ''}
                     style={{
                       textAlign: 'center',
                       padding: '10px',
                       cursor: 'pointer',
                       borderRadius: '12px',
                       transition: 'all 0.3s ease',
-                      border: '2px solid transparent'
+                      border: '2px solid transparent',
+                      position: 'relative',
+                      background: 'transparent'
                     }}
                     onClick={() => handleMemberClick(member)}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.borderColor = borderColor;
-                      e.currentTarget.style.background = hoverBackgroundStyle;
+                      if (!hasIridescentEffect) {
+                        e.currentTarget.style.background = hoverBackgroundStyle;
+                      } else {
+                        // Id=7: 使用靜態漸變作為基礎，CSS 動畫會覆蓋它
+                        if (staticIridescentBackground) {
+                          e.currentTarget.style.background = staticIridescentBackground;
+                        }
+                      }
                       e.currentTarget.style.transform = 'translateY(-2px)';
                     }}
                     onMouseLeave={(e) => {
@@ -507,6 +572,7 @@ const Home = () => {
                     </Text>
                   </div>
                 </Col>
+                </>
               );
             })}
           </Row>
