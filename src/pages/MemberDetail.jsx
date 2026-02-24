@@ -427,12 +427,12 @@ const MemberDetail = () => {
                   const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
                   // 為不同顏色創建對應的深色版本
                   const colorMap = {
-                    '#9A91F2': '#8076B7',
+                    '#EAF2FF': '#8076B7',
                     '#FFD700': '#B8860B',
-                    '#63C3DE': '#4B9DB4',
-                    '#FFFFFF': '#919191',
+                    '#63C5DE': '#4B9DB4',
+                    '#D1D1D1': '#919191',
                     '#C0EBD7': '#37A471',
-                    '#FF5546': '#CC0000',
+                    '#FF7F50': '#CC0000',
                     '#ADD5A2': '#89C379'
                   };
                   return colorMap[baseColor] || '#333';
@@ -528,12 +528,12 @@ const MemberDetail = () => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
                     // 為不同顏色創建對應的深色版本
                     const colorMap = {
-                      '#9A91F2': '#8076B7',
+                      '#EAF2FF': '#8076B7',
                       '#FFD700': '#B8860B',
-                      '#63C3DE': '#4B9DB4',
-                      '#FFFFFF': '#919191',
+                      '#63C5DE': '#4B9DB4',
+                      '#D1D1D1': '#919191',
                       '#C0EBD7': '#37A471',
-                      '#FF5546': '#CC0000',
+                      '#FF7F50': '#CC0000',
                       '#ADD5A2': '#89C379'
                     };
                     return colorMap[baseColor] || '#333';
@@ -547,12 +547,12 @@ const MemberDetail = () => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
                     // 為不同顏色創建對應的深色版本
                     const colorMap = {
-                      '#9A91F2': '#8076B7',
+                      '#EAF2FF': '#8076B7',
                       '#FFD700': '#B8860B',
-                      '#63C3DE': '#4B9DB4',
-                      '#FFFFFF': '#919191',
+                      '#63C5DE': '#4B9DB4',
+                      '#D1D1D1': '#919191',
                       '#C0EBD7': '#37A471',
-                      '#FF5546': '#CC0000',
+                      '#FF7F50': '#CC0000',
                       '#ADD5A2': '#89C379'
                     };
                     return colorMap[baseColor] || '#333';
@@ -789,12 +789,12 @@ const MemberDetail = () => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
                     // 為不同顏色創建對應的深色版本
                     const colorMap = {
-                      '#9A91F2': '#8076B7',
+                      '#EAF2FF': '#8076B7',
                       '#FFD700': '#B8860B',
-                      '#63C3DE': '#4B9DB4',
-                      '#FFFFFF': '#919191',
+                      '#63C5DE': '#4B9DB4',
+                      '#D1D1D1': '#919191',
                       '#C0EBD7': '#37A471',
-                      '#FF5546': '#CC0000',
+                      '#FF7F50': '#CC0000',
                       '#ADD5A2': '#89C379'
                     };
                     return colorMap[baseColor] || '#333';
@@ -808,12 +808,12 @@ const MemberDetail = () => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
                     // 為不同顏色創建對應的深色版本
                     const colorMap = {
-                      '#9A91F2': '#8076B7',
+                      '#EAF2FF': '#8076B7',
                       '#FFD700': '#B8860B',
-                      '#63C3DE': '#4B9DB4',
-                      '#FFFFFF': '#919191',
+                      '#63C5DE': '#4B9DB4',
+                      '#D1D1D1': '#919191',
                       '#C0EBD7': '#37A471',
-                      '#FF5546': '#CC0000',
+                      '#FF7F50': '#CC0000',
                       '#ADD5A2': '#89C379'
                     };
                     return colorMap[baseColor] || '#333';
@@ -895,12 +895,12 @@ const MemberDetail = () => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
                     // 為不同顏色創建對應的深色版本
                     const colorMap = {
-                      '#9A91F2': '#8076B7',
+                      '#EAF2FF': '#8076B7',
                       '#FFD700': '#B8860B',
-                      '#63C3DE': '#4B9DB4',
-                      '#FFFFFF': '#919191',
+                      '#63C5DE': '#4B9DB4',
+                      '#D1D1D1': '#919191',
                       '#C0EBD7': '#37A471',
-                      '#FF5546': '#CC0000',
+                      '#FF7F50': '#CC0000',
                       '#ADD5A2': '#89C379'
                     };
                     return colorMap[baseColor] || '#333';
@@ -914,12 +914,12 @@ const MemberDetail = () => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
                     // 為不同顏色創建對應的深色版本
                     const colorMap = {
-                      '#9A91F2': '#8076B7',
+                      '#EAF2FF': '#8076B7',
                       '#FFD700': '#B8860B',
-                      '#63C3DE': '#4B9DB4',
-                      '#FFFFFF': '#919191',
+                      '#63C5DE': '#4B9DB4',
+                      '#D1D1D1': '#919191',
                       '#C0EBD7': '#37A471',
-                      '#FF5546': '#CC0000',
+                      '#FF7F50': '#CC0000',
                       '#ADD5A2': '#89C379'
                     };
                     return colorMap[baseColor] || '#333';
@@ -979,12 +979,12 @@ const MemberDetail = () => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
                     // 為不同顏色創建對應的深色版本
                     const colorMap = {
-                      '#9A91F2': '#8076B7',
+                      '#EAF2FF': '#8076B7',
                       '#FFD700': '#B8860B',
-                      '#63C3DE': '#4B9DB4',
-                      '#FFFFFF': '#919191',
+                      '#63C5DE': '#4B9DB4',
+                      '#D1D1D1': '#919191',
                       '#C0EBD7': '#37A471',
-                      '#FF5546': '#CC0000',
+                      '#FF7F50': '#CC0000',
                       '#ADD5A2': '#89C379'
                     };
                     return colorMap[baseColor] || '#333';
@@ -998,12 +998,12 @@ const MemberDetail = () => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
                     // 為不同顏色創建對應的深色版本
                     const colorMap = {
-                      '#9A91F2': '#8076B7',
+                      '#EAF2FF': '#8076B7',
                       '#FFD700': '#B8860B',
-                      '#63C3DE': '#4B9DB4',
-                      '#FFFFFF': '#919191',
+                      '#63C5DE': '#4B9DB4',
+                      '#D1D1D1': '#919191',
                       '#C0EBD7': '#37A471',
-                      '#FF5546': '#CC0000',
+                      '#FF7F50': '#CC0000',
                       '#ADD5A2': '#89C379'
                     };
                     return colorMap[baseColor] || '#333';

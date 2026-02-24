@@ -269,12 +269,12 @@ const Members = () => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
                     // 為不同顏色創建對應的深色版本
                     const colorMap = {
-                      '#CC66FF': '#524889',
+                      '#EAF2FF': '#8076B7',
                       '#FFD700': '#B8860B',
-                      '#63C3DE': '#1D738B',
-                      '#FFFFFF': '#757575',
+                      '#63C5DE': '#1D738B',
+                      '#D1D1D1': '#757575',
                       '#C0EBD7': '#37A471',
-                      '#FF5546': '#CC0000',
+                      '#FF7F50': '#CC0000',
                       '#ADD5A2': '#62AC4D'
                     };
                     return colorMap[baseColor] || '#333';

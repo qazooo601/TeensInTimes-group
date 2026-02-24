@@ -404,7 +404,62 @@ const Home = () => {
         >
           <Row gutter={[16, 16]}>
             {membersData.map((member, index) => {
-              const primaryColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+              // 根據不同的 ID 設定漸變色順序和邊框顏色
+              const getColorConfig = (id) => {
+                switch (id) {
+                  case 1:
+                    // Id=1: 漸變色順序 #EAF2FF → #9A91F2，邊框 #9A91F2
+                    return {
+                      gradientColors: ['#EAF2FF', '#9A91F2'],
+                      borderColor: '#9A91F2'
+                    };
+                  case 4:
+                    // Id=4: 漸變色順序 #D1D1D1 → #FFFFFF → #A1A3A6，邊框 #A1A3A6
+                    return {
+                      gradientColors: ['#D1D1D1', '#FFFFFF', '#A1A3A6'],
+                      borderColor: '#A1A3A6'
+                    };
+                  case 3:
+                    // Id=3: 漸變色順序 #63C5DE → #E1F5FA，邊框 #63C5DE
+                    return {
+                      gradientColors: ['#63C5DE', '#E1F5FA'],
+                      borderColor: '#63C5DE'
+                    };
+                  case 5:
+                    // Id=5: 漸變色順序 #C0EBD7 → #F98D74，邊框 #C0EBD7
+                    return {
+                      gradientColors: ['#C0EBD7', '#F98D74'],
+                      borderColor: '#C0EBD7'
+                    };
+                  default:
+                    // 預設：使用資料庫的 supportColor，邊框使用第一個顏色
+                    const colors = Array.isArray(member.supportColor)
+                      ? member.supportColor
+                      : [member.supportColor];
+                    return {
+                      gradientColors: colors,
+                      borderColor: colors[0]
+                    };
+                }
+              };
+
+              const colorConfig = getColorConfig(member.id);
+              const gradientColors = colorConfig.gradientColors;
+              const borderColor = colorConfig.borderColor;
+
+              // 生成漸層樣式（支援 2 個或 3 個顏色）
+              const generateGradient = (colors, opacity = '') => {
+                if (colors.length === 2) {
+                  return `linear-gradient(135deg, ${colors[0]}${opacity} 0%, ${colors[1]}${opacity} 100%)`;
+                } else if (colors.length === 3) {
+                  return `linear-gradient(135deg, ${colors[0]}${opacity} 0%, ${colors[1]}${opacity} 50%, ${colors[2]}${opacity} 100%)`;
+                } else {
+                  return `${colors[0]}${opacity}`;
+                }
+              };
+
+              const avatarGradient = generateGradient(gradientColors);
+              const hoverBackgroundStyle = generateGradient(gradientColors, '20');
 
               return (
                 <Col xs={12} sm={8} md={6} key={index}>
@@ -419,13 +474,13 @@ const Home = () => {
                     }}
                     onClick={() => handleMemberClick(member)}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = primaryColor;
-                      e.currentTarget.style.backgroundColor = `${primaryColor}15`;
+                      e.currentTarget.style.borderColor = borderColor;
+                      e.currentTarget.style.background = hoverBackgroundStyle;
                       e.currentTarget.style.transform = 'translateY(-2px)';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.borderColor = 'transparent';
-                      e.currentTarget.style.backgroundColor = 'transparent';
+                      e.currentTarget.style.background = 'transparent';
                       e.currentTarget.style.transform = 'translateY(0)';
                     }}
                   >
@@ -433,9 +488,9 @@ const Home = () => {
                       size={70}
                       src={member.image}
                       style={{
-                        backgroundColor: primaryColor,
+                        background: avatarGradient,
                         marginBottom: '8px',
-                        border: `2px solid ${primaryColor}`,
+                        border: `2px solid ${borderColor}`,
                         boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
                       }}
                       onError={() => {

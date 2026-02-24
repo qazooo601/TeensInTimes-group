@@ -75,6 +75,7 @@ app.get('/api/members', async (req, res) => {
 
     const [rows] = await connection.execute(
       `SELECT
+        ID as id,
         MemberCode as memberCode,
         MemberName as memberName,
         MemberNameEn as memberNameEn,
@@ -107,6 +108,7 @@ app.get('/api/members', async (req, res) => {
       };
 
       return {
+        id: row.id,
         memberCode: row.memberCode,
         memberName: row.memberName,
         memberNameEn: row.memberNameEn,
