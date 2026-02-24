@@ -195,12 +195,62 @@ const Members = () => {
           maxWidth: '1200px'
         }}>
         {membersData.map((member, index) => {
-          // 處理顏色：如果是陣列則創建漸層，如果是單一顏色則使用原色
-          const isGradient = Array.isArray(member.supportColor);
-          const primaryColor = isGradient ? member.supportColor[0] : member.supportColor;
-          const backgroundStyle = isGradient
-            ? `linear-gradient(135deg, ${member.supportColor[0]}60 0%, ${member.supportColor[1]}60 100%)`
-            : `linear-gradient(135deg, ${member.supportColor}20 0%, ${member.supportColor}60 100%)`;
+          // 根據不同的 ID 設定漸變色順序和邊框顏色（與 Home.jsx 相同邏輯）
+          const getColorConfig = (id) => {
+            switch (id) {
+              case 1:
+                // Id=1: 漸變色順序 #EAF2FF → #9A91F2，邊框 #9A91F2
+                return {
+                  gradientColors: ['#EAF2FF', '#9A91F2'],
+                  borderColor: '#9A91F2'
+                };
+              case 4:
+                // Id=4: 漸變色順序 #D1D1D1 → #FFFFFF → #A1A3A6，邊框 #A1A3A6
+                return {
+                  gradientColors: ['#D1D1D1', '#FFFFFF', '#A1A3A6'],
+                  borderColor: '#A1A3A6'
+                };
+              case 3:
+                // Id=3: 漸變色順序 #63C5DE → #E1F5FA，邊框 #63C5DE
+                return {
+                  gradientColors: ['#63C5DE', '#E1F5FA'],
+                  borderColor: '#63C5DE'
+                };
+              case 5:
+                // Id=5: 漸變色順序 #C0EBD7 → #F98D74，邊框 #C0EBD7
+                return {
+                  gradientColors: ['#C0EBD7', '#F98D74'],
+                  borderColor: '#C0EBD7'
+                };
+              default:
+                // 預設：使用資料庫的 supportColor，邊框使用第一個顏色
+                const colors = Array.isArray(member.supportColor)
+                  ? member.supportColor
+                  : [member.supportColor];
+                return {
+                  gradientColors: colors,
+                  borderColor: colors[0]
+                };
+            }
+          };
+
+          const colorConfig = getColorConfig(member.id);
+          const gradientColors = colorConfig.gradientColors;
+          const borderColor = colorConfig.borderColor;
+
+          // 生成漸層樣式（支援 2 個或 3 個顏色）
+          const generateGradient = (colors, opacity = '') => {
+            if (colors.length === 2) {
+              return `linear-gradient(135deg, ${colors[0]}${opacity} 0%, ${colors[1]}${opacity} 100%)`;
+            } else if (colors.length === 3) {
+              return `linear-gradient(135deg, ${colors[0]}${opacity} 0%, ${colors[1]}${opacity} 50%, ${colors[2]}${opacity} 100%)`;
+            } else {
+              return `${colors[0]}${opacity}`;
+            }
+          };
+
+          const backgroundStyle = generateGradient(gradientColors, '50');
+          const avatarGradient = generateGradient(gradientColors);
 
           return (
             <Card
@@ -209,7 +259,7 @@ const Members = () => {
               onClick={() => handleMemberClick(member)}
               style={{
                 borderRadius: '20px',
-                border: `3px solid ${primaryColor}`,
+                border: `3px solid ${borderColor}`,
                 boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
                 transition: 'all 0.3s ease',
                 background: backgroundStyle,
@@ -226,9 +276,9 @@ const Members = () => {
                       display: 'inline-flex',
                       width: '80px',
                       height: '80px',
-                      backgroundColor: primaryColor,
+                      background: avatarGradient,
                       fontSize: '32px',
-                      border: `2px solid ${primaryColor}`,
+                      border: `2px solid ${borderColor}`,
                       boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
                       borderRadius: '8px',
                       alignItems: 'center',
@@ -246,7 +296,7 @@ const Members = () => {
                       width: '80px',
                       height: 'auto',
                       maxWidth: '80px',
-                      border: `2px solid ${primaryColor}`,
+                      border: `2px solid ${borderColor}`,
                       boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
                       borderRadius: '8px',
                       display: 'block'

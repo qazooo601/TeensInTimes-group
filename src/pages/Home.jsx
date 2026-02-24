@@ -459,7 +459,7 @@ const Home = () => {
               };
 
               const avatarGradient = generateGradient(gradientColors);
-              const hoverBackgroundStyle = generateGradient(gradientColors, '20');
+              const hoverBackgroundStyle = generateGradient(gradientColors, '40');
 
               return (
                 <Col xs={12} sm={8} md={6} key={index}>

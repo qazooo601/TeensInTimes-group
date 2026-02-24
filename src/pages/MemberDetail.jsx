@@ -45,6 +45,56 @@ const MemberDetail = () => {
   const [detailsLoading, setDetailsLoading] = useState(false);
   const [seoDescription, setSeoDescription] = useState('時代少年團成員介紹：七位成員的詳細資料、個人作品、外務綜藝、影視作品、獲獎記錄等完整資訊。');
 
+  // 根據不同的 ID 設定漸變色順序和邊框顏色（與 Members.jsx 相同邏輯）
+  const getColorConfig = (id, supportColor) => {
+    switch (id) {
+      case 1:
+        // Id=1: 漸變色順序 #EAF2FF → #9A91F2，邊框 #9A91F2
+        return {
+          gradientColors: ['#EAF2FF', '#9A91F2'],
+          borderColor: '#9A91F2'
+        };
+      case 4:
+        // Id=4: 漸變色順序 #D1D1D1 → #FFFFFF → #A1A3A6，邊框 #A1A3A6
+        return {
+          gradientColors: ['#D1D1D1', '#FFFFFF', '#A1A3A6'],
+          borderColor: '#A1A3A6'
+        };
+      case 3:
+        // Id=3: 漸變色順序 #63C5DE → #E1F5FA，邊框 #63C5DE
+        return {
+          gradientColors: ['#63C5DE', '#E1F5FA'],
+          borderColor: '#63C5DE'
+        };
+      case 5:
+        // Id=5: 漸變色順序 #C0EBD7 → #F98D74，邊框 #C0EBD7
+        return {
+          gradientColors: ['#C0EBD7', '#F98D74'],
+          borderColor: '#C0EBD7'
+        };
+      default:
+        // 預設：使用資料庫的 supportColor，邊框使用第一個顏色
+        const colors = Array.isArray(supportColor)
+          ? supportColor
+          : [supportColor];
+        return {
+          gradientColors: colors,
+          borderColor: colors[0]
+        };
+    }
+  };
+
+  // 生成漸層樣式（支援 2 個或 3 個顏色）
+  const generateGradient = (colors, opacity = '') => {
+    if (colors.length === 2) {
+      return `linear-gradient(135deg, ${colors[0]}${opacity} 0%, ${colors[1]}${opacity} 100%)`;
+    } else if (colors.length === 3) {
+      return `linear-gradient(135deg, ${colors[0]}${opacity} 0%, ${colors[1]}${opacity} 50%, ${colors[2]}${opacity} 100%)`;
+    } else {
+      return `${colors[0]}${opacity}`;
+    }
+  };
+
   // 從資料庫載入成員列表
   useEffect(() => {
     const loadMembers = async () => {
@@ -259,12 +309,12 @@ const MemberDetail = () => {
           marginBottom: '32px'
         }}>
           {membersData.map((memberData, index) => {
-            // 處理顏色：如果是陣列則創建漸層，如果是單一顏色則使用原色
-            const isGradient = Array.isArray(memberData.supportColor);
-            const primaryColor = isGradient ? memberData.supportColor[0] : memberData.supportColor;
-            const backgroundStyle = isGradient
-              ? `linear-gradient(135deg, ${memberData.supportColor[0]}70 0%, ${memberData.supportColor[1]}70 100%)`
-              : `linear-gradient(135deg, ${memberData.supportColor}20 0%, ${memberData.supportColor}40 100%)`;
+            // 根據不同的 ID 設定漸變色順序和邊框顏色
+            const colorConfig = getColorConfig(memberData.id, memberData.supportColor);
+            const gradientColors = colorConfig.gradientColors;
+            const borderColor = colorConfig.borderColor;
+            const backgroundStyle = generateGradient(gradientColors, '70');
+            const avatarGradient = generateGradient(gradientColors);
 
             return (
               <Card
@@ -281,7 +331,7 @@ const MemberDetail = () => {
                 style={{
                   textAlign: 'center',
                   borderRadius: '20px',
-                  border: `3px solid ${primaryColor}`,
+                  border: `3px solid ${borderColor}`,
                   boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
                   transition: 'all 0.3s ease',
                   background: backgroundStyle,
@@ -293,10 +343,10 @@ const MemberDetail = () => {
                   size={60}
                   src={memberData.images}
                   style={{
-                    backgroundColor: primaryColor,
+                    background: avatarGradient,
                     marginBottom: '12px',
                     fontSize: '24px',
-                    border: `2px solid ${primaryColor}`,
+                    border: `2px solid ${borderColor}`,
                     boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
                   }}
                   onError={() => {
@@ -313,7 +363,7 @@ const MemberDetail = () => {
                   {memberData.memberName}
                 </Title>
                 <Text style={{
-                  color: primaryColor,
+                  color: borderColor,
                   fontWeight: 'bold',
                   fontSize: '14px'
                 }}>
@@ -372,51 +422,62 @@ const MemberDetail = () => {
       <Card
         style={{
           borderRadius: '20px',
-          border: `3px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}`,
+          border: `3px solid ${(() => {
+            const colorConfig = getColorConfig(member.id, member.supportColor);
+            return colorConfig.borderColor;
+          })()}`,
           boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
-          background: Array.isArray(member.supportColor)
-            ? `linear-gradient(135deg, ${member.supportColor[0]}70 0%, ${member.supportColor[1]}70 100%)`
-            : `linear-gradient(135deg, ${member.supportColor}20 0%, ${member.supportColor}40 100%)`
+          background: (() => {
+            const colorConfig = getColorConfig(member.id, member.supportColor);
+            return generateGradient(colorConfig.gradientColors, '70');
+          })()
         }}
         styles={{ body: { padding: '40px' } }}
       >
         <Row gutter={[32, 32]} align="top">
           {/* 左側圖片 - 大螢幕顯示，小螢幕時隱藏 */}
           <Col xs={24} md={8} style={{ textAlign: 'center' }}>
-            {imageError || !member.images ? (
-              <div
-                style={{
-                  display: 'inline-flex',
-                  width: '80%',
-                  maxWidth: '300px',
-                  aspectRatio: '1',
-                  backgroundColor: Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor,
-                  fontSize: '48px',
-                  border: `3px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}`,
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
-                  borderRadius: '8px',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-              >
-                {member.emoji}
-              </div>
-            ) : (
-              <img
-                src={member.images}
-                alt={member.memberName}
-                onError={() => setImageError(true)}
-                style={{
-                  width: '100%',
-                  maxWidth: '100%',
-                  height: 'auto',
-                  border: `3px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}`,
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
-                  borderRadius: '8px',
-                  display: 'block'
-                }}
-              />
-            )}
+            {(() => {
+              const colorConfig = getColorConfig(member.id, member.supportColor);
+              const gradientColors = colorConfig.gradientColors;
+              const borderColor = colorConfig.borderColor;
+              const avatarGradient = generateGradient(gradientColors);
+
+              return imageError || !member.images ? (
+                <div
+                  style={{
+                    display: 'inline-flex',
+                    width: '80%',
+                    maxWidth: '300px',
+                    aspectRatio: '1',
+                    background: avatarGradient,
+                    fontSize: '48px',
+                    border: `3px solid ${borderColor}`,
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+                    borderRadius: '8px',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  {member.emoji}
+                </div>
+              ) : (
+                <img
+                  src={member.images}
+                  alt={member.memberName}
+                  onError={() => setImageError(true)}
+                  style={{
+                    width: '100%',
+                    maxWidth: '100%',
+                    height: 'auto',
+                    border: `3px solid ${borderColor}`,
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+                    borderRadius: '8px',
+                    display: 'block'
+                  }}
+                />
+              );
+            })()}
           </Col>
 
           {/* 右側資訊 */}
