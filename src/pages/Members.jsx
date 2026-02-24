@@ -259,7 +259,7 @@ const Members = () => {
               onClick={() => handleMemberClick(member)}
               style={{
                 borderRadius: '20px',
-                border: `3px solid ${borderColor}`,
+                border: `2px solid ${borderColor}`,
                 boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
                 transition: 'all 0.3s ease',
                 background: backgroundStyle,
