@@ -491,7 +491,7 @@ const Home = () => {
                             background-position: 0% 50%;
                           }
                           100% {
-                            background-position: 200% 50%;
+                            background-position: 150% 50%;
                           }
                         }
 
@@ -525,7 +525,7 @@ const Home = () => {
                       padding: '10px',
                       cursor: 'pointer',
                       borderRadius: '12px',
-                      transition: 'all 0.3s ease',
+                      transition: 'transform 0.25s ease, border-color 0.25s ease',
                       border: '2px solid transparent',
                       position: 'relative',
                       background: 'transparent'

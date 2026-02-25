@@ -338,6 +338,12 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
       <Header
         className="desktop-header"
         style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          width: '100%',
+          zIndex: 1000,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -477,16 +483,18 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
         />
       </Header>
 
-      {/* 跑馬燈公告 */}
-      <MarqueeAnnouncement announcement={announcement} />
-
-      <Content style={{
-        background: '#FFFBE0',
-        minHeight: 'calc(100vh - 64px - 40px - 70px)',
-        paddingBottom: '100px' // 為移動端底部選單與回饋按鈕留出空間
-      }}>
-        {children}
-      </Content>
+      {/* 桌面端固定 Header 時，此區塊需預留頂部空間；跑馬燈 + 主內容 */}
+      <div className="layout-after-desktop-header" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <MarqueeAnnouncement announcement={announcement} />
+        <Content style={{
+          background: '#FFFBE0',
+          flex: 1,
+          minHeight: 'calc(100vh - 64px - 40px - 70px)',
+          paddingBottom: '100px' // 為移動端底部選單與回饋按鈕留出空間
+        }}>
+          {children}
+        </Content>
+      </div>
 
       {/* 桌面端 Footer */}
       <Footer
