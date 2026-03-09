@@ -630,6 +630,31 @@ const MetaDescriptionUpdater = () => {
         // 延遲執行，確保 SEOHead 組件先設置 description
         await new Promise(resolve => setTimeout(resolve, 100));
 
+        // 如果是首頁，使用團體簡介且不加日期前綴
+        const isHomePage = location.pathname === '/' || location.pathname === '';
+
+        if (isHomePage) {
+          // 首頁：獲取團體簡介，不使用日期前綴
+          try {
+            const groupInfo = await dbService.getGroupInfo();
+            const groupDescription = groupInfo?.description || 'TNT時代少年團。此為自製網站，提供成員資訊、音樂作品、演唱會記錄、綜藝節目、紀錄片...時時更新最新資料';
+
+            let meta = document.querySelector('meta[name="description"]');
+            if (!meta) {
+              meta = document.createElement('meta');
+              meta.name = 'description';
+              document.head.appendChild(meta);
+            }
+            // 首頁直接使用團體簡介，不加日期前綴
+            meta.content = groupDescription;
+          } catch (error) {
+            console.error('獲取團體資訊失敗:', error);
+            // 如果獲取失敗，保持現有的 description 不變
+          }
+          return;
+        }
+
+        // 非首頁：加上日期前綴
         const dateStr = await dbService.getLatestUpdate();
         let formattedDate = '';
 

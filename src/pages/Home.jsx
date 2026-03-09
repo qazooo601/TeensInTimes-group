@@ -166,11 +166,16 @@ const Home = () => {
     ...(groupInfo ? [generateOrganizationStructuredData(groupInfo)] : [])
   ];
 
+  // 使用團體簡介作為 SEO description，如果沒有則使用預設值
+  const seoDescription = groupInfo?.description
+    ? groupInfo.description
+    : 'TNT時代少年團。此為自製網站，提供成員資訊、音樂作品、演唱會記錄、綜藝節目、紀錄片...時時更新最新資料';
+
   return (
     <>
       <SEOHead
         title="時代少年團 Teens in Times"
-        description="TNT時代少年團。此為自製網站，提供成員資訊、音樂作品、演唱會記錄、綜藝節目、紀錄片...時時更新最新資料"
+        description={seoDescription}
         structuredData={structuredData}
       />
       <div style={{ padding: '24px', position: 'relative' }}>
