@@ -46,6 +46,18 @@ export const apiService = {
       console.error('獲取團體資訊失敗:', error);
       throw error;
     }
+  },
+
+  // 獲取 Feedback 配置
+  async getFeedbackConfig(configType = null) {
+    try {
+      const params = configType ? { configType } : {};
+      const response = await api.get('/feedback-config', { params });
+      return response.data;
+    } catch (error) {
+      console.error('獲取 Feedback 配置失敗:', error);
+      throw error;
+    }
   }
 };
 

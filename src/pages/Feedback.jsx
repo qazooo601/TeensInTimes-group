@@ -1,8 +1,9 @@
-import React, { useState, useMemo } from 'react';
-import { Typography, Form, Input, Select, Button, Card, message, Steps } from 'antd';
+import React, { useState, useMemo, useEffect } from 'react';
+import { Typography, Form, Input, Select, Button, Card, message, Steps, Spin } from 'antd';
 import { MailOutlined, FormOutlined, InstagramOutlined } from '@ant-design/icons';
 import emailjs from '@emailjs/browser';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { apiService } from '../services/api';
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -23,17 +24,78 @@ const Feedback = () => {
   const [sendingEmail, setSendingEmail] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [config, setConfig] = useState({
+    pageOptions: [],
+    typeOptions: [],
+    deliveryOptions: [],
+    deliveryTemplates: {},
+    placeholderTemplates: {}
+  });
 
   usePageTitle('意見回饋｜TNT時代少年團');
 
-  const pageOptions = useMemo(() => [
-    { label: '首頁', value: '首頁' },
-    { label: '成員詳情', value: '成員詳情' },
-    { label: '歌曲', value: '歌曲' },
-    { label: '演唱會', value: '演唱會' },
-    { label: '綜藝節目', value: '綜藝節目' },
-    { label: '其他問題', value: '其他問題' }
-  ], []);
+  // 載入 Feedback 配置
+  useEffect(() => {
+    const loadConfig = async () => {
+      try {
+        setLoading(true);
+        const feedbackConfig = await apiService.getFeedbackConfig();
+        setConfig(feedbackConfig);
+        console.log('Feedback 配置載入成功:', feedbackConfig);
+      } catch (error) {
+        console.error('載入 Feedback 配置失敗:', error);
+        message.error('載入配置失敗，使用預設配置');
+        // 使用預設配置作為備用
+        setConfig({
+          pageOptions: [
+            { label: '首頁', value: '首頁' },
+            { label: '成員詳情', value: '成員詳情' },
+            { label: '歌曲', value: '歌曲' },
+            { label: '演唱會', value: '演唱會' },
+            { label: '綜藝節目', value: '綜藝節目' },
+            { label: '其他問題', value: '其他問題' },
+            { label: '領取驚喜', value: '領取驚喜' }
+          ],
+          typeOptions: [
+            { label: '缺少', value: '缺少' },
+            { label: '更正', value: '更正' },
+            { label: '其他', value: '其他' }
+          ],
+          deliveryOptions: [
+            { label: '面交', value: '面交' },
+            { label: '賣貨便', value: '賣貨便' }
+          ],
+          deliveryTemplates: {
+            '面交': '面交地點：\n面交時間：\n聯絡方式：(IG/FB帳號)',
+            '賣貨便': '門市店號：(非必填)\n門市名稱：\n取貨人姓名：\n聯絡電話：'
+          },
+          placeholderTemplates: {
+            'default': '請描述要補充或更正的內容...',
+            '領取驚喜-未選擇': '請先選擇交貨方式...',
+            '領取驚喜-面交': '請填寫面交相關資訊（例如：地點、時間等）...',
+            '領取驚喜-賣貨便': '請填寫賣貨便相關資訊（例如：門市名稱、地址等）...'
+          }
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadConfig();
+  }, []);
+
+  // 確保 EmailJS 已初始化
+  useEffect(() => {
+    if (EMAILJS_CONFIG.PUBLIC_KEY && EMAILJS_CONFIG.PUBLIC_KEY !== 'your_public_key') {
+      try {
+        emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+        console.log('EmailJS 已初始化');
+      } catch (error) {
+        console.error('EmailJS 初始化失敗:', error);
+      }
+    }
+  }, []);
 
   const handleFormSubmit = async (values) => {
     setSubmitting(true);
@@ -55,8 +117,10 @@ const Feedback = () => {
     setSendingEmail(true);
     try {
       // 準備郵件模板參數
+      // 注意：to_email 應該在 EmailJS 服務配置中設定，而不是在模板參數中
+      // 如果模板需要 to_email，請確保 EmailJS 模板中有對應的變數
       const templateParams = {
-        to_email: EMAILJS_CONFIG.RECEIVER_EMAIL,
+        to_email: EMAILJS_CONFIG.RECEIVER_EMAIL, // 保留以防模板需要
         from_email: values.instagram,
         subject: `時團資料回饋 - ${formData.page} - ${formData.type} - ${values.instagram}`,
         page: formData.page,
@@ -66,14 +130,24 @@ const Feedback = () => {
         message: `畫面：${formData.page}\n修改類別：${formData.type}\n詳細內容：${formData.content}\n\n來自：${values.instagram}`,
       };
 
+      console.log('發送郵件，配置:', {
+        SERVICE_ID: EMAILJS_CONFIG.SERVICE_ID,
+        TEMPLATE_ID: EMAILJS_CONFIG.TEMPLATE_ID,
+        PUBLIC_KEY: EMAILJS_CONFIG.PUBLIC_KEY ? `${EMAILJS_CONFIG.PUBLIC_KEY.substring(0, 5)}...` : '未設定',
+        RECEIVER_EMAIL: EMAILJS_CONFIG.RECEIVER_EMAIL,
+        templateParams
+      });
+
       // 發送郵件（使用 @emailjs/browser）
-      await emailjs.send(
+      // 注意：如果已經用 emailjs.init() 初始化，這裡也可以傳 PUBLIC_KEY 作為備用
+      const response = await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.TEMPLATE_ID,
         templateParams,
         EMAILJS_CONFIG.PUBLIC_KEY
       );
 
+      console.log('EmailJS 發送成功:', response);
       message.success('郵件已成功發送！我們會盡快處理您的回饋。');
 
       // 重置表單並返回第一步
@@ -82,8 +156,40 @@ const Feedback = () => {
       setFormData(null);
       setCurrentStep(0);
     } catch (error) {
-      console.error('EmailJS 錯誤:', error);
-      message.error('郵件發送失敗，請檢查配置或稍後再試');
+      // 詳細記錄錯誤資訊
+      console.error('EmailJS 錯誤詳情:', {
+        message: error.message,
+        text: error.text,
+        status: error.status,
+        statusText: error.statusText,
+        response: error.response,
+        fullError: error
+      });
+
+      // 根據錯誤類型提供更具體的錯誤訊息
+      let errorMessage = '郵件發送失敗';
+
+      if (error.status === 400) {
+        errorMessage = '請求格式錯誤，請檢查 EmailJS 模板配置和參數名稱是否匹配';
+      } else if (error.status === 401) {
+        errorMessage = '認證失敗，請檢查 EmailJS Public Key 是否正確，或前往 EmailJS Dashboard 重新連接 Gmail 服務';
+      } else if (error.status === 403) {
+        errorMessage = '權限不足，請檢查 EmailJS Service ID 和 Template ID，或重新連接 Gmail 服務並授予「Send email on your behalf」權限';
+      } else if (error.status === 404) {
+        errorMessage = '服務不存在，請檢查 EmailJS Service ID 和 Template ID 是否正確';
+      } else if (error.status === 412) {
+        errorMessage = 'Gmail 權限不足，請前往 EmailJS Dashboard 重新連接 Gmail 服務並授予所有必要權限';
+      } else if (error.text) {
+        // EmailJS 通常會在 error.text 中提供詳細錯誤訊息
+        errorMessage = `發送失敗：${error.text}`;
+        if (error.text.includes('authentication') || error.text.includes('scope') || error.text.includes('insufficient')) {
+          errorMessage += '。請前往 EmailJS Dashboard 重新連接 Gmail 服務並授予「Send email on your behalf」權限';
+        }
+      } else if (error.message) {
+        errorMessage = `發送失敗：${error.message}`;
+      }
+
+      message.error(errorMessage);
     } finally {
       setSendingEmail(false);
     }
@@ -116,7 +222,8 @@ const Feedback = () => {
         </div>
       </div>
 
-      <Card style={{ borderRadius: 16, border: '2px solid #FFD700', maxWidth: 800, margin: '0 auto' }}>
+      <Spin spinning={loading} tip="載入配置中...">
+        <Card style={{ borderRadius: 16, border: '2px solid #FFD700', maxWidth: 800, margin: '0 auto' }}>
         <Steps
           current={currentStep}
           items={steps}
@@ -135,7 +242,7 @@ const Feedback = () => {
               name="page"
               rules={[{ required: true, message: '請選擇畫面' }]}
             >
-              <Select options={pageOptions} placeholder="請選擇畫面" allowClear showSearch size="large" />
+              <Select options={config.pageOptions} placeholder="請選擇畫面" allowClear showSearch size="large" />
             </Form.Item>
 
             <Form.Item
@@ -145,17 +252,84 @@ const Feedback = () => {
             >
               <Select
                 placeholder="請選擇類別"
-                options={[{ label: '缺少', value: '缺少' }, { label: '更正', value: '更正' }, { label: '其他', value: '其他' }]}
+                options={config.typeOptions}
                 size="large"
               />
             </Form.Item>
 
+            {/* 當選擇「領取驚喜」時顯示交貨方式選擇 */}
             <Form.Item
-              label="詳細修改內容"
-              name="content"
-              rules={[{ required: true, message: '請填寫內容' }, { min: 3, message: '至少 3 個字' }]}
+              noStyle
+              shouldUpdate={(prevValues, currentValues) => prevValues.page !== currentValues.page}
             >
-              <TextArea rows={6} placeholder="請描述要補充或更正的內容..." />
+              {({ getFieldValue, setFieldsValue }) => {
+                const pageValue = getFieldValue('page');
+                if (pageValue === '領取驚喜') {
+                  return (
+                    <Form.Item
+                      label="交貨方式"
+                      name="deliveryMethod"
+                      rules={[{ required: true, message: '請選擇交貨方式' }]}
+                    >
+                      <Select
+                        placeholder="請選擇交貨方式"
+                        options={config.deliveryOptions}
+                        size="large"
+                        onChange={(value) => {
+                          // 根據選擇自動填入預設模板（從資料庫配置中讀取）
+                          const template = config.deliveryTemplates[value];
+                          if (template) {
+                            setFieldsValue({
+                              content: template
+                            });
+                          }
+                        }}
+                      />
+                    </Form.Item>
+                  );
+                }
+                return null;
+              }}
+            </Form.Item>
+
+            {/* 根據三個情境動態調整標籤和 placeholder */}
+            <Form.Item
+              noStyle
+              shouldUpdate={(prevValues, currentValues) =>
+                prevValues.page !== currentValues.page ||
+                prevValues.deliveryMethod !== currentValues.deliveryMethod
+              }
+            >
+              {({ getFieldValue }) => {
+                const pageValue = getFieldValue('page');
+                const deliveryMethod = getFieldValue('deliveryMethod');
+
+                let label = '詳細修改內容';
+                let placeholder = config.placeholderTemplates['default'] || '請描述要補充或更正的內容...';
+
+                if (pageValue === '領取驚喜') {
+                  if (deliveryMethod === '面交') {
+                    label = '領取方式-面交';
+                    placeholder = config.placeholderTemplates['領取驚喜-面交'] || '請填寫面交相關資訊（例如：地點、時間等）...';
+                  } else if (deliveryMethod === '賣貨便') {
+                    label = '領取方式-賣貨便';
+                    placeholder = config.placeholderTemplates['領取驚喜-賣貨便'] || '請填寫賣貨便相關資訊（例如：門市名稱、地址等）...';
+                  } else {
+                    label = '領取方式';
+                    placeholder = config.placeholderTemplates['領取驚喜-未選擇'] || '請先選擇交貨方式...';
+                  }
+                }
+
+                return (
+                  <Form.Item
+                    label={label}
+                    name="content"
+                    rules={[{ required: true, message: '請填寫內容' }, { min: 3, message: '至少 3 個字' }]}
+                  >
+                    <TextArea rows={6} placeholder={placeholder} />
+                  </Form.Item>
+                );
+              }}
             </Form.Item>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 12 }}>
@@ -218,7 +392,8 @@ const Feedback = () => {
             </div>
           </Form>
         )}
-      </Card>
+        </Card>
+      </Spin>
     </div>
   );
 };
