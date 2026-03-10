@@ -126,6 +126,39 @@ const Feedback = () => {
   const handleEmailSubmit = async (values) => {
     setSendingEmail(true);
     try {
+      // 驗證 EmailJS 配置是否正確設置
+      const configErrors = [];
+      if (!EMAILJS_CONFIG.SERVICE_ID || EMAILJS_CONFIG.SERVICE_ID === 'your_service_id') {
+        configErrors.push('VITE_EMAILJS_SERVICE_ID 未設置');
+      }
+      if (!EMAILJS_CONFIG.TEMPLATE_ID || EMAILJS_CONFIG.TEMPLATE_ID === 'your_template_id') {
+        configErrors.push('VITE_EMAILJS_TEMPLATE_ID 未設置');
+      }
+      if (!EMAILJS_CONFIG.PUBLIC_KEY || EMAILJS_CONFIG.PUBLIC_KEY === 'your_public_key') {
+        configErrors.push('VITE_EMAILJS_PUBLIC_KEY 未設置');
+      }
+
+      if (configErrors.length > 0) {
+        const errorMsg = `EmailJS 配置錯誤：${configErrors.join('、')}。請檢查環境變數設置。`;
+        console.error('EmailJS 配置驗證失敗:', {
+          configErrors,
+          currentConfig: {
+            SERVICE_ID: EMAILJS_CONFIG.SERVICE_ID,
+            TEMPLATE_ID: EMAILJS_CONFIG.TEMPLATE_ID,
+            PUBLIC_KEY: EMAILJS_CONFIG.PUBLIC_KEY ? `${EMAILJS_CONFIG.PUBLIC_KEY.substring(0, 5)}...` : '未設定',
+            RECEIVER_EMAIL: EMAILJS_CONFIG.RECEIVER_EMAIL
+          },
+          envVars: {
+            VITE_EMAILJS_SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || '(未設置)',
+            VITE_EMAILJS_TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '(未設置)',
+            VITE_EMAILJS_PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY ? `${import.meta.env.VITE_EMAILJS_PUBLIC_KEY.substring(0, 5)}...` : '(未設置)',
+            VITE_RECEIVER_EMAIL: import.meta.env.VITE_RECEIVER_EMAIL || '(未設置)'
+          }
+        });
+        // 使用 throw 而不是 return，確保 finally 區塊會執行
+        throw new Error(errorMsg);
+      }
+
       // 準備郵件模板參數
       // 注意：to_email 應該在 EmailJS 服務配置中設定，而不是在模板參數中
       // 如果模板需要 to_email，請確保 EmailJS 模板中有對應的變數
@@ -145,7 +178,12 @@ const Feedback = () => {
         TEMPLATE_ID: EMAILJS_CONFIG.TEMPLATE_ID,
         PUBLIC_KEY: EMAILJS_CONFIG.PUBLIC_KEY ? `${EMAILJS_CONFIG.PUBLIC_KEY.substring(0, 5)}...` : '未設定',
         RECEIVER_EMAIL: EMAILJS_CONFIG.RECEIVER_EMAIL,
-        templateParams
+        templateParams,
+        envCheck: {
+          VITE_EMAILJS_SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID ? '已設置' : '未設置',
+          VITE_EMAILJS_TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID ? '已設置' : '未設置',
+          VITE_EMAILJS_PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY ? '已設置' : '未設置'
+        }
       });
 
       // 發送郵件（使用 @emailjs/browser）
