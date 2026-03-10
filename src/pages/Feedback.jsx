@@ -40,44 +40,52 @@ const Feedback = () => {
     const loadConfig = async () => {
       try {
         setLoading(true);
+        console.log('開始載入 Feedback 配置...');
+        console.log('API Base URL:', import.meta.env.VITE_API_BASE_URL || '/api');
+
         const feedbackConfig = await apiService.getFeedbackConfig();
-        setConfig(feedbackConfig);
+
         console.log('Feedback 配置載入成功:', feedbackConfig);
+        console.log('配置內容統計:', {
+          pageOptions: feedbackConfig.pageOptions?.length || 0,
+          typeOptions: feedbackConfig.typeOptions?.length || 0,
+          deliveryOptions: feedbackConfig.deliveryOptions?.length || 0,
+          deliveryTemplates: Object.keys(feedbackConfig.deliveryTemplates || {}).length,
+          placeholderTemplates: Object.keys(feedbackConfig.placeholderTemplates || {}).length
+        });
+
+        // 驗證配置是否完整
+        if (!feedbackConfig || typeof feedbackConfig !== 'object') {
+          throw new Error('API 返回的配置資料格式錯誤');
+        }
+
+        if (!feedbackConfig.pageOptions || !Array.isArray(feedbackConfig.pageOptions) || feedbackConfig.pageOptions.length === 0) {
+          console.error('pageOptions 為空，完整配置:', JSON.stringify(feedbackConfig, null, 2));
+          throw new Error('配置資料不完整：pageOptions 為空，請檢查資料庫中的 ConfigType = "pageOptions" 的資料');
+        }
+
+        if (!feedbackConfig.typeOptions || !Array.isArray(feedbackConfig.typeOptions) || feedbackConfig.typeOptions.length === 0) {
+          console.error('typeOptions 為空，完整配置:', JSON.stringify(feedbackConfig, null, 2));
+          throw new Error('配置資料不完整：typeOptions 為空，請檢查資料庫中的 ConfigType = "typeOptions" 的資料');
+        }
+
+        setConfig(feedbackConfig);
+        message.success('配置載入成功');
       } catch (error) {
         console.error('載入 Feedback 配置失敗:', error);
-        message.error('載入配置失敗，使用預設配置');
-        // 使用預設配置作為備用
-        setConfig({
-          pageOptions: [
-            { label: '首頁', value: '首頁' },
-            { label: '成員詳情', value: '成員詳情' },
-            { label: '歌曲', value: '歌曲' },
-            { label: '演唱會', value: '演唱會' },
-            { label: '綜藝節目', value: '綜藝節目' },
-            { label: '其他問題', value: '其他問題' },
-            { label: '領取驚喜', value: '領取驚喜' }
-          ],
-          typeOptions: [
-            { label: '缺少', value: '缺少' },
-            { label: '更正', value: '更正' },
-            { label: '其他', value: '其他' }
-          ],
-          deliveryOptions: [
-            { label: '面交', value: '面交' },
-            { label: '賣貨便', value: '賣貨便' }
-          ],
-          deliveryTemplates: {
-            '面交': '面交地點：\n面交時間：\n聯絡方式：(IG/FB帳號)',
-            '賣貨便': '門市店號：(非必填)\n門市名稱：\n取貨人姓名：\n聯絡電話：'
-          },
-          placeholderTemplates: {
-            'default': '請描述要補充或更正的內容...',
-            '領取驚喜-未選擇': '請先選擇交貨方式...',
-            '領取驚喜-面交': '請填寫面交相關資訊（例如：地點、時間等）...',
-            '領取驚喜-賣貨便': '請填寫賣貨便相關資訊（例如：門市名稱、地址等）...'
-          }
+        console.error('錯誤詳情:', {
+          message: error.message,
+          response: error.response?.data,
+          status: error.response?.status,
+          statusText: error.response?.statusText,
+          url: error.config?.url,
+          baseURL: error.config?.baseURL
         });
-      } finally {
+
+        const errorMessage = error.response?.data?.message || error.message || '未知錯誤';
+        message.error(`載入配置失敗：${errorMessage}`);
+
+        // 不設置預設配置，讓用戶知道需要修復 API 連接
         setLoading(false);
       }
     };

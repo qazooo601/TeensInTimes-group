@@ -900,6 +900,119 @@ app.get('/api/latest-update', async (req, res) => {
   }
 });
 
+// 獲取 Feedback 配置
+app.get('/api/feedback-config', async (req, res) => {
+  const connection = await pool.getConnection();
+  try {
+    const { configType } = req.query;
+
+    console.log('收到 Feedback 配置請求:', { configType });
+
+    let query = `SELECT ConfigType, ConfigKey, ConfigValue, Label, SortOrder
+                 FROM FeedbackConfig`;
+    let params = [];
+
+    if (configType) {
+      query += ` WHERE ConfigType = ?`;
+      params.push(configType);
+    }
+
+    query += ` ORDER BY ConfigType, SortOrder, ConfigKey`;
+
+    console.log('執行 SQL 查詢:', query, params);
+
+    const [rows] = await connection.execute(query, params);
+
+    console.log('查詢結果筆數:', rows.length);
+
+    // 將結果組織成物件格式
+    const config = {
+      pageOptions: [],
+      typeOptions: [],
+      deliveryOptions: [],
+      deliveryTemplates: {},
+      placeholderTemplates: {}
+    };
+
+    rows.forEach((row, index) => {
+      console.log(`處理第 ${index + 1} 筆資料:`, {
+        ConfigType: row.ConfigType,
+        ConfigKey: row.ConfigKey,
+        ConfigValue: row.ConfigValue?.substring(0, 50),
+        Label: row.Label
+      });
+
+      const option = {
+        label: row.Label || row.ConfigValue,
+        value: row.ConfigValue
+      };
+
+      switch (row.ConfigType) {
+        case 'pageOptions':
+          config.pageOptions.push(option);
+          console.log(`  → 加入 pageOptions: ${option.label}`);
+          break;
+        case 'typeOptions':
+          config.typeOptions.push(option);
+          console.log(`  → 加入 typeOptions: ${option.label}`);
+          break;
+        case 'deliveryOptions':
+          config.deliveryOptions.push(option);
+          console.log(`  → 加入 deliveryOptions: ${option.label}`);
+          break;
+        case 'deliveryTemplates':
+          config.deliveryTemplates[row.ConfigKey] = row.ConfigValue;
+          console.log(`  → 加入 deliveryTemplates[${row.ConfigKey}]`);
+          break;
+        case 'placeholderTemplates':
+          config.placeholderTemplates[row.ConfigKey] = row.ConfigValue;
+          console.log(`  → 加入 placeholderTemplates[${row.ConfigKey}]`);
+          break;
+        default:
+          console.warn(`  ⚠️  未知的 ConfigType: ${row.ConfigType}`);
+      }
+    });
+
+    console.log('返回配置統計:', {
+      pageOptions: config.pageOptions.length,
+      typeOptions: config.typeOptions.length,
+      deliveryOptions: config.deliveryOptions.length,
+      deliveryTemplates: Object.keys(config.deliveryTemplates).length,
+      placeholderTemplates: Object.keys(config.placeholderTemplates).length
+    });
+
+    // 驗證配置是否完整
+    if (config.pageOptions.length === 0) {
+      console.warn('⚠️  pageOptions 為空，請檢查資料庫中 ConfigType = "pageOptions" 的資料');
+    }
+    if (config.typeOptions.length === 0) {
+      console.warn('⚠️  typeOptions 為空，請檢查資料庫中 ConfigType = "typeOptions" 的資料');
+    }
+
+    console.log('返回完整配置結構:', JSON.stringify(config, null, 2).substring(0, 500) + '...');
+
+    res.json(config);
+  } catch (error) {
+    console.error('獲取 Feedback 配置失敗:', error);
+    console.error('錯誤詳情:', {
+      message: error.message,
+      code: error.code,
+      sqlMessage: error.sqlMessage
+    });
+
+    res.status(500).json({
+      error: '獲取配置失敗',
+      message: error.message || '資料庫查詢失敗',
+      details: process.env.NODE_ENV === 'development' ? {
+        code: error.code,
+        sqlMessage: error.sqlMessage
+      } : undefined
+    });
+  } finally {
+    connection.release();
+  }
+});
+
 // 健康檢查
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'API 服務運行中' });
