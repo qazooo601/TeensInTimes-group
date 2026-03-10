@@ -86,6 +86,8 @@ const Feedback = () => {
         message.error(`載入配置失敗：${errorMessage}`);
 
         // 不設置預設配置，讓用戶知道需要修復 API 連接
+      } finally {
+        // 無論成功或失敗，都要停止 loading 狀態
         setLoading(false);
       }
     };
@@ -343,7 +345,7 @@ const Feedback = () => {
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 12 }}>
               <Button onClick={() => form.resetFields()}>清除</Button>
               <Button type="primary" htmlType="submit" loading={submitting} size="large">
-                送出
+                下一步
               </Button>
             </div>
           </Form>
