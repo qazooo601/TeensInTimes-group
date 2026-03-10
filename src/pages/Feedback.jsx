@@ -294,15 +294,30 @@ const Feedback = () => {
             </Form.Item>
 
             <Form.Item
-              label="修改類別"
-              name="type"
-              rules={[{ required: true, message: '請選擇修改類別' }]}
+              noStyle
+              shouldUpdate={(prev, current) => prev.page !== current.page}
             >
-              <Select
-                placeholder="請選擇類別"
-                options={config.typeOptions}
-                size="large"
-              />
+              {({ getFieldValue }) => {
+                const pageValue = getFieldValue('page');
+                // 當畫面是「領取驚喜」時，不顯示「修改類別」
+                if (pageValue === '領取驚喜') {
+                  return null;
+                }
+
+                return (
+                  <Form.Item
+                    label="修改類別"
+                    name="type"
+                    rules={[{ required: true, message: '請選擇修改類別' }]}
+                  >
+                    <Select
+                      placeholder="請選擇類別"
+                      options={config.typeOptions}
+                      size="large"
+                    />
+                  </Form.Item>
+                );
+              }}
             </Form.Item>
 
             {/* 當選擇「領取驚喜」時顯示交貨方式選擇 */}
