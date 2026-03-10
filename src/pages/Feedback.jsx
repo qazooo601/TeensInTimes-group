@@ -162,15 +162,28 @@ const Feedback = () => {
       // 準備郵件模板參數
       // 注意：to_email 應該在 EmailJS 服務配置中設定，而不是在模板參數中
       // 如果模板需要 to_email，請確保 EmailJS 模板中有對應的變數
+      // 先根據畫面決定要用哪一種文字
+      const displayType =
+        formData.page === '領取驚喜'
+          ? formData.deliveryMethod || '（未選擇交貨方式）'
+          : formData.type || '（未選擇類別）';
+
+      const displayTypeLabel =
+        formData.page === '領取驚喜' ? '交貨方式' : '修改類別';
+
       const templateParams = {
         to_email: EMAILJS_CONFIG.RECEIVER_EMAIL, // 保留以防模板需要
         from_email: values.instagram,
-        subject: `時團資料回饋 - ${formData.page} - ${formData.type} - ${values.instagram}`,
+        subject: `時團資料回饋 - ${formData.page} - ${displayType} - ${values.instagram}`,
         page: formData.page,
-        type: formData.type,
+        type: displayType,               // 傳給模板的 type 也用同一個值
         content: formData.content,
         user_email: values.instagram,
-        message: `畫面：${formData.page}\n修改類別：${formData.type}\n詳細內容：${formData.content}\n\n來自：${values.instagram}`,
+        message:
+          `畫面： ${formData.page}\n` +
+          `${displayTypeLabel}： ${displayType}\n` +
+          `詳細內容： ${formData.content}\n\n` +
+          `來自： ${values.instagram}`,
       };
 
       console.log('發送郵件，配置:', {
@@ -430,7 +443,11 @@ const Feedback = () => {
               <div style={{ fontWeight: 'bold', marginBottom: '8px' }}>回饋內容預覽：</div>
               <div style={{ fontSize: '14px', lineHeight: '1.8', color: '#666' }}>
                 <div><strong>畫面：</strong>{formData?.page}</div>
-                <div><strong>修改類別：</strong>{formData?.type}</div>
+                {formData?.type ? (
+                <div><strong>修改類別：</strong>{formData.type}</div>
+              ) : formData?.page === '領取驚喜' ? (
+                <div><strong>交貨方式：</strong>{formData?.deliveryMethod}</div>
+              ) : null}
                 <div><strong>詳細內容：</strong>{formData?.content}</div>
               </div>
             </div>
