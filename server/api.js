@@ -694,6 +694,26 @@ app.get('/api/member-details/:memberCode', async (req, res) => {
       awardsRows = [];
     }
 
+    // 獲取視頻vlog
+    let vlogsRows = [];
+    try {
+      [vlogsRows] = await connection.execute(
+        `SELECT
+          SeriesId as seriesId,
+          SeriesName as seriesName,
+          SeriesDescription as seriesDescription,
+          VideosData as videosData,
+          SortOrder as sortOrder
+        FROM MemberVlogs
+        WHERE MemberCode = ? AND IsActive = 1
+        ORDER BY SortOrder ASC`,
+        [memberCode]
+      );
+    } catch (vlogError) {
+      console.error(`查詢視頻vlog資料失敗:`, vlogError.message);
+      vlogsRows = [];
+    }
+
     // 處理歌曲資料
     const songs = songsRows.map(row => {
       let songsData = null;
@@ -751,12 +771,40 @@ app.get('/api/member-details/:memberCode', async (req, res) => {
       };
     });
 
+    // 處理視頻vlog資料（參考 MemberSongs 中專輯的處理方式）
+    const vlogs = vlogsRows.map(row => {
+      let videosData = null;
+      try {
+        if (row.videosData) {
+          videosData = JSON.parse(row.videosData);
+          // 按 sortOrder 排序
+          videosData.sort((a, b) => {
+            if (a.sortOrder !== undefined && b.sortOrder !== undefined) {
+              return a.sortOrder - b.sortOrder;
+            }
+            return 0;
+          });
+        }
+      } catch (e) {
+        console.error('解析 VideosData JSON 失敗:', e);
+      }
+
+      return {
+        seriesId: row.seriesId,
+        seriesName: row.seriesName,
+        description: row.seriesDescription || '',
+        videos: videosData || [],
+        sortOrder: row.sortOrder
+      };
+    }).sort((a, b) => a.sortOrder - b.sortOrder); // 按系列排序
+
     const result = {
       memberCode,
       songs: songs || [],
       variety: variety || [],
       movies: movies || [],
-      awards: awards || []
+      awards: awards || [],
+      vlogs: vlogs || []
     };
 
     res.json(result);
@@ -784,6 +832,7 @@ app.get('/api/member-details/:memberCode', async (req, res) => {
       variety: [],
       movies: [],
       awards: [],
+      vlogs: [],
       error: errorMessage,
       warning: '部分資料載入失敗，顯示空資料'
     });
