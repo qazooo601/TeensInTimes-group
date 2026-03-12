@@ -165,11 +165,11 @@ const Feedback = () => {
       // 先根據畫面決定要用哪一種文字
       const displayType =
         formData.page === '領取驚喜'
-          ? formData.deliveryMethod || '（未選擇交貨方式）'
+          ? formData.deliveryMethod || '（未選擇領取方式）'
           : formData.type || '（未選擇類別）';
 
       const displayTypeLabel =
-        formData.page === '領取驚喜' ? '交貨方式' : '修改類別';
+        formData.page === '領取驚喜' ? '領取方式' : '修改類別';
 
       const templateParams = {
         to_email: EMAILJS_CONFIG.RECEIVER_EMAIL, // 保留以防模板需要
@@ -182,7 +182,7 @@ const Feedback = () => {
         message:
           `畫面： ${formData.page}\n` +
           `${displayTypeLabel}： ${displayType}\n` +
-          `詳細內容： ${formData.content}\n\n` +
+          `內容： ${formData.content}\n\n` +
           `來自： ${values.instagram}`,
       };
 
@@ -343,12 +343,12 @@ const Feedback = () => {
                 if (pageValue === '領取驚喜') {
                   return (
                     <Form.Item
-                      label="交貨方式"
+                      label="領取方式"
                       name="deliveryMethod"
-                      rules={[{ required: true, message: '請選擇交貨方式' }]}
+                      rules={[{ required: true, message: '請選擇領取方式' }]}
                     >
                       <Select
-                        placeholder="請選擇交貨方式"
+                        placeholder="請選擇領取方式"
                         options={config.deliveryOptions}
                         size="large"
                         onChange={(value) => {
@@ -385,14 +385,14 @@ const Feedback = () => {
 
                 if (pageValue === '領取驚喜') {
                   if (deliveryMethod === '面交') {
-                    label = '領取方式-面交';
+                    label = '領取資訊-面交';
                     placeholder = config.placeholderTemplates['領取驚喜-面交'] || '請填寫面交相關資訊（例如：地點、時間等）...';
                   } else if (deliveryMethod === '賣貨便') {
-                    label = '領取方式-賣貨便';
+                    label = '領取資訊-賣貨便';
                     placeholder = config.placeholderTemplates['領取驚喜-賣貨便'] || '請填寫賣貨便相關資訊（例如：門市名稱、地址等）...';
                   } else {
-                    label = '領取方式';
-                    placeholder = config.placeholderTemplates['領取驚喜-未選擇'] || '請先選擇交貨方式...';
+                    label = '領取資訊';
+                    placeholder = config.placeholderTemplates['領取驚喜-未選擇'] || '請先選擇領取方式...';
                   }
                 }
 
@@ -446,9 +446,14 @@ const Feedback = () => {
                 {formData?.type ? (
                 <div><strong>修改類別：</strong>{formData.type}</div>
               ) : formData?.page === '領取驚喜' ? (
-                <div><strong>交貨方式：</strong>{formData?.deliveryMethod}</div>
+                <div><strong>領取方式：</strong>{formData?.deliveryMethod}</div>
               ) : null}
-                <div><strong>詳細內容：</strong>{formData?.content}</div>
+                <div>
+                  <strong>內容：</strong>
+                  <span style={{ whiteSpace: 'pre-line' }}>
+                    {formData?.content}
+                  </span>
+                </div>
               </div>
             </div>
 
