@@ -36,8 +36,10 @@ const MemberDetail = () => {
     movies: false,
     songs: false,
     variety: false,
-    awards: false
+    awards: false,
+    vlogs: false
   });
+  const [expandedSeries, setExpandedSeries] = useState({});
   const [imageError, setImageError] = useState(false);
   const [membersData, setMembersData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -179,6 +181,7 @@ const MemberDetail = () => {
       try {
         const details = await dbService.getMemberDetails(member.memberCode);
         // 將個人外務、影視作品、獲獎依年份由新到舊排序
+        // vlogs 已在後端按 sortOrder 排序，不需要再次排序
         const sortedDetails = {
           ...details,
           variety: (details.variety || []).slice().sort((a, b) => {
@@ -195,7 +198,8 @@ const MemberDetail = () => {
             const yearA = String(a.year || '');
             const yearB = String(b.year || '');
             return yearB.localeCompare(yearA);
-          })
+          }),
+          vlogs: details.vlogs || []
         };
 
         setMemberDetails(sortedDetails);
@@ -260,6 +264,14 @@ const MemberDetail = () => {
     setExpandedSections(prev => ({
       ...prev,
       [section]: !prev[section]
+    }));
+  };
+
+  // 切換系列展開/收合
+  const toggleSeries = (seriesId) => {
+    setExpandedSeries(prev => ({
+      ...prev,
+      [seriesId]: !prev[seriesId]
     }));
   };
 
@@ -1024,6 +1036,189 @@ const MemberDetail = () => {
                     </List.Item>
                   )}
                 />
+              )}
+            </Card>
+          )}
+
+          {/* 視頻vlog */}
+          {memberDetails.vlogs && memberDetails.vlogs.length > 0 && (
+            <Card
+              style={{
+                marginBottom: '16px',
+                borderRadius: '12px',
+                border: `2px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}20`
+              }}
+              styles={{ body: { padding: '20px' } }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                  marginBottom: expandedSections.vlogs ? '16px' : '0'
+                }}
+                onClick={() => toggleSection('vlogs')}
+              >
+                <PlayCircleOutlined style={{
+                  color: (() => {
+                    const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                    // 為不同顏色創建對應的深色版本
+                    const colorMap = {
+                      '#EAF2FF': '#8076B7',
+                      '#FFD700': '#B8860B',
+                      '#63C5DE': '#4B9DB4',
+                      '#D1D1D1': '#919191',
+                      '#C0EBD7': '#37A471',
+                      '#FF7F50': '#CC0000',
+                      '#ADD5A2': '#89C379'
+                    };
+                    return colorMap[baseColor] || '#333';
+                  })(),
+                  marginRight: '8px',
+                  fontSize: '18px'
+                }} />
+                <Title level={4} style={{
+                  margin: '0',
+                  color: (() => {
+                    const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                    // 為不同顏色創建對應的深色版本
+                    const colorMap = {
+                      '#EAF2FF': '#8076B7',
+                      '#FFD700': '#B8860B',
+                      '#63C5DE': '#4B9DB4',
+                      '#D1D1D1': '#919191',
+                      '#C0EBD7': '#37A471',
+                      '#FF7F50': '#CC0000',
+                      '#ADD5A2': '#89C379'
+                    };
+                    return colorMap[baseColor] || '#333';
+                  })()
+                }}>
+                  視頻vlog ({memberDetails.vlogs.reduce((total, series) => total + (series.videos ? series.videos.length : 0), 0)})
+                </Title>
+                {expandedSections.vlogs ? <DownOutlined /> : <RightOutlined />}
+              </div>
+
+              {expandedSections.vlogs && (
+                <div>
+                  {memberDetails.vlogs.map((series) => (
+                    <Card
+                      key={series.seriesId}
+                      style={{
+                        marginBottom: '12px',
+                        borderRadius: '8px',
+                        border: `1px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}15`,
+                        backgroundColor: '#fafafa'
+                      }}
+                      styles={{ body: { padding: '16px' } }}
+                    >
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          cursor: 'pointer',
+                          marginBottom: expandedSeries[series.seriesId] ? '12px' : '0'
+                        }}
+                        onClick={() => toggleSeries(series.seriesId)}
+                      >
+                        <Title level={5} style={{
+                          margin: '0',
+                          color: (() => {
+                            const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                            const colorMap = {
+                              '#EAF2FF': '#5A4F8C',
+                              '#FFD700': '#8B6914',
+                              '#63C5DE': '#2E7A8F',
+                              '#D1D1D1': '#666666',
+                              '#C0EBD7': '#1E7A4F',
+                              '#FF7F50': '#990000',
+                              '#ADD5A2': '#5A8A4F'
+                            };
+                            return colorMap[baseColor] || '#333';
+                          })()
+                        }}>
+                          {series.seriesName} ({series.videos.length})
+                        </Title>
+                        {expandedSeries[series.seriesId] ? <DownOutlined style={{ marginLeft: '8px' }} /> : <RightOutlined style={{ marginLeft: '8px' }} />}
+                      </div>
+
+                      {expandedSeries[series.seriesId] && (
+                        <div>
+                          {series.description && (
+                            <Text style={{ color: '#666', fontSize: '13px', display: 'block', marginBottom: '12px' }}>
+                              {series.description}
+                            </Text>
+                          )}
+                          <List
+                            dataSource={series.videos}
+                            renderItem={(video) => (
+                              <List.Item style={{ padding: '8px 0' }}>
+                                <div style={{ width: '100%' }}>
+                                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                    <div style={{ flex: 1 }}>
+                                      <Text strong style={{ fontSize: '15px' }}>{video.title}</Text>
+                                      <br />
+                                      <Text style={{ color: '#666', fontSize: '13px' }}>
+                                        發布日期: {formatDate(video.publishDate)}
+                                      </Text>
+                                    </div>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                      {video.videoUrl && (
+                                        <Button
+                                          type="primary"
+                                          size="small"
+                                          icon={<PlayCircleOutlined />}
+                                          onClick={() => window.open(video.videoUrl, '_blank')}
+                                          style={{
+                                            backgroundColor: (() => {
+                                              const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                                              const colorMap = {
+                                                '#EAF2FF': '#CCA3CC',
+                                                '#FFD700': '#FFBF00',
+                                                '#63C5DE': '#61B0E2',
+                                                '#D1D1D1': '#A9A9A9',
+                                                '#C0EBD7': '#549688',
+                                                '#FF7F50': '#B22222',
+                                                '#ADD5A2': '#16982B'
+                                              };
+                                              return colorMap[baseColor] || '#333';
+                                            })(),
+                                            borderColor: (() => {
+                                              const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                                              const colorMap = {
+                                                '#EAF2FF': '#CCA3CC',
+                                                '#FFD700': '#FFBF00',
+                                                '#63C5DE': '#61B0E2',
+                                                '#D1D1D1': '#A9A9A9',
+                                                '#C0EBD7': '#549688',
+                                                '#FF7F50': '#B22222',
+                                                '#ADD5A2': '#16982B'
+                                              };
+                                              return colorMap[baseColor] || '#333';
+                                            })(),
+                                            borderRadius: '20px',
+                                            height: '28px',
+                                            fontSize: '12px',
+                                            fontWeight: 'bold',
+                                            padding: '0 12px',
+                                            flexShrink: 0,
+                                            color: '#fff'
+                                          }}
+                                        >
+                                          觀看影片
+                                        </Button>
+                                      )}
+                                    </div>
+                                  </div>
+                                </div>
+                              </List.Item>
+                            )}
+                          />
+                        </div>
+                      )}
+                    </Card>
+                  ))}
+                </div>
               )}
             </Card>
           )}

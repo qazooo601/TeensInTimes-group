@@ -645,13 +645,25 @@ const Variety = () => {
                 {item.videoLabel2}
               </Button>
             )}
-          </div>
-
-          {/* 描述 */}
-          <div>
-            <Text style={{ color: '#666', fontSize: '12px', display: 'block', whiteSpace: 'pre-line' }}>
-              {item.description}
-            </Text>
+            {item.videoUrl3 && (
+              <Button
+                type="default"
+                icon={<PlayCircleOutlined />}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open(item.videoUrl3, '_blank');
+                }}
+                style={{
+                  borderRadius: '20px',
+                  height: '28px',
+                  fontSize: '12px',
+                  fontWeight: 'bold',
+                  padding: '0 12px'
+                }}
+              >
+                {item.videoLabel3}
+              </Button>
+            )}
           </div>
         </div>
       </Card>
