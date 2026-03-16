@@ -457,14 +457,14 @@ app.get('/api/variety', async (req, res) => {
             UpdatedDate as updatedDate,
             Category as category,
             Participants as participants,
-            Description as description,
             Emoji as emoji,
             Color as color,
-            Episodes as episodes,
             VideoUrl as videoUrl,
             VideoUrl2 as videoUrl2,
+            VideoUrl3 as videoUrl3,
             VideoLabel1 as videoLabel1,
             VideoLabel2 as videoLabel2,
+            VideoLabel3 as videoLabel3,
             CoverImage as coverImage,
             SortOrder as sortOrder
           FROM ${table.dbTable}
@@ -536,12 +536,10 @@ app.get('/api/variety', async (req, res) => {
             updatedDate: updatedDateValue || dateValue,
             year: year || '',
             category: row.category || table.category,
-            description: row.description || '',
             emoji: row.emoji || '📺',
             coverImage: row.coverImage || '',
             image: row.coverImage || '',
             color: row.color || '#DDA0DD',
-            episodes: row.episodes || '',
             participants: row.participants || '',
             videoUrl: row.videoUrl || '',
             videoLinks: {} // 綜藝節目表沒有 VideoLinks 欄位，直接設為空物件
@@ -553,6 +551,8 @@ app.get('/api/variety', async (req, res) => {
             baseData.videoUrl2 = row.videoUrl2 || '';
             baseData.videoLabel1 = row.videoLabel1 || '';
             baseData.videoLabel2 = row.videoLabel2 || '';
+            baseData.videoUrl3 = row.videoUrl3 || '';
+            baseData.videoLabel3 = row.videoLabel3 || '';
           } else {
             baseData.isNew = row.isNew || false;
           }
@@ -902,6 +902,8 @@ app.get('/api/latest-update', async (req, res) => {
         SELECT UpdatedDate FROM zeabur.MemberMovies WHERE IsActive = 1
         UNION ALL
         SELECT UpdatedDate FROM zeabur.MemberAwards WHERE IsActive = 1
+        UNION ALL
+        SELECT UpdatedDate FROM zeabur.MemberVlogs WHERE IsActive = 1
       ) AS all_dates
     `;
 

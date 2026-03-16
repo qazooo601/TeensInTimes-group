@@ -33,7 +33,7 @@ const Feedback = () => {
     placeholderTemplates: {}
   });
 
-  usePageTitle('意見回饋｜TNT時代少年團');
+  usePageTitle('留言投稿｜時代少年團');
 
   // 載入 Feedback 配置
   useEffect(() => {
@@ -263,7 +263,7 @@ const Feedback = () => {
 
   const steps = [
     {
-      title: '填寫回饋',
+      title: '填寫留言',
       icon: <FormOutlined />,
     },
     {
@@ -278,12 +278,9 @@ const Feedback = () => {
         <Title level={1} style={{ color: '#EBC700', marginBottom: '8px', fontSize: '32px' }}>
           留言投稿
         </Title>
-        <div style={{ color: '#666', fontSize: '14px', lineHeight: 1.8 }}>
-          填寫回饋並發送郵件給我
-        </div>
       </div>
 
-      <Spin spinning={loading} tip="載入配置中...">
+      <Spin spinning={loading} tip="載入中...">
         <Card style={{ borderRadius: 16, border: '2px solid #FFD700', maxWidth: 800, margin: '0 auto' }}>
         <Steps
           current={currentStep}
@@ -430,7 +427,7 @@ const Feedback = () => {
                 { type: 'text', message: '請輸入有效的IG帳號/FB帳號' }
               ]}
             >
-              <Input placeholder="IG:example / FB:example" size="large" />
+              <Input placeholder="IG:18lou_xuefen" size="large" />
             </Form.Item>
 
             <div style={{
@@ -440,7 +437,7 @@ const Feedback = () => {
               marginBottom: '24px',
               border: '1px solid #ffe58f'
             }}>
-              <div style={{ fontWeight: 'bold', marginBottom: '8px' }}>回饋內容預覽：</div>
+              <div style={{ fontWeight: 'bold', marginBottom: '8px' }}>內容預覽：</div>
               <div style={{ fontSize: '14px', lineHeight: '1.8', color: '#666' }}>
                 <div><strong>畫面：</strong>{formData?.page}</div>
                 {formData?.type ? (
