@@ -942,7 +942,6 @@ const MemberDetail = () => {
                                     flexShrink: 0
                                   }}
                                 >
-                                  觀看影片
                                 </Button>
                               )}
                             </div>
@@ -1041,7 +1040,26 @@ const MemberDetail = () => {
           )}
 
           {/* 視頻vlog */}
-          {memberDetails.vlogs && memberDetails.vlogs.length > 0 && (
+          {memberDetails.vlogs && memberDetails.vlogs.length > 0 && (() => {
+            // 依照系列內「最新影片發布日期」由新到舊排序系列
+            const parseDate = (value) => {
+              if (!value) return 0;
+              const time = new Date(value).getTime();
+              return Number.isNaN(time) ? 0 : time;
+            };
+
+            const getSeriesLatestTime = (series) => {
+              if (!series.videos || series.videos.length === 0) return 0;
+              return Math.max(
+                ...series.videos.map(video => parseDate(video.publishDate))
+              );
+            };
+
+            const sortedVlogs = [...memberDetails.vlogs].sort(
+              (a, b) => getSeriesLatestTime(b) - getSeriesLatestTime(a)
+            );
+
+            return (
             <Card
               style={{
                 marginBottom: '16px',
@@ -1101,7 +1119,15 @@ const MemberDetail = () => {
 
               {expandedSections.vlogs && (
                 <div>
-                  {memberDetails.vlogs.map((series) => (
+                  {sortedVlogs.map((series) => {
+                    // 每個系列中的影片依「發布日期」由新到舊排序
+                    const sortedVideos = Array.isArray(series.videos)
+                      ? [...series.videos].sort(
+                          (a, b) => parseDate(b.publishDate) - parseDate(a.publishDate)
+                        )
+                      : [];
+
+                    return (
                     <Card
                       key={series.seriesId}
                       style={{
@@ -1150,7 +1176,7 @@ const MemberDetail = () => {
                             </Text>
                           )}
                           <List
-                            dataSource={series.videos}
+                            dataSource={sortedVideos}
                             renderItem={(video) => (
                               <List.Item style={{ padding: '8px 0' }}>
                                 <div style={{ width: '100%' }}>
@@ -1205,7 +1231,6 @@ const MemberDetail = () => {
                                             color: '#fff'
                                           }}
                                         >
-                                          觀看影片
                                         </Button>
                                       )}
                                     </div>
@@ -1217,11 +1242,13 @@ const MemberDetail = () => {
                         </div>
                       )}
                     </Card>
-                  ))}
+                    );
+                  })}
                 </div>
               )}
             </Card>
-          )}
+            );
+          })()}
 
           {/* 獲獎 */}
           {memberDetails.awards && memberDetails.awards.length > 0 && (
