@@ -28,6 +28,63 @@ const formatDate = (dateString) => {
   return `${year}-${month}-${day}`;
 };
 
+// 簡單文字標記轉換：支援 **粗體** 與 [[color:文字]] 顏色標記
+const COLOR_TAGS = {
+  red: '#D60000',
+  green: '#88AA00',
+  blue: '#2A52BE',
+  gold: '#D6B600',
+  brown: '#D2691E',
+  orange: '#E67E22',
+  purple: '#986FB3',
+};
+
+const renderRichText = (text) => {
+  if (!text) return null;
+  const source = String(text);
+  const nodes = [];
+
+  // 支援兩種標記：
+  // 1. **粗體**
+  // 2. [[color:文字]] 例如 [[green:随行记录]]
+  const tokenRegex = /(\[\[([a-zA-Z]+):([^\]]+)\]\]|\*\*([^*]+)\*\*)/g;
+
+  let lastIndex = 0;
+
+  source.replace(tokenRegex, (match, _full, colorName, colorText, boldText, offset) => {
+    // 先推入前面的純文字
+    if (offset > lastIndex) {
+      nodes.push(source.slice(lastIndex, offset));
+    }
+
+    if (colorName && colorText != null) {
+      const lower = colorName.toLowerCase();
+      const color = COLOR_TAGS[lower] || lower; // 未定義的顏色直接當 CSS 顏色用
+      nodes.push(
+        <span key={nodes.length} style={{ color }}>
+          {colorText}
+        </span>
+      );
+    } else if (boldText != null) {
+      nodes.push(
+        <strong key={nodes.length}>
+          {boldText}
+        </strong>
+      );
+    }
+
+    lastIndex = offset + match.length;
+    return match;
+  });
+
+  // 加上最後一段純文字
+  if (lastIndex < source.length) {
+    nodes.push(source.slice(lastIndex));
+  }
+
+  return nodes;
+};
+
 const MemberDetail = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -107,6 +164,20 @@ const MemberDetail = () => {
     } else {
       return `${colors[0]}${opacity}`;
     }
+  };
+
+  // 依據支援色取得較深色（用於標題 / icon 等）
+  const getDeepSupportColor = (baseColor) => {
+    const colorMap = {
+      '#EAF2FF': '#8076B7',
+      '#FFD700': '#B8860B',
+      '#63C5DE': '#4B9DB4',
+      '#D1D1D1': '#919191',
+      '#C0EBD7': '#37A471',
+      '#FF7F50': '#CC0000',
+      '#ADD5A2': '#89C379'
+    };
+    return colorMap[baseColor] || '#333';
   };
 
   // 從資料庫載入成員列表
@@ -510,17 +581,7 @@ const MemberDetail = () => {
               <Title level={1} style={{
                 color: (() => {
                   const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                  // 為不同顏色創建對應的深色版本
-                  const colorMap = {
-                    '#EAF2FF': '#8076B7',
-                    '#FFD700': '#B8860B',
-                    '#63C5DE': '#4B9DB4',
-                    '#D1D1D1': '#919191',
-                    '#C0EBD7': '#37A471',
-                    '#FF7F50': '#CC0000',
-                    '#ADD5A2': '#89C379'
-                  };
-                  return colorMap[baseColor] || '#333';
+                  return getDeepSupportColor(baseColor);
                 })(),
                 marginBottom: '8px',
                 fontSize: '36px'
@@ -611,17 +672,7 @@ const MemberDetail = () => {
                 <CustomerServiceOutlined style={{
                   color: (() => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    // 為不同顏色創建對應的深色版本
-                    const colorMap = {
-                      '#EAF2FF': '#8076B7',
-                      '#FFD700': '#B8860B',
-                      '#63C5DE': '#4B9DB4',
-                      '#D1D1D1': '#919191',
-                      '#C0EBD7': '#37A471',
-                      '#FF7F50': '#CC0000',
-                      '#ADD5A2': '#89C379'
-                    };
-                    return colorMap[baseColor] || '#333';
+                    return getDeepSupportColor(baseColor);
                   })(),
                   marginRight: '8px',
                   fontSize: '18px'
@@ -630,17 +681,7 @@ const MemberDetail = () => {
                   margin: '0',
                   color: (() => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    // 為不同顏色創建對應的深色版本
-                    const colorMap = {
-                      '#EAF2FF': '#8076B7',
-                      '#FFD700': '#B8860B',
-                      '#63C5DE': '#4B9DB4',
-                      '#D1D1D1': '#919191',
-                      '#C0EBD7': '#37A471',
-                      '#FF7F50': '#CC0000',
-                      '#ADD5A2': '#89C379'
-                    };
-                    return colorMap[baseColor] || '#333';
+                    return getDeepSupportColor(baseColor);
                   })()
                 }}>
                   個人歌曲 ({memberDetails.songs.length})
@@ -872,17 +913,7 @@ const MemberDetail = () => {
                 <MonitorOutlined style={{
                   color: (() => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    // 為不同顏色創建對應的深色版本
-                    const colorMap = {
-                      '#EAF2FF': '#8076B7',
-                      '#FFD700': '#B8860B',
-                      '#63C5DE': '#4B9DB4',
-                      '#D1D1D1': '#919191',
-                      '#C0EBD7': '#37A471',
-                      '#FF7F50': '#CC0000',
-                      '#ADD5A2': '#89C379'
-                    };
-                    return colorMap[baseColor] || '#333';
+                    return getDeepSupportColor(baseColor);
                   })(),
                   marginRight: '8px',
                   fontSize: '18px'
@@ -891,17 +922,7 @@ const MemberDetail = () => {
                   margin: '0',
                   color: (() => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    // 為不同顏色創建對應的深色版本
-                    const colorMap = {
-                      '#EAF2FF': '#8076B7',
-                      '#FFD700': '#B8860B',
-                      '#63C5DE': '#4B9DB4',
-                      '#D1D1D1': '#919191',
-                      '#C0EBD7': '#37A471',
-                      '#FF7F50': '#CC0000',
-                      '#ADD5A2': '#89C379'
-                    };
-                    return colorMap[baseColor] || '#333';
+                    return getDeepSupportColor(baseColor);
                   })()
                 }}>
                   個人外務 ({memberDetails.variety.length})
@@ -920,7 +941,7 @@ const MemberDetail = () => {
                             <Text strong style={{ fontSize: '16px' }}>{item.title}</Text>
                             <br />
                             <Text style={{ color: '#666', fontSize: '14px' }}>
-                              角色：{item.role} | 年份：{item.year}
+                              身份：{item.role} | 年份：{item.year}
                             </Text>
                             <br />
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -977,17 +998,7 @@ const MemberDetail = () => {
                 <VideoCameraOutlined style={{
                   color: (() => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    // 為不同顏色創建對應的深色版本
-                    const colorMap = {
-                      '#EAF2FF': '#8076B7',
-                      '#FFD700': '#B8860B',
-                      '#63C5DE': '#4B9DB4',
-                      '#D1D1D1': '#919191',
-                      '#C0EBD7': '#37A471',
-                      '#FF7F50': '#CC0000',
-                      '#ADD5A2': '#89C379'
-                    };
-                    return colorMap[baseColor] || '#333';
+                    return getDeepSupportColor(baseColor);
                   })(),
                   marginRight: '8px',
                   fontSize: '18px'
@@ -996,17 +1007,7 @@ const MemberDetail = () => {
                   margin: '0',
                   color: (() => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    // 為不同顏色創建對應的深色版本
-                    const colorMap = {
-                      '#EAF2FF': '#8076B7',
-                      '#FFD700': '#B8860B',
-                      '#63C5DE': '#4B9DB4',
-                      '#D1D1D1': '#919191',
-                      '#C0EBD7': '#37A471',
-                      '#FF7F50': '#CC0000',
-                      '#ADD5A2': '#89C379'
-                    };
-                    return colorMap[baseColor] || '#333';
+                    return getDeepSupportColor(baseColor);
                   })()
                 }}>
                   影視作品 ({memberDetails.movies.length})
@@ -1080,17 +1081,7 @@ const MemberDetail = () => {
                 <PlayCircleOutlined style={{
                   color: (() => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    // 為不同顏色創建對應的深色版本
-                    const colorMap = {
-                      '#EAF2FF': '#8076B7',
-                      '#FFD700': '#B8860B',
-                      '#63C5DE': '#4B9DB4',
-                      '#D1D1D1': '#919191',
-                      '#C0EBD7': '#37A471',
-                      '#FF7F50': '#CC0000',
-                      '#ADD5A2': '#89C379'
-                    };
-                    return colorMap[baseColor] || '#333';
+                    return getDeepSupportColor(baseColor);
                   })(),
                   marginRight: '8px',
                   fontSize: '18px'
@@ -1099,20 +1090,10 @@ const MemberDetail = () => {
                   margin: '0',
                   color: (() => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    // 為不同顏色創建對應的深色版本
-                    const colorMap = {
-                      '#EAF2FF': '#8076B7',
-                      '#FFD700': '#B8860B',
-                      '#63C5DE': '#4B9DB4',
-                      '#D1D1D1': '#919191',
-                      '#C0EBD7': '#37A471',
-                      '#FF7F50': '#CC0000',
-                      '#ADD5A2': '#89C379'
-                    };
-                    return colorMap[baseColor] || '#333';
+                    return getDeepSupportColor(baseColor);
                   })()
                 }}>
-                  視頻vlog ({memberDetails.vlogs.reduce((total, series) => total + (series.videos ? series.videos.length : 0), 0)})
+                  視頻vlog ({memberDetails.vlogs.length})
                 </Title>
                 {expandedSections.vlogs ? <DownOutlined /> : <RightOutlined />}
               </div>
@@ -1172,7 +1153,7 @@ const MemberDetail = () => {
                         <div>
                           {series.description && (
                             <Text style={{ color: '#666', fontSize: '13px', display: 'block', marginBottom: '12px' }}>
-                              {series.description}
+                              {renderRichText(series.description)}
                             </Text>
                           )}
                           <List
@@ -1185,7 +1166,7 @@ const MemberDetail = () => {
                                       <Text strong style={{ fontSize: '15px' }}>{video.title}</Text>
                                       <br />
                                       <Text style={{ color: '#666', fontSize: '13px' }}>
-                                        發布日期: {formatDate(video.publishDate)}
+                                        發布日期: {video.publishDate}
                                       </Text>
                                     </div>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -1272,17 +1253,7 @@ const MemberDetail = () => {
                 <TrophyOutlined style={{
                   color: (() => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    // 為不同顏色創建對應的深色版本
-                    const colorMap = {
-                      '#EAF2FF': '#8076B7',
-                      '#FFD700': '#B8860B',
-                      '#63C5DE': '#4B9DB4',
-                      '#D1D1D1': '#919191',
-                      '#C0EBD7': '#37A471',
-                      '#FF7F50': '#CC0000',
-                      '#ADD5A2': '#89C379'
-                    };
-                    return colorMap[baseColor] || '#333';
+                    return getDeepSupportColor(baseColor);
                   })(),
                   marginRight: '8px',
                   fontSize: '18px'
@@ -1291,17 +1262,7 @@ const MemberDetail = () => {
                   margin: '0',
                   color: (() => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    // 為不同顏色創建對應的深色版本
-                    const colorMap = {
-                      '#EAF2FF': '#8076B7',
-                      '#FFD700': '#B8860B',
-                      '#63C5DE': '#4B9DB4',
-                      '#D1D1D1': '#919191',
-                      '#C0EBD7': '#37A471',
-                      '#FF7F50': '#CC0000',
-                      '#ADD5A2': '#89C379'
-                    };
-                    return colorMap[baseColor] || '#333';
+                    return getDeepSupportColor(baseColor);
                   })()
                 }}>
                   獲獎 ({memberDetails.awards.length})
