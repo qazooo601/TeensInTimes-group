@@ -541,6 +541,8 @@ app.get('/api/variety', async (req, res) => {
             image: row.coverImage || '',
             color: row.color || '#DDA0DD',
             participants: row.participants || '',
+            description: row.description || '',
+            episodes: row.episodes || '',
             videoUrl: row.videoUrl || '',
             videoLinks: {} // 綜藝節目表沒有 VideoLinks 欄位，直接設為空物件
           };
