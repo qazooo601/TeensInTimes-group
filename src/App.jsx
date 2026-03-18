@@ -332,6 +332,8 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
     window.location.href = `/${key}`;
   };
 
+  const isAboutPage = () => window.location.pathname.startsWith('/about');
+
   return (
     <Layout style={{ minHeight: '100vh' }}>
       {/* 桌面端 Header */}
@@ -409,7 +411,7 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
           <Button
             type="text"
             onClick={() => window.location.href = '/about'}
-            className="desktop-about-button"
+            className={`desktop-about-button${isAboutPage() ? ' is-active' : ''}`}
             style={{
               color: '#000',
               fontSize: '13px',
@@ -467,7 +469,7 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
           type="text"
           icon={<UserOutlined />}
           onClick={() => window.location.href = '/about'}
-          className="mobile-about-button"
+          className={`mobile-about-button${isAboutPage() ? ' is-active' : ''}`}
           style={{
             color: '#000',
             fontSize: '20px',

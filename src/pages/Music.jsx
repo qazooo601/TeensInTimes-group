@@ -115,7 +115,7 @@ const Music = () => {
   const renderMusicCard = (item) => {
     const isAlbum = item.category === 'album';
     const borderColor = isAlbum ? '#87CEEB' : '#FFD700';
-    const backgroundColor = isAlbum ? 'linear-gradient(135deg, #E0F6FF 0%, #87CEEB 100%)' : 'linear-gradient(135deg, #FFFACD 0%, #FFD700 100%)';
+    const backgroundColor = isAlbum ? 'linear-gradient(135deg, #E0F6FF 0%, #CCECF8 100%)' : 'linear-gradient(135deg, #FFFACD 0%, #F0E293 100%)';
     const iconColor = isAlbum ? '#87CEEB' : '#FFD700';
 
     return (
@@ -232,7 +232,7 @@ const Music = () => {
         alignItems: 'center',
         minHeight: '400px',
         fontSize: '20px',
-        color: '#FFD700'
+        color: ' #FFD700'
       }}>
         載入中...
       </div>
@@ -249,7 +249,7 @@ const Music = () => {
       <div style={{ padding: '24px', position: 'relative' }}>
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
         <Title level={1} style={{
-          color: '#EBC700',
+          color: ' #EBC700',
           marginBottom: '8px',
           fontSize: '36px'
         }}>
@@ -260,8 +260,8 @@ const Music = () => {
       {/* 專輯區塊 */}
       <div style={{ marginBottom: '40px' }}>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-          <FolderOutlined style={{ fontSize: '24px', color: '#208FBC', marginRight: '12px' }} />
-          <Title level={2} style={{ color: '#208FBC', margin: 0 }}>
+          <FolderOutlined style={{ fontSize: '24px', color: ' #208FBC', marginRight: '12px' }} />
+          <Title level={2} style={{ color: ' #208FBC', margin: 0 }}>
             專輯
           </Title>
         </div>
@@ -274,13 +274,13 @@ const Music = () => {
         </div>
       </div>
 
-      <Divider style={{ borderColor: '#FFD700', margin: '40px 0' }} />
+      <Divider style={{ borderColor: ' #D4AD00', margin: '40px 0' }} />
 
       {/* 單曲區塊 */}
       <div>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-          <SoundOutlined style={{ fontSize: '24px', color: '#FFD700', marginRight: '12px' }} />
-          <Title level={2} style={{ color: '#FFD700', margin: 0 }}>
+          <SoundOutlined style={{ fontSize: '24px', color: ' #DFBD00', marginRight: '12px' }} />
+          <Title level={2} style={{ color: ' #DFBD00', margin: 0 }}>
             單曲
           </Title>
         </div>

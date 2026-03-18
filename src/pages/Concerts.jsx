@@ -146,8 +146,8 @@ const Concerts = () => {
                   window.open(videoLinks.concert[day], '_blank');
                 }}
                 style={{
-                  backgroundColor: '#C9BB22',
-                  borderColor: '#C9BB22',
+                  backgroundColor: ' #D8C869',
+                  borderColor: ' #C9BB22',
                   borderRadius: '15px',
                   margin: '2px'
                 }}
@@ -170,8 +170,8 @@ const Concerts = () => {
               window.open(videoLinks.concert, '_blank');
             }}
             style={{
-              backgroundColor: '#C9BB22',
-              borderColor: '#C9BB22',
+              backgroundColor: ' #D8C869',
+              borderColor: ' #C9BB22',
               borderRadius: '15px',
               margin: '2px'
             }}
@@ -288,10 +288,10 @@ const Concerts = () => {
               }}
               style={{
                 borderRadius: '20px',
-                border: '3px solid rgb(252, 227, 0)',
+                border: '3px solid rgb(250, 236, 112)',
                 boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
                 transition: 'all 0.3s ease',
-                background: 'linear-gradient(135deg,hsl(59, 100.00%, 89.00%) 0%,rgb(240, 237, 88) 100%)',
+                background: 'linear-gradient(135deg, hsl(59, 100.00%, 89.00%) 0%, #EEED9C 100%)',
                 cursor: 'pointer',
                 maxWidth: '92%',     // 防止在極小螢幕的手機上超出範圍
               }}
@@ -326,15 +326,15 @@ const Concerts = () => {
                 {/* 上右：日期、地點、場地 */}
                 <Space direction="vertical" size="small" style={{ minWidth: 0, flex: '1 1 58%' }}>
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <CalendarOutlined style={{ color: '#ffd700', marginRight: '8px' }} />
+                    <CalendarOutlined style={{ color: ' #ffd700', marginRight: '8px' }} />
                     <Text strong>{formatDate(concert.date)}</Text>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <EnvironmentOutlined style={{ color: '#ffd700', marginRight: '8px' }} />
+                    <EnvironmentOutlined style={{ color: ' #ffd700', marginRight: '8px' }} />
                     <Text>{concert.location}</Text>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <BankOutlined style={{ color: '#ffd700', marginRight: '8px' }} />
+                    <BankOutlined style={{ color: ' #ffd700', marginRight: '8px' }} />
                     <Text>{concert.venue}</Text>
                   </div>
                 </Space>

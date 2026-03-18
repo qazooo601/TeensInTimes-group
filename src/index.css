@@ -49,8 +49,9 @@ body {
 }
 
 .custom-menu .ant-menu-item-selected {
-  color: #FFF7CC !important;
-  background-color: rgba(255, 255, 255, 0.2) !important;
+  /* 目前所在頁：深灰字 + 淡色底 */
+  color: #444444 !important;
+  background-color: rgba(0, 0, 0, 0.08) !important;
   border-radius: 8px !important;
 }
 
@@ -64,6 +65,12 @@ body {
   background-color: rgba(255, 255, 255, 0.3) !important;
 }
 
+/* 關於版主按鈕：目前所在頁 */
+.desktop-about-button.is-active {
+  color: #444444 !important;
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
 /* 移動端關於版主按鈕樣式 */
 .mobile-about-button {
   color: #666 !important;
@@ -72,6 +79,12 @@ body {
 .mobile-about-button:hover {
   color: #FFF7CC !important;
   background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* 移動端關於版主按鈕：目前所在頁 */
+.mobile-about-button.is-active {
+  color: #444444 !important;
+  background-color: rgba(0, 0, 0, 0.08) !important;
 }
 
 /* 響應式設計 */
