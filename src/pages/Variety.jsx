@@ -71,6 +71,66 @@ const Variety = () => {
     return diffMs >= 0 && diffMs <= oneMonthMs;
   };
 
+  // 簡單文字標記轉換：支援 **粗體** 與 [[color:文字]] 顏色標記
+  // 與 MemberDetail.jsx 保持一致（可顯示多種顏色）
+  const COLOR_TAGS = {
+    red: ' #D60000',
+    green: ' #88AA00',
+    blue: ' #2A52BE',
+    gold: ' #D6B600',
+    brown: ' #D2691E',
+    orange: ' #E67E22',
+    purple: ' #986FB3',
+    pink: ' #F09DC8'
+  };
+
+  const renderRichText = (text) => {
+    if (!text) return null;
+
+    const source = String(text);
+    const nodes = [];
+
+    // 支援兩種標記：
+    // 1. **粗體**
+    // 2. [[color:文字]] 例如 [[green:随行记录]]
+    const tokenRegex = /(\[\[([a-zA-Z]+):([^\]]+)\]\]|\*\*([^*]+)\*\*)/g;
+
+    let lastIndex = 0;
+
+    source.replace(tokenRegex, (match, _full, colorName, colorText, boldText, offset) => {
+      // 先推入前面的純文字
+      if (offset > lastIndex) {
+        nodes.push(source.slice(lastIndex, offset));
+      }
+
+      if (colorName && colorText != null) {
+        const lower = colorName.toLowerCase();
+        const color = COLOR_TAGS[lower] || lower; // 未定義的顏色直接當 CSS 顏色用
+        nodes.push(
+          <span key={nodes.length} style={{ color }}>
+            {colorText}
+          </span>
+        );
+      } else if (boldText != null) {
+        nodes.push(
+          <strong key={nodes.length}>
+            {boldText}
+          </strong>
+        );
+      }
+
+      lastIndex = offset + match.length;
+      return match;
+    });
+
+    // 加上最後一段純文字
+    if (lastIndex < source.length) {
+      nodes.push(source.slice(lastIndex));
+    }
+
+    return nodes;
+  };
+
   // 從資料庫載入綜藝節目資料
   useEffect(() => {
     const loadVarietyData = async () => {
@@ -512,7 +572,7 @@ const Variety = () => {
                 })
               }}
             >
-              {item.description}
+              {renderRichText(item.description)}
             </Text>
             {needsExpand[item.id] && (
               <div style={{
