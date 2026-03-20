@@ -81,7 +81,7 @@ const Variety = () => {
     brown: ' #D2691E',
     orange: ' #E67E22',
     purple: ' #986FB3',
-    pink: ' #F09DC8'
+    pink: ' #D87DAC'
   };
 
   const renderRichText = (text) => {
