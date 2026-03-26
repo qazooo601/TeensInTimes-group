@@ -86,6 +86,7 @@ app.get('/api/members', async (req, res) => {
         Position as position,
         FanName as fanName,
         SupportColor as supportColor,
+        VlogTitle as vlogTitle,
         AvatarUrl as avatarUrl,
         DetailImageUrl as detailImageUrl,
         Content as content,
@@ -117,6 +118,7 @@ app.get('/api/members', async (req, res) => {
         fanName: row.fanName,
         weibo: row.weibo || null,
         supportColor: row.supportColor ? row.supportColor.split(', ') : [],
+        vlogTitle: row.vlogTitle || null,
         image: row.avatarUrl, // 列表頁頭像
         images: row.detailImageUrl || row.avatarUrl, // 詳細頁圖片，如果沒有則使用頭像
         position: row.position,

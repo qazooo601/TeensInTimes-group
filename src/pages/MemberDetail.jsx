@@ -194,8 +194,8 @@ const MemberDetail = () => {
         const errorMsg = error.response
           ? `API 錯誤 (${error.response.status}): ${error.response.data?.error || error.message}`
           : error.code === 'ERR_NETWORK'
-          ? '無法連接到後端 API 服務，請確認後端服務是否正在運行 (http://localhost:3003)'
-          : `無法連接到資料庫: ${error.message}`;
+            ? '無法連接到後端 API 服務，請確認後端服務是否正在運行 (http://localhost:3003)'
+            : `無法連接到資料庫: ${error.message}`;
 
         message.warning(errorMsg);
       } finally {
@@ -316,14 +316,14 @@ const MemberDetail = () => {
   // 生成麵包屑結構化資料
   const breadcrumbData = member
     ? generateBreadcrumbStructuredData([
-        { name: '首頁', url: '/' },
-        { name: '成員', url: '/members' },
-        { name: member.memberName, url: `/member-detail?code=${member.memberCode}` }
-      ])
+      { name: '首頁', url: '/' },
+      { name: '成員', url: '/members' },
+      { name: member.memberName, url: `/member-detail?code=${member.memberCode}` }
+    ])
     : generateBreadcrumbStructuredData([
-        { name: '首頁', url: '/' },
-        { name: '成員', url: '/members' }
-      ]);
+      { name: '首頁', url: '/' },
+      { name: '成員', url: '/members' }
+    ]);
 
   // 當成員改變時重置圖片錯誤狀態
   useEffect(() => {
@@ -379,96 +379,96 @@ const MemberDetail = () => {
           structuredData={breadcrumbData}
         />
         <div style={{ padding: '24px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-          <Title level={1} style={{
-            color: '#FFD700',
-            marginBottom: '8px',
-            textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
-            fontSize: '36px'
-          }}>
-            時代少年團成員介紹
-          </Title>
-          <Paragraph style={{
-            fontSize: '18px',
-            color: '#666',
-            marginBottom: '16px'
-          }}>
-            ✨ 點擊成員卡片查看詳細介紹 ✨
-          </Paragraph>
-        </div>
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <Title level={1} style={{
+              color: '#FFD700',
+              marginBottom: '8px',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+              fontSize: '36px'
+            }}>
+              時代少年團成員介紹
+            </Title>
+            <Paragraph style={{
+              fontSize: '18px',
+              color: '#666',
+              marginBottom: '16px'
+            }}>
+              ✨ 點擊成員卡片查看詳細介紹 ✨
+            </Paragraph>
+          </div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '20px',
-          marginBottom: '32px'
-        }}>
-          {membersData.map((memberData, index) => {
-            // 根據不同的 ID 設定漸變色順序和邊框顏色
-            const colorConfig = getColorConfig(memberData.id, memberData.supportColor);
-            const gradientColors = colorConfig.gradientColors;
-            const borderColor = colorConfig.borderColor;
-            const backgroundStyle = generateGradient(gradientColors, '70');
-            const avatarGradient = generateGradient(gradientColors);
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '20px',
+            marginBottom: '32px'
+          }}>
+            {membersData.map((memberData, index) => {
+              // 根據不同的 ID 設定漸變色順序和邊框顏色
+              const colorConfig = getColorConfig(memberData.id, memberData.supportColor);
+              const gradientColors = colorConfig.gradientColors;
+              const borderColor = colorConfig.borderColor;
+              const backgroundStyle = generateGradient(gradientColors, '70');
+              const avatarGradient = generateGradient(gradientColors);
 
-            return (
-              <Card
-                key={index}
-                hoverable
-                onClick={() => {
-                  // 保存當前滾動位置
-                  const currentPosition = window.scrollY;
-                  sessionStorage.setItem('scroll_/member-detail', currentPosition.toString());
-                  // 標記為前進導航
-                  sessionStorage.setItem('nav_type_/member-detail', 'forward');
-                  navigate('/member-detail', { state: { member: memberData } });
-                }}
-                style={{
-                  textAlign: 'center',
-                  borderRadius: '20px',
-                  border: `3px solid ${borderColor}`,
-                  boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
-                  transition: 'all 0.3s ease',
-                  background: backgroundStyle,
-                  cursor: 'pointer'
-                }}
-                bodyStyle={{ padding: '20px' }}
-              >
-                <Avatar
-                  size={60}
-                  src={memberData.images}
+              return (
+                <Card
+                  key={index}
+                  hoverable
+                  onClick={() => {
+                    // 保存當前滾動位置
+                    const currentPosition = window.scrollY;
+                    sessionStorage.setItem('scroll_/member-detail', currentPosition.toString());
+                    // 標記為前進導航
+                    sessionStorage.setItem('nav_type_/member-detail', 'forward');
+                    navigate('/member-detail', { state: { member: memberData } });
+                  }}
                   style={{
-                    background: avatarGradient,
-                    marginBottom: '12px',
-                    fontSize: '24px',
-                    border: `2px solid ${borderColor}`,
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
+                    textAlign: 'center',
+                    borderRadius: '20px',
+                    border: `3px solid ${borderColor}`,
+                    boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+                    transition: 'all 0.3s ease',
+                    background: backgroundStyle,
+                    cursor: 'pointer'
                   }}
-                  onError={() => {
-                    return memberData.emoji;
-                  }}
+                  bodyStyle={{ padding: '20px' }}
                 >
-                  {memberData.emoji}
-                </Avatar>
-                <Title level={3} style={{
-                  color: '#333',
-                  marginBottom: '8px',
-                  fontSize: '20px'
-                }}>
-                  {memberData.memberName}
-                </Title>
-                <Text style={{
-                  color: borderColor,
-                  fontWeight: 'bold',
-                  fontSize: '14px'
-                }}>
-                  {memberData.fanName}
-                </Text>
-              </Card>
-            );
-          })}
+                  <Avatar
+                    size={60}
+                    src={memberData.images}
+                    style={{
+                      background: avatarGradient,
+                      marginBottom: '12px',
+                      fontSize: '24px',
+                      border: `2px solid ${borderColor}`,
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
+                    }}
+                    onError={() => {
+                      return memberData.emoji;
+                    }}
+                  >
+                    {memberData.emoji}
+                  </Avatar>
+                  <Title level={3} style={{
+                    color: '#333',
+                    marginBottom: '8px',
+                    fontSize: '20px'
+                  }}>
+                    {memberData.memberName}
+                  </Title>
+                  <Text style={{
+                    color: borderColor,
+                    fontWeight: 'bold',
+                    fontSize: '14px'
+                  }}>
+                    {memberData.fanName}
+                  </Text>
+                </Card>
+              );
+            })}
+          </div>
         </div>
-      </div>
       </>
     );
   }
@@ -492,811 +492,811 @@ const MemberDetail = () => {
         image={member.images}
       />
       <div style={{ padding: '24px', position: 'relative' }}>
-      <div style={{ marginBottom: '24px' }}>
-        <Button
-          icon={<ArrowLeftOutlined />}
-          onClick={() => {
-            // 保存當前滾動位置
-            const currentPosition = window.scrollY;
-            sessionStorage.setItem('scroll_/member-detail', currentPosition.toString());
-            // 標記為返回導航
-            sessionStorage.setItem('nav_type_/members', 'back');
-            navigate('/members');
-          }}
-          style={{
-            background: '#FFD700',
-            border: 'none',
-            color: '#000',
-            fontWeight: 'bold'
-          }}
-        >
-          返回
-        </Button>
-      </div>
-
-      <Card
-        style={{
-          borderRadius: '20px',
-          border: `3px solid ${(() => {
-            const colorConfig = getColorConfig(member.id, member.supportColor);
-            return colorConfig.borderColor;
-          })()}`,
-          boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
-          background: (() => {
-            const colorConfig = getColorConfig(member.id, member.supportColor);
-            return generateGradient(colorConfig.gradientColors, '70');
-          })()
-        }}
-        styles={{ body: { padding: '40px' } }}
-      >
-        <Row gutter={[32, 32]} align="top">
-          {/* 左側圖片 - 大螢幕顯示，小螢幕時隱藏 */}
-          <Col xs={24} md={8} style={{ textAlign: 'center' }}>
-            {(() => {
-              const colorConfig = getColorConfig(member.id, member.supportColor);
-              const gradientColors = colorConfig.gradientColors;
-              const borderColor = colorConfig.borderColor;
-              const avatarGradient = generateGradient(gradientColors);
-
-              return imageError || !member.images ? (
-                <div
-                  style={{
-                    display: 'inline-flex',
-                    width: '80%',
-                    maxWidth: '300px',
-                    aspectRatio: '1',
-                    background: avatarGradient,
-                    fontSize: '48px',
-                    border: `3px solid ${borderColor}`,
-                    boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
-                    borderRadius: '8px',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}
-                >
-                  {member.emoji}
-                </div>
-              ) : (
-                <img
-                  src={member.images}
-                  alt={member.memberName}
-                  onError={() => setImageError(true)}
-                  style={{
-                    width: '100%',
-                    maxWidth: '100%',
-                    height: 'auto',
-                    border: `3px solid ${borderColor}`,
-                    boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
-                    borderRadius: '8px',
-                    display: 'block'
-                  }}
-                />
-              );
-            })()}
-          </Col>
-
-          {/* 右側資訊 */}
-          <Col xs={24} md={16}>
-            <div style={{ textAlign: 'center' }}>
-              <Title level={1} style={{
-                color: (() => {
-                  const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                  return getDeepSupportColor(baseColor);
-                })(),
-                marginBottom: '8px',
-                fontSize: '36px'
-              }}>
-                {member.memberName}
-              </Title>
-              <Title level={2} style={{
-                color: '#333',
-                marginBottom: '10px',
-                fontSize: '24px'
-              }}>
-                {member.memberNameEn}
-              </Title>
-              <Space wrap style={{ marginBottom: '20px' }}>
-                <Tag color="gold" icon={<HeartOutlined />}>{member.fanName}</Tag>
-                <Tag color="default" icon={<CalendarOutlined />}>{formatDate(member.birthday)}</Tag>
-                {member.weibo && (
-                  <Tag
-                    color="red"
-                    icon={<BsSinaWeibo style={{ transform: 'translateY(2px)', marginRight: '4px' }}/>}
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => window.open(member.weibo, '_blank')}
-                  >
-                    @{member.memberNameCn || member.memberName}
-                  </Tag>
-                )}
-              </Space>
-            </div>
-
-            <Divider style={{ borderColor: Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor }} />
-
-            <div>
-              <Title level={3} style={{
-                color: '#333',
-                marginBottom: '10px',
-                textAlign: 'center'
-              }}>
-                成員介紹
-              </Title>
-              <Paragraph style={{
-                fontSize: '14px',
-                lineHeight: '1.8',
-                color: '#666',
-                textAlign: 'left',
-                whiteSpace: 'pre-line'
-              }}>
-                {member.content}
-              </Paragraph>
-            </div>
-          </Col>
-        </Row>
-      </Card>
-
-      {/* 詳細資料區塊 */}
-      {detailsLoading ? (
-        <div style={{
-          padding: '24px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          minHeight: '400px',
-          fontSize: '20px',
-          color: '#FFD700'
-        }}>
-          載入中...
+        <div style={{ marginBottom: '24px' }}>
+          <Button
+            icon={<ArrowLeftOutlined />}
+            onClick={() => {
+              // 保存當前滾動位置
+              const currentPosition = window.scrollY;
+              sessionStorage.setItem('scroll_/member-detail', currentPosition.toString());
+              // 標記為返回導航
+              sessionStorage.setItem('nav_type_/members', 'back');
+              navigate('/members');
+            }}
+            style={{
+              background: '#FFD700',
+              border: 'none',
+              color: '#000',
+              fontWeight: 'bold'
+            }}
+          >
+            返回
+          </Button>
         </div>
-      ) : memberDetails && (
-        <div style={{ marginTop: '24px' }}>
-          {/* 個人歌曲 */}
-          {memberDetails.songs && memberDetails.songs.length > 0 && (
-            <Card
-              style={{
-                marginBottom: '16px',
-                borderRadius: '12px',
-                border: `2px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}20`
-              }}
-              styles={{ body: { padding: '20px' } }}
-            >
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  cursor: 'pointer',
-                  marginBottom: expandedSections.songs ? '16px' : '0'
-                }}
-                onClick={() => toggleSection('songs')}
-              >
-                <CustomerServiceOutlined style={{
+
+        <Card
+          style={{
+            borderRadius: '20px',
+            border: `3px solid ${(() => {
+              const colorConfig = getColorConfig(member.id, member.supportColor);
+              return colorConfig.borderColor;
+            })()}`,
+            boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+            background: (() => {
+              const colorConfig = getColorConfig(member.id, member.supportColor);
+              return generateGradient(colorConfig.gradientColors, '70');
+            })()
+          }}
+          styles={{ body: { padding: '40px' } }}
+        >
+          <Row gutter={[32, 32]} align="top">
+            {/* 左側圖片 - 大螢幕顯示，小螢幕時隱藏 */}
+            <Col xs={24} md={8} style={{ textAlign: 'center' }}>
+              {(() => {
+                const colorConfig = getColorConfig(member.id, member.supportColor);
+                const gradientColors = colorConfig.gradientColors;
+                const borderColor = colorConfig.borderColor;
+                const avatarGradient = generateGradient(gradientColors);
+
+                return imageError || !member.images ? (
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      width: '80%',
+                      maxWidth: '300px',
+                      aspectRatio: '1',
+                      background: avatarGradient,
+                      fontSize: '48px',
+                      border: `3px solid ${borderColor}`,
+                      boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+                      borderRadius: '8px',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}
+                  >
+                    {member.emoji}
+                  </div>
+                ) : (
+                  <img
+                    src={member.images}
+                    alt={member.memberName}
+                    onError={() => setImageError(true)}
+                    style={{
+                      width: '100%',
+                      maxWidth: '100%',
+                      height: 'auto',
+                      border: `3px solid ${borderColor}`,
+                      boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+                      borderRadius: '8px',
+                      display: 'block'
+                    }}
+                  />
+                );
+              })()}
+            </Col>
+
+            {/* 右側資訊 */}
+            <Col xs={24} md={16}>
+              <div style={{ textAlign: 'center' }}>
+                <Title level={1} style={{
                   color: (() => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
                     return getDeepSupportColor(baseColor);
                   })(),
-                  marginRight: '8px',
-                  fontSize: '18px'
-                }} />
-                <Title level={4} style={{
-                  margin: '0',
-                  color: (() => {
-                    const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    return getDeepSupportColor(baseColor);
-                  })()
+                  marginBottom: '8px',
+                  fontSize: '36px'
                 }}>
-                  個人歌曲 ({memberDetails.songs.length})
+                  {member.memberName}
                 </Title>
-                {expandedSections.songs ? <DownOutlined /> : <RightOutlined />}
+                <Title level={2} style={{
+                  color: '#333',
+                  marginBottom: '10px',
+                  fontSize: '24px'
+                }}>
+                  {member.memberNameEn}
+                </Title>
+                <Space wrap style={{ marginBottom: '20px' }}>
+                  <Tag color="gold" icon={<HeartOutlined />}>{member.fanName}</Tag>
+                  <Tag color="default" icon={<CalendarOutlined />}>{formatDate(member.birthday)}</Tag>
+                  {member.weibo && (
+                    <Tag
+                      color="red"
+                      icon={<BsSinaWeibo style={{ transform: 'translateY(2px)', marginRight: '4px' }} />}
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => window.open(member.weibo, '_blank')}
+                    >
+                      @{member.memberNameCn || member.memberName}
+                    </Tag>
+                  )}
+                </Space>
               </div>
 
-              {expandedSections.songs && (
-                <div>
-                  {/* 單曲 */}
-                  {memberDetails.songs.filter(song => song.type === '單曲').length > 0 && (
-                    <div style={{ marginBottom: '16px' }}>
-                      <Title level={5} style={{
-                        color: '#D6B600',
-                        marginBottom: '8px',
-                        fontSize: '14px',
-                        fontWeight: 'bold'
-                      }}>
-                        單曲
-                      </Title>
-                      <List
-                        dataSource={memberDetails.songs.filter(song => song.type === '單曲')}
-                        renderItem={(item) => (
-                          <List.Item style={{ padding: '8px 0', border: 'none' }}>
-                            <div style={{ width: '100%' }}>
-                              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                                <div style={{ flex: 1 }}>
-                                  <Text strong style={{ fontSize: '15px' }}>{item.title}</Text>
-                                  <br />
-                                  <Text style={{ color: '#666', fontSize: '13px' }}>
-                                    發行日期: {formatDate(item.releaseDate)}
-                                  </Text>
-                                  <br />
-                                  <Text style={{ color: '#999', fontSize: '11px' }}>{item.description}</Text>
-                                </div>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                  {item.audioUrl && (
-                                    <Button
-                                      type="primary"
-                                      size="small"
-                                      icon={<PlayCircleOutlined />}
-                                      onClick={() => window.open(item.audioUrl, '_blank')}
-                                      style={{
-                                        background: '#FFD700',
-                                        border: 'none',
-                                        color: '#000'
-                                      }}
-                                    >
-                                      播放
-                                    </Button>
-                                  )}
+              <Divider style={{ borderColor: Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor }} />
+
+              <div>
+                <Title level={3} style={{
+                  color: '#333',
+                  marginBottom: '10px',
+                  textAlign: 'center'
+                }}>
+                  成員介紹
+                </Title>
+                <Paragraph style={{
+                  fontSize: '14px',
+                  lineHeight: '1.8',
+                  color: '#666',
+                  textAlign: 'left',
+                  whiteSpace: 'pre-line'
+                }}>
+                  {member.content}
+                </Paragraph>
+              </div>
+            </Col>
+          </Row>
+        </Card>
+
+        {/* 詳細資料區塊 */}
+        {detailsLoading ? (
+          <div style={{
+            padding: '24px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: '400px',
+            fontSize: '20px',
+            color: '#FFD700'
+          }}>
+            載入中...
+          </div>
+        ) : memberDetails && (
+          <div style={{ marginTop: '24px' }}>
+            {/* 個人歌曲 */}
+            {memberDetails.songs && memberDetails.songs.length > 0 && (
+              <Card
+                style={{
+                  marginBottom: '16px',
+                  borderRadius: '12px',
+                  border: `2px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}20`
+                }}
+                styles={{ body: { padding: '20px' } }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    cursor: 'pointer',
+                    marginBottom: expandedSections.songs ? '16px' : '0'
+                  }}
+                  onClick={() => toggleSection('songs')}
+                >
+                  <CustomerServiceOutlined style={{
+                    color: (() => {
+                      const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                      return getDeepSupportColor(baseColor);
+                    })(),
+                    marginRight: '8px',
+                    fontSize: '18px'
+                  }} />
+                  <Title level={4} style={{
+                    margin: '0',
+                    color: (() => {
+                      const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                      return getDeepSupportColor(baseColor);
+                    })()
+                  }}>
+                    個人歌曲 ({memberDetails.songs.length})
+                  </Title>
+                  {expandedSections.songs ? <DownOutlined /> : <RightOutlined />}
+                </div>
+
+                {expandedSections.songs && (
+                  <div>
+                    {/* 單曲 */}
+                    {memberDetails.songs.filter(song => song.type === '單曲').length > 0 && (
+                      <div style={{ marginBottom: '16px' }}>
+                        <Title level={5} style={{
+                          color: '#D6B600',
+                          marginBottom: '8px',
+                          fontSize: '14px',
+                          fontWeight: 'bold'
+                        }}>
+                          單曲
+                        </Title>
+                        <List
+                          dataSource={memberDetails.songs.filter(song => song.type === '單曲')}
+                          renderItem={(item) => (
+                            <List.Item style={{ padding: '8px 0', border: 'none' }}>
+                              <div style={{ width: '100%' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                  <div style={{ flex: 1 }}>
+                                    <Text strong style={{ fontSize: '15px' }}>{item.title}</Text>
+                                    <br />
+                                    <Text style={{ color: '#666', fontSize: '13px' }}>
+                                      發行日期: {formatDate(item.releaseDate)}
+                                    </Text>
+                                    <br />
+                                    <Text style={{ color: '#999', fontSize: '11px' }}>{item.description}</Text>
+                                  </div>
+                                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    {item.audioUrl && (
+                                      <Button
+                                        type="primary"
+                                        size="small"
+                                        icon={<PlayCircleOutlined />}
+                                        onClick={() => window.open(item.audioUrl, '_blank')}
+                                        style={{
+                                          background: '#FFD700',
+                                          border: 'none',
+                                          color: '#000'
+                                        }}
+                                      >
+                                        播放
+                                      </Button>
+                                    )}
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </List.Item>
-                        )}
-                      />
-                    </div>
-                  )}
+                            </List.Item>
+                          )}
+                        />
+                      </div>
+                    )}
 
-                  {/* 專輯 */}
-                  {memberDetails.songs.filter(song => song.type === '專輯').length > 0 && (
-                    <div>
-                      <Title level={5} style={{
-                        color: '#25A7DA',
-                        marginBottom: '8px',
-                        fontSize: '14px',
-                        fontWeight: 'bold'
-                      }}>
-                        EP
-                      </Title>
-                      <List
-                        dataSource={memberDetails.songs.filter(song => song.type === '專輯')}
-                        renderItem={(item) => (
-                          <List.Item style={{ padding: '8px 0', border: 'none' }}>
-                            <div style={{ width: '100%' }}>
-                              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
-                                <div style={{ flex: 1 }}>
-                                  <Text strong style={{ fontSize: '15px' }}>{item.title}</Text>
-                                  <br />
-                                  <Text style={{ color: '#666', fontSize: '13px' }}>
-                                    發行日期: {formatDate(item.releaseDate)} | 共 {item.songs ? item.songs.length : 0} 首歌曲
-                                  </Text>
-                                  <br />
-                                  <Text style={{ color: '#999', fontSize: '11px' }}>{item.description}</Text>
-                                </div>
-                              </div>
-
-                              {/* 專輯中的單曲列表 */}
-                              {item.songs && item.songs.length > 0 && (
-                                <div style={{
-                                  marginLeft: '16px',
-                                  padding: '8px 12px',
-                                  backgroundColor: '#f8f9fa',
-                                  borderRadius: '6px',
-                                  border: '1px solid #e9ecef'
-                                }}>
-                                  <Text style={{
-                                    fontSize: '12px',
-                                    color: '#25A7DA',
-                                    fontWeight: 'bold',
-                                    marginBottom: '4px',
-                                    display: 'block'
-                                  }}>
-                                    專輯曲目:
-                                  </Text>
-                                  {item.songs.map((song, index) => (
-                                    <div key={index} style={{
-                                      display: 'flex',
-                                      justifyContent: 'space-between',
-                                      alignItems: 'center',
-                                      padding: '2px 0',
-                                      fontSize: '12px'
-                                    }}>
-                                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                                        <Text style={{
-                                          color: '#666',
-                                          marginRight: '8px',
-                                          minWidth: '20px'
-                                        }}>
-                                          {index + 1}.
-                                        </Text>
-                                        <Text style={{ color: '#333' }}>{song.title}</Text>
-                                      </div>
-                                      {song.audioUrl && (
-                                        <Button
-                                          type="text"
-                                          size="small"
-                                          icon={<PlayCircleOutlined />}
-                                          onClick={() => window.open(song.audioUrl, '_blank')}
-                                          style={{
-                                            color: '#25A7DA',
-                                            padding: '0 4px',
-                                            height: '20px',
-                                            fontSize: '10px'
-                                          }}
-                                        >
-                                          播放
-                                        </Button>
-                                      )}
-                                    </div>
-                                  ))}
-                                </div>
-                              )}
-                            </div>
-                          </List.Item>
-                        )}
-                      />
-                    </div>
-                  )}
-
-                  {/* 合作 */}
-                  {memberDetails.songs.filter(song => song.type === '合作').length > 0 && (
-                    <div style={{ marginBottom: '16px' }}>
-                      <Title level={5} style={{
-                        color: '#D60000',
-                        marginBottom: '8px',
-                        fontSize: '14px',
-                        fontWeight: 'bold'
-                      }}>
-                        合作
-                      </Title>
-                      <List
-                        dataSource={memberDetails.songs.filter(song => song.type === '合作')}
-                        renderItem={(item) => (
-                          <List.Item style={{ padding: '8px 0', border: 'none' }}>
-                            <div style={{ width: '100%' }}>
-                              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                                <div style={{ flex: 1 }}>
-                                  <Text strong style={{ fontSize: '15px' }}>{item.title}</Text>
-                                  <br />
-                                  <Text style={{ color: '#666', fontSize: '13px' }}>
-                                    發行日期: {formatDate(item.releaseDate)}
-                                  </Text>
-                                  <br />
-                                  <div style={{ display: 'flex', alignItems: 'center' }}>
-                                    <UserOutlined style={{ color: '#D60000', marginRight: '4px', fontSize: '10px' }} />
+                    {/* 專輯 */}
+                    {memberDetails.songs.filter(song => song.type === '專輯').length > 0 && (
+                      <div>
+                        <Title level={5} style={{
+                          color: '#25A7DA',
+                          marginBottom: '8px',
+                          fontSize: '14px',
+                          fontWeight: 'bold'
+                        }}>
+                          EP
+                        </Title>
+                        <List
+                          dataSource={memberDetails.songs.filter(song => song.type === '專輯')}
+                          renderItem={(item) => (
+                            <List.Item style={{ padding: '8px 0', border: 'none' }}>
+                              <div style={{ width: '100%' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
+                                  <div style={{ flex: 1 }}>
+                                    <Text strong style={{ fontSize: '15px' }}>{item.title}</Text>
+                                    <br />
+                                    <Text style={{ color: '#666', fontSize: '13px' }}>
+                                      發行日期: {formatDate(item.releaseDate)} | 共 {item.songs ? item.songs.length : 0} 首歌曲
+                                    </Text>
+                                    <br />
                                     <Text style={{ color: '#999', fontSize: '11px' }}>{item.description}</Text>
                                   </div>
                                 </div>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                  {item.audioUrl && (
-                                    <Button
-                                      type="primary"
-                                      size="small"
-                                      icon={<PlayCircleOutlined />}
-                                      onClick={() => window.open(item.audioUrl, '_blank')}
-                                      style={{
-                                        background: '#FF6B6B',
-                                        border: 'none',
-                                        color: '#fff'
-                                      }}
-                                    >
-                                      播放
-                                    </Button>
-                                  )}
-                                </div>
+
+                                {/* 專輯中的單曲列表 */}
+                                {item.songs && item.songs.length > 0 && (
+                                  <div style={{
+                                    marginLeft: '16px',
+                                    padding: '8px 12px',
+                                    backgroundColor: '#f8f9fa',
+                                    borderRadius: '6px',
+                                    border: '1px solid #e9ecef'
+                                  }}>
+                                    <Text style={{
+                                      fontSize: '12px',
+                                      color: '#25A7DA',
+                                      fontWeight: 'bold',
+                                      marginBottom: '4px',
+                                      display: 'block'
+                                    }}>
+                                      專輯曲目:
+                                    </Text>
+                                    {item.songs.map((song, index) => (
+                                      <div key={index} style={{
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center',
+                                        padding: '2px 0',
+                                        fontSize: '12px'
+                                      }}>
+                                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                                          <Text style={{
+                                            color: '#666',
+                                            marginRight: '8px',
+                                            minWidth: '20px'
+                                          }}>
+                                            {index + 1}.
+                                          </Text>
+                                          <Text style={{ color: '#333' }}>{song.title}</Text>
+                                        </div>
+                                        {song.audioUrl && (
+                                          <Button
+                                            type="text"
+                                            size="small"
+                                            icon={<PlayCircleOutlined />}
+                                            onClick={() => window.open(song.audioUrl, '_blank')}
+                                            style={{
+                                              color: '#25A7DA',
+                                              padding: '0 4px',
+                                              height: '20px',
+                                              fontSize: '10px'
+                                            }}
+                                          >
+                                            播放
+                                          </Button>
+                                        )}
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
                               </div>
-                            </div>
-                          </List.Item>
-                        )}
-                      />
-                    </div>
-                  )}
-                </div>
-              )}
-            </Card>
-          )}
-
-          {/* 綜藝節目 */}
-          {memberDetails.variety && memberDetails.variety.length > 0 && (
-            <Card
-              style={{
-                marginBottom: '16px',
-                borderRadius: '12px',
-                border: `2px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}20`
-              }}
-              styles={{ body: { padding: '20px' } }}
-            >
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  cursor: 'pointer',
-                  marginBottom: expandedSections.variety ? '16px' : '0'
-                }}
-                onClick={() => toggleSection('variety')}
-              >
-                <MonitorOutlined style={{
-                  color: (() => {
-                    const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    return getDeepSupportColor(baseColor);
-                  })(),
-                  marginRight: '8px',
-                  fontSize: '18px'
-                }} />
-                <Title level={4} style={{
-                  margin: '0',
-                  color: (() => {
-                    const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    return getDeepSupportColor(baseColor);
-                  })()
-                }}>
-                  個人外務 ({memberDetails.variety.length})
-                </Title>
-                {expandedSections.variety ? <DownOutlined /> : <RightOutlined />}
-              </div>
-
-              {expandedSections.variety && (
-                <List
-                  dataSource={memberDetails.variety}
-                  renderItem={(item) => (
-                    <List.Item style={{ padding: '12px 0' }}>
-                      <div style={{ width: '100%' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                          <div style={{ flex: 1 }}>
-                            <Text strong style={{ fontSize: '16px' }}>{item.title}</Text>
-                            <br />
-                            <Text style={{ color: '#666', fontSize: '14px' }}>
-                              身份：{item.role} | 年份：{item.year}
-                            </Text>
-                            <br />
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                              <Text style={{ color: '#999', fontSize: '12px', whiteSpace: 'pre-line' }}>{item.description}</Text>
-                              {item.videoUrl && (
-                                <Button
-                                  type="primary"
-                                  icon={<PlayCircleOutlined />}
-                                  onClick={() => window.open(item.videoUrl, '_blank')}
-                                  style={{
-                                    backgroundColor: Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor,
-                                    borderColor: Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor,
-                                    borderRadius: '20px',
-                                    height: '28px',
-                                    fontSize: '12px',
-                                    fontWeight: 'bold',
-                                    padding: '0 12px',
-                                    marginLeft: '12px',
-                                    flexShrink: 0
-                                  }}
-                                >
-                                </Button>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </List.Item>
-                  )}
-                />
-              )}
-            </Card>
-          )}
-
-          {/* 影視作品 */}
-          {memberDetails.movies && memberDetails.movies.length > 0 && (
-            <Card
-              style={{
-                marginBottom: '16px',
-                borderRadius: '12px',
-                border: `2px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}20`
-              }}
-              styles={{ body: { padding: '20px' } }}
-            >
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  cursor: 'pointer',
-                  marginBottom: expandedSections.movies ? '16px' : '0'
-                }}
-                onClick={() => toggleSection('movies')}
-              >
-                <VideoCameraOutlined style={{
-                  color: (() => {
-                    const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    return getDeepSupportColor(baseColor);
-                  })(),
-                  marginRight: '8px',
-                  fontSize: '18px'
-                }} />
-                <Title level={4} style={{
-                  margin: '0',
-                  color: (() => {
-                    const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    return getDeepSupportColor(baseColor);
-                  })()
-                }}>
-                  影視作品 ({memberDetails.movies.length})
-                </Title>
-                {expandedSections.movies ? <DownOutlined /> : <RightOutlined />}
-              </div>
-
-              {expandedSections.movies && (
-                <List
-                  dataSource={memberDetails.movies}
-                  renderItem={(item) => (
-                    <List.Item style={{ padding: '12px 0' }}>
-                      <div style={{ width: '100%' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                          <div style={{ flex: 1 }}>
-                            <Text strong style={{ fontSize: '16px' }}>{item.title}</Text>
-                            <br />
-                            <Text style={{ color: '#666', fontSize: '14px' }}>
-                              角色：{item.role} | 年份：{item.year} | 類型：{item.type}
-                            </Text>
-                            <br />
-                            <Text style={{ color: '#999', fontSize: '12px' }}>{item.description}</Text>
-                          </div>
-                        </div>
-                      </div>
-                    </List.Item>
-                  )}
-                />
-              )}
-            </Card>
-          )}
-
-          {/* 視頻vlog */}
-          {memberDetails.vlogs && memberDetails.vlogs.length > 0 && (() => {
-            // 依照系列內「最新影片發布日期」由新到舊排序系列
-            const parseDate = (value) => {
-              if (!value) return 0;
-              const time = new Date(value).getTime();
-              return Number.isNaN(time) ? 0 : time;
-            };
-
-            const getSeriesLatestTime = (series) => {
-              if (!series.videos || series.videos.length === 0) return 0;
-              return Math.max(
-                ...series.videos.map(video => parseDate(video.publishDate))
-              );
-            };
-
-            const sortedVlogs = [...memberDetails.vlogs].sort(
-              (a, b) => getSeriesLatestTime(b) - getSeriesLatestTime(a)
-            );
-
-            return (
-            <Card
-              style={{
-                marginBottom: '16px',
-                borderRadius: '12px',
-                border: `2px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}20`
-              }}
-              styles={{ body: { padding: '20px' } }}
-            >
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  cursor: 'pointer',
-                  marginBottom: expandedSections.vlogs ? '16px' : '0'
-                }}
-                onClick={() => toggleSection('vlogs')}
-              >
-                <PlayCircleOutlined style={{
-                  color: (() => {
-                    const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    return getDeepSupportColor(baseColor);
-                  })(),
-                  marginRight: '8px',
-                  fontSize: '18px'
-                }} />
-                <Title level={4} style={{
-                  margin: '0',
-                  color: (() => {
-                    const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    return getDeepSupportColor(baseColor);
-                  })()
-                }}>
-                  視頻vlog ({memberDetails.vlogs.length})
-                </Title>
-                {expandedSections.vlogs ? <DownOutlined /> : <RightOutlined />}
-              </div>
-
-              {expandedSections.vlogs && (
-                <div>
-                  {sortedVlogs.map((series) => {
-                    // 每個系列中的影片依「發布日期」由新到舊排序
-                    const sortedVideos = Array.isArray(series.videos)
-                      ? [...series.videos].sort(
-                          (a, b) => parseDate(b.publishDate) - parseDate(a.publishDate)
-                        )
-                      : [];
-
-                    return (
-                    <Card
-                      key={series.seriesId}
-                      style={{
-                        marginBottom: '12px',
-                        borderRadius: '8px',
-                        border: `1px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}15`,
-                        backgroundColor: '#fafafa'
-                      }}
-                      styles={{ body: { padding: '16px' } }}
-                    >
-                      <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          cursor: 'pointer',
-                          marginBottom: expandedSeries[series.seriesId] ? '12px' : '0'
-                        }}
-                        onClick={() => toggleSeries(series.seriesId)}
-                      >
-                        <Title level={5} style={{
-                          margin: '0',
-                          color: (() => {
-                            const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                            const colorMap = {
-                              '#EAF2FF': '#5A4F8C',
-                              '#FFD700': '#8B6914',
-                              '#63C5DE': '#2E7A8F',
-                              '#D1D1D1': '#666666',
-                              '#C0EBD7': '#1E7A4F',
-                              '#FF7F50': '#990000',
-                              '#ADD5A2': '#5A8A4F'
-                            };
-                            return colorMap[baseColor] || '#333';
-                          })()
-                        }}>
-                          {series.seriesName} ({series.videos.length})
-                        </Title>
-                        {expandedSeries[series.seriesId] ? <DownOutlined style={{ marginLeft: '8px' }} /> : <RightOutlined style={{ marginLeft: '8px' }} />}
-                      </div>
-
-                      {expandedSeries[series.seriesId] && (
-                        <div>
-                          {series.description && (
-                            <Text style={{ color: '#666', fontSize: '13px', display: 'block', marginBottom: '12px' }}>
-                              {renderRichText(series.description)}
-                            </Text>
+                            </List.Item>
                           )}
-                          <List
-                            dataSource={sortedVideos}
-                            renderItem={(video) => (
-                              <List.Item style={{ padding: '8px 0' }}>
-                                <div style={{ width: '100%' }}>
-                                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                                    <div style={{ flex: 1 }}>
-                                      <Text strong style={{ fontSize: '15px' }}>{video.title}</Text>
-                                      <br />
-                                      <Text style={{ color: '#666', fontSize: '13px' }}>
-                                        發布日期: {video.publishDate}
-                                      </Text>
-                                    </div>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                      {video.videoUrl && (
-                                        <Button
-                                          type="primary"
-                                          size="small"
-                                          icon={<PlayCircleOutlined />}
-                                          onClick={() => window.open(video.videoUrl, '_blank')}
-                                          style={{
-                                            backgroundColor: (() => {
-                                              const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                                              const colorMap = {
-                                                '#EAF2FF': '#CCA3CC',
-                                                '#FFD700': '#FFBF00',
-                                                '#63C5DE': '#61B0E2',
-                                                '#D1D1D1': '#A9A9A9',
-                                                '#C0EBD7': '#549688',
-                                                '#FF7F50': '#B22222',
-                                                '#ADD5A2': '#16982B'
-                                              };
-                                              return colorMap[baseColor] || '#333';
-                                            })(),
-                                            borderColor: (() => {
-                                              const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                                              const colorMap = {
-                                                '#EAF2FF': '#CCA3CC',
-                                                '#FFD700': '#FFBF00',
-                                                '#63C5DE': '#61B0E2',
-                                                '#D1D1D1': '#A9A9A9',
-                                                '#C0EBD7': '#549688',
-                                                '#FF7F50': '#B22222',
-                                                '#ADD5A2': '#16982B'
-                                              };
-                                              return colorMap[baseColor] || '#333';
-                                            })(),
-                                            borderRadius: '20px',
-                                            height: '28px',
-                                            fontSize: '12px',
-                                            fontWeight: 'bold',
-                                            padding: '0 12px',
-                                            flexShrink: 0,
-                                            color: '#fff'
-                                          }}
-                                        >
-                                        </Button>
-                                      )}
+                        />
+                      </div>
+                    )}
+
+                    {/* 合作 */}
+                    {memberDetails.songs.filter(song => song.type === '合作').length > 0 && (
+                      <div style={{ marginBottom: '16px' }}>
+                        <Title level={5} style={{
+                          color: '#D60000',
+                          marginBottom: '8px',
+                          fontSize: '14px',
+                          fontWeight: 'bold'
+                        }}>
+                          合作
+                        </Title>
+                        <List
+                          dataSource={memberDetails.songs.filter(song => song.type === '合作')}
+                          renderItem={(item) => (
+                            <List.Item style={{ padding: '8px 0', border: 'none' }}>
+                              <div style={{ width: '100%' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                  <div style={{ flex: 1 }}>
+                                    <Text strong style={{ fontSize: '15px' }}>{item.title}</Text>
+                                    <br />
+                                    <Text style={{ color: '#666', fontSize: '13px' }}>
+                                      發行日期: {formatDate(item.releaseDate)}
+                                    </Text>
+                                    <br />
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                      <UserOutlined style={{ color: '#D60000', marginRight: '4px', fontSize: '10px' }} />
+                                      <Text style={{ color: '#999', fontSize: '11px' }}>{item.description}</Text>
                                     </div>
                                   </div>
+                                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    {item.audioUrl && (
+                                      <Button
+                                        type="primary"
+                                        size="small"
+                                        icon={<PlayCircleOutlined />}
+                                        onClick={() => window.open(item.audioUrl, '_blank')}
+                                        style={{
+                                          background: '#FF6B6B',
+                                          border: 'none',
+                                          color: '#fff'
+                                        }}
+                                      >
+                                        播放
+                                      </Button>
+                                    )}
+                                  </div>
                                 </div>
-                              </List.Item>
-                            )}
-                          />
-                        </div>
-                      )}
-                    </Card>
-                    );
-                  })}
-                </div>
-              )}
-            </Card>
-            );
-          })()}
+                              </div>
+                            </List.Item>
+                          )}
+                        />
+                      </div>
+                    )}
+                  </div>
+                )}
+              </Card>
+            )}
 
-          {/* 獲獎 */}
-          {memberDetails.awards && memberDetails.awards.length > 0 && (
-            <Card
-              style={{
-                marginBottom: '16px',
-                borderRadius: '12px',
-                border: `2px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}20`
-              }}
-              styles={{ body: { padding: '20px' } }}
-            >
-              <div
+            {/* 綜藝節目 */}
+            {memberDetails.variety && memberDetails.variety.length > 0 && (
+              <Card
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  cursor: 'pointer',
-                  marginBottom: expandedSections.awards ? '16px' : '0'
+                  marginBottom: '16px',
+                  borderRadius: '12px',
+                  border: `2px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}20`
                 }}
-                onClick={() => toggleSection('awards')}
+                styles={{ body: { padding: '20px' } }}
               >
-                <TrophyOutlined style={{
-                  color: (() => {
-                    const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    return getDeepSupportColor(baseColor);
-                  })(),
-                  marginRight: '8px',
-                  fontSize: '18px'
-                }} />
-                <Title level={4} style={{
-                  margin: '0',
-                  color: (() => {
-                    const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
-                    return getDeepSupportColor(baseColor);
-                  })()
-                }}>
-                  獲獎 ({memberDetails.awards.length})
-                </Title>
-                {expandedSections.awards ? <DownOutlined /> : <RightOutlined />}
-              </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    cursor: 'pointer',
+                    marginBottom: expandedSections.variety ? '16px' : '0'
+                  }}
+                  onClick={() => toggleSection('variety')}
+                >
+                  <MonitorOutlined style={{
+                    color: (() => {
+                      const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                      return getDeepSupportColor(baseColor);
+                    })(),
+                    marginRight: '8px',
+                    fontSize: '18px'
+                  }} />
+                  <Title level={4} style={{
+                    margin: '0',
+                    color: (() => {
+                      const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                      return getDeepSupportColor(baseColor);
+                    })()
+                  }}>
+                    個人外務 ({memberDetails.variety.length})
+                  </Title>
+                  {expandedSections.variety ? <DownOutlined /> : <RightOutlined />}
+                </div>
 
-              {expandedSections.awards && (
-                <List
-                  dataSource={memberDetails.awards}
-                  renderItem={(item) => (
-                    <List.Item style={{ padding: '12px 0' }}>
-                      <div style={{ width: '100%' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                          <div style={{ flex: 1 }}>
-                            <Text strong style={{ fontSize: '16px' }}>{item.title}</Text>
-                            <br />
-                            <Text style={{ color: '#666', fontSize: '14px' }}>
-                            頒獎典禮：{item.award} | 日期：{item.year}
-                            </Text>
-                            <br />
-                            <Text style={{ color: '#999', fontSize: '12px' }}>{item.description}</Text>
+                {expandedSections.variety && (
+                  <List
+                    dataSource={memberDetails.variety}
+                    renderItem={(item) => (
+                      <List.Item style={{ padding: '12px 0' }}>
+                        <div style={{ width: '100%' }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                            <div style={{ flex: 1 }}>
+                              <Text strong style={{ fontSize: '16px' }}>{item.title}</Text>
+                              <br />
+                              <Text style={{ color: '#666', fontSize: '14px' }}>
+                                身份：{item.role} | 年份：{item.year}
+                              </Text>
+                              <br />
+                              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                                <Text style={{ color: '#999', fontSize: '12px', whiteSpace: 'pre-line' }}>{item.description}</Text>
+                                {item.videoUrl && (
+                                  <Button
+                                    type="primary"
+                                    icon={<PlayCircleOutlined />}
+                                    onClick={() => window.open(item.videoUrl, '_blank')}
+                                    style={{
+                                      backgroundColor: Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor,
+                                      borderColor: Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor,
+                                      borderRadius: '20px',
+                                      height: '28px',
+                                      fontSize: '12px',
+                                      fontWeight: 'bold',
+                                      padding: '0 12px',
+                                      marginLeft: '12px',
+                                      flexShrink: 0
+                                    }}
+                                  >
+                                  </Button>
+                                )}
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </List.Item>
+                      </List.Item>
+                    )}
+                  />
+                )}
+              </Card>
+            )}
+
+            {/* 影視作品 */}
+            {memberDetails.movies && memberDetails.movies.length > 0 && (
+              <Card
+                style={{
+                  marginBottom: '16px',
+                  borderRadius: '12px',
+                  border: `2px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}20`
+                }}
+                styles={{ body: { padding: '20px' } }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    cursor: 'pointer',
+                    marginBottom: expandedSections.movies ? '16px' : '0'
+                  }}
+                  onClick={() => toggleSection('movies')}
+                >
+                  <VideoCameraOutlined style={{
+                    color: (() => {
+                      const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                      return getDeepSupportColor(baseColor);
+                    })(),
+                    marginRight: '8px',
+                    fontSize: '18px'
+                  }} />
+                  <Title level={4} style={{
+                    margin: '0',
+                    color: (() => {
+                      const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                      return getDeepSupportColor(baseColor);
+                    })()
+                  }}>
+                    影視作品 ({memberDetails.movies.length})
+                  </Title>
+                  {expandedSections.movies ? <DownOutlined /> : <RightOutlined />}
+                </div>
+
+                {expandedSections.movies && (
+                  <List
+                    dataSource={memberDetails.movies}
+                    renderItem={(item) => (
+                      <List.Item style={{ padding: '12px 0' }}>
+                        <div style={{ width: '100%' }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                            <div style={{ flex: 1 }}>
+                              <Text strong style={{ fontSize: '16px' }}>{item.title}</Text>
+                              <br />
+                              <Text style={{ color: '#666', fontSize: '14px' }}>
+                                角色：{item.role} | 年份：{item.year} | 類型：{item.type}
+                              </Text>
+                              <br />
+                              <Text style={{ color: '#999', fontSize: '12px' }}>{item.description}</Text>
+                            </div>
+                          </div>
+                        </div>
+                      </List.Item>
+                    )}
+                  />
+                )}
+              </Card>
+            )}
+
+            {/* 視頻vlog */}
+            {memberDetails.vlogs && memberDetails.vlogs.length > 0 && (() => {
+              // 依照系列內「最新影片發布日期」由新到舊排序系列
+              const parseDate = (value) => {
+                if (!value) return 0;
+                const time = new Date(value).getTime();
+                return Number.isNaN(time) ? 0 : time;
+              };
+
+              const getSeriesLatestTime = (series) => {
+                if (!series.videos || series.videos.length === 0) return 0;
+                return Math.max(
+                  ...series.videos.map(video => parseDate(video.publishDate))
+                );
+              };
+
+              const sortedVlogs = [...memberDetails.vlogs].sort(
+                (a, b) => getSeriesLatestTime(b) - getSeriesLatestTime(a)
+              );
+
+              return (
+                <Card
+                  style={{
+                    marginBottom: '16px',
+                    borderRadius: '12px',
+                    border: `2px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}20`
+                  }}
+                  styles={{ body: { padding: '20px' } }}
+                >
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      cursor: 'pointer',
+                      marginBottom: expandedSections.vlogs ? '16px' : '0'
+                    }}
+                    onClick={() => toggleSection('vlogs')}
+                  >
+                    <PlayCircleOutlined style={{
+                      color: (() => {
+                        const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                        return getDeepSupportColor(baseColor);
+                      })(),
+                      marginRight: '8px',
+                      fontSize: '18px'
+                    }} />
+                    <Title level={4} style={{
+                      margin: '0',
+                      color: (() => {
+                        const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                        return getDeepSupportColor(baseColor);
+                      })()
+                    }}>
+                      {member.vlogTitle || '視頻vlog'} ({memberDetails.vlogs.length})
+                    </Title>
+                    {expandedSections.vlogs ? <DownOutlined /> : <RightOutlined />}
+                  </div>
+
+                  {expandedSections.vlogs && (
+                    <div>
+                      {sortedVlogs.map((series) => {
+                        // 每個系列中的影片依「發布日期」由新到舊排序
+                        const sortedVideos = Array.isArray(series.videos)
+                          ? [...series.videos].sort(
+                            (a, b) => parseDate(b.publishDate) - parseDate(a.publishDate)
+                          )
+                          : [];
+
+                        return (
+                          <Card
+                            key={series.seriesId}
+                            style={{
+                              marginBottom: '12px',
+                              borderRadius: '8px',
+                              border: `1px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}15`,
+                              backgroundColor: '#fafafa'
+                            }}
+                            styles={{ body: { padding: '16px' } }}
+                          >
+                            <div
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                cursor: 'pointer',
+                                marginBottom: expandedSeries[series.seriesId] ? '12px' : '0'
+                              }}
+                              onClick={() => toggleSeries(series.seriesId)}
+                            >
+                              <Title level={5} style={{
+                                margin: '0',
+                                color: (() => {
+                                  const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                                  const colorMap = {
+                                    '#EAF2FF': '#5A4F8C',
+                                    '#FFD700': '#8B6914',
+                                    '#63C5DE': '#2E7A8F',
+                                    '#D1D1D1': '#666666',
+                                    '#C0EBD7': '#1E7A4F',
+                                    '#FF7F50': '#990000',
+                                    '#ADD5A2': '#5A8A4F'
+                                  };
+                                  return colorMap[baseColor] || '#333';
+                                })()
+                              }}>
+                                {series.seriesName} ({series.videos.length})
+                              </Title>
+                              {expandedSeries[series.seriesId] ? <DownOutlined style={{ marginLeft: '8px' }} /> : <RightOutlined style={{ marginLeft: '8px' }} />}
+                            </div>
+
+                            {expandedSeries[series.seriesId] && (
+                              <div>
+                                {series.description && (
+                                  <Text style={{ color: '#666', fontSize: '13px', display: 'block', marginBottom: '12px' }}>
+                                    {renderRichText(series.description)}
+                                  </Text>
+                                )}
+                                <List
+                                  dataSource={sortedVideos}
+                                  renderItem={(video) => (
+                                    <List.Item style={{ padding: '8px 0' }}>
+                                      <div style={{ width: '100%' }}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                          <div style={{ flex: 1 }}>
+                                            <Text strong style={{ fontSize: '15px' }}>{video.title}</Text>
+                                            <br />
+                                            <Text style={{ color: '#666', fontSize: '13px' }}>
+                                              發布日期: {video.publishDate}
+                                            </Text>
+                                          </div>
+                                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                            {video.videoUrl && (
+                                              <Button
+                                                type="primary"
+                                                size="small"
+                                                icon={<PlayCircleOutlined />}
+                                                onClick={() => window.open(video.videoUrl, '_blank')}
+                                                style={{
+                                                  backgroundColor: (() => {
+                                                    const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                                                    const colorMap = {
+                                                      '#EAF2FF': '#CCA3CC',
+                                                      '#FFD700': '#FFBF00',
+                                                      '#63C5DE': '#61B0E2',
+                                                      '#D1D1D1': '#A9A9A9',
+                                                      '#C0EBD7': '#549688',
+                                                      '#FF7F50': '#B22222',
+                                                      '#ADD5A2': '#16982B'
+                                                    };
+                                                    return colorMap[baseColor] || '#333';
+                                                  })(),
+                                                  borderColor: (() => {
+                                                    const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                                                    const colorMap = {
+                                                      '#EAF2FF': '#CCA3CC',
+                                                      '#FFD700': '#FFBF00',
+                                                      '#63C5DE': '#61B0E2',
+                                                      '#D1D1D1': '#A9A9A9',
+                                                      '#C0EBD7': '#549688',
+                                                      '#FF7F50': '#B22222',
+                                                      '#ADD5A2': '#16982B'
+                                                    };
+                                                    return colorMap[baseColor] || '#333';
+                                                  })(),
+                                                  borderRadius: '20px',
+                                                  height: '28px',
+                                                  fontSize: '12px',
+                                                  fontWeight: 'bold',
+                                                  padding: '0 12px',
+                                                  flexShrink: 0,
+                                                  color: '#fff'
+                                                }}
+                                              >
+                                              </Button>
+                                            )}
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </List.Item>
+                                  )}
+                                />
+                              </div>
+                            )}
+                          </Card>
+                        );
+                      })}
+                    </div>
                   )}
-                />
-              )}
-            </Card>
-          )}
-        </div>
-      )}
-    </div>
+                </Card>
+              );
+            })()}
+
+            {/* 獲獎 */}
+            {memberDetails.awards && memberDetails.awards.length > 0 && (
+              <Card
+                style={{
+                  marginBottom: '16px',
+                  borderRadius: '12px',
+                  border: `2px solid ${Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor}20`
+                }}
+                styles={{ body: { padding: '20px' } }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    cursor: 'pointer',
+                    marginBottom: expandedSections.awards ? '16px' : '0'
+                  }}
+                  onClick={() => toggleSection('awards')}
+                >
+                  <TrophyOutlined style={{
+                    color: (() => {
+                      const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                      return getDeepSupportColor(baseColor);
+                    })(),
+                    marginRight: '8px',
+                    fontSize: '18px'
+                  }} />
+                  <Title level={4} style={{
+                    margin: '0',
+                    color: (() => {
+                      const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
+                      return getDeepSupportColor(baseColor);
+                    })()
+                  }}>
+                    獲獎 ({memberDetails.awards.length})
+                  </Title>
+                  {expandedSections.awards ? <DownOutlined /> : <RightOutlined />}
+                </div>
+
+                {expandedSections.awards && (
+                  <List
+                    dataSource={memberDetails.awards}
+                    renderItem={(item) => (
+                      <List.Item style={{ padding: '12px 0' }}>
+                        <div style={{ width: '100%' }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                            <div style={{ flex: 1 }}>
+                              <Text strong style={{ fontSize: '16px' }}>{item.title}</Text>
+                              <br />
+                              <Text style={{ color: '#666', fontSize: '14px' }}>
+                                頒獎典禮：{item.award} | 日期：{item.year}
+                              </Text>
+                              <br />
+                              <Text style={{ color: '#999', fontSize: '12px' }}>{item.description}</Text>
+                            </div>
+                          </div>
+                        </div>
+                      </List.Item>
+                    )}
+                  />
+                )}
+              </Card>
+            )}
+          </div>
+        )}
+      </div>
     </>
   );
 };
