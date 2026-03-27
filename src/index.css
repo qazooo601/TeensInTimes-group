@@ -49,10 +49,11 @@ body {
 }
 
 .custom-menu .ant-menu-item-selected {
-  /* 目前所在頁：深灰字 + 淡色底 */
-  color: #444444 !important;
-  background-color: rgba(0, 0, 0, 0.08) !important;
-  border-radius: 8px !important;
+  color: #2F1A0C !important;
+  font-weight: 700 !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  border-bottom: 2px solid #2F1A0C !important;
 }
 
 /* 關於版主按鈕樣式 */
@@ -61,14 +62,16 @@ body {
 }
 
 .desktop-about-button:hover {
-  color: #FFF7CC !important;
-  background-color: rgba(255, 255, 255, 0.3) !important;
+  color: #2F1A0C !important;
+  background-color: transparent !important;
 }
 
 /* 關於版主按鈕：目前所在頁 */
 .desktop-about-button.is-active {
-  color: #444444 !important;
-  background-color: rgba(0, 0, 0, 0.08) !important;
+  color: #2F1A0C !important;
+  font-weight: 700 !important;
+  background-color: transparent !important;
+  border-bottom: 2px solid #2F1A0C !important;
 }
 
 /* 移動端關於版主按鈕樣式 */
@@ -77,14 +80,16 @@ body {
 }
 
 .mobile-about-button:hover {
-  color: #FFF7CC !important;
-  background-color: rgba(255, 255, 255, 0.3) !important;
+  color: #2F1A0C !important;
+  background-color: transparent !important;
 }
 
 /* 移動端關於版主按鈕：目前所在頁 */
 .mobile-about-button.is-active {
-  color: #444444 !important;
-  background-color: rgba(0, 0, 0, 0.08) !important;
+  color: #2F1A0C !important;
+  font-weight: 700 !important;
+  background-color: transparent !important;
+  border-bottom: 2px solid #2F1A0C !important;
 }
 
 /* 響應式設計 */
@@ -95,7 +100,9 @@ body {
   }
 
   .desktop-footer {
-    display: none !important;
+    display: block !important;
+    padding: 20px 16px !important;
+    border-radius: 12px 12px 0 0 !important;
   }
 
   /* 移動端元素在小螢幕時顯示 */
@@ -103,8 +110,12 @@ body {
     display: flex !important;
   }
 
+  .layout-after-desktop-header {
+    padding-top: 64px !important;
+  }
+
   .mobile-bottom-menu {
-    display: block !important;
+    display: none !important;
   }
 
   /* 小螢幕時隱藏關於版主按鈕 */
@@ -114,8 +125,22 @@ body {
 
   .ant-layout-content {
     padding: 16px;
-    padding-bottom: 100px !important; /* 為底部選單留出更多空間 */
+    padding-bottom: 32px !important;
     min-height: 100vh !important; /* 佔滿整個螢幕高度 */
+  }
+
+  .footer-meta-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-update-time {
+    position: static !important;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 }
 

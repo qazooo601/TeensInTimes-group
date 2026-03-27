@@ -435,7 +435,7 @@ const Variety = () => {
           {sectionKey !== 'performance' && (
             <Avatar
               size={80}
-              src={item.coverImage}
+              src={item.coverImage || null}
               style={{
                 backgroundColor: item.color,
                 fontSize: '32px',
@@ -617,7 +617,7 @@ const Variety = () => {
           {/* 左側圖片 */}
           <Avatar
             size={80}
-            src={item.coverImage}
+            src={item.coverImage || null}
             style={{
               backgroundColor: item.color,
               fontSize: '32px',

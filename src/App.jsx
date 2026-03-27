@@ -5,11 +5,11 @@ import zhTW from 'antd/locale/zh_TW';
 import {
   PlayCircleOutlined,
   VideoCameraOutlined,
-  HomeOutlined,
   UserOutlined,
   SoundOutlined
 } from '@ant-design/icons';
 import { LiaMicrophoneAltSolid } from "react-icons/lia";
+import { MdKeyboardArrowUp } from "react-icons/md";
 import { ref, runTransaction } from 'firebase/database';
 import { database } from './config/firebase';
 import Home from './pages/Home';
@@ -157,11 +157,11 @@ const MarqueeAnnouncement = React.memo(({ announcement }) => {
   return (
     <div
       style={{
-        background: '#FFFCEB',
-        padding: '8px 0',
+        background: ' #FFFBE0',
+        padding: '8px 12px',
         overflow: 'hidden',
         position: 'relative',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+        boxShadow: 'none'
       }}
     >
       <style>{`
@@ -199,17 +199,20 @@ const MarqueeAnnouncement = React.memo(({ announcement }) => {
       <div style={{
         display: 'flex',
         alignItems: 'center',
-        gap: '8px',
-        color: '#000',
+        gap: '10px',
+        color: '#4F2E19',
         fontSize: '14px',
-        fontWeight: '500'
+        fontWeight: 500,
+        border: '1px solid #A66436',
+        borderRadius: '999px',
+        padding: '6px 12px',
+        background: '#FFFDF4'
       }}>
         <SoundOutlined
           style={{
-            fontSize: '16px',
-            marginLeft: '16px',
+            fontSize: '15px',
             flexShrink: 0,
-            color: '#FF9A57'
+            color: '#A66436'
           }}
         />
         <div
@@ -289,16 +292,12 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
   // 移動端選單項目（只顯示圖標）
   const mobileMenuItems = [
     {
-      key: '',
-      icon: <HomeOutlined />,
-    },
-    {
       key: 'music',
       icon: <PlayCircleOutlined />,
     },
     {
       key: 'concerts',
-      icon: <LiaMicrophoneAltSolid style={{ fontSize: '24px', transform: 'translateY(3px)' }} />,
+      icon: <LiaMicrophoneAltSolid style={{ transform: 'translate(-1px, 0)' }} />,
     },
     {
       key: 'variety',
@@ -316,10 +315,9 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
     return [];
   };
 
-  // 獲取移動端當前路徑（包含首頁）
+  // 獲取移動端當前路徑
   const getMobileCurrentPath = () => {
     const path = window.location.pathname;
-    if (path === '/' || path === '') return [''];
     if (path.includes('/members')) return ['members'];
     if (path.includes('/music')) return ['music'];
     if (path.includes('/concerts')) return ['concerts'];
@@ -333,6 +331,7 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
   };
 
   const isAboutPage = () => window.location.pathname.startsWith('/about');
+  const mobileSelectedKeys = getMobileCurrentPath();
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -413,57 +412,125 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
             onClick={() => window.location.href = '/about'}
             className={`desktop-about-button${isAboutPage() ? ' is-active' : ''}`}
             style={{
-              color: '#000',
+              color: isAboutPage() ? '#2F1A0C' : '#666',
               fontSize: '13px',
-              fontWeight: '500',
+              fontWeight: isAboutPage() ? 700 : 500,
               padding: '4px 12px',
-              borderRadius: '8px',
+              borderRadius: 0,
               transition: 'all 0.3s ease',
               display: 'flex',
               alignItems: 'center',
-              gap: '6px'
+              gap: '6px',
+              border: 'none',
+              borderBottom: isAboutPage() ? '2px solid #2F1A0C' : '2px solid transparent',
+              background: 'transparent'
             }}
           >
-            關於版主
+            關於
           </Button>
         </div>
       </Header>
 
-      {/* 移動端 Header（顯示 Logo 和關於版主） */}
+      {/* 移動端 Header（顯示 Logo、導覽和關於版主） */}
       <Header
         className="mobile-header"
         style={{
           display: 'flex',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          width: '100%',
+          zIndex: 1000,
           alignItems: 'center',
           justifyContent: 'space-between',
           background: '#FFE852',
-          padding: '0 16px',
-          boxShadow: '0 4px 12px rgba(255,215,0,0.3)'
+          padding: '0 12px',
+          height: '64px',
+          lineHeight: 'normal',
+          boxShadow: 'none'
         }}
       >
-        <div
-          style={{
-            fontSize: '24px',
-            fontWeight: 'bold',
-            color: '#000',
-            textShadow: '1px 1px 2px rgba(255,255,255,0.5)',
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-start',
+          gap: '18px',
+          flex: 1,
+          minWidth: 0
+        }}>
+          <div style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '8px',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease'
-          }}
-          onClick={() => window.location.href = '/'}
-        >
-          <img
-            src="/images/members/logo.jpg"
-            alt="時代少年團"
-            style={{
-              height: '32px',
-              width: 'auto',
-              marginRight: '8px'
-            }}
-          />
+            gap: '15px',
+            flexShrink: 0
+          }}>
+            <div
+              style={{
+                fontSize: '24px',
+                fontWeight: 'bold',
+                color: '#000',
+                textShadow: '1px 1px 2px rgba(255,255,255,0.5)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                flexShrink: 0
+              }}
+              onClick={() => window.location.href = '/'}
+            >
+              <img
+                src="/images/members/TNTlogo.jpg"
+                alt="時代少年團"
+                style={{
+                  height: '32px',
+                  width: 'auto'
+                }}
+              />
+            </div>
+          </div>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'flex-start',
+            alignItems: 'center',
+            gap: '14px',
+            minWidth: 0
+          }}>
+            {mobileMenuItems.map((item) => (
+              <Button
+                key={item.key}
+                type="text"
+                onClick={() => window.location.href = `/${item.key}`}
+                aria-label={item.key}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: 34,
+                  minWidth: 34,
+                  height: 34,
+                  padding: 0,
+                borderRadius: 0,
+                color: mobileSelectedKeys.includes(item.key) ? ' #2F1A0C' : ' #6E6E6E',
+                backgroundColor: 'transparent',
+                border: 'none',
+                borderBottom: mobileSelectedKeys.includes(item.key) ? '2px solid #2F1A0C' : '2px solid transparent',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                <span style={{
+                  fontSize: item.key === 'concerts' ? '22px' : '20px',
+                  lineHeight: 1,
+                  display: 'flex',
+                alignItems: 'center',
+                fontWeight: mobileSelectedKeys.includes(item.key) ? 700 : 500
+                }}>
+                  {item.icon}
+                </span>
+              </Button>
+            ))}
+          </div>
         </div>
         <Button
           type="text"
@@ -471,16 +538,21 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
           onClick={() => window.location.href = '/about'}
           className={`mobile-about-button${isAboutPage() ? ' is-active' : ''}`}
           style={{
-            color: '#000',
+            color: isAboutPage() ? '#2F1A0C' : '#666',
             fontSize: '20px',
             padding: '4px 8px',
-            borderRadius: '8px',
+            borderRadius: 0,
             transition: 'all 0.3s ease',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             minWidth: '40px',
-            height: '40px'
+            height: '40px',
+            flexShrink: 0,
+            border: 'none',
+            borderBottom: isAboutPage() ? '2px solid #2F1A0C' : '2px solid transparent',
+            fontWeight: isAboutPage() ? 700 : 500,
+            background: 'transparent'
           }}
         />
       </Header>
@@ -492,7 +564,7 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
           background: '#FFFBE0',
           flex: 1,
           minHeight: 'calc(100vh - 64px - 40px - 70px)',
-          paddingBottom: '100px' // 為移動端底部選單與回饋按鈕留出空間
+          paddingBottom: '32px'
         }}>
           {children}
         </Content>
@@ -502,31 +574,37 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
       <Footer
         className="desktop-footer"
         style={{
-          background: '#000',
-          color: '#FFD700',
+          background: '#FFFBE0',
           padding: '20px',
-          boxShadow: '0 -4px 12px rgba(0,0,0,0.3)'
+          borderTop: '2px solid #A66436',
+          borderLeft: '2px solid #A66436',
+          borderRight: '2px solid #A66436',
+          borderRadius: '16px 16px 0 0',
+          boxShadow: 'none'
         }}
       >
         <div style={{ textAlign: 'center' }}>
-          <div style={{ fontSize: '16px', fontWeight: 'bold' }}>
-            © 2025 粉絲自製網站-TNT時代少年團
+          <div style={{ fontSize: '16px', fontWeight: 600, color: ' #A66436' }}>
+            © 2025 C's homemade website | Teens in Times
           </div>
-          <div style={{
+          <div
+            className="footer-meta-row"
+            style={{
             fontSize: '14px',
             marginTop: '8px',
-            opacity: 0.9,
             position: 'relative',
             textAlign: 'center'
           }}>
-            <span>部分圖片與文字片段來自微博，影片與音樂連結來源於 Bilibili 與 YouTube Music</span>
-            <div style={{
+            <span style={{ fontWeight: 600, color: ' #A66436' }}>圖片與文字片段來自微博，影片與音樂連結來源於 Bilibili、YouTube、微博、YouTube Music</span>
+            <div
+              className="footer-update-time"
+              style={{
               position: 'absolute',
               right: '0',
               top: '0',
               fontSize: '12px'
             }}>
-              <UpdateTime showIcon={false} align="right" style={{ color: '#FFD700', opacity: 0.7 }} />
+              <UpdateTime showIcon={false} align="right" style={{ color: ' #A66436' }} />
             </div>
           </div>
         </div>
@@ -537,82 +615,27 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
         <Button
           type="primary"
           shape="circle"
-          size="large"
           onClick={scrollToTop}
           style={{
             position: 'fixed',
             right: 24,
-            bottom: 96,
+            bottom: 24,
             zIndex: 1100,
-            backgroundColor: '#FFE96B',
-            borderColor: '#FFE96B',
-            color: '#000',
+            backgroundColor: ' #FFE96B',
+            borderColor: ' #FFE96B',
+            color: ' #333333',
             padding: 0,
-            width: 56,
-            height: 56,
+            width: 32,
+            height: 32,
             borderRadius: '50%',
-            fontWeight: 'normal',
-            fontSize: 14,
-            lineHeight: '56px'
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
         >
-          TOP
+          <MdKeyboardArrowUp size={20} />
         </Button>
       )}
-
-      {/* 移動端底部選單 */}
-      <div
-        className="mobile-bottom-menu"
-        style={{
-          position: 'fixed',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          background: '#000',
-          borderTop: '2px solid #FFD700',
-          padding: '8px 0',
-          zIndex: 1000,
-          display: 'none'
-        }}
-      >
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-around',
-          alignItems: 'center'
-        }}>
-          {mobileMenuItems.map((item) => (
-            <div
-              key={item.key}
-              onClick={() => window.location.href = `/${item.key}`}
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                padding: '8px 12px',
-                cursor: 'pointer',
-                borderRadius: '8px',
-                transition: 'all 0.3s ease',
-                color: getMobileCurrentPath().includes(item.key) ? '#FFE96B' : '#919191',
-                backgroundColor: getMobileCurrentPath().includes(item.key) ? 'rgba(255, 215, 0, 0.1)' : 'transparent'
-              }}
-              onMouseEnter={(e) => {
-                if (!getMobileCurrentPath().includes(item.key)) {
-                  e.target.style.color = '#FFE96B';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!getMobileCurrentPath().includes(item.key)) {
-                  e.target.style.color = '#919191';
-                }
-              }}
-            >
-              <div style={{ fontSize: '20px', marginBottom: '4px' }}>
-                {item.icon}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
     </Layout>
   );
 }, (prevProps, nextProps) => {

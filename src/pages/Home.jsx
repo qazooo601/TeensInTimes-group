@@ -486,7 +486,7 @@ const Home = () => {
                 : null;
 
               return (
-                <>
+                <React.Fragment key={member.id ?? `member-${index}`}>
                   {/* 為 Id=7 添加流動漸變色效果的 CSS */}
                   {hasIridescentEffect && (
                     <style>
@@ -522,7 +522,7 @@ const Home = () => {
                       `}
                     </style>
                   )}
-                <Col xs={12} sm={8} md={6} key={index}>
+                <Col xs={12} sm={8} md={6}>
                   <div
                     className={hasIridescentEffect ? `iridescent-effect-home-${index}` : ''}
                     style={{
@@ -577,7 +577,7 @@ const Home = () => {
                     </Text>
                   </div>
                 </Col>
-                </>
+                </React.Fragment>
               );
             })}
           </Row>
