@@ -125,8 +125,8 @@ body {
 
   .ant-layout-content {
     padding: 16px;
-    padding-bottom: 32px !important;
-    min-height: 100vh !important; /* 佔滿整個螢幕高度 */
+    padding-bottom: 0px !important;
+    min-height: auto !important;
   }
 
   .footer-meta-row {

@@ -9,8 +9,8 @@ const About = () => {
   usePageTitle('關於｜時代少年團');
 
   return (
-    <div style={{ padding: '24px', position: 'relative' }}>
-      <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+    <div style={{ marginTop: '-25px',padding: '24px', position: 'relative' }}>
+      <div style={{ textAlign: 'center', marginBottom: '25px' }}>
         <Title level={1} style={{
           color: '#EBC700',
           marginBottom: '8px',
@@ -25,14 +25,14 @@ const About = () => {
         flexDirection: 'column',
         alignItems: 'center',
         gap: '24px',
-        marginBottom: '40px'
+        marginBottom: '0'
       }}>
         {/* 版主介紹卡片 */}
         <Card
           style={{
             borderRadius: '15px',
             border: '2px solid #FFD700',
-            boxShadow: '0 4px 12px rgba(255,215,0,0.2)',
+            boxShadow: 'none',
             width: '100%',
             maxWidth: '800px'
           }}

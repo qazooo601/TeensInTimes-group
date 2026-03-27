@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { Card, Typography, Avatar, Tag, Space, Button, Divider, List, Collapse, Row, Col, Spin, message } from 'antd';
 import { ArrowLeftOutlined, HeartOutlined, StarOutlined, CalendarOutlined, PlayCircleOutlined, DownOutlined, RightOutlined, VideoCameraOutlined, CustomerServiceOutlined, MonitorOutlined, TrophyOutlined, UserOutlined } from '@ant-design/icons';
-import { BsSinaWeibo } from "react-icons/bs";
+import { BsSinaWeibo, BsMusicNote } from "react-icons/bs";
 import { membersData as localMembersData } from '../data/membersData';
 import { getMemberDetails as getLocalMemberDetails } from '../data/members/index';
 import { usePageTitle } from '../hooks/usePageTitle';
@@ -491,8 +491,8 @@ const MemberDetail = () => {
         structuredData={personStructuredData || breadcrumbData}
         image={member.images}
       />
-      <div style={{ padding: '24px', position: 'relative' }}>
-        <div style={{ marginBottom: '24px' }}>
+      <div style={{ padding: '24px', position: 'relative', marginTop: '-25px', }}>
+        <div style={{ marginBottom: '25px' }}>
           <Button
             icon={<ArrowLeftOutlined />}
             onClick={() => {
@@ -521,7 +521,7 @@ const MemberDetail = () => {
               const colorConfig = getColorConfig(member.id, member.supportColor);
               return colorConfig.borderColor;
             })()}`,
-            boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+            boxShadow: 'none',
             background: (() => {
               const colorConfig = getColorConfig(member.id, member.supportColor);
               return generateGradient(colorConfig.gradientColors, '70');
@@ -577,7 +577,7 @@ const MemberDetail = () => {
 
             {/* 右側資訊 */}
             <Col xs={24} md={16}>
-              <div style={{ textAlign: 'center' }}>
+              <div style={{ textAlign: 'center', marginBottom: '-15px' }}>
                 <Title level={1} style={{
                   color: (() => {
                     const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
@@ -591,6 +591,7 @@ const MemberDetail = () => {
                 <Title level={2} style={{
                   color: '#333',
                   marginBottom: '10px',
+                  marginTop: '-15px',
                   fontSize: '24px'
                 }}>
                   {member.memberNameEn}
@@ -669,7 +670,7 @@ const MemberDetail = () => {
                   }}
                   onClick={() => toggleSection('songs')}
                 >
-                  <CustomerServiceOutlined style={{
+                  <BsMusicNote style={{
                     color: (() => {
                       const baseColor = Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor;
                       return getDeepSupportColor(baseColor);

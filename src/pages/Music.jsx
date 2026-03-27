@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, Typography, Space, Avatar, Divider, Button, Spin, message } from 'antd';
-import { CalendarOutlined, PlayCircleOutlined, UserOutlined, FolderOutlined, SoundOutlined, CustomerServiceOutlined } from '@ant-design/icons';
+import { CalendarOutlined, PlayCircleOutlined, UserOutlined, SoundOutlined, CustomerServiceOutlined } from '@ant-design/icons';
+import { BsBoombox, BsMusicNoteBeamed } from "react-icons/bs";
 import { musicData as localMusicData } from '../data/musicData';
 import { usePageTitle } from '../hooks/usePageTitle';
 import dbService from '../services/database';
@@ -114,9 +115,9 @@ const Music = () => {
 
   const renderMusicCard = (item) => {
     const isAlbum = item.category === 'album';
-    const borderColor = isAlbum ? '#87CEEB' : '#FFD700';
-    const backgroundColor = isAlbum ? 'linear-gradient(135deg, #E0F6FF 0%, #CCECF8 100%)' : 'linear-gradient(135deg, #FFFACD 0%, #F0E293 100%)';
-    const iconColor = isAlbum ? '#87CEEB' : '#FFD700';
+    const borderColor = isAlbum ? ' #87CEEB' : ' #FFD700';
+    const backgroundColor = isAlbum ? 'linear-gradient(135deg, #F6FBFD 0%, #DAF4FD 100%)' : 'linear-gradient(135deg, #FFFACD 0%, #F0E293 100%)';
+    const iconColor = isAlbum ? ' #87CEEB' : ' #FFD700';
 
     return (
       <Card
@@ -135,7 +136,7 @@ const Music = () => {
         style={{
           borderRadius: '20px',
           border: `3px solid ${borderColor}`,
-          boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+          boxShadow: 'none',
           transition: 'all 0.3s ease',
           background: backgroundColor,
           cursor: isAlbum ? 'pointer' : 'default',
@@ -246,8 +247,8 @@ const Music = () => {
         description={seoDescription}
         structuredData={breadcrumbData}
       />
-      <div style={{ padding: '24px', position: 'relative' }}>
-      <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+      <div style={{ marginTop: '-25px',padding: '24px', position: 'relative' }}>
+      <div style={{ textAlign: 'center', marginBottom: '25px' }}>
         <Title level={1} style={{
           color: ' #EBC700',
           marginBottom: '8px',
@@ -260,7 +261,7 @@ const Music = () => {
       {/* 專輯區塊 */}
       <div style={{ marginBottom: '40px' }}>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-          <FolderOutlined style={{ fontSize: '24px', color: ' #208FBC', marginRight: '12px' }} />
+          <BsBoombox style={{ fontSize: '24px', color: ' #208FBC', marginRight: '12px' }} />
           <Title level={2} style={{ color: ' #208FBC', margin: 0 }}>
             專輯
           </Title>
@@ -279,7 +280,7 @@ const Music = () => {
       {/* 單曲區塊 */}
       <div>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-          <SoundOutlined style={{ fontSize: '24px', color: ' #DFBD00', marginRight: '12px' }} />
+          <BsMusicNoteBeamed style={{ fontSize: '24px', color: ' #DFBD00', marginRight: '12px' }} />
           <Title level={2} style={{ color: ' #DFBD00', margin: 0 }}>
             單曲
           </Title>

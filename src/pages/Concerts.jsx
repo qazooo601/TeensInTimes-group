@@ -256,8 +256,8 @@ const Concerts = () => {
         description={seoDescription}
         structuredData={breadcrumbData}
       />
-      <div style={{ padding: '24px', position: 'relative' }}>
-      <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+      <div style={{ marginTop: '-25px',padding: '24px', position: 'relative' }}>
+      <div style={{ textAlign: 'center', marginBottom: '25px' }}>
         <Title level={1} style={{
           color: '#EBC700',
           marginBottom: '8px',
@@ -271,7 +271,7 @@ const Concerts = () => {
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
         gap: '20px',
-        marginBottom: '32px'
+        marginBottom: '0'
       }}>
         {concertsData.map((concert) => {
           return (
@@ -289,7 +289,7 @@ const Concerts = () => {
               style={{
                 borderRadius: '20px',
                 border: '3px solid rgb(250, 236, 112)',
-                boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+                boxShadow: 'none',
                 transition: 'all 0.3s ease',
                 background: 'linear-gradient(135deg, hsl(59, 100.00%, 89.00%) 0%, #EEED9C 100%)',
                 cursor: 'pointer',

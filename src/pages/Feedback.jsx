@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Typography, Form, Input, Select, Button, Card, message, Steps, Spin } from 'antd';
+import { Typography, Form, Input, Select, Button, Card, message, Steps } from 'antd';
 import { MailOutlined, FormOutlined, InstagramOutlined } from '@ant-design/icons';
 import emailjs from '@emailjs/browser';
 import { usePageTitle } from '../hooks/usePageTitle';
@@ -272,16 +272,30 @@ const Feedback = () => {
     },
   ];
 
+  if (loading) {
+    return (
+      <div style={{
+        padding: '24px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '400px',
+        fontSize: '20px',
+        color: '#FFD700'
+      }}>
+        載入中...
+      </div>
+    );
+  }
+
   return (
-    <div style={{ padding: '24px' }}>
-      <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-        <Title level={1} style={{ color: '#EBC700', marginBottom: '8px', fontSize: '32px' }}>
+    <div style={{ marginTop: '-25px', padding: '24px', position: 'relative', marginBottom: '0' }}>
+      <div style={{ textAlign: 'center', marginBottom: '25px' }}>
+        <Title level={1} style={{ color: '#EBC700', marginBottom: '8px', fontSize: '36px' }}>
           留言投稿
         </Title>
       </div>
-
-      <Spin spinning={loading} tip="載入中...">
-        <Card style={{ borderRadius: 16, border: '2px solid #FFD700', maxWidth: 800, margin: '0 auto' }}>
+      <Card style={{ borderRadius: '20px', border: '3px solid rgb(250, 236, 112)', boxShadow: 'none', transition: 'all 0.3s ease', maxWidth: 800, margin: '0 auto', marginBottom: '0' }}>
         <Steps
           current={currentStep}
           items={steps}
@@ -474,8 +488,7 @@ const Feedback = () => {
             </div>
           </Form>
         )}
-        </Card>
-      </Spin>
+      </Card>
     </div>
   );
 };

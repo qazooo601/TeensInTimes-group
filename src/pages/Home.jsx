@@ -170,6 +170,7 @@ const Home = () => {
   const seoDescription = groupInfo?.description
     ? groupInfo.description
     : 'TNT時代少年團。此為自製網站，提供成員資訊、音樂作品、演唱會記錄、綜藝節目、紀錄片...時時更新最新資料';
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
   return (
     <>
@@ -182,27 +183,28 @@ const Home = () => {
       {/* 瀏覽次數 - 右上角 */}
       <div
         style={{
+          marginTop: '-15px',
           position: 'absolute',
-          top: '24px',
-          right: '24px',
+          top: isMobile ? '12px' : '24px',
+          right: isMobile ? '12px' : '24px',
           display: 'flex',
           alignItems: 'center',
-          gap: '6px',
-          padding: '6px 12px',
-          backgroundColor: '#FFD700',
-          borderRadius: '20px',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+          gap: isMobile ? '4px' : '6px',
+          padding: isMobile ? '4px 8px' : '6px 12px',
+          backgroundColor: ' #FFD700',
+          borderRadius: isMobile ? '14px' : '20px',
+          boxShadow: 'none',
           zIndex: 10
         }}
       >
-        <EyeOutlined style={{ color: '#000', fontSize: '16px' }} />
-        <Text strong style={{ color: '#000', fontSize: '14px' }}>
+        <EyeOutlined style={{ color: '#000', fontSize: isMobile ? '13px' : '16px' }} />
+        <Text strong style={{ color: '#000', fontSize: isMobile ? '12px' : '14px' }}>
           {visitCount}
         </Text>
       </div>
 
       {/* 歡迎區域 */}
-      <div style={{ marginBottom: '40px' }}>
+      <div style={{ marginTop: '-25px', marginBottom: '25px' }}>
         <div style={{ textAlign: 'center' }}>
           <Title level={1} style={{
             color: '#EBC700',
@@ -296,7 +298,7 @@ const Home = () => {
         flexDirection: 'column',
         alignItems: 'center',
         gap: '24px',
-        marginBottom: '40px'
+        marginBottom: '0'
       }}>
         {/* 團體介紹 */}
         <Card

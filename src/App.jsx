@@ -10,6 +10,7 @@ import {
 } from '@ant-design/icons';
 import { LiaMicrophoneAltSolid } from "react-icons/lia";
 import { MdKeyboardArrowUp } from "react-icons/md";
+import { BsBoombox, BsMusicNoteList } from "react-icons/bs";
 import { ref, runTransaction } from 'firebase/database';
 import { database } from './config/firebase';
 import Home from './pages/Home';
@@ -274,7 +275,7 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
   const menuItems = [
     {
       key: 'music',
-      icon: <PlayCircleOutlined />,
+      icon: <BsMusicNoteList />,
       label: '歌曲',
     },
     {
@@ -293,7 +294,7 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
   const mobileMenuItems = [
     {
       key: 'music',
-      icon: <PlayCircleOutlined />,
+      icon: <BsMusicNoteList />,
     },
     {
       key: 'concerts',
@@ -542,7 +543,7 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
             fontSize: '20px',
             padding: '4px 8px',
             borderRadius: 0,
-            transition: 'all 0.3s ease',
+            transition: 'all 0.5s ease',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -561,10 +562,10 @@ const AppLayout = React.memo(({ children, user, onLogout, announcement }) => {
       <div className="layout-after-desktop-header" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         <MarqueeAnnouncement announcement={announcement} />
         <Content style={{
-          background: '#FFFBE0',
+          background: ' #FFFBE0',
           flex: 1,
           minHeight: 'calc(100vh - 64px - 40px - 70px)',
-          paddingBottom: '32px'
+          paddingBottom: '12px'
         }}>
           {children}
         </Content>

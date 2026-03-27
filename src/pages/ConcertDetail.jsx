@@ -285,8 +285,8 @@ const ConcertDetail = () => {
         style={{
           borderRadius: '20px',
           border: '3px solid #87CEEB',
-          boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
-          background: 'linear-gradient(135deg, #E0F6FF 0%, #87CEEB 100%)'
+          boxShadow: 'none',
+          background: 'linear-gradient(135deg, #EDF9FD 0%, #CCE6F0 100%)'
         }}
         styles={{ body: { padding: '40px' } }}
       >

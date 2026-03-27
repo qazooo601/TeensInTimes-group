@@ -422,7 +422,7 @@ const Variety = () => {
         style={{
           borderRadius: '20px',
           border: `3px solid ${item.color}`,
-          boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+          boxShadow: 'none',
           transition: 'all 0.3s ease',
           background: backgroundColor,
           maxWidth: '92%',     // 防止在極小螢幕的手機上超出範圍
@@ -440,7 +440,7 @@ const Variety = () => {
                 backgroundColor: item.color,
                 fontSize: '32px',
                 border: `3px solid ${item.color}`,
-                boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                boxShadow: 'none',
                 flexShrink: 0
               }}
             >
@@ -605,7 +605,7 @@ const Variety = () => {
         style={{
           borderRadius: '20px',
           border: `3px solid ${item.color}`,
-          boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+          boxShadow: 'none',
           transition: 'all 0.3s ease',
           background: backgroundColor,
           maxWidth: '92%',     // 防止在極小螢幕的手機上超出範圍
@@ -622,7 +622,7 @@ const Variety = () => {
               backgroundColor: item.color,
               fontSize: '32px',
               border: `3px solid ${item.color}`,
-              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+              boxShadow: 'none',
               flexShrink: 0
             }}
           >
@@ -734,7 +734,7 @@ const Variety = () => {
     if (data.length === 0) return null;
 
     return (
-      <div id={`section-${sectionKey}`} style={{ marginBottom: '40px' }}>
+      <div id={`section-${sectionKey}`} style={{ marginBottom: sectionKey === 'typhoonPeriod' ? '0' : '40px' }}>
         <div
           style={{
             display: 'flex',
@@ -789,7 +789,7 @@ const Variety = () => {
         description={seoDescription}
         structuredData={breadcrumbData}
       />
-      <div style={{ padding: '24px', position: 'relative' }}>
+      <div style={{ marginTop: '-25px',padding: '24px', position: 'relative' }}>
       <style>{`
         .variety-description-clamp {
           -webkit-line-clamp: 2;
@@ -802,7 +802,7 @@ const Variety = () => {
           }
         }
       `}</style>
-      <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+      <div style={{ textAlign: 'center', marginBottom: '25px' }}>
         <Title level={1} style={{
           color: '#EBC700',
           marginBottom: '8px',
@@ -1043,7 +1043,7 @@ const Variety = () => {
                 justifyContent: 'center',
                 fontSize: 12,
                 cursor: 'pointer',
-                boxShadow: '0 1px 0 rgba(0,0,0,0.2)'
+                boxShadow: 'none'
               }}
             >
               {item.label}

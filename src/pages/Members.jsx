@@ -150,7 +150,7 @@ const Members = () => {
         description="時團成員介紹：馬嘉祺、丁程鑫、宋亞軒、劉耀文、張真源、嚴浩翔、賀峻霖。查看每位成員的詳細資料、生日、微博..."
         structuredData={breadcrumbData}
       />
-      <div style={{ padding: '24px', position: 'relative' }}>
+      <div style={{ padding: '24px', position: 'relative', marginTop: '-15px', }}>
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
         <Title level={1} style={{
           color: '#EBC700',
@@ -185,7 +185,7 @@ const Members = () => {
         flexDirection: 'column',
         alignItems: 'center',
         gap: '20px',
-        marginBottom: '32px'
+        marginBottom: '0'
       }}>
         <div style={{
           display: 'grid',
@@ -272,7 +272,7 @@ const Members = () => {
               style={{
                 borderRadius: '20px',
                 border: `2px solid ${borderColor}`,
-                boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+                boxShadow: 'none',
                 transition: 'all 0.3s ease',
                 background: backgroundStyle,
                 cursor: 'pointer'
@@ -291,7 +291,7 @@ const Members = () => {
                       background: avatarGradient,
                       fontSize: '32px',
                       border: `2px solid ${borderColor}`,
-                      boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                      boxShadow: 'none',
                       borderRadius: '8px',
                       alignItems: 'center',
                       justifyContent: 'center'
@@ -309,7 +309,7 @@ const Members = () => {
                       height: 'auto',
                       maxWidth: '80px',
                       border: `2px solid ${borderColor}`,
-                      boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                      boxShadow: 'none',
                       borderRadius: '8px',
                       display: 'block'
                     }}
