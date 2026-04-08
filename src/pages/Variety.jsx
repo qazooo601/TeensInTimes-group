@@ -216,8 +216,10 @@ const Variety = () => {
         if (totalCount > 0) {
           // 取得最新的 5 筆資料（從自製團綜開始）
           const latestItems = [
-            ...categorized.selfMade.slice(0, 3),
-            ...categorized.documentary.slice(0, 2)
+            ...categorized.selfMade.slice(0, 2),
+            ...categorized.documentary.slice(0, 2),
+            ...categorized.birthday.slice(0, 2),
+            ...categorized.external.slice(0, 1),
           ].filter(Boolean);
           const latestTitles = latestItems.map(item => item.title).filter(Boolean);
 
