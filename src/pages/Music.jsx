@@ -11,39 +11,53 @@ import { generateBreadcrumbStructuredData } from '../utils/structuredData';
 
 const { Title, Paragraph, Text } = Typography;
 
-// 格式化日期：只顯示日期部分（如果是 datetime 格式，只取日期部分）
+const DEFAULT_SEO_DESCRIPTION =
+  '時代少年團音樂作品：專輯、單曲完整列表。包含發行日期、歌曲資訊、播放連結等詳細資料。';
+
+/** 只顯示日期部分；已是 YYYY-MM-DD 則原樣，含時間則取日期段 */
 const formatDate = (dateString) => {
   if (!dateString) return '';
-
-  // 如果已經是 YYYY-MM-DD 格式（只有日期），直接返回
-  if (/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
-    return dateString;
-  }
-
-  // 如果是 datetime 格式（包含時間），只取日期部分
+  if (/^\d{4}-\d{2}-\d{2}$/.test(dateString)) return dateString;
   if (dateString.includes('T') || dateString.includes(' ')) {
     return dateString.split('T')[0].split(' ')[0];
   }
-
-  // 其他格式直接返回
   return dateString;
+};
+
+/** 將 releaseDate 轉成可排序時間戳；無效或「待發行」等排最後 */
+const getReleaseTime = (item) => {
+  const raw = item?.releaseDate;
+  if (!raw) return 0;
+  const datePart = formatDate(raw);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(datePart)) return 0;
+  const t = new Date(datePart).getTime();
+  return Number.isNaN(t) ? 0 : t;
+};
+
+/** 依發行日期由近到遠排序後，取前 10 筆歌名組 SEO 描述 */
+const buildLatestMusicSeoDescription = (items, take = 10) => {
+  if (!items?.length) return null;
+  const sorted = [...items].sort((a, b) => getReleaseTime(b) - getReleaseTime(a));
+  const names = sorted.slice(0, take).map((item) => item.name).filter(Boolean);
+  if (!names.length) return null;
+  const latestDate = formatDate(sorted[0]?.releaseDate);
+  const latestDateText = latestDate ? `（最新日期：${latestDate}）` : '';
+  return `時代少年團最新音樂作品：${names.join('、')}${latestDateText}...完整專輯、單曲列表，包含發行日期、歌曲資訊、播放連結等詳細資料。`;
 };
 
 const Music = () => {
   const navigate = useNavigate();
   const [musicData, setMusicData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [seoDescription, setSeoDescription] = useState('時代少年團音樂作品：專輯、單曲完整列表。包含發行日期、歌曲資訊、播放連結等詳細資料。');
+  const [seoDescription, setSeoDescription] = useState(DEFAULT_SEO_DESCRIPTION);
 
   usePageTitle('歌曲｜時代少年團');
 
-  // 生成麵包屑結構化資料
   const breadcrumbData = generateBreadcrumbStructuredData([
     { name: '首頁', url: '/' },
     { name: '歌曲', url: '/music' }
   ]);
 
-  // 從資料庫載入音樂資料
   useEffect(() => {
     const loadMusicData = async () => {
       try {
@@ -51,34 +65,14 @@ const Music = () => {
         const data = await dbService.getMusic();
         setMusicData(data);
         console.log('成功從資料庫載入音樂資料:', data.length, '筆');
-
-        // 根據最新資料生成 SEO description
-        if (data && data.length > 0) {
-          // 取得最新的 5 筆資料（資料庫已按 ReleaseDate DESC 排序）
-          const latestItems = data.slice(0, 7);
-          const latestNames = latestItems.map(item => item.name).filter(Boolean);
-
-          if (latestNames.length > 0) {
-            const latestText = latestNames.join('、');
-            const description = `時代少年團最新音樂作品：${latestText}。完整專輯、單曲列表，包含發行日期、歌曲資訊、播放連結等詳細資料。`;
-            setSeoDescription(description);
-          }
-        }
+        const desc = buildLatestMusicSeoDescription(data);
+        if (desc) setSeoDescription(desc);
       } catch (error) {
         console.error('從資料庫載入音樂資料失敗，使用本地資料:', error);
         message.warning('無法連接到資料庫，使用本地資料');
         setMusicData(localMusicData);
-
-        // 如果使用本地資料，也嘗試生成 description
-        if (localMusicData && localMusicData.length > 0) {
-          const latestItems = localMusicData.slice(0, 7);
-          const latestNames = latestItems.map(item => item.name).filter(Boolean);
-          if (latestNames.length > 0) {
-            const latestText = latestNames.join('、');
-            const description = `時代少年團最新音樂作品：${latestText}。完整專輯、單曲列表，包含發行日期、歌曲資訊、播放連結等詳細資料。`;
-            setSeoDescription(description);
-          }
-        }
+        const desc = buildLatestMusicSeoDescription(localMusicData);
+        if (desc) setSeoDescription(desc);
       } finally {
         setLoading(false);
       }

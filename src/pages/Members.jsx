@@ -11,6 +11,9 @@ import { generateBreadcrumbStructuredData } from '../utils/structuredData';
 
 const { Title, Paragraph, Text } = Typography;
 
+const DEFAULT_SEO_DESCRIPTION =
+  '時團成員介紹：馬嘉祺、丁程鑫、宋亞軒、劉耀文、張真源、嚴浩翔、賀峻霖。查看每位成員的詳細資料、生日、微博...';
+
 // 格式化日期：轉成本地時區的 YYYY-MM-DD，避免少一天
 const formatDate = (dateString) => {
   if (!dateString) return '';
@@ -27,11 +30,22 @@ const formatDate = (dateString) => {
   return `${year}-${month}-${day}`;
 };
 
+const buildLatestMembersSeoDescription = (items, take = 10) => {
+  if (!items?.length) return null;
+  const names = items
+    .slice(0, take)
+    .map((item) => item.memberName)
+    .filter(Boolean);
+  if (!names.length) return null;
+  return `時團成員介紹：${names.join('、')}...查看每位成員的詳細資料、生日、微博...`;
+};
+
 const Members = () => {
   const navigate = useNavigate();
   const [imageErrors, setImageErrors] = useState({});
   const [membersData, setMembersData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [seoDescription, setSeoDescription] = useState(DEFAULT_SEO_DESCRIPTION);
 
   usePageTitle('成員介紹｜時代少年團');
 
@@ -51,6 +65,8 @@ const Members = () => {
 
         console.log('成功載入成員資料:', { members: members.length });
         setMembersData(members);
+        const desc = buildLatestMembersSeoDescription(members);
+        if (desc) setSeoDescription(desc);
         message.success(`成功從資料庫載入 ${members.length} 位成員資料`);
       } catch (error) {
         console.error('從資料庫載入成員資料失敗，使用本地資料:', error);
@@ -63,6 +79,8 @@ const Members = () => {
 
         // 如果資料庫連接失敗，使用本地資料作為備用方案
         setMembersData(localMembersData);
+        const desc = buildLatestMembersSeoDescription(localMembersData);
+        if (desc) setSeoDescription(desc);
 
         const errorMsg = error.response
           ? `API 錯誤 (${error.response.status}): ${error.response.data?.error || error.message}`
@@ -147,7 +165,7 @@ const Members = () => {
     <>
       <SEOHead
         title="成員介紹｜時代少年團"
-        description="時團成員介紹：馬嘉祺、丁程鑫、宋亞軒、劉耀文、張真源、嚴浩翔、賀峻霖。查看每位成員的詳細資料、生日、微博..."
+        description={seoDescription}
         structuredData={breadcrumbData}
       />
       <div style={{ padding: '24px', position: 'relative', marginTop: '-15px', }}>
