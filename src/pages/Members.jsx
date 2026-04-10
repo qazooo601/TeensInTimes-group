@@ -373,7 +373,7 @@ const Members = () => {
       </div>
 
       {/* 右下意見回饋按鈕（從 MemberDetail 移置至此） */}
-      <div style={{ position: 'fixed', right: isSmallScreen ? undefined : '16px', left: isSmallScreen ? '12px' : undefined, bottom: isSmallScreen ? 'calc(env(safe-area-inset-bottom, 0px) + 96px)' : '16px', zIndex: 2001 }}>
+      <div style={{ position: 'fixed', right: isSmallScreen ? undefined : '16px', left: isSmallScreen ? '12px' : undefined, bottom: isSmallScreen ? 'calc(env(safe-area-inset-bottom, 0px) + 50px)' : '8px', zIndex: 2001 }}>
         <Button
           type="primary"
           size={isSmallScreen ? 'small' : 'middle'}

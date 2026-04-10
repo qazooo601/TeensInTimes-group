@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Typography, Form, Input, Select, Button, Card, message, Steps } from 'antd';
-import { MailOutlined, FormOutlined, InstagramOutlined } from '@ant-design/icons';
+import { Typography, Form, Input, Select, Button, Card, message, Steps, ConfigProvider } from 'antd';
+import { FormOutlined, InstagramOutlined } from '@ant-design/icons';
+import { BsCursor } from "react-icons/bs";
 import emailjs from '@emailjs/browser';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { apiService } from '../services/api';
@@ -264,11 +265,11 @@ const Feedback = () => {
   const steps = [
     {
       title: '填寫留言',
-      icon: <FormOutlined />,
+      icon: <FormOutlined style={{ color: currentStep >= 0 ? '#EBC700' : '#bfbfbf' }} />,
     },
     {
       title: '填寫IG/FB帳號',
-      icon: <InstagramOutlined />,
+      icon: <InstagramOutlined style={{ color: currentStep >= 1 ? '#EBC700' : '#bfbfbf' }} />,
     },
   ];
 
@@ -296,11 +297,19 @@ const Feedback = () => {
         </Title>
       </div>
       <Card style={{ borderRadius: '20px', border: '3px solid rgb(250, 236, 112)', boxShadow: 'none', transition: 'all 0.3s ease', maxWidth: 800, margin: '0 auto', marginBottom: '0' }}>
-        <Steps
-          current={currentStep}
-          items={steps}
-          style={{ marginBottom: '32px' }}
-        />
+        <ConfigProvider
+          theme={{
+            token: {
+              colorPrimary: '#EBC700'
+            }
+          }}
+        >
+          <Steps
+            current={currentStep}
+            items={steps}
+            style={{ marginBottom: '32px' }}
+          />
+        </ConfigProvider>
 
         {currentStep === 0 ? (
           <Form
@@ -420,8 +429,8 @@ const Feedback = () => {
             </Form.Item>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 12 }}>
-              <Button onClick={() => form.resetFields()}>清除</Button>
-              <Button type="primary" htmlType="submit" loading={submitting} size="large">
+              <Button onClick={() => form.resetFields()} size="large">清除</Button>
+              <Button type="primary" htmlType="submit" loading={submitting} size="large" style={{ background: ' #FFD700', border: 'none',color: '#000' }}>
                 下一步
               </Button>
             </div>
@@ -468,7 +477,7 @@ const Feedback = () => {
               </div>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12 }}>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 12 }}>
               <Button onClick={handleBack} size="large">
                 返回
               </Button>
@@ -476,14 +485,15 @@ const Feedback = () => {
                 type="primary"
                 htmlType="submit"
                 loading={sendingEmail}
-                icon={<MailOutlined />}
+                icon={<BsCursor />}
                 size="large"
                 style={{
-                  background: 'linear-gradient(135deg, #FFD700 0%,rgb(255, 196, 0) 100%)',
-                  border: 'none'
+                  background: ' #FFD700',
+                  border: 'none',
+                  color: '#000'
                 }}
               >
-                發送Mail
+                送出
               </Button>
             </div>
           </Form>
