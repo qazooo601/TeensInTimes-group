@@ -123,7 +123,7 @@ const About = () => {
                     </Title>
                     {section.sectionType === 'paragraph' ? (
                       <Paragraph style={{
-                        fontSize: '16px',
+                        fontSize: '14px',
                         lineHeight: '1.8',
                         textAlign: 'left',
                         marginBottom: '0px',

@@ -32,6 +32,7 @@ const MusicDetail = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const [messageApi, messageContextHolder] = message.useMessage();
   const isMobileView = typeof window !== 'undefined' && window.innerWidth <= 768;
   const pageContainerStyle = isMobileView
     ? { padding: '24px', position: 'relative', marginTop: '-25px' }
@@ -44,8 +45,11 @@ const MusicDetail = () => {
 
   // 從資料庫載入專輯資料
   useEffect(() => {
+    let isMounted = true;
+
     const loadAlbumData = async () => {
       try {
+        if (!isMounted) return;
         setLoading(true);
 
         // 優先使用從 state 傳遞過來的專輯資料
@@ -53,6 +57,7 @@ const MusicDetail = () => {
 
         if (albumFromState) {
           // 如果已經有專輯資料，直接使用（因為 Music.jsx 已經從資料庫載入了）
+          if (!isMounted) return;
           setAlbum(albumFromState);
           // 生成 SEO description
           if (albumFromState) {
@@ -68,6 +73,7 @@ const MusicDetail = () => {
         if (albumParam) {
           try {
             albumFromState = JSON.parse(decodeURIComponent(albumParam));
+            if (!isMounted) return;
             setAlbum(albumFromState);
             setLoading(false);
             return;
@@ -89,6 +95,7 @@ const MusicDetail = () => {
             );
 
             if (foundAlbum) {
+              if (!isMounted) return;
               setAlbum(foundAlbum);
               // 生成 SEO description
               const description = `${foundAlbum.name} - 時代少年團專輯。發行日期：${formatDate(foundAlbum.releaseDate)}，共 ${foundAlbum.songs?.length || 0} 首歌曲。包含完整曲目列表、歌曲資訊、播放連結等詳細資料。`;
@@ -100,13 +107,14 @@ const MusicDetail = () => {
                 (albumName && item.name === albumName)
               );
               if (localAlbum) {
+                if (!isMounted) return;
                 setAlbum(localAlbum);
                 // 生成 SEO description
                 const description = `${localAlbum.name} - 時代少年團專輯。發行日期：${formatDate(localAlbum.releaseDate)}，共 ${localAlbum.songs?.length || 0} 首歌曲。包含完整曲目列表、歌曲資訊、播放連結等詳細資料。`;
                 setSeoDescription(description);
-                message.warning('使用本地資料');
+                if (isMounted) messageApi.warning('使用本地資料');
               } else {
-                message.error('找不到指定的專輯');
+                if (isMounted) messageApi.error('找不到指定的專輯');
               }
             }
           } catch (error) {
@@ -117,24 +125,28 @@ const MusicDetail = () => {
               (albumName && item.name === albumName)
             );
             if (localAlbum) {
+              if (!isMounted) return;
               setAlbum(localAlbum);
               // 生成 SEO description
               const description = `${localAlbum.name} - 時代少年團專輯。發行日期：${formatDate(localAlbum.releaseDate)}，共 ${localAlbum.songs?.length || 0} 首歌曲。包含完整曲目列表、歌曲資訊、播放連結等詳細資料。`;
               setSeoDescription(description);
-              message.warning('無法連接到資料庫，使用本地資料');
+              if (isMounted) messageApi.warning('無法連接到資料庫，使用本地資料');
             }
           }
         }
       } catch (error) {
         console.error('載入專輯資料失敗:', error);
-        message.error('載入專輯資料失敗');
+        if (isMounted) messageApi.error('載入專輯資料失敗');
       } finally {
-        setLoading(false);
+        if (isMounted) setLoading(false);
       }
     };
 
     loadAlbumData();
-  }, [location.state, searchParams]);
+    return () => {
+      isMounted = false;
+    };
+  }, [location.state, searchParams, messageApi]);
 
   usePageTitle(
     album
@@ -181,6 +193,7 @@ const MusicDetail = () => {
           fontSize: '20px',
           color: '#FFD700'
         }}>
+          {messageContextHolder}
           載入中...
         </div>
       </>
@@ -197,6 +210,7 @@ const MusicDetail = () => {
           structuredData={breadcrumbData}
         />
         <div style={{ padding: '24px' }}>
+        {messageContextHolder}
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <Title level={1} style={{
             color: '#FFD700',
@@ -228,6 +242,7 @@ const MusicDetail = () => {
         structuredData={albumStructuredData || breadcrumbData}
         image={album.image}
       />
+      {messageContextHolder}
       <div style={pageContainerStyle}>
       <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
         <Button
@@ -453,9 +468,7 @@ const MusicDetail = () => {
                                   window.open(item.audioUrl, '_blank');
                                 }
                               }}
-                            >
-                              播放
-                            </Button>
+                            />
                           </Space>
                         </div>
                       </List.Item>

@@ -225,9 +225,7 @@ const Music = () => {
                     e.stopPropagation();
                     window.open(item.songs[0].audioUrl, '_blank');
                   }}
-                >
-                  播放
-                </Button>
+                />
               )}
             </div>
           </div>

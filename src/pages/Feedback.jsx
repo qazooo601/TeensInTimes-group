@@ -22,7 +22,8 @@ const Feedback = () => {
   const isSmallScreen = typeof window !== 'undefined' && window.innerWidth <= 768;
   const titleTopSpacing = isSmallScreen ? '-25px' : '-15px';
   const [form] = Form.useForm();
-  const [emailForm] = Form.useForm();
+  const [emailFormKey, setEmailFormKey] = useState(0);
+  const [messageApi, messageContextHolder] = message.useMessage();
   const [submitting, setSubmitting] = useState(false);
   const [sendingEmail, setSendingEmail] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
@@ -73,7 +74,7 @@ const Feedback = () => {
         }
 
         setConfig(feedbackConfig);
-        message.success('配置載入成功');
+        messageApi.success('載入成功');
       } catch (error) {
         console.error('載入 Feedback 配置失敗:', error);
         console.error('錯誤詳情:', {
@@ -86,7 +87,7 @@ const Feedback = () => {
         });
 
         const errorMessage = error.response?.data?.message || error.message || '未知錯誤';
-        message.error(`載入配置失敗：${errorMessage}`);
+        messageApi.error(`載入配置失敗：${errorMessage}`);
 
         // 不設置預設配置，讓用戶知道需要修復 API 連接
       } finally {
@@ -118,9 +119,9 @@ const Feedback = () => {
 
       // 進入下一步填寫IG/FB帳號
       setCurrentStep(1);
-      message.success('表單提交成功，請填寫您的IG/FB帳號');
+      messageApi.success('請填寫您的IG/FB帳號，並送出');
     } catch (error) {
-      message.error('提交失敗，請稍後再試');
+      messageApi.error('系統讀取失敗，請IG通知我們');
     } finally {
       setSubmitting(false);
     }
@@ -212,11 +213,11 @@ const Feedback = () => {
       );
 
       console.log('EmailJS 發送成功:', response);
-      message.success('郵件已成功發送！我們會盡快處理您的回饋。');
+      messageApi.success('已成功發送，會盡快處理您的回饋。');
 
       // 重置表單並返回第一步
       form.resetFields();
-      emailForm.resetFields();
+      setEmailFormKey((prev) => prev + 1);
       setFormData(null);
       setCurrentStep(0);
     } catch (error) {
@@ -253,7 +254,7 @@ const Feedback = () => {
         errorMessage = `發送失敗：${error.message}`;
       }
 
-      message.error(errorMessage);
+      messageApi.error(errorMessage);
     } finally {
       setSendingEmail(false);
     }
@@ -261,17 +262,17 @@ const Feedback = () => {
 
   const handleBack = () => {
     setCurrentStep(0);
-    emailForm.resetFields();
+    setEmailFormKey((prev) => prev + 1);
   };
 
   const steps = [
     {
-      title: '填寫留言',
-      icon: <FormOutlined style={{ color: currentStep >= 0 ? '#EBC700' : '#bfbfbf' }} />,
+      title: <span style={{ color: currentStep === 0 ? '#EBC700' : '#bfbfbf' }}>填寫留言</span>,
+      icon: <FormOutlined style={{ color: currentStep === 0 ? '#EBC700' : '#bfbfbf' }} />,
     },
     {
-      title: '填寫IG/FB帳號',
-      icon: <InstagramOutlined style={{ color: currentStep >= 1 ? '#EBC700' : '#bfbfbf' }} />,
+      title: <span style={{ color: currentStep === 1 ? '#EBC700' : '#bfbfbf' }}>填寫IG/FB帳號</span>,
+      icon: <InstagramOutlined style={{ color: currentStep === 1 ? '#EBC700' : '#bfbfbf' }} />,
     },
   ];
 
@@ -286,6 +287,7 @@ const Feedback = () => {
         fontSize: '20px',
         color: '#FFD700'
       }}>
+        {messageContextHolder}
         載入中...
       </div>
     );
@@ -293,6 +295,7 @@ const Feedback = () => {
 
   return (
     <div style={{ marginTop: titleTopSpacing, padding: '24px', position: 'relative', marginBottom: '0' }}>
+      {messageContextHolder}
       <div style={{ textAlign: 'center', marginBottom: '25px' }}>
         <Title level={1} style={{ color: '#EBC700', marginBottom: '8px', fontSize: '36px' }}>
           留言投稿
@@ -309,7 +312,7 @@ const Feedback = () => {
           <Steps
             current={currentStep}
             items={steps}
-            style={{ marginBottom: '32px' }}
+            style={{ marginBottom: '18px' }}
           />
         </ConfigProvider>
 
@@ -430,16 +433,16 @@ const Feedback = () => {
               }}
             </Form.Item>
 
-            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 12 }}>
-              <Button onClick={() => form.resetFields()} size="large">清除</Button>
-              <Button type="primary" htmlType="submit" loading={submitting} size="large" style={{ background: ' #FFD700', border: 'none',color: '#000' }}>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10 }}>
+              <Button onClick={() => form.resetFields()} size={isSmallScreen ? 'middle' : 'large'}>清除</Button>
+              <Button type="primary" htmlType="submit" loading={submitting} size={isSmallScreen ? 'middle' : 'large'} style={{ background: ' #FFD700', border: 'none',color: '#000' }}>
                 下一步
               </Button>
             </div>
           </Form>
         ) : (
           <Form
-            form={emailForm}
+            key={emailFormKey}
             layout="vertical"
             onFinish={handleEmailSubmit}
             requiredMark
@@ -479,8 +482,8 @@ const Feedback = () => {
               </div>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 12 }}>
-              <Button onClick={handleBack} size="large">
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10 }}>
+              <Button onClick={handleBack} size={isSmallScreen ? 'middle' : 'large'}>
                 返回
               </Button>
               <Button
@@ -488,7 +491,7 @@ const Feedback = () => {
                 htmlType="submit"
                 loading={sendingEmail}
                 icon={<BsCursor />}
-                size="large"
+                size={isSmallScreen ? 'middle' : 'large'}
                 style={{
                   background: ' #FFD700',
                   border: 'none',
