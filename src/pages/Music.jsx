@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, Typography, Space, Avatar, Divider, Button, Spin, message } from 'antd';
-import { CalendarOutlined, PlayCircleOutlined, UserOutlined, SoundOutlined, CustomerServiceOutlined } from '@ant-design/icons';
+import { CalendarOutlined, PlayCircleOutlined, UserOutlined, SoundOutlined, CustomerServiceOutlined, ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 import { BsBoombox, BsMusicNoteBeamed } from "react-icons/bs";
 import { musicData as localMusicData } from '../data/musicData';
 import { usePageTitle } from '../hooks/usePageTitle';
@@ -24,14 +24,22 @@ const formatDate = (dateString) => {
   return dateString;
 };
 
-/** 將 releaseDate 轉成可排序時間戳；無效或「待發行」等排最後 */
+/** 排序時間：releaseDate 無效/待發行時改用 updatedDate */
 const getReleaseTime = (item) => {
-  const raw = item?.releaseDate;
-  if (!raw) return 0;
-  const datePart = formatDate(raw);
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(datePart)) return 0;
-  const t = new Date(datePart).getTime();
-  return Number.isNaN(t) ? 0 : t;
+  const releaseRaw = item?.releaseDate;
+  const releaseDate = formatDate(releaseRaw || '');
+  const hasValidReleaseDate = /^\d{4}-\d{2}-\d{2}$/.test(releaseDate);
+  if (hasValidReleaseDate) {
+    const t = new Date(releaseDate).getTime();
+    if (!Number.isNaN(t)) return t;
+  }
+
+  const updatedRaw = item?.updatedDate;
+  if (!updatedRaw) return 0;
+  const updatedDate = formatDate(updatedRaw);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(updatedDate)) return 0;
+  const updatedTs = new Date(updatedDate).getTime();
+  return Number.isNaN(updatedTs) ? 0 : updatedTs;
 };
 
 /** 依發行日期由近到遠排序後，取前 10 筆歌名組 SEO 描述 */
@@ -47,9 +55,13 @@ const buildLatestMusicSeoDescription = (items, take = 10) => {
 
 const Music = () => {
   const navigate = useNavigate();
+  const isSmallScreen = typeof window !== 'undefined' && window.innerWidth <= 768;
+  const titleTopSpacing = isSmallScreen ? '-25px' : '-15px';
   const [musicData, setMusicData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [seoDescription, setSeoDescription] = useState(DEFAULT_SEO_DESCRIPTION);
+  const [albumSortOrder, setAlbumSortOrder] = useState('desc'); // desc: 新 -> 舊
+  const [singleSortOrder, setSingleSortOrder] = useState('desc'); // desc: 新 -> 舊
 
   usePageTitle('歌曲｜時代少年團');
 
@@ -106,6 +118,12 @@ const Music = () => {
   // 分離專輯和單曲
   const albums = musicData.filter(item => item.category === 'album');
   const singles = musicData.filter(item => item.category === 'single');
+  const sortItemsByReleaseDate = (items, sortOrder) => [...items].sort((a, b) => {
+    const diff = getReleaseTime(a) - getReleaseTime(b);
+    return sortOrder === 'asc' ? diff : -diff;
+  });
+  const sortedAlbums = sortItemsByReleaseDate(albums, albumSortOrder);
+  const sortedSingles = sortItemsByReleaseDate(singles, singleSortOrder);
 
   const renderMusicCard = (item) => {
     const isAlbum = item.category === 'album';
@@ -241,8 +259,8 @@ const Music = () => {
         description={seoDescription}
         structuredData={breadcrumbData}
       />
-      <div style={{ marginTop: '-25px',padding: '24px', position: 'relative' }}>
-      <div style={{ textAlign: 'center', marginBottom: '25px' }}>
+      <div style={{ marginTop: titleTopSpacing,padding: '24px', position: 'relative' }}>
+      <div style={{ textAlign: 'center', marginBottom: '8px' }}>
         <Title level={1} style={{
           color: ' #EBC700',
           marginBottom: '8px',
@@ -254,37 +272,77 @@ const Music = () => {
 
       {/* 專輯區塊 */}
       <div style={{ marginBottom: '40px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-          <BsBoombox style={{ fontSize: '24px', color: ' #208FBC', marginRight: '12px' }} />
-          <Title level={2} style={{ color: ' #208FBC', margin: 0 }}>
-            專輯
-          </Title>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <BsBoombox style={{ fontSize: '24px', color: ' #208FBC', marginRight: '12px' }} />
+            <Title level={2} style={{ color: ' #208FBC', margin: 0 }}>
+              專輯
+            </Title>
+          </div>
+          <Button
+            type="text"
+            icon={albumSortOrder === 'desc' ? (
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                <CalendarOutlined />
+                <ArrowDownOutlined />
+              </span>
+            ) : (
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                <CalendarOutlined />
+                <ArrowUpOutlined />
+              </span>
+            )}
+            title={albumSortOrder === 'desc' ? '目前：由新到舊，點擊切換為由舊到新' : '目前：由舊到新，點擊切換為由新到舊'}
+            aria-label="切換專輯排序"
+            onClick={() => setAlbumSortOrder((prev) => (prev === 'desc' ? 'asc' : 'desc'))}
+            style={{ color: ' #208FBC' }}
+          />
         </div>
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
           gap: '20px'
         }}>
-          {albums.map(renderMusicCard)}
+          {sortedAlbums.map(renderMusicCard)}
         </div>
       </div>
 
-      <Divider style={{ borderColor: ' #D4AD00', margin: '40px 0' }} />
+      <Divider style={{ borderColor: ' #D4AD00', margin: '24px 0' }} />
 
       {/* 單曲區塊 */}
       <div>
-        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-          <BsMusicNoteBeamed style={{ fontSize: '24px', color: ' #DFBD00', marginRight: '12px' }} />
-          <Title level={2} style={{ color: ' #DFBD00', margin: 0 }}>
-            單曲
-          </Title>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <BsMusicNoteBeamed style={{ fontSize: '24px', color: ' #DFBD00', marginRight: '12px' }} />
+            <Title level={2} style={{ color: ' #DFBD00', margin: 0 }}>
+              單曲
+            </Title>
+          </div>
+          <Button
+            type="text"
+            icon={singleSortOrder === 'desc' ? (
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                <CalendarOutlined />
+                <ArrowDownOutlined />
+              </span>
+            ) : (
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                <CalendarOutlined />
+                <ArrowUpOutlined />
+              </span>
+            )}
+            title={singleSortOrder === 'desc' ? '目前：由新到舊，點擊切換為由舊到新' : '目前：由舊到新，點擊切換為由新到舊'}
+            aria-label="切換單曲排序"
+            onClick={() => setSingleSortOrder((prev) => (prev === 'desc' ? 'asc' : 'desc'))}
+            style={{ color: ' #DFBD00' }}
+          />
         </div>
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
           gap: '20px'
         }}>
-          {singles.map(renderMusicCard)}
+          {sortedSingles.map(renderMusicCard)}
         </div>
       </div>
     </div>

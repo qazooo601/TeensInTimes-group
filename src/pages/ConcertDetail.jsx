@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { Card, Typography, Avatar, Tag, Space, Button, Divider, List, Badge, Collapse, Row, Col, Grid, Spin, message } from 'antd';
+import { Card, Typography, Avatar, Tag, Space, Button, Divider, List, Badge, Collapse, Row, Col, Grid, Spin, message, Breadcrumb } from 'antd';
 import { ArrowLeftOutlined, CalendarOutlined, EnvironmentOutlined, BankOutlined, StarOutlined, FireOutlined, DownOutlined, RightOutlined } from '@ant-design/icons';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { concertsData as localConcertsData } from '../data/concertsData';
@@ -33,6 +33,10 @@ const ConcertDetail = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const isMobileView = typeof window !== 'undefined' && window.innerWidth <= 768;
+  const pageContainerStyle = isMobileView
+    ? { padding: '24px', position: 'relative', marginTop: '-25px' }
+    : { padding: '24px', position: 'relative', marginTop: '-8px' };
   const [expandedDays, setExpandedDays] = useState({});
   const [isSingleDayExpanded, setIsSingleDayExpanded] = useState(true);
   const [concert, setConcert] = useState(null);
@@ -148,7 +152,7 @@ const ConcertDetail = () => {
 
   usePageTitle(
     concert
-      ? `${concert.concertName || concert.title || '演唱會'} 詳細資訊｜時代少年團`
+      ? `${concert.concertName || concert.title } 演唱會｜時代少年團`
       : '演唱會詳細資訊｜時代少年團'
   );
 
@@ -258,8 +262,8 @@ const ConcertDetail = () => {
         structuredData={eventStructuredData || breadcrumbData}
         image={concert.image}
       />
-      <div style={{ padding: '24px' }}>
-      <div style={{ marginBottom: '24px' }}>
+      <div style={pageContainerStyle}>
+      <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
         <Button
           icon={<ArrowLeftOutlined />}
           onClick={() => {
@@ -279,6 +283,21 @@ const ConcertDetail = () => {
         >
           返回
         </Button>
+        <Breadcrumb
+          separator="»"
+          items={[
+            {
+              title: (
+                <span style={{ cursor: 'pointer' }} onClick={() => navigate('/concerts')}>
+                  演唱會
+                </span>
+              )
+            },
+            {
+              title: concert.concertName || '演唱會詳情'
+            }
+          ]}
+        />
       </div>
 
       <Card

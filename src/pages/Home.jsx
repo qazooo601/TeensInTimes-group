@@ -171,6 +171,7 @@ const Home = () => {
     ? groupInfo.description
     : 'TNT時代少年團。此為自製網站，提供成員資訊、音樂作品、演唱會記錄、綜藝節目、紀錄片...時時更新最新資料';
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+  const titleTopSpacing = isMobile ? '-25px' : '-15px';
 
   return (
     <>
@@ -204,7 +205,7 @@ const Home = () => {
       </div>
 
       {/* 歡迎區域 */}
-      <div style={{ marginTop: '-25px', marginBottom: '25px' }}>
+      <div style={{ marginTop: titleTopSpacing, marginBottom: '25px' }}>
         <div style={{ textAlign: 'center' }}>
           <Title level={1} style={{
             color: '#EBC700',

@@ -19,6 +19,8 @@ const EMAILJS_CONFIG = {
 };
 
 const Feedback = () => {
+  const isSmallScreen = typeof window !== 'undefined' && window.innerWidth <= 768;
+  const titleTopSpacing = isSmallScreen ? '-25px' : '-15px';
   const [form] = Form.useForm();
   const [emailForm] = Form.useForm();
   const [submitting, setSubmitting] = useState(false);
@@ -290,7 +292,7 @@ const Feedback = () => {
   }
 
   return (
-    <div style={{ marginTop: '-25px', padding: '24px', position: 'relative', marginBottom: '0' }}>
+    <div style={{ marginTop: titleTopSpacing, padding: '24px', position: 'relative', marginBottom: '0' }}>
       <div style={{ textAlign: 'center', marginBottom: '25px' }}>
         <Title level={1} style={{ color: '#EBC700', marginBottom: '8px', fontSize: '36px' }}>
           留言投稿

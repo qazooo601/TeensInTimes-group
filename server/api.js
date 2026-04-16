@@ -259,6 +259,7 @@ app.get('/api/music', async (req, res) => {
         ID as id,
         SectionTitle as name,
         ReleaseDate as releaseDate,
+        UpdatedDate as updatedDate,
         Type as type,
         Category as category,
         ImageUrl as image,
@@ -289,6 +290,7 @@ app.get('/api/music', async (req, res) => {
         name: row.name || '',
         // 所有欄位都直接使用資料庫欄位
         releaseDate: row.releaseDate || '待發行',
+        updatedDate: row.updatedDate || null,
         type: row.type || '',
         category: row.category || 'album',
         image: row.image || '',

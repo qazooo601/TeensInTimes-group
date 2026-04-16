@@ -46,6 +46,8 @@ const buildLatestConcertsSeoDescription = (items, take = 6) => {
 
 const Concerts = () => {
   const navigate = useNavigate();
+  const isSmallScreen = typeof window !== 'undefined' && window.innerWidth <= 768;
+  const titleTopSpacing = isSmallScreen ? '-25px' : '-15px';
   const [concertsData, setConcertsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [seoDescription, setSeoDescription] = useState(DEFAULT_SEO_DESCRIPTION);
@@ -250,7 +252,7 @@ const Concerts = () => {
         description={seoDescription}
         structuredData={breadcrumbData}
       />
-      <div style={{ marginTop: '-25px',padding: '24px', position: 'relative' }}>
+      <div style={{ marginTop: titleTopSpacing,padding: '24px', position: 'relative' }}>
       <div style={{ textAlign: 'center', marginBottom: '25px' }}>
         <Title level={1} style={{
           color: '#EBC700',

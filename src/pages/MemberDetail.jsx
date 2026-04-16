@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { Card, Typography, Avatar, Tag, Space, Button, Divider, List, Collapse, Row, Col, Spin, message } from 'antd';
+import { Card, Typography, Avatar, Tag, Space, Button, Divider, List, Collapse, Row, Col, Spin, message, Breadcrumb } from 'antd';
 import { ArrowLeftOutlined, HeartOutlined, StarOutlined, CalendarOutlined, PlayCircleOutlined, DownOutlined, RightOutlined, VideoCameraOutlined, CustomerServiceOutlined, MonitorOutlined, TrophyOutlined, UserOutlined } from '@ant-design/icons';
 import { BsSinaWeibo, BsMusicNote } from "react-icons/bs";
 import { membersData as localMembersData } from '../data/membersData';
@@ -89,6 +89,10 @@ const MemberDetail = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const isMobileView = typeof window !== 'undefined' && window.innerWidth <= 768;
+  const pageContainerStyle = isMobileView
+    ? { padding: '24px', position: 'relative', marginTop: '-25px' }
+    : { padding: '24px', position: 'relative', marginTop: '-8px' };
   const [expandedSections, setExpandedSections] = useState({
     movies: false,
     songs: false,
@@ -491,8 +495,8 @@ const MemberDetail = () => {
         structuredData={personStructuredData || breadcrumbData}
         image={member.images}
       />
-      <div style={{ padding: '24px', position: 'relative', marginTop: '-25px', }}>
-        <div style={{ marginBottom: '25px' }}>
+      <div style={pageContainerStyle}>
+        <div style={{ marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
           <Button
             icon={<ArrowLeftOutlined />}
             onClick={() => {
@@ -512,6 +516,28 @@ const MemberDetail = () => {
           >
             返回
           </Button>
+          <Breadcrumb
+            separator="»"
+            items={[
+              {
+                title: (
+                  <span style={{ cursor: 'pointer' }} onClick={() => window.location.href = '/'}>
+                    首頁
+                  </span>
+                )
+              },
+              {
+                title: (
+                  <span style={{ cursor: 'pointer' }} onClick={() => navigate('/members')}>
+                    團體成員
+                  </span>
+                )
+              },
+              {
+                title: member.memberName
+              }
+            ]}
+          />
         </div>
 
         <Card
@@ -612,12 +638,12 @@ const MemberDetail = () => {
                 </Space>
               </div>
 
-              <Divider style={{ borderColor: Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor }} />
+              <Divider style={{ borderColor: Array.isArray(member.supportColor) ? member.supportColor[0] : member.supportColor, margin: '10px 0' }} />
 
               <div>
                 <Title level={3} style={{
                   color: '#333',
-                  marginBottom: '10px',
+                  marginBottom: '6px',
                   textAlign: 'center'
                 }}>
                   成員介紹

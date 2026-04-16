@@ -13,6 +13,8 @@ const { Panel } = Collapse;
 
 const Variety = () => {
   const navigate = useNavigate();
+  const isSmallScreen = typeof window !== 'undefined' && window.innerWidth <= 768;
+  const titleTopSpacing = isSmallScreen ? '-25px' : '-15px';
 
   const [expandedSections, setExpandedSections] = useState({
     selfMade: true,
@@ -791,7 +793,7 @@ const Variety = () => {
         description={seoDescription}
         structuredData={breadcrumbData}
       />
-      <div style={{ marginTop: '-25px',padding: '24px', position: 'relative' }}>
+      <div style={{ marginTop: titleTopSpacing,padding: '24px', position: 'relative' }}>
       <style>{`
         .variety-description-clamp {
           -webkit-line-clamp: 2;

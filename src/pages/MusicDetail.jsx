@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
-import { Card, Typography, Tag, Space, Button, Divider, List, Badge, Row, Col, Spin, message } from 'antd';
+import { Card, Typography, Tag, Space, Button, Divider, List, Badge, Row, Col, Spin, message, Breadcrumb } from 'antd';
 import { ArrowLeftOutlined, CalendarOutlined, PlayCircleOutlined, UserOutlined, DownOutlined, RightOutlined, SoundOutlined } from '@ant-design/icons';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { musicData as localMusicData } from '../data/musicData';
@@ -32,6 +32,10 @@ const MusicDetail = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const isMobileView = typeof window !== 'undefined' && window.innerWidth <= 768;
+  const pageContainerStyle = isMobileView
+    ? { padding: '24px', position: 'relative', marginTop: '-25px' }
+    : { padding: '24px', position: 'relative', marginTop: '-8px' };
   const [isSongsExpanded, setIsSongsExpanded] = useState(true);
   const [imageError, setImageError] = useState(false);
   const [album, setAlbum] = useState(null);
@@ -224,8 +228,8 @@ const MusicDetail = () => {
         structuredData={albumStructuredData || breadcrumbData}
         image={album.image}
       />
-      <div style={{ padding: '24px' }}>
-      <div style={{ marginBottom: '24px' }}>
+      <div style={pageContainerStyle}>
+      <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
         <Button
           icon={<ArrowLeftOutlined />}
           onClick={() => {
@@ -245,6 +249,21 @@ const MusicDetail = () => {
         >
           返回
         </Button>
+        <Breadcrumb
+          separator="»"
+          items={[
+            {
+              title: (
+                <span style={{ cursor: 'pointer' }} onClick={() => navigate('/music')}>
+                  歌曲
+                </span>
+              )
+            },
+            {
+              title: album.name
+            }
+          ]}
+        />
       </div>
 
       <Card

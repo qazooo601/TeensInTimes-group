@@ -144,6 +144,7 @@ const Members = () => {
   };
 
   const isSmallScreen = typeof window !== 'undefined' && window.innerWidth <= 768;
+  const titleTopSpacing = isSmallScreen ? '-25px' : '-15px';
 
   if (loading) {
     return (
@@ -168,7 +169,7 @@ const Members = () => {
         description={seoDescription}
         structuredData={breadcrumbData}
       />
-      <div style={{ padding: '24px', position: 'relative', marginTop: '-15px', }}>
+      <div style={{ padding: '24px', position: 'relative', marginTop: titleTopSpacing }}>
       <div style={{ textAlign: 'center', marginBottom: '32px' }}>
         <Title level={1} style={{
           color: '#EBC700',
@@ -177,13 +178,6 @@ const Members = () => {
         }}>
           團體成員
         </Title>
-        <Paragraph style={{
-          fontSize: '14px',
-          color: '#666',
-          marginBottom: '16px'
-        }}>
-          ✨ 時代少年團七位成員 ✨
-        </Paragraph>
         <Space>
           <Tag color="gold" icon={<HeartOutlined />}>大米爆</Tag>
           <Tag color="default" icon={<FireOutlined />}>永遠在一起</Tag>
