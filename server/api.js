@@ -871,6 +871,61 @@ app.get('/api/group-info', async (req, res) => {
   }
 });
 
+// 獲取關於頁區塊（僅回傳有內容的區塊）
+app.get('/api/about-sections', async (req, res) => {
+  try {
+    const [rows] = await pool.execute(
+      `SELECT
+        ID as id,
+        SectionKey as sectionKey,
+        Title as title,
+        SectionType as sectionType,
+        Body as body,
+        ListItemsJson as listItemsJson,
+        SortOrder as sortOrder
+      FROM AboutSection
+      WHERE IsActive = 1
+      ORDER BY SortOrder ASC`
+    );
+
+    const sections = [];
+    for (const row of rows) {
+      if (row.sectionType === 'paragraph') {
+        if (!row.body || !String(row.body).trim()) continue;
+        sections.push({
+          id: row.id,
+          sectionKey: row.sectionKey,
+          title: row.title,
+          sectionType: 'paragraph',
+          body: row.body
+        });
+      } else if (row.sectionType === 'list') {
+        let items = [];
+        try {
+          if (row.listItemsJson) {
+            items = JSON.parse(row.listItemsJson);
+          }
+        } catch (e) {
+          console.error('AboutSection ListItemsJson 解析失敗:', e);
+        }
+        if (!Array.isArray(items) || items.length === 0) continue;
+        sections.push({
+          id: row.id,
+          sectionKey: row.sectionKey,
+          title: row.title,
+          sectionType: 'list',
+          listItems: items
+        });
+      }
+    }
+
+    res.json(sections);
+  } catch (error) {
+    console.error('獲取關於頁區塊失敗:', error);
+    res.status(500).json({ error: '獲取關於頁區塊失敗' });
+  }
+});
+
 // 獲取所有表中最新的更新日期
 app.get('/api/latest-update', async (req, res) => {
   try {

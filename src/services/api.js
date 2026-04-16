@@ -88,6 +88,17 @@ export const apiService = {
     }
   },
 
+  // 獲取關於頁區塊
+  async getAboutSections() {
+    try {
+      const response = await api.get('/api/about-sections');
+      return response.data;
+    } catch (error) {
+      console.error('獲取關於頁區塊失敗:', error);
+      throw error;
+    }
+  },
+
   // 獲取 Feedback 配置
   async getFeedbackConfig(configType = null) {
     try {

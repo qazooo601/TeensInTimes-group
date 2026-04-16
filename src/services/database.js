@@ -66,6 +66,22 @@ export const dbService = {
     }
   },
 
+  // 獲取關於頁區塊
+  async getAboutSections() {
+    try {
+      const response = await api.get('/api/about-sections');
+      return response.data;
+    } catch (error) {
+      console.error('獲取關於頁區塊失敗:', error);
+      if (error.response) {
+        console.error('後端錯誤詳情:', error.response.data);
+        const backendError = error.response.data;
+        throw new Error(backendError.message || backendError.error || '獲取關於頁區塊失敗');
+      }
+      throw error;
+    }
+  },
+
   // 獲取音樂資料
   async getMusic() {
     try {
