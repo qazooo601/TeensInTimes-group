@@ -651,7 +651,7 @@ const Home = () => {
             <div style={{ marginBottom: '8px' }}>• 2018年10月7日，TF家族推出的組合台風少年團正式出道，成員：丁程鑫(隊長)、馬嘉祺、宋亞軒、劉耀文、姚景元</div>
             <div style={{ marginBottom: '8px', textAlign: 'center' }}>
               <strong>
-                ~ 祝君武运昌隆，愿君頂峰相遇 !<br className="mobile-only" /> 思念的人终会相聚 ~
+                ~ 祝君武運昌隆，愿君頂峰相遇 !<br className="mobile-only" /> 思念的人終會相聚 ~
               </strong>
             </div>
           </div>
